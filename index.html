@@ -1,583 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>KloofStreet.online — Curated. Modern. Distinctly Kloof.</title>
-<meta name="description" content="The curated guide to Cape Town's most iconic street. Restaurants, wellness, art studios, hotels and more." />
+<meta name="description" content="The curated guide to Cape Town's most iconic street."/>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap');
-
-  :root {
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --dark: #111110;
-    --dark2: #1a1a18;
-    --dark3: #222220;
-    --green: #1e3b2f;
-    --green-light: #2d5543;
-    --sand: #f0ebe0;
-    --sand-muted: #b8b0a0;
-    --white: #ffffff;
-    --border: rgba(201,168,76,0.15);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Barlow', sans-serif;
-    background: var(--dark);
-    color: var(--white);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 40px;
-    transition: all 0.4s;
-  }
-  nav.scrolled {
-    background: rgba(17,17,16,0.97);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 40px;
-  }
-  .nav-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 22px;
-    letter-spacing: 0.08em;
-    color: var(--white);
-    text-decoration: none;
-  }
-  .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a {
-    color: var(--sand-muted);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--white); }
-  .nav-cta {
-    background: var(--gold);
-    color: var(--dark);
-    border: none;
-    padding: 9px 22px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .nav-cta:hover { background: var(--gold-light); }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-  .hamburger span { width: 24px; height: 1.5px; background: var(--white); display: block; }
-
-  /* ── PAGES ── */
-  .page { display: none; }
-  .page.active { display: block; }
-
-  /* ── HERO ── */
-  .hero {
-    position: relative;
-    height: 100vh; min-height: 600px;
-    display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 60px 50px;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(to top, rgba(17,17,16,0.85) 0%, rgba(17,17,16,0.3) 50%, rgba(17,17,16,0.1) 100%),
-      url('https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1600&q=85') center/cover no-repeat;
-  }
-  .hero-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 12px; font-weight: 600;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 18px;
-    position: relative; z-index: 2;
-  }
-  .hero h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(52px, 8vw, 96px);
-    line-height: 0.95;
-    letter-spacing: 0.03em;
-    color: var(--white);
-    position: relative; z-index: 2;
-    max-width: 700px;
-  }
-  .hero-sub {
-    font-size: 16px; color: var(--sand-muted);
-    max-width: 440px; line-height: 1.6;
-    margin-top: 20px; margin-bottom: 32px;
-    position: relative; z-index: 2;
-  }
-  .hero-btns { display: flex; gap: 14px; position: relative; z-index: 2; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--gold); color: var(--dark);
-    padding: 14px 32px; border: none;
-    font-family: 'Barlow', sans-serif; font-size: 12px;
-    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    cursor: pointer; text-decoration: none;
-    transition: background 0.2s;
-  }
-  .btn-primary:hover { background: var(--gold-light); }
-  .btn-ghost {
-    background: transparent; color: var(--white);
-    padding: 14px 32px; border: 1px solid rgba(255,255,255,0.35);
-    font-family: 'Barlow', sans-serif; font-size: 12px;
-    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    cursor: pointer; text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* Stats bar */
-  .stats-bar {
-    display: grid; grid-template-columns: repeat(4,1fr);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    position: relative; z-index: 2;
-    margin-top: 50px;
-  }
-  .stat-item {
-    padding: 20px 0; border-right: 1px solid rgba(255,255,255,0.08);
-  }
-  .stat-item:last-child { border-right: none; }
-  .stat-num {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 36px; color: var(--gold);
-    letter-spacing: 0.05em;
-  }
-  .stat-lbl { font-size: 11px; color: var(--sand-muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
-
-  /* ── SECTION COMMONS ── */
-  section { padding: 80px 50px; }
-  .section-tag {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 11px; font-weight: 600;
-    letter-spacing: 0.25em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 12px;
-  }
-  .section-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(36px, 5vw, 56px);
-    letter-spacing: 0.04em; line-height: 1;
-    color: var(--white);
-  }
-  .section-desc { font-size: 15px; color: var(--sand-muted); line-height: 1.7; max-width: 520px; margin-top: 14px; }
-
-  /* ── EXPLORE CATEGORIES ── */
-  .explore-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 40px; }
-  .see-all { font-size: 12px; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
-  .see-all:hover { border-color: var(--gold); }
-
-  .cat-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2px;
-  }
-  .cat-card {
-    position: relative; overflow: hidden;
-    aspect-ratio: 4/3; cursor: pointer;
-    group: true;
-  }
-  .cat-card img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.6s ease;
-    filter: brightness(0.75);
-  }
-  .cat-card:hover img { transform: scale(1.05); filter: brightness(0.6); }
-  .cat-card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(17,17,16,0.9) 0%, transparent 60%);
-  }
-  .cat-card-body {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    padding: 24px;
-  }
-  .cat-card-tag {
-    font-size: 10px; color: var(--gold);
-    letter-spacing: 0.2em; text-transform: uppercase;
-    font-weight: 600; margin-bottom: 8px;
-    font-family: 'Barlow Condensed', sans-serif;
-  }
-  .cat-card-title {
-    font-family: 'Barlow', sans-serif;
-    font-size: 22px; font-weight: 600;
-    color: var(--white); margin-bottom: 6px;
-    line-height: 1.2;
-  }
-  .cat-card-desc { font-size: 13px; color: rgba(240,235,224,0.7); line-height: 1.5; }
-
-  /* ── ABOUT ── */
-  .about-section { background: var(--dark2); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .about-img { position: relative; }
-  .about-img img { width: 100%; height: 520px; object-fit: cover; }
-  .about-img-badge {
-    position: absolute; bottom: -20px; right: -20px;
-    background: var(--green); border: 1px solid var(--gold);
-    padding: 24px; text-align: center; width: 140px;
-  }
-  .about-img-badge strong { font-family: 'Bebas Neue', sans-serif; font-size: 42px; color: var(--gold); display: block; line-height: 1; }
-  .about-img-badge span { font-size: 11px; color: var(--sand-muted); text-transform: uppercase; letter-spacing: 0.1em; }
-  .about-connect { margin-top: 40px; }
-  .connect-label { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
-  .connect-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-  .connect-card {
-    background: var(--green); border: 1px solid rgba(201,168,76,0.2);
-    padding: 28px 16px; text-align: center; cursor: pointer;
-    transition: all 0.25s;
-  }
-  .connect-card:hover { border-color: var(--gold); background: var(--green-light); }
-  .connect-card-icon { font-size: 28px; margin-bottom: 12px; }
-  .connect-card-title { font-size: 12px; color: var(--sand); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
-
-  /* ── FEATURED BRANDS / BUSINESSES ── */
-  .brands-section { background: var(--dark); }
-  .brands-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 48px; }
-  .brand-card {
-    background: var(--dark2);
-    position: relative; overflow: hidden;
-    cursor: pointer; transition: all 0.3s;
-    border: 1px solid rgba(255,255,255,0.04);
-  }
-  .brand-card:hover { border-color: rgba(201,168,76,0.25); }
-  .brand-card-img { position: relative; height: 220px; overflow: hidden; }
-  .brand-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; filter: brightness(0.8); }
-  .brand-card:hover .brand-card-img img { transform: scale(1.04); }
-  .brand-tier {
-    position: absolute; top: 14px; left: 14px;
-    font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 4px 10px; border-radius: 0;
-    font-family: 'Barlow Condensed', sans-serif;
-  }
-  .tier-anchor { background: rgba(30,59,47,0.9); color: #7dd3b0; border: 1px solid rgba(125,211,176,0.3); }
-  .tier-growth { background: rgba(201,168,76,0.15); color: var(--gold); border: 1px solid rgba(201,168,76,0.35); }
-  .tier-starter { background: rgba(185,141,88,0.15); color: #b98d58; border: 1px solid rgba(185,141,88,0.3); }
-  .tier-essential { background: rgba(140,98,62,0.15); color: #a07850; border: 1px solid rgba(140,98,62,0.3); }
-  .open-pill {
-    position: absolute; top: 14px; right: 14px;
-    font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 4px 9px;
-    font-family: 'Barlow Condensed', sans-serif;
-  }
-  .open-pill.open { background: rgba(30,80,50,0.85); color: #6fcf97; border: 1px solid rgba(111,207,151,0.25); }
-  .open-pill.closed { background: rgba(100,30,30,0.7); color: #f87171; border: 1px solid rgba(248,113,113,0.25); }
-  .vibe-strip {
-    position: absolute; bottom: 0; left: 0; right: 0;
-    background: rgba(17,17,16,0.8); backdrop-filter: blur(4px);
-    padding: 7px 14px;
-    font-size: 11px; color: rgba(240,235,224,0.8);
-    border-top: 1px solid rgba(255,255,255,0.05);
-  }
-  .brand-card-body { padding: 20px; }
-  .brand-cat { font-size: 10px; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 6px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-  .brand-name { font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-  .brand-tagline { font-size: 13px; color: var(--sand-muted); line-height: 1.5; margin-bottom: 14px; }
-  .brand-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.06); }
-  .brand-price { font-size: 12px; color: var(--gold); font-family: 'Barlow Condensed', sans-serif; font-weight: 600; letter-spacing: 0.08em; }
-  .wa-btn {
-    display: flex; align-items: center; gap: 6px;
-    background: rgba(37,99,60,0.3); border: 1px solid rgba(111,207,151,0.2);
-    color: #6fcf97; padding: 6px 12px;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    cursor: pointer; font-family: 'Barlow', sans-serif; transition: all 0.2s;
-    text-decoration: none;
-  }
-  .wa-btn:hover { background: rgba(37,99,60,0.5); border-color: rgba(111,207,151,0.4); }
-
-  /* ── PACKAGES / PRICING ── */
-  .packages-section { background: var(--dark2); }
-  .packages-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-bottom: 60px; }
-  .packages-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; }
-  .pkg-card {
-    background: var(--dark); border: 1px solid rgba(255,255,255,0.06);
-    padding: 32px 24px; position: relative;
-    transition: border-color 0.25s;
-  }
-  .pkg-card:hover { border-color: rgba(201,168,76,0.25); }
-  .pkg-card.featured { border-color: rgba(201,168,76,0.35); background: rgba(201,168,76,0.03); }
-  .pkg-featured-label {
-    position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-    background: var(--gold); color: var(--dark);
-    font-size: 9px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-    padding: 4px 14px; white-space: nowrap;
-    font-family: 'Barlow Condensed', sans-serif;
-  }
-  .pkg-tier { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-  .pkg-price { font-family: 'Bebas Neue', sans-serif; font-size: 44px; letter-spacing: 0.03em; color: var(--white); line-height: 1; }
-  .pkg-per { font-size: 12px; color: var(--sand-muted); margin-bottom: 6px; }
-  .pkg-billed { font-size: 11px; color: rgba(184,176,160,0.6); margin-bottom: 20px; }
-  .pkg-slots { margin-bottom: 20px; }
-  .pkg-slots-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--sand-muted); margin-bottom: 6px; }
-  .pkg-slots-bar { height: 2px; background: rgba(255,255,255,0.08); }
-  .pkg-slots-fill { height: 100%; background: var(--gold); }
-  .pkg-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px; }
-  .pkg-features li { font-size: 13px; color: var(--sand-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.4; }
-  .pkg-features li::before { content: '—'; color: var(--gold); flex-shrink: 0; font-size: 12px; }
-  .pkg-btn {
-    display: block; width: 100%; padding: 12px;
-    text-align: center; font-family: 'Barlow', sans-serif;
-    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    cursor: pointer; text-decoration: none; transition: all 0.2s;
-  }
-  .pkg-btn.gold { background: var(--gold); color: var(--dark); border: none; }
-  .pkg-btn.gold:hover { background: var(--gold-light); }
-  .pkg-btn.outline { background: transparent; color: var(--sand-muted); border: 1px solid rgba(255,255,255,0.15); }
-  .pkg-btn.outline:hover { border-color: var(--gold); color: var(--gold); }
-
-  /* ── STREET PASS ── */
-  .pass-section {
-    background: var(--green);
-    border-top: 1px solid rgba(201,168,76,0.2);
-    border-bottom: 1px solid rgba(201,168,76,0.2);
-  }
-  .pass-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .pass-price-block { text-align: center; padding: 48px; border: 1px solid rgba(201,168,76,0.25); background: rgba(0,0,0,0.2); }
-  .pass-amount { font-family: 'Bebas Neue', sans-serif; font-size: 80px; color: var(--gold); line-height: 1; }
-  .pass-month { font-size: 14px; color: var(--sand-muted); margin-bottom: 4px; }
-  .pass-cancel { font-size: 11px; color: rgba(184,176,160,0.6); margin-bottom: 28px; letter-spacing: 0.05em; }
-  .pass-deal-list { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; }
-  .pass-deal { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .pass-deal-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-  .pass-deal-biz { font-size: 13px; font-weight: 600; color: var(--white); }
-  .pass-deal-txt { font-size: 12px; color: var(--sand-muted); margin-top: 2px; }
-  .pass-lock { margin-left: auto; font-size: 13px; color: rgba(255,255,255,0.2); }
-
-  /* ── AI CONCIERGE ── */
-  .ai-section { background: var(--dark); }
-  .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .chat-widget {
-    background: var(--dark2); border: 1px solid rgba(201,168,76,0.2);
-    height: 460px; display: flex; flex-direction: column;
-  }
-  .chat-header {
-    padding: 18px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);
-    display: flex; align-items: center; gap: 12px;
-    background: var(--dark3);
-  }
-  .chat-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-  .chat-header-text strong { font-size: 13px; color: var(--white); font-weight: 600; display: block; }
-  .chat-header-text span { font-size: 11px; color: var(--sand-muted); }
-  .chat-messages { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
-  .msg { max-width: 88%; font-size: 13px; line-height: 1.6; padding: 11px 14px; }
-  .msg-ai { background: var(--dark3); color: rgba(240,235,224,0.85); align-self: flex-start; border-left: 2px solid var(--gold); }
-  .msg-user { background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.2); color: var(--white); align-self: flex-end; }
-  .chat-prompts { display: flex; flex-direction: column; gap: 6px; }
-  .chat-prompt {
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-    color: var(--sand-muted); font-size: 12px; padding: 9px 12px;
-    cursor: pointer; text-align: left; font-family: 'Barlow', sans-serif;
-    transition: all 0.2s;
-  }
-  .chat-prompt:hover { border-color: rgba(201,168,76,0.3); color: var(--gold); }
-  .chat-input-row { padding: 12px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; gap: 8px; }
-  .chat-input {
-    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-    padding: 10px 14px; color: var(--white); font-size: 13px; outline: none;
-    font-family: 'Barlow', sans-serif;
-  }
-  .chat-input::placeholder { color: rgba(184,176,160,0.5); }
-  .chat-input:focus { border-color: rgba(201,168,76,0.4); }
-  .chat-send {
-    background: var(--gold); border: none; width: 40px; height: 40px;
-    color: var(--dark); font-size: 16px; cursor: pointer; transition: background 0.2s;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .chat-send:hover { background: var(--gold-light); }
-  .typing-dots { display: flex; gap: 4px; align-items: center; padding: 4px 0; }
-  .typing-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); opacity: 0.5; animation: tdot 1.2s infinite; }
-  .typing-dot:nth-child(2){animation-delay:.2s} .typing-dot:nth-child(3){animation-delay:.4s}
-  @keyframes tdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
-
-  /* ── DASHBOARD ── */
-  .dash-section { background: var(--dark); min-height: 600px; }
-  .dash-layout { display: grid; grid-template-columns: 220px 1fr; gap: 0; background: var(--dark2); border: 1px solid rgba(255,255,255,0.06); }
-  .dash-sidebar { border-right: 1px solid rgba(255,255,255,0.06); }
-  .dash-biz-header { padding: 24px 20px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .dash-biz-name { font-size: 15px; font-weight: 600; color: var(--white); }
-  .dash-biz-tier { font-size: 10px; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 3px; font-family: 'Barlow Condensed', sans-serif; }
-  .dash-nav-item {
-    display: flex; align-items: center; gap: 12px;
-    padding: 13px 20px; font-size: 13px; color: var(--sand-muted);
-    cursor: pointer; transition: all 0.2s; border-left: 2px solid transparent;
-  }
-  .dash-nav-item:hover, .dash-nav-item.active { color: var(--gold); background: rgba(201,168,76,0.04); border-left-color: var(--gold); }
-  .dash-main { padding: 32px; }
-  .dash-main-header { margin-bottom: 28px; }
-  .dash-main-header h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.06em; color: var(--white); }
-  .dash-main-header p { font-size: 13px; color: var(--sand-muted); margin-top: 4px; }
-  .kpi-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 24px; }
-  .kpi-card { background: var(--dark3); border: 1px solid rgba(255,255,255,0.06); padding: 18px; }
-  .kpi-label { font-size: 10px; color: var(--sand-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; font-family: 'Barlow Condensed', sans-serif; }
-  .kpi-val { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--white); line-height: 1; }
-  .kpi-change { font-size: 11px; margin-top: 4px; }
-  .kpi-up { color: #6fcf97; } .kpi-dn { color: #f87171; }
-  .dash-panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .dash-panel { background: var(--dark3); border: 1px solid rgba(255,255,255,0.06); padding: 20px; }
-  .dash-panel h3 { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sand-muted); margin-bottom: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-  .bar-row { display: flex; align-items: flex-end; gap: 6px; height: 80px; }
-  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 5px; }
-  .bar-fill { width: 100%; background: rgba(201,168,76,0.25); transition: background 0.2s; cursor: default; }
-  .bar-fill:hover { background: rgba(201,168,76,0.55); }
-  .bar-lbl { font-size: 9px; color: var(--sand-muted); }
-  .vibe-editor { margin-top: 4px; }
-  .vibe-current { display: flex; align-items: center; gap: 8px; background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.15); padding: 10px 14px; margin-bottom: 10px; }
-  .vibe-active-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
-  .vibe-text { font-size: 13px; color: var(--white); flex: 1; }
-  .vibe-edit-btn { font-size: 10px; color: var(--gold); background: none; border: none; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Barlow', sans-serif; }
-  .vibe-options { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-  .vibe-opt-btn {
-    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07);
-    color: var(--sand-muted); font-size: 11px; padding: 8px 10px; cursor: pointer;
-    text-align: left; font-family: 'Barlow', sans-serif; transition: all 0.2s;
-  }
-  .vibe-opt-btn:hover { border-color: rgba(201,168,76,0.3); color: var(--gold); }
-
-  /* ── GET LISTED FORM ── */
-  .listed-section { background: var(--dark2); }
-  .listed-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-  .listed-form { background: var(--dark); border: 1px solid rgba(201,168,76,0.15); padding: 40px; }
-  .listed-form h3 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.06em; color: var(--white); margin-bottom: 28px; }
-  .form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .field { margin-bottom: 16px; }
-  .field label { display: block; font-size: 11px; color: var(--sand-muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 7px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-  .field input, .field select, .field textarea {
-    width: 100%; background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1); border-top-color: rgba(255,255,255,0.06);
-    padding: 12px 14px; color: var(--white); font-size: 13px;
-    font-family: 'Barlow', sans-serif; outline: none; transition: border-color 0.2s;
-  }
-  .field input:focus, .field select:focus, .field textarea:focus { border-color: rgba(201,168,76,0.4); }
-  .field select option { background: var(--dark2); }
-  .field textarea { resize: vertical; min-height: 90px; }
-  .form-submit {
-    width: 100%; padding: 15px; background: var(--gold);
-    border: none; font-family: 'Barlow', sans-serif; font-size: 12px;
-    font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
-    color: var(--dark); cursor: pointer; margin-top: 6px; transition: background 0.2s;
-  }
-  .form-submit:hover { background: var(--gold-light); }
-  .form-success { text-align: center; padding: 60px 20px; }
-  .form-success-icon { font-size: 48px; margin-bottom: 16px; }
-  .form-success h4 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 0.06em; color: var(--gold); margin-bottom: 10px; }
-  .form-success p { font-size: 14px; color: var(--sand-muted); line-height: 1.6; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: #0c0c0b; border-top: 1px solid rgba(255,255,255,0.05);
-    padding: 60px 50px 30px;
-  }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
-  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.08em; color: var(--white); margin-bottom: 14px; }
-  .footer-logo span { color: var(--gold); }
-  .footer-desc { font-size: 13px; color: var(--sand-muted); line-height: 1.7; max-width: 260px; margin-bottom: 20px; }
-  .footer-social { display: flex; gap: 12px; }
-  .footer-social a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: var(--sand-muted); text-decoration: none; font-size: 13px; transition: all 0.2s; }
-  .footer-social a:hover { border-color: var(--gold); color: var(--gold); }
-  .footer-col h4 { font-size: 10px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col a { color: var(--sand-muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
-  .footer-bottom p { font-size: 12px; color: rgba(184,176,160,0.5); }
-  .powered { font-size: 11px; color: rgba(184,176,160,0.4); }
-  .powered span { color: var(--gold); }
-
-  /* ── MOBILE MENU ── */
-  .mobile-menu {
-    display: none; position: fixed; inset: 0; z-index: 200;
-    background: var(--dark2); flex-direction: column;
-    align-items: center; justify-content: center; gap: 32px;
-  }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 0.08em; color: var(--white); text-decoration: none; transition: color 0.2s; }
-  .mobile-menu a:hover { color: var(--gold); }
-  .mobile-close { position: absolute; top: 24px; right: 32px; font-size: 28px; color: var(--sand-muted); cursor: pointer; background: none; border: none; }
-
-  @media (max-width: 900px) {
-    nav { padding: 16px 24px; }
-    nav.scrolled { padding: 12px 24px; }
-    .nav-links { display: none; }
-    .nav-cta { display: none; }
-    .hamburger { display: flex; }
-    section { padding: 60px 24px; }
-    .hero { padding: 40px 24px; }
-    .hero h1 { font-size: 48px; }
-    .stats-bar { grid-template-columns: repeat(2,1fr); }
-    .cat-grid { grid-template-columns: 1fr 1fr; }
-    .about-grid, .pass-grid, .ai-grid, .listed-grid { grid-template-columns: 1fr; }
-    .about-img img { height: 300px; }
-    .about-img-badge { right: 0; bottom: -10px; }
-    .connect-cards { grid-template-columns: 1fr; }
-    .brands-grid { grid-template-columns: 1fr 1fr; }
-    .packages-grid { grid-template-columns: 1fr 1fr; }
-    .packages-intro { grid-template-columns: 1fr; gap: 20px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-    .kpi-row { grid-template-columns: 1fr 1fr; }
-    .dash-panels { grid-template-columns: 1fr; }
-    .dash-layout { grid-template-columns: 1fr; }
-    .dash-sidebar { display: none; }
-    .form-row2 { grid-template-columns: 1fr; }
-  }
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap');
+:root{--gold:#c9a84c;--gold-light:#e8c97a;--dark:#111110;--dark2:#1a1a18;--dark3:#222220;--green:#1e3b2f;--green-light:#2d5543;--sand:#f0ebe0;--sand-muted:#b8b0a0;--white:#ffffff;--border:rgba(201,168,76,0.15);}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;transition:all 0.4s;}
+nav.scrolled{background:rgba(17,17,16,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:14px 40px;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:0.08em;color:var(--white);text-decoration:none;cursor:pointer;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--sand-muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;transition:color 0.2s;cursor:pointer;}
+.nav-links a:hover,.nav-links a.active{color:var(--white);}
+.nav-cta{background:var(--gold);color:var(--dark);border:none;padding:9px 22px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--gold-light);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.hamburger span{width:24px;height:1.5px;background:var(--white);display:block;}
+.page{display:none;min-height:100vh;}
+.page.active{display:block;}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:200;background:var(--dark2);flex-direction:column;align-items:center;justify-content:center;gap:28px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:34px;letter-spacing:0.08em;color:var(--white);text-decoration:none;cursor:pointer;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-close{position:absolute;top:24px;right:32px;font-size:28px;cursor:pointer;background:none;border:none;color:var(--white);}
+.section-tag{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);letter-spacing:0.04em;line-height:1;color:var(--white);}
+.section-desc{font-size:15px;color:var(--sand-muted);line-height:1.7;max-width:520px;margin-top:14px;}
+.btn-primary{background:var(--gold);color:var(--dark);padding:14px 32px;border:none;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:background 0.2s;}
+.btn-primary:hover{background:var(--gold-light);}
+.btn-ghost{background:transparent;color:var(--white);padding:14px 32px;border:1px solid rgba(255,255,255,0.35);font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+section{padding:80px 50px;}
+.hero-wrap{position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,16,0.88) 0%,rgba(17,17,16,0.35) 50%,rgba(17,17,16,0.1) 100%),url('https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1600&q=85') center/cover no-repeat;}
+.hero-content{position:relative;z-index:2;padding:60px 50px;}
+.hero-tag{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,96px);line-height:0.95;letter-spacing:0.03em;color:var(--white);max-width:700px;}
+.hero-sub{font-size:16px;color:var(--sand-muted);max-width:440px;line-height:1.6;margin-top:20px;margin-bottom:32px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,0.08);margin-top:50px;}
+.stat-item{padding:20px 0;border-right:1px solid rgba(255,255,255,0.08);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--gold);letter-spacing:0.05em;}
+.stat-lbl{font-size:11px;color:var(--sand-muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:2px;}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.cat-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;filter:brightness(0.75);}
+.cat-card:hover img{transform:scale(1.05);filter:brightness(0.55);}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,16,0.9) 0%,transparent 60%);}
+.cat-body{position:absolute;bottom:0;left:0;right:0;padding:24px;}
+.cat-tag{font-size:10px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;font-weight:600;margin-bottom:8px;font-family:'Barlow Condensed',sans-serif;}
+.cat-title{font-size:22px;font-weight:600;color:var(--white);margin-bottom:6px;line-height:1.2;}
+.cat-desc{font-size:13px;color:rgba(240,235,224,0.7);line-height:1.5;}
+.brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.brand-card{background:var(--dark2);position:relative;overflow:hidden;cursor:pointer;transition:all 0.3s;border:1px solid rgba(255,255,255,0.04);}
+.brand-card:hover{border-color:rgba(201,168,76,0.25);}
+.brand-card-img{position:relative;height:220px;overflow:hidden;}
+.brand-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s;filter:brightness(0.8);}
+.brand-card:hover .brand-card-img img{transform:scale(1.04);}
+.brand-tier{position:absolute;top:14px;left:14px;font-size:9px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;font-family:'Barlow Condensed',sans-serif;}
+.tier-growth{background:rgba(201,168,76,0.15);color:var(--gold);border:1px solid rgba(201,168,76,0.35);}
+.tier-starter{background:rgba(185,141,88,0.15);color:#b98d58;border:1px solid rgba(185,141,88,0.3);}
+.tier-essential{background:rgba(140,98,62,0.15);color:#a07850;border:1px solid rgba(140,98,62,0.3);}
+.open-pill{position:absolute;top:14px;right:14px;font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:4px 9px;font-family:'Barlow Condensed',sans-serif;}
+.open-pill.open{background:rgba(30,80,50,0.85);color:#6fcf97;border:1px solid rgba(111,207,151,0.25);}
+.vibe-strip{position:absolute;bottom:0;left:0;right:0;background:rgba(17,17,16,0.8);backdrop-filter:blur(4px);padding:7px 14px;font-size:11px;color:rgba(240,235,224,0.8);border-top:1px solid rgba(255,255,255,0.05);}
+.brand-body{padding:20px;}
+.brand-cat{font-size:10px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;font-family:'Barlow Condensed',sans-serif;font-weight:600;}
+.brand-name{font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px;}
+.brand-tagline{font-size:13px;color:var(--sand-muted);line-height:1.5;margin-bottom:14px;}
+.brand-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid rgba(255,255,255,0.06);}
+.brand-price{font-size:12px;color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-weight:600;}
+.wa-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(37,99,60,0.3);border:1px solid rgba(111,207,151,0.2);color:#6fcf97;padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Barlow',sans-serif;transition:all 0.2s;text-decoration:none;}
+.wa-btn:hover{background:rgba(37,99,60,0.5);}
+.view-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:var(--gold);padding:6px 12px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;font-family:'Barlow',sans-serif;transition:all 0.2s;text-decoration:none;}
+.view-btn:hover{background:rgba(201,168,76,0.2);}
+.pkg-card{background:var(--dark);border:1px solid rgba(255,255,255,0.06);padding:32px 24px;position:relative;transition:border-color 0.25s;}
+.pkg-card:hover{border-color:rgba(201,168,76,0.25);}
+.pkg-card.featured{border-color:rgba(201,168,76,0.35);background:rgba(201,168,76,0.03);}
+.pkg-featured-label{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--dark);font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:4px 14px;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;}
+.pkg-price{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:0.03em;color:var(--white);line-height:1;}
+.pkg-per{font-size:12px;color:var(--sand-muted);margin-bottom:4px;}
+.pkg-billed{font-size:11px;color:rgba(184,176,160,0.6);margin-bottom:20px;}
+.pkg-slots-bar{height:2px;background:rgba(255,255,255,0.08);margin-bottom:20px;}
+.pkg-slots-fill{height:100%;background:var(--gold);}
+.pkg-features{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.pkg-features li{font-size:13px;color:var(--sand-muted);display:flex;align-items:flex-start;gap:10px;line-height:1.4;}
+.pkg-features li::before{content:'—';color:var(--gold);flex-shrink:0;font-size:12px;}
+.pkg-btn{display:block;width:100%;padding:14px;text-align:center;font-family:'Barlow',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all 0.2s;border:none;}
+.pkg-btn.gold{background:var(--gold);color:var(--dark);}
+.pkg-btn.gold:hover{background:var(--gold-light);}
+.pkg-btn.outline{background:transparent;color:var(--sand-muted);border:1px solid rgba(255,255,255,0.15);}
+.pkg-btn.outline:hover{border-color:var(--gold);color:var(--gold);}
+.biz-hero{position:relative;height:50vh;min-height:380px;overflow:hidden;}
+.biz-hero img{width:100%;height:100%;object-fit:cover;filter:brightness(0.6);}
+.biz-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,16,1) 0%,rgba(17,17,16,0.3) 60%);}
+.biz-hero-content{position:absolute;bottom:0;left:0;right:0;padding:40px 50px;}
+.biz-detail-body{display:grid;grid-template-columns:1fr 340px;gap:60px;padding:60px 50px;}
+.biz-back{display:inline-flex;align-items:center;gap:8px;color:var(--sand-muted);font-size:13px;cursor:pointer;margin-bottom:20px;background:none;border:none;font-family:'Barlow',sans-serif;transition:color 0.2s;padding:0;}
+.biz-back:hover{color:var(--gold);}
+.biz-info-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:28px;margin-bottom:16px;}
+.biz-info-card h3{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;}
+.info-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;font-size:13px;color:var(--sand-muted);line-height:1.5;}
+.form-field{margin-bottom:16px;}
+.form-field label{display:block;font-size:11px;color:var(--sand-muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:7px;font-family:'Barlow Condensed',sans-serif;font-weight:600;}
+.form-field input,.form-field select,.form-field textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:12px 14px;color:var(--white);font-size:13px;font-family:'Barlow',sans-serif;outline:none;transition:border-color 0.2s;}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:rgba(201,168,76,0.4);}
+.form-field select option{background:var(--dark2);}
+.form-field textarea{resize:vertical;min-height:90px;}
+.form-row2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-submit{width:100%;padding:15px;background:var(--gold);border:none;font-family:'Barlow',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);cursor:pointer;transition:background 0.2s;}
+.form-submit:hover{background:var(--gold-light);}
+.chat-widget{background:var(--dark2);border:1px solid rgba(201,168,76,0.2);height:460px;display:flex;flex-direction:column;}
+.chat-header{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:12px;background:var(--dark3);}
+.chat-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.chat-messages{flex:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;}
+.msg{max-width:88%;font-size:13px;line-height:1.6;padding:11px 14px;}
+.msg-ai{background:var(--dark3);color:rgba(240,235,224,0.85);align-self:flex-start;border-left:2px solid var(--gold);}
+.msg-user{background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.2);color:var(--white);align-self:flex-end;}
+.chat-prompts{display:flex;flex-direction:column;gap:6px;}
+.chat-prompt{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);color:var(--sand-muted);font-size:12px;padding:9px 12px;cursor:pointer;text-align:left;font-family:'Barlow',sans-serif;transition:all 0.2s;}
+.chat-prompt:hover{border-color:rgba(201,168,76,0.3);color:var(--gold);}
+.chat-input-row{padding:12px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;}
+.chat-input{flex:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);padding:10px 14px;color:var(--white);font-size:13px;outline:none;font-family:'Barlow',sans-serif;}
+.chat-input:focus{border-color:rgba(201,168,76,0.4);}
+.chat-send{background:var(--gold);border:none;width:40px;height:40px;color:var(--dark);font-size:16px;cursor:pointer;}
+.tdot{width:6px;height:6px;border-radius:50%;background:var(--gold);opacity:0.5;animation:tdot 1.2s infinite;display:inline-block;margin:0 2px;}
+.tdot:nth-child(2){animation-delay:.2s}.tdot:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.dash-layout{display:grid;grid-template-columns:220px 1fr;background:var(--dark2);border:1px solid rgba(255,255,255,0.06);}
+.dash-sidebar{border-right:1px solid rgba(255,255,255,0.06);}
+.dash-nav-item{display:flex;align-items:center;gap:12px;padding:13px 20px;font-size:13px;color:var(--sand-muted);cursor:pointer;transition:all 0.2s;border-left:2px solid transparent;}
+.dash-nav-item:hover,.dash-nav-item.active{color:var(--gold);background:rgba(201,168,76,0.04);border-left-color:var(--gold);}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.kpi-card{background:var(--dark3);border:1px solid rgba(255,255,255,0.06);padding:18px;}
+.kpi-label{font-size:10px;color:var(--sand-muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px;font-family:'Barlow Condensed',sans-serif;}
+.kpi-val{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--white);line-height:1;}
+.kpi-change{font-size:11px;margin-top:4px;}
+.kpi-up{color:#6fcf97;}.kpi-dn{color:#f87171;}
+.dash-panels{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.dash-panel{background:var(--dark3);border:1px solid rgba(255,255,255,0.06);padding:20px;}
+.dash-panel h3{font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--sand-muted);margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;}
+.bar-row{display:flex;align-items:flex-end;gap:6px;height:80px;}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;}
+.bar-fill{width:100%;background:rgba(201,168,76,0.25);transition:background 0.2s;}
+.bar-fill:hover{background:rgba(201,168,76,0.55);}
+.bar-lbl{font-size:9px;color:var(--sand-muted);}
+.vibe-current{display:flex;align-items:center;gap:8px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);padding:10px 14px;margin-bottom:10px;}
+.vibe-active-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+.vibe-edit-btn{font-size:10px;color:var(--gold);background:none;border:none;cursor:pointer;letter-spacing:0.1em;text-transform:uppercase;font-family:'Barlow',sans-serif;}
+.vibe-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
+.vibe-opt-btn{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);color:var(--sand-muted);font-size:11px;padding:8px 10px;cursor:pointer;text-align:left;font-family:'Barlow',sans-serif;transition:all 0.2s;}
+.vibe-opt-btn:hover{border-color:rgba(201,168,76,0.3);color:var(--gold);}
+footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60px 50px 30px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.08em;color:var(--white);margin-bottom:14px;}
+.footer-logo span{color:var(--gold);}
+.footer-col h4{font-size:10px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col a{color:var(--sand-muted);text-decoration:none;font-size:13px;transition:color 0.2s;cursor:pointer;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.05);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:12px;color:rgba(184,176,160,0.5);}
+.toast{position:fixed;bottom:30px;right:30px;background:var(--green);border:1px solid var(--gold);color:var(--white);padding:14px 20px;font-size:13px;z-index:999;display:none;max-width:300px;line-height:1.4;}
+.toast.show{display:block;}
+@media(max-width:900px){
+  nav{padding:16px 24px;}nav.scrolled{padding:12px 24px;}
+  .nav-links{display:none;}.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  section{padding:60px 24px;}
+  .hero-content{padding:40px 24px;}
+  .hero h1{font-size:48px;}
+  .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  .brands-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .dash-panels{grid-template-columns:1fr;}
+  .dash-layout{grid-template-columns:1fr;}
+  .dash-sidebar{display:none;}
+  .form-row2{grid-template-columns:1fr;}
+  .biz-detail-body{grid-template-columns:1fr;padding:40px 24px;}
+  .biz-hero-content{padding:30px 24px;}
+}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
+ 
 <nav id="mainNav">
-  <a href="#" class="nav-logo" onclick="showPage('home')">KLOOF<span>.</span>ONLINE</a>
+  <div class="nav-logo" onclick="showPage('home')">KLOOF<span>.</span>ONLINE</div>
   <ul class="nav-links">
-    <li><a href="#" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
-    <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
-    <li><a href="#" onclick="showPage('explore')" id="nav-explore">Explore</a></li>
-    <li><a href="#" onclick="showPage('brands')" id="nav-brands">Featured Brands</a></li>
-    <li><a href="#" onclick="showPage('packages')" id="nav-packages">Packages</a></li>
-    <li><a href="#" onclick="showPage('dash')" id="nav-dash">Dashboard</a></li>
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('about')" id="nav-about">About</a></li>
+    <li><a onclick="showPage('explore')" id="nav-explore">Explore</a></li>
+    <li><a onclick="showPage('brands')" id="nav-brands">Featured Brands</a></li>
+    <li><a onclick="showPage('packages')" id="nav-packages">Packages</a></li>
+    <li><a onclick="showPage('ai')" id="nav-ai">AI Concierge</a></li>
   </ul>
-  <a href="#" class="nav-cta" onclick="showPage('listed')">Get Listed</a>
-  <div class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
+  <a class="nav-cta" onclick="showPage('listed')">Get Listed</a>
+  <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
-
-<!-- MOBILE MENU -->
+ 
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
-  <a href="#" onclick="showPage('home');document.getElementById('mobileMenu').classList.remove('open')">Home</a>
-  <a href="#" onclick="showPage('about');document.getElementById('mobileMenu').classList.remove('open')">About</a>
-  <a href="#" onclick="showPage('explore');document.getElementById('mobileMenu').classList.remove('open')">Explore</a>
-  <a href="#" onclick="showPage('brands');document.getElementById('mobileMenu').classList.remove('open')">Featured Brands</a>
-  <a href="#" onclick="showPage('packages');document.getElementById('mobileMenu').classList.remove('open')">Packages</a>
-  <a href="#" onclick="showPage('listed');document.getElementById('mobileMenu').classList.remove('open')">Get Listed</a>
+  <a onclick="go('home')">Home</a>
+  <a onclick="go('about')">About</a>
+  <a onclick="go('explore')">Explore</a>
+  <a onclick="go('brands')">Featured Brands</a>
+  <a onclick="go('packages')">Packages</a>
+  <a onclick="go('ai')">AI Concierge</a>
+  <a onclick="go('listed')">Get Listed</a>
 </div>
-
-<!-- ══════════════════════════════════════════ HOME ══════════════════════════════════════════ -->
+ 
+<div class="toast" id="toast"></div>
+ 
+<!-- HOME -->
 <div id="page-home" class="page active">
-
-  <!-- Hero -->
-  <section class="hero" style="padding:0;">
+  <div class="hero-wrap">
     <div class="hero-bg"></div>
-    <div style="position:relative;z-index:2;padding:60px 50px;">
+    <div class="hero-content">
       <div class="hero-tag">Curated. Modern. Distinctly Kloof.</div>
-      <h1 class="hero" style="padding:0;height:auto;display:block;">THE CURATED GUIDE TO<br>CAPE TOWN'S<br>MOST ICONIC<br>STREET</h1>
+      <h1>THE CURATED GUIDE TO<br>CAPE TOWN'S<br>MOST ICONIC<br>STREET</h1>
       <p class="hero-sub">We highlight the restaurants, studios, wellness spaces, hotels and experiences that shape the pulse of Kloof Street.</p>
       <div class="hero-btns">
-        <a class="btn-primary" href="#" onclick="showPage('explore')">Explore the Street</a>
-        <a class="btn-ghost" href="#" onclick="showPage('ai')">✦ AI Concierge</a>
+        <a class="btn-primary" onclick="showPage('explore')">Explore the Street</a>
+        <a class="btn-ghost" onclick="showPage('ai')">✦ AI Concierge</a>
       </div>
       <div class="stats-bar">
         <div class="stat-item"><div class="stat-num">51</div><div class="stat-lbl">Curated Spots</div></div>
@@ -586,363 +242,358 @@
         <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Verified Listings</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- Explore Categories -->
+  </div>
   <section style="padding:70px 50px;">
-    <div class="explore-header">
-      <div>
-        <div class="section-tag">Discover</div>
-        <div class="section-title">EXPLORE KLOOF STREET</div>
-      </div>
-      <a class="see-all" href="#" onclick="showPage('explore')">View All →</a>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
+      <div><div class="section-tag">Discover</div><div class="section-title">EXPLORE KLOOF STREET</div></div>
+      <a style="font-size:12px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;" onclick="showPage('explore')">View All →</a>
     </div>
     <div class="cat-grid">
-      <div class="cat-card" onclick="showPage('explore')">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy" />
-        <div class="cat-card-overlay"></div>
-        <div class="cat-card-body">
-          <div class="cat-card-tag">Discover & Experience</div>
-          <div class="cat-card-title">Restaurants & Dining</div>
-          <div class="cat-card-desc">The finest culinary experiences and signature flavours</div>
-        </div>
-      </div>
-      <div class="cat-card" onclick="showPage('explore')">
-        <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80" alt="Art Studios" loading="lazy" />
-        <div class="cat-card-overlay"></div>
-        <div class="cat-card-body">
-          <div class="cat-card-tag">Designed for makers and innovators</div>
-          <div class="cat-card-title">Art Studios</div>
-          <div class="cat-card-desc">Explore inspiring studios and artistic environments</div>
-        </div>
-      </div>
-      <div class="cat-card" onclick="showPage('explore')">
-        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy" />
-        <div class="cat-card-overlay"></div>
-        <div class="cat-card-body">
-          <div class="cat-card-tag">Selected spaces for mindful care</div>
-          <div class="cat-card-title">Wellness & Beauty</div>
-          <div class="cat-card-desc">Premium care, beauty and restoration</div>
-        </div>
-      </div>
+      <div class="cat-card" onclick="showPage('explore')"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover & Experience</div><div class="cat-title">Restaurants & Dining</div><div class="cat-desc">The finest culinary experiences and signature flavours</div></div></div>
+      <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80" alt="Art Studios" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Designed for makers and innovators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Explore inspiring studios and artistic environments</div></div></div>
+      <div class="cat-card" onclick="showPage('ubuntu')"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Selected spaces for mindful care</div><div class="cat-title">Wellness & Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
     </div>
   </section>
-
-  <!-- Street Pass teaser -->
   <section style="padding:0 50px 70px;">
     <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:60px;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;">
       <div>
         <div class="section-tag">Street Pass</div>
         <div class="section-title">THE INSIDER'S KLOOF STREET</div>
         <p class="section-desc">Exclusive deals, flash offers, and priority AI concierge access — only for Street Pass holders.</p>
-        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;">
-          <span style="font-size:12px;color:var(--sand-muted);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">—</span> Exclusive deals at 12+ venues</span>
-          <span style="font-size:12px;color:var(--sand-muted);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">—</span> Flash offer WhatsApp alerts</span>
-          <span style="font-size:12px;color:var(--sand-muted);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">—</span> Members-only events monthly</span>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+          <span style="font-size:13px;color:var(--sand-muted);display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);">—</span>Exclusive deals at 12+ venues</span>
+          <span style="font-size:13px;color:var(--sand-muted);display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);">—</span>Flash offer WhatsApp alerts</span>
+          <span style="font-size:13px;color:var(--sand-muted);display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);">—</span>Members-only events monthly</span>
         </div>
       </div>
       <div style="text-align:center;flex-shrink:0;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--gold);line-height:1;">R199</div>
         <div style="font-size:13px;color:var(--sand-muted);margin-bottom:20px;">/month</div>
-        <a class="btn-primary" href="#" onclick="showPage('pass')">Get Street Pass</a>
+        <a class="btn-primary" onclick="showPage('listed')">Get Street Pass</a>
       </div>
     </div>
   </section>
-
 </div>
-
-<!-- ══════════════════════════════════════════ ABOUT ══════════════════════════════════════════ -->
+ 
+<!-- ABOUT -->
 <div id="page-about" class="page">
-  <section class="about-section" style="padding-top:100px;">
-    <div class="about-grid">
+  <section style="padding-top:100px;background:var(--dark2);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
       <div>
         <div class="section-tag">About Us</div>
         <div class="section-title">CURATED. MODERN.<br>DISTINCTLY KLOOF.</div>
         <p class="section-desc">We highlight brands, makers and experiences that shape the pulse and lifestyle of Cape Town's beloved Kloof Street.</p>
-        <p style="font-size:14px;color:var(--sand-muted);line-height:1.7;margin-top:16px;max-width:460px;">KloofStreet.online is a curated digital platform — not a directory. Every listing is handpicked. Every story is told. Every business on this platform is here because it belongs here.</p>
-        <div class="about-connect" style="margin-top:48px;">
-          <div class="connect-label">Let's Connect.</div>
-          <div class="connect-cards">
-            <div class="connect-card" onclick="showPage('explore')">
-              <div class="connect-card-icon">🗺️</div>
-              <div class="connect-card-title">Explore Kloof Street</div>
-            </div>
-            <div class="connect-card" onclick="showPage('listed')">
-              <div class="connect-card-icon">⭐</div>
-              <div class="connect-card-title">Apply for a Feature</div>
-            </div>
-            <div class="connect-card" onclick="showPage('packages')">
-              <div class="connect-card-icon">📍</div>
-              <div class="connect-card-title">Market with Us</div>
-            </div>
+        <p style="font-size:14px;color:var(--sand-muted);line-height:1.7;margin-top:16px;max-width:460px;">KloofStreet.online is a curated digital platform — not a directory. Every listing is handpicked. Every business on this platform is here because it belongs here.</p>
+        <div style="margin-top:48px;">
+          <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;">Let's Connect.</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+            <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:28px 16px;text-align:center;cursor:pointer;transition:all 0.25s;" onclick="showPage('explore')" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"><div style="font-size:28px;margin-bottom:12px;">🗺️</div><div style="font-size:12px;color:var(--sand);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Explore Kloof Street</div></div>
+            <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:28px 16px;text-align:center;cursor:pointer;transition:all 0.25s;" onclick="showPage('listed')" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"><div style="font-size:28px;margin-bottom:12px;">⭐</div><div style="font-size:12px;color:var(--sand);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Apply for a Feature</div></div>
+            <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:28px 16px;text-align:center;cursor:pointer;transition:all 0.25s;" onclick="showPage('packages')" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"><div style="font-size:28px;margin-bottom:12px;">📍</div><div style="font-size:12px;color:var(--sand);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Market with Us</div></div>
           </div>
         </div>
       </div>
-      <div class="about-img">
-        <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85" alt="Cape Town Kloof Street" />
-        <div class="about-img-badge">
-          <strong>51</strong>
-          <span>Curated Spots</span>
-        </div>
+      <div style="position:relative;">
+        <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85" alt="Cape Town" style="width:100%;height:520px;object-fit:cover;"/>
+        <div style="position:absolute;bottom:-20px;right:-20px;background:var(--green);border:1px solid var(--gold);padding:24px;text-align:center;width:140px;"><strong style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);display:block;line-height:1;">51</strong><span style="font-size:11px;color:var(--sand-muted);text-transform:uppercase;letter-spacing:0.1em;">Curated Spots</span></div>
       </div>
-    </div>
-  </section>
-
-  <!-- Packages preview -->
-  <section style="background:var(--dark);padding:70px 50px;">
-    <div style="text-align:center;margin-bottom:48px;">
-      <div class="section-tag">Become a Featured Brand</div>
-      <div class="section-title">THREE TIERS. ONE STREET.</div>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:800px;margin:0 auto;">
-      <div style="background:var(--dark2);padding:32px 24px;border:1px solid rgba(255,255,255,0.06);">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=70" alt="Essential" style="width:100%;height:160px;object-fit:cover;margin-bottom:20px;filter:brightness(0.7);" />
-        <div class="pkg-tier t-essential" style="color:#a07850;">Essential</div>
-        <div class="pkg-price" style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);">R700<span style="font-size:16px;color:var(--sand-muted);">/month</span></div>
-        <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-          <li style="font-size:12px;color:var(--sand-muted);">— Curated business listing</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Contact details</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Category visibility</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Menu / service list</li>
-        </ul>
-      </div>
-      <div style="background:var(--dark2);padding:32px 24px;border:1px solid rgba(201,168,76,0.25);position:relative;">
-        <img src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=400&q=70" alt="Starter" style="width:100%;height:160px;object-fit:cover;margin-bottom:20px;filter:brightness(0.7);" />
-        <div class="pkg-tier" style="color:#b98d58;font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;margin-bottom:10px;">Starter</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);">R960<span style="font-size:16px;color:var(--sand-muted);">/month</span></div>
-        <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-          <li style="font-size:12px;color:var(--sand-muted);">— 1 promo + 1 reel</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Homepage rotation</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Premium listing & Category</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Project management dashboard</li>
-        </ul>
-      </div>
-      <div style="background:var(--dark2);padding:32px 24px;border:1px solid rgba(255,255,255,0.06);">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=70" alt="Growth" style="width:100%;height:160px;object-fit:cover;margin-bottom:20px;filter:brightness(0.7);" />
-        <div class="pkg-tier" style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;margin-bottom:10px;">Growth</div>
-        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--white);">R1,360<span style="font-size:16px;color:var(--sand-muted);">/month</span></div>
-        <ul style="list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:8px;">
-          <li style="font-size:12px;color:var(--sand-muted);">— Full editorial layout feature</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Streetwide marketing push</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Spotlight placement in category</li>
-          <li style="font-size:12px;color:var(--sand-muted);">— Content creation</li>
-        </ul>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px;">
-      <a class="btn-primary" href="#" onclick="showPage('packages')">View All Packages</a>
     </div>
   </section>
 </div>
-
-<!-- ══════════════════════════════════════════ EXPLORE ══════════════════════════════════════════ -->
+ 
+<!-- EXPLORE -->
 <div id="page-explore" class="page">
   <section style="padding-top:100px;">
-    <div class="section-title" style="margin-bottom:48px;padding:0 50px;">EXPLORE KLOOF STREET</div>
-    <div style="padding:0 50px;">
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;">
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Discover & Experience</div><div class="cat-card-title">Restaurants & Dining</div><div class="cat-card-desc">The finest culinary experiences and signature flavours</div></div></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&q=80" alt="Art Studios" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Designed for makers and innovators</div><div class="cat-card-title">Art Studios</div><div class="cat-card-desc">Explore inspiring studios and artistic environments</div></div></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Selected spaces for mindful care</div><div class="cat-card-title">Wellness & Beauty</div><div class="cat-card-desc">Premium care, beauty and restoration</div></div></div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;">
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" alt="Bars" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Experience Kloof's vibrant culture</div><div class="cat-card-title">Bars & Nightlife</div><div class="cat-card-desc">Visit exclusive lounges, bars and the best brews on Kloof Street</div></div></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Creative Spaces" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Connect with local artists</div><div class="cat-card-title">Creative Spaces</div><div class="cat-card-desc">Explore galleries, creative hubs and cultural touchpoints</div></div></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Shopping" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Browse unique boutiques</div><div class="cat-card-title">Shopping & Boutiques</div><div class="cat-card-desc">Experience lifestyle stores and local designer brands</div></div></div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="Cafes" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Uncover artisanal cafes</div><div class="cat-card-title">Cafes & Bakeries</div><div class="cat-card-desc">Enjoy Kloof Street's best brews</div></div></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Hotels" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Explore boutique stays</div><div class="cat-card-title">Hotel & Stays</div><div class="cat-card-desc">Visit luxury accommodation along Kloof Street</div></div></div>
-        <div class="cat-card"><img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80" alt="Experiences" loading="lazy"/><div class="cat-card-overlay"></div><div class="cat-card-body"><div class="cat-card-tag">Handpicked, boutique experiences</div><div class="cat-card-title">Curated Experiences</div><div class="cat-card-desc">Visit boutique experiences crafted for Kloof Street explorers</div></div></div>
-      </div>
+    <div class="section-title" style="margin-bottom:40px;">EXPLORE KLOOF STREET</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;">
+      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover & Experience</div><div class="cat-title">Restaurants & Dining</div><div class="cat-desc">The finest culinary experiences and signature flavours</div></div></div>
+      <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80" alt="Art Studios" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Designed for makers and innovators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Explore inspiring studios and artistic environments</div></div></div>
+      <div class="cat-card" onclick="showPage('ubuntu')"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Selected spaces for mindful care</div><div class="cat-title">Wellness & Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;">
+      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" alt="Bars" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Experience Kloof's vibrant culture</div><div class="cat-title">Bars & Nightlife</div><div class="cat-desc">Exclusive lounges, bars and the best brews on Kloof Street</div></div></div>
+      <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Creative" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Connect with local artists</div><div class="cat-title">Creative Spaces</div><div class="cat-desc">Galleries, creative hubs and cultural touchpoints</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Shopping" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Browse unique boutiques</div><div class="cat-title">Shopping & Boutiques</div><div class="cat-desc">Lifestyle stores and local designer brands</div></div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="Cafes" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Uncover artisanal cafes</div><div class="cat-title">Cafes & Bakeries</div><div class="cat-desc">Kloof Street's best brews and bakes</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Hotels" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Explore boutique stays</div><div class="cat-title">Hotel & Stays</div><div class="cat-desc">Luxury accommodation along Kloof Street</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80" alt="Experiences" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Handpicked experiences</div><div class="cat-title">Curated Experiences</div><div class="cat-desc">Boutique experiences crafted for Kloof Street explorers</div></div></div>
     </div>
   </section>
 </div>
-
-<!-- ══════════════════════════════════════════ FEATURED BRANDS ══════════════════════════════════════════ -->
+ 
+<!-- FEATURED BRANDS -->
 <div id="page-brands" class="page">
-  <section class="brands-section" style="padding-top:100px;">
-    <div style="margin-bottom:48px;">
-      <div class="section-tag">Kloof Street</div>
-      <div class="section-title">FEATURED BRANDS</div>
-      <p class="section-desc">Handpicked businesses that define the street. Curated — not crowded.</p>
-    </div>
+  <section style="padding-top:100px;">
+    <div style="margin-bottom:48px;"><div class="section-tag">Kloof Street</div><div class="section-title">FEATURED BRANDS</div><p class="section-desc">Handpicked businesses that define the street. Curated — not crowded.</p></div>
     <div class="brands-grid">
-      <div class="brand-card">
-        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80" alt="The Yard" loading="lazy"/><div class="brand-tier tier-growth">Growth</div><div class="open-pill open">Open</div><div class="vibe-strip">Buzzing tonight 🔥</div></div>
-        <div class="brand-card-body"><div class="brand-cat">🍽️ Restaurants</div><div class="brand-name">The Yard</div><div class="brand-tagline">Garden dining with soul. Wood-fired cuisine, locally sourced.</div><div class="brand-footer"><span class="brand-price">RRR · Wood-fired · Garden</span><a class="wa-btn" href="https://wa.me/27821234567" target="_blank">WhatsApp</a></div></div>
+      <div class="brand-card" onclick="showPage('on-safari')">
+        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=700&q=80" alt="On Safari" loading="lazy"/><div class="brand-tier tier-growth">Growth</div><div class="open-pill open">Open</div><div class="vibe-strip">Exhibition on now 🎨</div></div>
+        <div class="brand-body"><div class="brand-cat">🎨 Art Studios</div><div class="brand-name">On Safari</div><div class="brand-tagline">Wildlife photographic fine art prints. Africa through the lens of a master photographer.</div><div class="brand-footer"><span class="brand-price">Fine Art · Photography</span><a class="view-btn" onclick="event.stopPropagation();showPage('on-safari')">View →</a></div></div>
+      </div>
+      <div class="brand-card" onclick="showPage('ubuntu')">
+        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=80" alt="Ubuntu Wellness" loading="lazy"/><div class="brand-tier tier-growth">Growth</div><div class="open-pill open">Open</div><div class="vibe-strip">Spa & float sessions available 🧘</div></div>
+        <div class="brand-body"><div class="brand-cat">✨ Wellness & Beauty</div><div class="brand-name">Ubuntu Wellness</div><div class="brand-tagline">Health spa, float therapy, homeopathy and vegan wellness. A sanctuary on Kloof Street.</div><div class="brand-footer"><span class="brand-price">Spa · Float · Homeopathy</span><a class="view-btn" onclick="event.stopPropagation();showPage('ubuntu')">View →</a></div></div>
       </div>
       <div class="brand-card">
-        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&q=80" alt="Kloof & Co" loading="lazy"/><div class="brand-tier tier-anchor">Anchor</div><div class="open-pill open">Open</div><div class="vibe-strip">Quiet & cosy ☕</div></div>
-        <div class="brand-card-body"><div class="brand-cat">☕ Cafés & Coffee</div><div class="brand-name">Kloof & Co</div><div class="brand-tagline">Cape Town's most awarded specialty coffee bar.</div><div class="brand-footer"><span class="brand-price">RR · Specialty · Natural wine</span><a class="wa-btn" href="https://wa.me/27827654321" target="_blank">WhatsApp</a></div></div>
+        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80" alt="The Yard" loading="lazy"/><div class="brand-tier tier-starter">Starter</div><div class="open-pill open">Open</div><div class="vibe-strip">Buzzing tonight 🔥</div></div>
+        <div class="brand-body"><div class="brand-cat">🍽️ Restaurants</div><div class="brand-name">The Yard</div><div class="brand-tagline">Garden dining with soul. Wood-fired cuisine, locally sourced ingredients.</div><div class="brand-footer"><span class="brand-price">RRR · Wood-fired</span><a class="wa-btn" href="https://wa.me/27821234567" target="_blank" onclick="event.stopPropagation()">WhatsApp</a></div></div>
       </div>
       <div class="brand-card">
-        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700&q=80" alt="Canvas Block" loading="lazy"/><div class="brand-tier tier-growth">Growth</div><div class="open-pill open">Open</div><div class="vibe-strip">Exhibition on now 🎨</div></div>
-        <div class="brand-card-body"><div class="brand-cat">🎨 Art Studios</div><div class="brand-name">Canvas Block</div><div class="brand-tagline">A working studio and gallery space showcasing emerging Cape Town artists.</div><div class="brand-footer"><span class="brand-price">Free entry · Studio tours</span><a class="wa-btn" href="https://wa.me/27831234567" target="_blank">WhatsApp</a></div></div>
+        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=700&q=80" alt="Kloof Co" loading="lazy"/><div class="brand-tier tier-essential">Essential</div><div class="open-pill open">Open</div><div class="vibe-strip">Quiet & cosy ☕</div></div>
+        <div class="brand-body"><div class="brand-cat">☕ Cafés & Coffee</div><div class="brand-name">Kloof & Co</div><div class="brand-tagline">Cape Town's most awarded specialty coffee bar. Single-origin roasts, natural wines.</div><div class="brand-footer"><span class="brand-price">RR · Specialty coffee</span><a class="wa-btn" href="https://wa.me/27827654321" target="_blank" onclick="event.stopPropagation()">WhatsApp</a></div></div>
       </div>
       <div class="brand-card">
-        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&q=80" alt="The Kloof Hotel" loading="lazy"/><div class="brand-tier tier-growth">Growth</div><div class="open-pill open">Open</div><div class="vibe-strip">Rooms available this weekend 🏨</div></div>
-        <div class="brand-card-body"><div class="brand-cat">🏨 Hotels & Stay</div><div class="brand-name">The Kloof Hotel</div><div class="brand-tagline">18 individually designed rooms. Mountain views. Rooftop pool.</div><div class="brand-footer"><span class="brand-price">RRRR · Boutique · Rooftop</span><a class="wa-btn" href="https://wa.me/27849998877" target="_blank">WhatsApp</a></div></div>
+        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=80" alt="Loft Gallery" loading="lazy"/><div class="brand-tier tier-essential">Essential</div><div class="open-pill open">Open</div><div class="vibe-strip">New exhibition opening Friday 🖼️</div></div>
+        <div class="brand-body"><div class="brand-cat">🎨 Art Studios</div><div class="brand-name">The Loft Gallery</div><div class="brand-tagline">Contemporary South African art in an intimate gallery setting on Kloof Street.</div><div class="brand-footer"><span class="brand-price">Free entry · Private viewings</span><a class="wa-btn" href="https://wa.me/27867776655" target="_blank" onclick="event.stopPropagation()">WhatsApp</a></div></div>
       </div>
       <div class="brand-card">
-        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=80" alt="Salt Studio" loading="lazy"/><div class="brand-tier tier-essential">Essential</div><div class="open-pill open">Open</div><div class="vibe-strip">Morning classes available 🧘</div></div>
-        <div class="brand-card-body"><div class="brand-cat">✨ Wellness & Beauty</div><div class="brand-name">Salt Studio</div><div class="brand-tagline">Movement, breath and ritual. Yoga, pilates, infrared sauna.</div><div class="brand-footer"><span class="brand-price">RRR · Yoga · Pilates</span><a class="wa-btn" href="https://wa.me/27856667788" target="_blank">WhatsApp</a></div></div>
+        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=700&q=80" alt="Hotel" loading="lazy"/><div class="brand-tier tier-essential">Essential</div><div class="open-pill open">Open</div><div class="vibe-strip">Rooms available this weekend 🏨</div></div>
+        <div class="brand-body"><div class="brand-cat">🏨 Hotels & Stay</div><div class="brand-name">The Kloof Hotel</div><div class="brand-tagline">18 individually designed rooms. Mountain views, rooftop pool, exceptional breakfast.</div><div class="brand-footer"><span class="brand-price">RRRR · Boutique</span><a class="wa-btn" href="https://wa.me/27849998877" target="_blank" onclick="event.stopPropagation()">WhatsApp</a></div></div>
       </div>
-      <div class="brand-card">
-        <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=700&q=80" alt="The Loft Gallery" loading="lazy"/><div class="brand-tier tier-starter">Starter</div><div class="open-pill open">Open</div><div class="vibe-strip">New exhibition opening Friday 🖼️</div></div>
-        <div class="brand-card-body"><div class="brand-cat">🎨 Art Studios</div><div class="brand-name">The Loft Gallery</div><div class="brand-tagline">Contemporary South African art in an intimate gallery setting.</div><div class="brand-footer"><span class="brand-price">Free entry · Private viewings</span><a class="wa-btn" href="https://wa.me/27867776655" target="_blank">WhatsApp</a></div></div>
-      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;padding-bottom:20px;">
+      <p style="font-size:13px;color:var(--sand-muted);margin-bottom:20px;">Want your business featured here?</p>
+      <a class="btn-primary" onclick="showPage('listed')">Apply for a Spot</a>
     </div>
   </section>
 </div>
-
-<!-- ══════════════════════════════════════════ PACKAGES ══════════════════════════════════════════ -->
-<div id="page-packages" class="page">
-  <section class="packages-section" style="padding-top:100px;">
-    <div class="packages-intro">
-      <div>
-        <div class="section-tag">For Businesses</div>
-        <div class="section-title">BECOME A FEATURED BRAND</div>
-      </div>
-      <p style="font-size:15px;color:var(--sand-muted);line-height:1.7;padding-top:12px;">Limited spots. Real scarcity. Every tier is handpicked — not just paid for. Billed quarterly with a once-off R2,000 onboarding fee.</p>
+ 
+<!-- ON SAFARI -->
+<div id="page-on-safari" class="page">
+  <div class="biz-hero">
+    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1400&q=85" alt="On Safari"/>
+    <div class="biz-hero-overlay"></div>
+    <div class="biz-hero-content">
+      <button class="biz-back" onclick="showPage('brands')">← Back to Featured Brands</button>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><span class="brand-tier tier-growth" style="position:relative;top:0;left:0;">Growth</span><span class="open-pill open" style="position:relative;top:0;right:0;">Open</span></div>
+      <div class="section-title">On Safari</div>
+      <p style="font-size:16px;color:var(--sand-muted);margin-top:8px;">Wildlife Photographic Fine Art Prints — Kloof Street, Cape Town</p>
     </div>
-    <div class="packages-grid">
+  </div>
+  <div class="biz-detail-body">
+    <div>
+      <div class="section-tag" style="margin-bottom:8px;">Art Studio · Photography</div>
+      <h2 style="font-size:24px;font-weight:600;color:var(--white);margin-bottom:20px;">Africa Through the Lens</h2>
+      <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:20px;">On Safari brings the raw beauty of African wildlife into your home through stunning photographic fine art prints. Each image is captured in the wild — lions, elephants, zebras, hippos — and printed to museum-quality standards.</p>
+      <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:32px;">Whether you're looking for a statement piece for your living room or a meaningful gift, On Safari's collections span the breadth of Africa's most iconic animals and landscapes.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:40px;">
+        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);"/>
+        <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);"/>
+        <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);"/>
+      </div>
+      <div style="background:var(--dark2);border:1px solid var(--border);padding:28px;margin-bottom:32px;">
+        <div class="section-tag" style="margin-bottom:16px;">Collections</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🦁 Lions</div>
+          <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🐘 Elephants</div>
+          <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🦓 Zebra</div>
+          <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🌳 Baobab Trees</div>
+          <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🦛 Hippo Bull</div>
+          <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🐾 Meercat</div>
+        </div>
+      </div>
+      <a href="https://www.on-safari.co.za" target="_blank" class="btn-primary" style="margin-right:12px;">Shop Fine Art Prints</a>
+      <a href="https://www.on-safari.co.za/collections" target="_blank" class="btn-ghost">View All Collections</a>
+    </div>
+    <div>
+      <div class="biz-info-card">
+        <h3>Studio Details</h3>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📍</span><span>Kloof Street, Gardens, Cape Town</span></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">🌐</span><a href="https://www.on-safari.co.za" target="_blank" style="color:var(--gold);text-decoration:none;">www.on-safari.co.za</a></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📦</span><span>Ships nationwide & internationally</span></div>
+      </div>
+      <div class="biz-info-card">
+        <h3>Opening Hours</h3>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📅</span><span>Mon–Fri: 9:00 – 17:00</span></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📅</span><span>Saturday: 9:00 – 14:00</span></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📅</span><span>Sunday: Closed</span></div>
+      </div>
+      <div class="biz-info-card" style="background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:13px;color:var(--sand-muted);line-height:1.5;">🎫 Street Pass holders receive <strong style="color:var(--gold);">10% off</strong> all fine art prints + a free framing consultation.</p>
+      </div>
+      <a href="https://www.on-safari.co.za" target="_blank" class="btn-primary" style="display:block;text-align:center;padding:16px;margin-bottom:12px;">Visit On Safari Online →</a>
+      <a href="https://www.on-safari.co.za/pages/contact-us" target="_blank" class="btn-ghost" style="display:block;text-align:center;padding:16px;">Contact the Studio</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- UBUNTU WELLNESS -->
+<div id="page-ubuntu" class="page">
+  <div class="biz-hero">
+    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=85" alt="Ubuntu Wellness"/>
+    <div class="biz-hero-overlay"></div>
+    <div class="biz-hero-content">
+      <button class="biz-back" onclick="showPage('brands')">← Back to Featured Brands</button>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;"><span class="brand-tier tier-growth" style="position:relative;top:0;left:0;">Growth</span><span class="open-pill open" style="position:relative;top:0;right:0;">Open</span></div>
+      <div class="section-title">Ubuntu Wellness</div>
+      <p style="font-size:16px;color:var(--sand-muted);margin-top:8px;">Health Spa · Float Therapy · Homeopathy — Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-detail-body">
+    <div>
+      <div class="section-tag" style="margin-bottom:8px;">Wellness & Beauty</div>
+      <h2 style="font-size:24px;font-weight:600;color:var(--white);margin-bottom:20px;">A Sanctuary for Mind, Body & Spirit</h2>
+      <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:20px;">Ubuntu Wellness is Cape Town's most holistic health sanctuary. From float therapy and spa treatments to homeopathy, vegan nutrition and stress management — this is where healing happens.</p>
+      <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:32px;">Rooted in the African philosophy of Ubuntu — "I am because we are" — the centre offers a complete approach to wellness that treats the whole person.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;">
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🧘</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Spa & Medi-Spa</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Luxurious treatments for total body restoration</div></div>
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">💧</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Float Therapy</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Sensory deprivation floating for deep relaxation</div></div>
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🌿</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Homeopathy</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Natural healing with qualified practitioners</div></div>
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🥗</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Vegan Wellness</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Plant-based nutrition, cooking academy and diabetes reversal</div></div>
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🏢</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Corporate Wellness</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Tailored wellness programmes for teams</div></div>
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🎓</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Wellness Academy</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Skills training, plant-based cooking and Ubuntu Chefs</div></div>
+      </div>
+      <a href="https://ubuntuwellness.com" target="_blank" class="btn-primary" style="margin-right:12px;">Visit Ubuntu Wellness</a>
+      <a href="https://ubuntuwellness.com/contact/" target="_blank" class="btn-ghost">Book a Treatment</a>
+    </div>
+    <div>
+      <div class="biz-info-card">
+        <h3>Contact & Location</h3>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📍</span><span>Kloof Street, Gardens, Cape Town</span></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">🌐</span><a href="https://ubuntuwellness.com" target="_blank" style="color:var(--gold);text-decoration:none;">ubuntuwellness.com</a></div>
+      </div>
+      <div class="biz-info-card">
+        <h3>Opening Hours</h3>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📅</span><span>Mon–Fri: 8:00 – 18:00</span></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📅</span><span>Saturday: 9:00 – 15:00</span></div>
+        <div class="info-row"><span style="color:var(--gold);flex-shrink:0;">📅</span><span>Sunday: By appointment</span></div>
+      </div>
+      <div class="biz-info-card" style="background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:13px;color:var(--sand-muted);line-height:1.5;">🎫 Street Pass holders receive <strong style="color:var(--gold);">10% off</strong> all spa treatments and priority booking access.</p>
+      </div>
+      <a href="https://ubuntuwellness.com/medi-spa/" target="_blank" class="btn-primary" style="display:block;text-align:center;padding:16px;margin-bottom:12px;">Book a Spa Treatment →</a>
+      <a href="https://ubuntuwellness.com/float-2/" target="_blank" class="btn-ghost" style="display:block;text-align:center;padding:16px;">Book Float Therapy</a>
+    </div>
+  </div>
+</div>
+ 
+<!-- PACKAGES -->
+<div id="page-packages" class="page">
+  <section style="padding-top:100px;background:var(--dark2);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;">
+      <div><div class="section-tag">For Businesses</div><div class="section-title">BECOME A FEATURED BRAND</div></div>
+      <p style="font-size:15px;color:var(--sand-muted);line-height:1.7;padding-top:12px;">Limited spots. Real scarcity. Every tier is handpicked — not just paid for. All payments processed securely via <strong style="color:var(--gold);">Yoco</strong> on the Business Hustle platform.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
       <div class="pkg-card">
-        <div class="pkg-tier" style="color:#a07850;">Essential</div>
-        <div class="pkg-price">R700</div><div class="pkg-per">/month</div>
-        <div class="pkg-billed">R2,100 billed quarterly</div>
-        <div class="pkg-slots"><div class="pkg-slots-row"><span>Spots remaining</span><span style="color:var(--gold);">14/35</span></div><div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:40%;"></div></div></div>
-        <ul class="pkg-features"><li>Curated business listing</li><li>Category placement</li><li>Contact details & hours</li><li>Menu / service display</li><li>Basic analytics</li></ul>
-        <a class="pkg-btn outline" href="#" onclick="showPage('listed')">Claim Your Spot</a>
+        <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;color:#a07850;">Essential</div>
+        <div class="pkg-price">R750</div><div class="pkg-per">/month</div>
+        <div class="pkg-billed">R2,100 for 3 months</div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sand-muted);margin-bottom:6px;"><span>Spots remaining</span><span style="color:var(--gold);">14/35</span></div>
+        <div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:40%;"></div></div>
+        <ul class="pkg-features">
+          <li>Premium business listing</li>
+          <li>Category placement</li>
+          <li>Contact details + WhatsApp API</li>
+          <li>Clean editorial card</li>
+          <li>Local discovery visibility</li>
+        </ul>
+        <a class="pkg-btn outline" href="https://app.businesshustle.co.za/product/essential-kloof-street-brand-feature-package/" target="_blank">Buy Now — R750</a>
       </div>
       <div class="pkg-card featured">
         <div class="pkg-featured-label">Most Popular</div>
-        <div class="pkg-tier" style="color:#b98d58;">Starter</div>
+        <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;color:#b98d58;">Starter</div>
         <div class="pkg-price">R960</div><div class="pkg-per">/month</div>
-        <div class="pkg-billed">R2,880 billed quarterly</div>
-        <div class="pkg-slots"><div class="pkg-slots-row"><span>Spots remaining</span><span style="color:var(--gold);">4/10</span></div><div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:60%;"></div></div></div>
-        <ul class="pkg-features"><li>Everything in Essential</li><li>1 promo + 1 reel per month</li><li>Homepage rotation</li><li>Premium listing placement</li><li>Project management dashboard</li></ul>
-        <a class="pkg-btn gold" href="#" onclick="showPage('listed')">Claim Your Spot</a>
+        <div class="pkg-billed">Billed monthly via Yoco</div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sand-muted);margin-bottom:6px;"><span>Spots remaining</span><span style="color:var(--gold);">4/10</span></div>
+        <div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:60%;"></div></div>
+        <ul class="pkg-features">
+          <li>Everything in Essential</li>
+          <li>1 paid promo placement</li>
+          <li>1 short-form reel feature</li>
+          <li>Priority category placement</li>
+          <li>BusinessHustle project management app</li>
+          <li>Hustle Basics ebook included</li>
+        </ul>
+        <a class="pkg-btn gold" href="https://app.businesshustle.co.za/product/kloof-street-starter-feature-package/" target="_blank">Buy Now — R960</a>
       </div>
       <div class="pkg-card">
-        <div class="pkg-tier" style="color:var(--gold);">Growth</div>
+        <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;color:var(--gold);">Growth</div>
         <div class="pkg-price">R1,360</div><div class="pkg-per">/month</div>
-        <div class="pkg-billed">R4,080 billed quarterly</div>
-        <div class="pkg-slots"><div class="pkg-slots-row"><span>Spots remaining</span><span style="color:var(--gold);">2/6</span></div><div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:67%;"></div></div></div>
-        <ul class="pkg-features"><li>Everything in Starter</li><li>Full editorial feature</li><li>Streetwide marketing push</li><li>Spotlight placement in category</li><li>Content creation + SEO</li><li>AI concierge priority</li></ul>
-        <a class="pkg-btn outline" href="#" onclick="showPage('listed')">Claim Your Spot</a>
-      </div>
-      <div class="pkg-card">
-        <div class="pkg-tier" style="color:#93c5fd;">Anchor</div>
-        <div class="pkg-price">R4,500</div><div class="pkg-per">/month</div>
-        <div class="pkg-billed">R13,500 billed quarterly</div>
-        <div class="pkg-slots"><div class="pkg-slots-row"><span>Spots remaining</span><span style="color:var(--gold);">1/2</span></div><div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:50%;"></div></div></div>
-        <ul class="pkg-features"><li>Everything in Growth</li><li>Exclusive category ownership</li><li>Quarterly street campaign</li><li>AI concierge #1 placement</li><li>Dedicated account manager</li><li>White-glove onboarding</li></ul>
-        <a class="pkg-btn outline" href="#" onclick="showPage('listed')">Claim Your Spot</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ══════════════════════════════════════════ STREET PASS ══════════════════════════════════════════ -->
-<div id="page-pass" class="page">
-  <section class="pass-section" style="padding-top:100px;">
-    <div class="pass-grid">
-      <div>
-        <div class="section-tag">Street Pass</div>
-        <div class="section-title">THE INSIDER'S KLOOF STREET</div>
-        <p class="section-desc">Exclusive deals, flash offers, and members-only access — for R199/month.</p>
-        <div class="pass-deal-list">
-          <div class="pass-deal"><div class="pass-deal-dot"></div><div><div class="pass-deal-biz">The Yard</div><div class="pass-deal-txt">20% off dinner for two, Sunday–Thursday</div></div><div class="pass-lock">🔒</div></div>
-          <div class="pass-deal"><div class="pass-deal-dot"></div><div><div class="pass-deal-biz">Kloof & Co</div><div class="pass-deal-txt">Free filter coffee with any food order</div></div><div class="pass-lock">🔒</div></div>
-          <div class="pass-deal"><div class="pass-deal-dot"></div><div><div class="pass-deal-biz">Canvas Block</div><div class="pass-deal-txt">Free studio tour + 10% off original works</div></div><div class="pass-lock">🔒</div></div>
-          <div class="pass-deal"><div class="pass-deal-dot"></div><div><div class="pass-deal-biz">Salt Studio</div><div class="pass-deal-txt">First class free for new members</div></div><div class="pass-lock">🔒</div></div>
-          <div class="pass-deal"><div class="pass-deal-dot"></div><div><div class="pass-deal-biz">The Loft Gallery</div><div class="pass-deal-txt">Priority invites to all exhibition openings</div></div><div class="pass-lock">🔒</div></div>
-          <div class="pass-deal"><div class="pass-deal-dot"></div><div><div class="pass-deal-biz">The Kloof Hotel</div><div class="pass-deal-txt">Complimentary rooftop access for guests</div></div><div class="pass-lock">🔒</div></div>
-        </div>
-        <p style="font-size:11px;color:rgba(184,176,160,0.5);margin-top:16px;letter-spacing:0.05em;">+ flash deals added weekly by partner businesses</p>
-      </div>
-      <div class="pass-price-block">
-        <div style="font-size:11px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;font-family:'Barlow Condensed',sans-serif;font-weight:600;">Monthly Membership</div>
-        <div class="pass-amount">R199</div>
-        <div class="pass-month">/month</div>
-        <div class="pass-cancel">Cancel anytime · No commitment</div>
-        <a class="btn-primary" href="#" style="display:block;text-align:center;padding:16px;">Get Street Pass</a>
-        <p style="font-size:11px;color:rgba(184,176,160,0.4);margin-top:12px;letter-spacing:0.04em;">Instant activation · Secure via Stripe</p>
-        <div style="margin-top:28px;border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;">
-          <div style="display:flex;flex-direction:column;gap:12px;">
-            <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sand-muted);"><span style="color:var(--gold);font-size:16px;">✦</span> Exclusive deals at 12+ venues</div>
-            <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sand-muted);"><span style="color:var(--gold);font-size:16px;">✦</span> Flash offer WhatsApp alerts</div>
-            <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sand-muted);"><span style="color:var(--gold);font-size:16px;">✦</span> Priority AI concierge access</div>
-            <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:var(--sand-muted);"><span style="color:var(--gold);font-size:16px;">✦</span> Monthly members-only events</div>
-          </div>
-        </div>
+        <div class="pkg-billed">Billed monthly via Yoco</div>
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--sand-muted);margin-bottom:6px;"><span>Spots remaining</span><span style="color:var(--gold);">2/6</span></div>
+        <div class="pkg-slots-bar"><div class="pkg-slots-fill" style="width:67%;"></div></div>
+        <ul class="pkg-features">
+          <li>Full editorial layout feature</li>
+          <li>Spotlight placement in category</li>
+          <li>Streetwide marketing push</li>
+          <li>Founder / operations marketing support</li>
+          <li>Priority tools & feature access</li>
+          <li>AI concierge priority placement</li>
+        </ul>
+        <a class="pkg-btn outline" href="https://app.businesshustle.co.za/product/kloof-street-growth-package/" target="_blank">Buy Now — R1,360</a>
       </div>
     </div>
+    <p style="text-align:center;font-size:13px;color:var(--sand-muted);margin-top:32px;padding-bottom:20px;">Payments processed securely via <strong style="color:var(--gold);">Yoco</strong> on the Business Hustle platform. Questions? <a onclick="showPage('listed')" style="color:var(--gold);cursor:pointer;text-decoration:underline;">Contact us</a></p>
   </section>
 </div>
-
-<!-- ══════════════════════════════════════════ AI CONCIERGE ══════════════════════════════════════════ -->
+ 
+<!-- AI CONCIERGE -->
 <div id="page-ai" class="page">
-  <section class="ai-section" style="padding-top:100px;">
-    <div class="ai-grid">
+  <section style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
       <div>
         <div class="section-tag">AI Concierge</div>
         <div class="section-title">YOUR PERSONAL<br>STREET GUIDE</div>
-        <p class="section-desc">Tell it your vibe, budget, group size and time — it plans your perfect Kloof Street experience from start to finish.</p>
+        <p class="section-desc">Tell it your vibe, budget, group size and time — it plans your perfect Kloof Street experience.</p>
         <div style="margin-top:40px;display:flex;flex-direction:column;gap:20px;">
-          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🎯</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Intent-aware recommendations</div><div style="font-size:12px;color:var(--sand-muted);">Understands mood, budget and timing</div></div></div>
-          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">⚡</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Real-time vibe data</div><div style="font-size:12px;color:var(--sand-muted);">Knows what's open and buzzing right now</div></div></div>
-          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">📍</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Sequential itineraries</div><div style="font-size:12px;color:var(--sand-muted);">Plan your full street day in one ask</div></div></div>
-          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;">🎨</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Art & culture aware</div><div style="font-size:12px;color:var(--sand-muted);">Knows current exhibitions, openings and studio events</div></div></div>
+          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🎯</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Intent-aware recommendations</div><div style="font-size:12px;color:var(--sand-muted);">Understands mood, budget and timing</div></div></div>
+          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🎨</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Art & culture aware</div><div style="font-size:12px;color:var(--sand-muted);">Knows On Safari exhibitions and gallery events</div></div></div>
+          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🧘</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Wellness-informed</div><div style="font-size:12px;color:var(--sand-muted);">Recommends Ubuntu Wellness for spa, float and homeopathy</div></div></div>
         </div>
       </div>
       <div class="chat-widget">
         <div class="chat-header">
           <div class="chat-dot"></div>
-          <div class="chat-header-text"><strong>Street Concierge</strong><span>AI-powered Kloof Street guide</span></div>
+          <div><strong style="font-size:13px;color:var(--white);font-weight:600;display:block;">Street Concierge</strong><span style="font-size:11px;color:var(--sand-muted);">AI-powered Kloof Street guide</span></div>
         </div>
         <div class="chat-messages" id="chatMsgs">
           <div class="msg msg-ai">Hey! I'm your Kloof Street concierge. Tell me your vibe, budget, who you're with — I'll plan your perfect street experience. 🌟</div>
           <div class="chat-prompts">
             <button class="chat-prompt" onclick="sendChat('Where should I have dinner tonight for under R300?')">Where should I have dinner tonight for under R300?</button>
-            <button class="chat-prompt" onclick="sendChat('Any art exhibitions happening this week?')">Any art exhibitions happening this week?</button>
+            <button class="chat-prompt" onclick="sendChat('Any art exhibitions or galleries to visit?')">Any art exhibitions or galleries to visit?</button>
+            <button class="chat-prompt" onclick="sendChat('I need a full wellness and relaxation day')">I need a full wellness and relaxation day 🧘</button>
             <button class="chat-prompt" onclick="sendChat('Plan my perfect Kloof Street afternoon')">Plan my perfect Kloof Street afternoon</button>
-            <button class="chat-prompt" onclick="sendChat('I want something romantic for a date night')">I want something romantic for a date night 🌹</button>
           </div>
         </div>
         <div class="chat-input-row">
-          <input class="chat-input" id="chatIn" placeholder="Ask me anything about Kloof Street…" onkeydown="if(event.key==='Enter')sendChat()" />
+          <input class="chat-input" id="chatIn" placeholder="Ask me anything about Kloof Street…" onkeydown="if(event.key==='Enter')sendChat()"/>
           <button class="chat-send" onclick="sendChat()">➤</button>
         </div>
       </div>
     </div>
   </section>
 </div>
-
-<!-- ══════════════════════════════════════════ DASHBOARD ══════════════════════════════════════════ -->
+ 
+<!-- DASHBOARD -->
 <div id="page-dash" class="page">
-  <section class="dash-section" style="padding-top:100px;">
+  <section style="padding-top:100px;">
     <div style="margin-bottom:28px;"><div class="section-tag">Business Owner</div><div class="section-title">YOUR DASHBOARD</div></div>
     <div class="dash-layout">
       <div class="dash-sidebar">
-        <div class="dash-biz-header"><div class="dash-biz-name">The Yard</div><div class="dash-biz-tier">Growth · Active</div></div>
-        <div style="padding:8px 0;">
-          <div class="dash-nav-item active">📊 &nbsp;Overview</div>
-          <div class="dash-nav-item">📈 &nbsp;Analytics</div>
-          <div class="dash-nav-item">⭐ &nbsp;Deals</div>
-          <div class="dash-nav-item">🎨 &nbsp;Studio / Gallery</div>
-          <div class="dash-nav-item">📅 &nbsp;Events</div>
-          <div class="dash-nav-item">⚙️ &nbsp;Settings</div>
+        <div style="padding:24px 20px;border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:15px;font-weight:600;color:var(--white);">The Yard</div>
+          <div style="font-size:10px;color:var(--gold);letter-spacing:0.12em;text-transform:uppercase;margin-top:3px;font-family:'Barlow Condensed',sans-serif;">Starter · Active</div>
         </div>
-        <div style="padding:20px;border-top:1px solid rgba(255,255,255,0.06);margin-top:auto;">
-          <div style="font-size:10px;color:var(--sand-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;font-family:'Barlow Condensed',sans-serif;">Next billing</div>
-          <div style="font-size:13px;color:var(--white);font-weight:600;">15 Oct 2025</div>
-          <div style="font-size:11px;color:var(--gold);margin-top:2px;">R4,080 / quarter</div>
+        <div style="padding:8px 0;">
+          <div class="dash-nav-item active">📊 Overview</div>
+          <div class="dash-nav-item">📈 Analytics</div>
+          <div class="dash-nav-item">⭐ Deals</div>
+          <div class="dash-nav-item">🎨 Gallery</div>
+          <div class="dash-nav-item">📅 Events</div>
+          <div class="dash-nav-item">⚙️ Settings</div>
+        </div>
+        <div style="padding:20px;border-top:1px solid rgba(255,255,255,0.06);">
+          <div style="font-size:10px;color:var(--sand-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;font-family:'Barlow Condensed',sans-serif;">Upgrade Tier</div>
+          <a href="https://app.businesshustle.co.za/product/kloof-street-growth-package/" target="_blank" class="btn-primary" style="display:block;text-align:center;padding:10px;font-size:11px;">→ Go Growth</a>
         </div>
       </div>
-      <div class="dash-main">
-        <div class="dash-main-header"><h2>OVERVIEW</h2><p>Last 30 days performance for The Yard</p></div>
+      <div style="padding:32px;">
+        <div style="margin-bottom:28px;"><h2 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.06em;color:var(--white);">OVERVIEW</h2><p style="font-size:13px;color:var(--sand-muted);margin-top:4px;">Last 30 days</p></div>
         <div class="kpi-row">
           <div class="kpi-card"><div class="kpi-label">Page Views</div><div class="kpi-val">1,247</div><div class="kpi-change kpi-up">+18% this month</div></div>
           <div class="kpi-card"><div class="kpi-label">WhatsApp Taps</div><div class="kpi-val">89</div><div class="kpi-change kpi-up">+12% this month</div></div>
@@ -956,16 +607,14 @@
           </div>
           <div class="dash-panel">
             <h3>Live Vibe Status</h3>
-            <div class="vibe-editor">
-              <div class="vibe-current"><div class="vibe-active-dot"></div><div class="vibe-text" id="vibeText">Buzzing tonight 🔥</div><button class="vibe-edit-btn" onclick="toggleVibes()">Edit</button></div>
-              <div class="vibe-options" id="vibeOpts" style="display:none;">
-                <button class="vibe-opt-btn" onclick="setVibe('Buzzing tonight 🔥')">Buzzing tonight 🔥</button>
-                <button class="vibe-opt-btn" onclick="setVibe('Quiet & cosy ☕')">Quiet & cosy ☕</button>
-                <button class="vibe-opt-btn" onclick="setVibe('Happy hour on 🍹')">Happy hour on 🍹</button>
-                <button class="vibe-opt-btn" onclick="setVibe('Live music tonight 🎵')">Live music tonight 🎵</button>
-                <button class="vibe-opt-btn" onclick="setVibe('Exhibition on now 🎨')">Exhibition on now 🎨</button>
-                <button class="vibe-opt-btn" onclick="setVibe('Fully booked tonight 🔴')">Fully booked 🔴</button>
-              </div>
+            <div class="vibe-current"><div class="vibe-active-dot"></div><div style="flex:1;font-size:13px;color:var(--white);" id="vibeText">Buzzing tonight 🔥</div><button class="vibe-edit-btn" onclick="toggleVibes()">Edit</button></div>
+            <div class="vibe-options" id="vibeOpts" style="display:none;">
+              <button class="vibe-opt-btn" onclick="setVibe('Buzzing tonight 🔥')">Buzzing tonight 🔥</button>
+              <button class="vibe-opt-btn" onclick="setVibe('Quiet & cosy ☕')">Quiet & cosy ☕</button>
+              <button class="vibe-opt-btn" onclick="setVibe('Happy hour on 🍹')">Happy hour on 🍹</button>
+              <button class="vibe-opt-btn" onclick="setVibe('Live music tonight 🎵')">Live music tonight 🎵</button>
+              <button class="vibe-opt-btn" onclick="setVibe('Exhibition on now 🎨')">Exhibition on now 🎨</button>
+              <button class="vibe-opt-btn" onclick="setVibe('Fully booked tonight 🔴')">Fully booked 🔴</button>
             </div>
           </div>
         </div>
@@ -973,46 +622,37 @@
     </div>
   </section>
 </div>
-
-<!-- ══════════════════════════════════════════ GET LISTED ══════════════════════════════════════════ -->
+ 
+<!-- GET LISTED -->
 <div id="page-listed" class="page">
-  <section class="listed-section" style="padding-top:100px;">
-    <div class="listed-grid">
+  <section style="padding-top:100px;background:var(--dark2);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
       <div>
         <div class="section-tag">Get Listed</div>
         <div class="section-title">JOIN KLOOF STREET'S CURATED PLATFORM</div>
         <p class="section-desc">We review every application personally. Expect a response within 24 hours.</p>
         <div style="margin-top:40px;display:flex;flex-direction:column;gap:24px;">
-          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.2);flex-shrink:0;line-height:1;">01</div>
-            <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">Choose your tier</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.6;">Pick the plan that matches your goals. Essential, Starter, Growth or Anchor.</div></div>
-          </div>
-          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.2);flex-shrink:0;line-height:1;">02</div>
-            <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">We set you up</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.6;">Your listing, photos, hours and links live within 48 hours of approval.</div></div>
-          </div>
-          <div style="display:flex;gap:16px;align-items:flex-start;">
-            <div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.2);flex-shrink:0;line-height:1;">03</div>
-            <div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">Go live & grow</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.6;">Appear on KloofStreet.online, the AI concierge, and Street Pass deals.</div></div>
-          </div>
+          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.2);flex-shrink:0;line-height:1;">01</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">Fill in your details</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.6;">Tell us about your business and which tier suits your goals.</div></div></div>
+          <div style="display:flex;gap:16px;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.06);"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.2);flex-shrink:0;line-height:1;">02</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">We review & confirm</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.6;">Within 24 hours we confirm your spot and send a Yoco payment link.</div></div></div>
+          <div style="display:flex;gap:16px;align-items:flex-start;"><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:rgba(201,168,76,0.2);flex-shrink:0;line-height:1;">03</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px;">Go live on Kloof Street</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.6;">Your listing, AI concierge placement and Street Pass deals go live within 48 hours.</div></div></div>
         </div>
         <div style="margin-top:36px;padding:24px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);">
           <div style="font-size:11px;color:var(--gold);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;font-family:'Barlow Condensed',sans-serif;font-weight:600;">Or WhatsApp us directly</div>
-          <a href="https://wa.me/27000000000?text=Hi, I'd like to list my business on KloofStreet.online" target="_blank" class="wa-btn" style="display:inline-flex;">WhatsApp Business Hustle</a>
+          <a href="https://wa.me/27000000000?text=Hi, I'd like to list my business on KloofStreet.online" target="_blank" class="wa-btn">WhatsApp Business Hustle</a>
         </div>
       </div>
       <div>
-        <div class="listed-form" id="listForm">
-          <h3>Apply for a Spot</h3>
+        <div style="background:var(--dark);border:1px solid rgba(201,168,76,0.15);padding:40px;" id="listForm">
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.06em;color:var(--white);margin-bottom:28px;">Apply for a Spot</h3>
           <div class="form-row2">
-            <div class="field"><label>Business Name</label><input type="text" placeholder="e.g. The Yard Restaurant" /></div>
-            <div class="field"><label>Your Name</label><input type="text" placeholder="Full name" /></div>
+            <div class="form-field"><label>Business Name</label><input type="text" id="f-biz" placeholder="e.g. The Yard"/></div>
+            <div class="form-field"><label>Your Name</label><input type="text" id="f-name" placeholder="Full name"/></div>
           </div>
-          <div class="field"><label>Email Address</label><input type="email" placeholder="you@business.com" /></div>
-          <div class="field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+27 ..." /></div>
+          <div class="form-field"><label>Email Address</label><input type="email" id="f-email" placeholder="you@business.com"/></div>
+          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" id="f-phone" placeholder="+27 ..."/></div>
           <div class="form-row2">
-            <div class="field"><label>Category</label>
-              <select>
+            <div class="form-field"><label>Category</label>
+              <select id="f-cat">
                 <option value="">Select…</option>
                 <option>Restaurant & Dining</option>
                 <option>Art Studio</option>
@@ -1026,178 +666,130 @@
                 <option>Other</option>
               </select>
             </div>
-            <div class="field"><label>Tier</label>
-              <select>
+            <div class="form-field"><label>Tier</label>
+              <select id="f-tier">
                 <option value="">Select…</option>
-                <option>Essential — R700/mo</option>
-                <option>Starter — R960/mo</option>
-                <option>Growth — R1,360/mo</option>
-                <option>Anchor — R4,500/mo</option>
+                <option>Essential — R750/month</option>
+                <option>Starter — R960/month</option>
+                <option>Growth — R1,360/month</option>
               </select>
             </div>
           </div>
-          <div class="field"><label>Tell us about your business</label><textarea placeholder="What makes your business special? What are you hoping to achieve on the platform?"></textarea></div>
+          <div class="form-field"><label>Tell us about your business</label><textarea id="f-msg" placeholder="What makes your business special?"></textarea></div>
           <button class="form-submit" onclick="submitForm()">Submit Application →</button>
+          <p style="font-size:11px;color:rgba(184,176,160,0.4);text-align:center;margin-top:12px;">Payment via Yoco after confirmation. Info sent securely to our team.</p>
         </div>
       </div>
     </div>
   </section>
 </div>
-
-<!-- FOOTER -->
+ 
 <footer>
   <div class="footer-grid">
     <div>
       <div class="footer-logo">KLOOF<span>.</span>ONLINE</div>
-      <p class="footer-desc">Cape Town's most vibrant lifestyle street — curated, discovered, and experienced digitally. A BH Local Platform.</p>
-      <div class="footer-social">
-        <a href="https://instagram.com/kloofstreet.online" target="_blank">IG</a>
-        <a href="mailto:hello@kloofstreet.online">✉</a>
-        <a href="https://wa.me/27000000000" target="_blank">WA</a>
+      <p style="font-size:13px;color:var(--sand-muted);line-height:1.7;max-width:260px;margin-bottom:20px;">Cape Town's most vibrant lifestyle street — curated, discovered, and experienced digitally. A BH Local Platform.</p>
+      <div style="display:flex;gap:12px;">
+        <a href="https://instagram.com/kloofstreet.online" target="_blank" style="width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:var(--sand-muted);text-decoration:none;font-size:13px;">IG</a>
+        <a href="mailto:hello@kloofstreet.online" style="width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:var(--sand-muted);text-decoration:none;font-size:13px;">✉</a>
+        <a href="https://wa.me/27000000000" target="_blank" style="width:34px;height:34px;border:1px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:var(--sand-muted);text-decoration:none;font-size:13px;">WA</a>
       </div>
     </div>
     <div class="footer-col">
       <h4>Discover</h4>
       <ul>
-        <li><a href="#" onclick="showPage('explore')">Restaurants</a></li>
-        <li><a href="#" onclick="showPage('explore')">Art Studios</a></li>
-        <li><a href="#" onclick="showPage('explore')">Wellness</a></li>
-        <li><a href="#" onclick="showPage('explore')">Hotels & Stays</a></li>
-        <li><a href="#" onclick="showPage('explore')">Cafés</a></li>
-        <li><a href="#" onclick="showPage('explore')">Shopping</a></li>
+        <li><a onclick="showPage('explore')">Restaurants</a></li>
+        <li><a onclick="showPage('on-safari')">Art Studios</a></li>
+        <li><a onclick="showPage('ubuntu')">Wellness & Beauty</a></li>
+        <li><a onclick="showPage('explore')">Hotels & Stays</a></li>
+        <li><a onclick="showPage('explore')">Cafés</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Platform</h4>
       <ul>
-        <li><a href="#" onclick="showPage('ai')">AI Concierge</a></li>
-        <li><a href="#" onclick="showPage('pass')">Street Pass</a></li>
-        <li><a href="#" onclick="showPage('packages')">Packages</a></li>
-        <li><a href="#" onclick="showPage('listed')">Get Listed</a></li>
-        <li><a href="#" onclick="showPage('dash')">Dashboard</a></li>
+        <li><a onclick="showPage('ai')">AI Concierge</a></li>
+        <li><a onclick="showPage('packages')">Packages</a></li>
+        <li><a onclick="showPage('listed')">Get Listed</a></li>
+        <li><a onclick="showPage('dash')">Dashboard</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4>Business Hustle</h4>
       <ul>
         <li><a href="https://businesshustle.co.za" target="_blank">businesshustle.co.za</a></li>
+        <li><a href="https://app.businesshustle.co.za" target="_blank">BH Platform</a></li>
         <li><a href="mailto:hello@kloofstreet.online">hello@kloofstreet.online</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2025 KloofStreet.online — Cape Town, South Africa</p>
-    <p class="powered">POWERED BY <span>BUSINESS HUSTLE</span></p>
+    <p style="font-size:11px;color:rgba(184,176,160,0.4);">POWERED BY <span style="color:var(--gold);">BUSINESS HUSTLE</span></p>
   </div>
 </footer>
-
+ 
 <script>
-// ── PAGE ROUTING ──
-const pages = ['home','about','explore','brands','packages','pass','ai','dash','listed'];
-const navIds = ['home','about','explore','brands','packages'];
-
-function showPage(name) {
-  pages.forEach(p => {
-    const el = document.getElementById('page-' + p);
-    if(el) el.classList.remove('active');
-  });
-  const target = document.getElementById('page-' + name);
-  if(target) target.classList.add('active');
-
-  // Update nav active state
-  navIds.forEach(n => {
-    const link = document.getElementById('nav-' + n);
-    if(link) link.classList.remove('active');
-  });
-  const activeLink = document.getElementById('nav-' + name);
-  if(activeLink) activeLink.classList.add('active');
-
-  window.scrollTo({top:0, behavior:'smooth'});
-  return false;
+const ALL_PAGES=['home','about','explore','brands','on-safari','ubuntu','packages','ai','dash','listed'];
+const NAV_IDS=['home','about','explore','brands','packages','ai'];
+function showPage(name){
+  ALL_PAGES.forEach(p=>{const el=document.getElementById('page-'+p);if(el)el.classList.remove('active');});
+  const t=document.getElementById('page-'+name);if(t)t.classList.add('active');
+  NAV_IDS.forEach(n=>{const l=document.getElementById('nav-'+n);if(l)l.classList.remove('active');});
+  const al=document.getElementById('nav-'+name);if(al)al.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-// ── NAV SCROLL ──
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  if(window.scrollY > 50) nav.classList.add('scrolled');
-  else nav.classList.remove('scrolled');
-});
-
-// ── BAR CHART ──
-const barData = [{d:'Mon',v:142},{d:'Tue',v:198},{d:'Wed',v:167},{d:'Thu',v:220},{d:'Fri',v:312},{d:'Sat',v:145},{d:'Sun',v:63}];
-const maxV = 312;
-const barContainer = document.getElementById('dashBars');
-if(barContainer) {
-  barData.forEach(({d,v}) => {
-    const col = document.createElement('div');
-    col.className = 'bar-col';
-    col.innerHTML = `<div class="bar-fill" style="height:${Math.round((v/maxV)*70)}px;" title="${v} views"></div><div class="bar-lbl">${d}</div>`;
-    barContainer.appendChild(col);
-  });
-}
-
-// ── VIBE EDITOR ──
-function toggleVibes() {
-  const o = document.getElementById('vibeOpts');
-  o.style.display = o.style.display === 'none' ? 'grid' : 'none';
-}
-function setVibe(v) {
-  document.getElementById('vibeText').textContent = v;
-  document.getElementById('vibeOpts').style.display = 'none';
-}
-
-// ── AI CHAT ──
-const responses = {
-  'Where should I have dinner tonight for under R300?': 'For under R300, I\'d head straight to The Yard. Wood-fired mains are around R180, it\'s buzzing tonight, and the garden setting is worth it. Bao Down is also great if you want something more casual — bao sets from R120 and there\'s a DJ on. Both are open now. Want a full evening plan?',
-  'Any art exhibitions happening this week?': 'Yes! Two things happening right now:\n\n🎨 Canvas Block has a current exhibition on — emerging Cape Town artists, free entry, open until 7pm. Their studio tour is something special.\n\n🖼️ The Loft Gallery has a new show opening Friday evening — contemporary South African work in an intimate space. Street Pass holders get priority invitations.\n\nWant me to add either to an afternoon itinerary?',
-  'Plan my perfect Kloof Street afternoon': 'Here\'s your perfect Kloof Street afternoon:\n\n☕ 2:00pm — Kloof & Co for a flat white. Best specialty coffee on the street.\n\n🎨 3:00pm — Canvas Block studio tour. Free, genuinely fascinating, 45 mins.\n\n🛍️ 4:00pm — Walk to Loom & Thread. New arrivals in, 15% off for Street Pass holders.\n\n🧘 5:00pm — Salt Studio drop-in flow class, R150.\n\n🍹 6:30pm — Bao Down happy hour. Cocktails from R80.\n\n🌿 8:00pm — Dinner at The Yard. Book via WhatsApp now.\n\nTotal: R500–700. Want to adjust anything?',
-  'I want something romantic for a date night': 'For a date night:\n\n🍷 Start at The Yard at 7pm — request the back garden table, it\'s candlelit and quiet. Wood-fired lamb is the move. About R350 for two with wine.\n\n✨ If you want to start earlier, Salt Studio does couples yoga at 5:30 — a genuinely memorable start.\n\n🌃 End the night at The Kloof Hotel rooftop bar — mountain views, late licence, and Street Pass gets you complimentary access.\n\nTotal for the full evening: R500–800. Want me to WhatsApp The Yard to check availability?'
+function go(name){showPage(name);document.getElementById('mobileMenu').classList.remove('open');}
+window.addEventListener('scroll',()=>document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>50));
+const barData=[{d:'Mon',v:142},{d:'Tue',v:198},{d:'Wed',v:167},{d:'Thu',v:220},{d:'Fri',v:312},{d:'Sat',v:145},{d:'Sun',v:63}];
+const bc=document.getElementById('dashBars');
+if(bc)barData.forEach(({d,v})=>{const c=document.createElement('div');c.className='bar-col';c.innerHTML=`<div class="bar-fill" style="height:${Math.round((v/312)*70)}px;"></div><div class="bar-lbl">${d}</div>`;bc.appendChild(c);});
+function toggleVibes(){const o=document.getElementById('vibeOpts');o.style.display=o.style.display==='none'?'grid':'none';}
+function setVibe(v){document.getElementById('vibeText').textContent=v;document.getElementById('vibeOpts').style.display='none';}
+const replies={
+  'Where should I have dinner tonight for under R300?':'For under R300 tonight, head to The Yard — wood-fired mains around R180, garden setting, buzzing right now 🔥. Great walk-in availability. Want a full evening plan from drinks to dessert?',
+  'Any art exhibitions or galleries to visit?':'🎨 Two great spots right now:\n\nOn Safari — wildlife photographic fine art prints. A working studio showcasing Africa\'s most iconic animals. Free to browse, prints available to purchase. Street Pass holders get 10% off.\n\nThe Loft Gallery — new exhibition opening Friday. Contemporary South African art, free entry.\n\nWant me to build an afternoon itinerary around these?',
+  'I need a full wellness and relaxation day':'🧘 Ubuntu Wellness is your answer.\n\nStart with a float therapy session (60–90 mins of total sensory relaxation), follow with a spa treatment, and consider a homeopathy consultation.\n\nStreet Pass holders get 10% off all treatments and priority booking.\n\nAfterwards walk to Kloof & Co for a vegan small plate and single-origin coffee.\n\nTotal budget: R400–800 depending on treatments. Want me to plan the full day?',
+  'Plan my perfect Kloof Street afternoon':'☕ 2:00pm — Kloof & Co. Best flat white on the street.\n\n🎨 3:00pm — On Safari studio. Browse the wildlife fine art collection, free entry.\n\n🖼️ 4:00pm — The Loft Gallery, new works on show.\n\n🧘 5:30pm — Ubuntu Wellness drop-in float session if you want to decompress.\n\n🌿 7:30pm — The Yard for dinner. Request the garden table. Book via WhatsApp now.\n\nTotal: R400–700. Want to adjust for budget or vibe?'
 };
-
-function sendChat(preset) {
-  const input = document.getElementById('chatIn');
-  const text = preset || input.value.trim();
-  if(!text) return;
-  input.value = '';
-
-  const msgs = document.getElementById('chatMsgs');
-  const prompts = msgs.querySelector('.chat-prompts');
-  if(prompts) prompts.remove();
-
-  const ub = document.createElement('div');
-  ub.className = 'msg msg-user';
-  ub.textContent = text;
-  msgs.appendChild(ub);
-
-  const typing = document.createElement('div');
-  typing.className = 'msg msg-ai';
-  typing.innerHTML = '<div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>';
-  msgs.appendChild(typing);
-  msgs.scrollTop = msgs.scrollHeight;
-
-  setTimeout(() => {
+function sendChat(preset){
+  const input=document.getElementById('chatIn');
+  const text=preset||input.value.trim();
+  if(!text)return;
+  input.value='';
+  const msgs=document.getElementById('chatMsgs');
+  const prompts=msgs.querySelector('.chat-prompts');if(prompts)prompts.remove();
+  const ub=document.createElement('div');ub.className='msg msg-user';ub.textContent=text;msgs.appendChild(ub);
+  const typing=document.createElement('div');typing.className='msg msg-ai';typing.innerHTML='<span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>';msgs.appendChild(typing);
+  msgs.scrollTop=msgs.scrollHeight;
+  setTimeout(()=>{
     typing.remove();
-    const ab = document.createElement('div');
-    ab.className = 'msg msg-ai';
-    const reply = responses[text] || 'Great question! Right now on Kloof Street, The Yard is buzzing and Canvas Block has an exhibition on. Tell me more about what you\'re looking for and I\'ll put together a full plan.';
-    ab.textContent = reply;
-    msgs.appendChild(ab);
-    msgs.scrollTop = msgs.scrollHeight;
-  }, 1300);
+    const ab=document.createElement('div');ab.className='msg msg-ai';
+    ab.textContent=replies[text]||'Great question! Right now On Safari has work on show and Ubuntu Wellness has float sessions available. Tell me more about what you\'re after and I\'ll build you a full plan.';
+    msgs.appendChild(ab);msgs.scrollTop=msgs.scrollHeight;
+  },1200);
 }
-
-// ── FORM SUBMIT ──
-function submitForm() {
-  document.getElementById('listForm').innerHTML = `
-    <div class="form-success">
-      <div class="form-success-icon">✓</div>
-      <h4>APPLICATION RECEIVED</h4>
-      <p>We review every application personally.<br>You'll hear from us within 24 hours to confirm your spot.</p>
-      <a class="btn-primary" href="#" onclick="showPage('home')" style="display:inline-block;margin-top:24px;padding:14px 32px;">Back to Kloof Street</a>
-    </div>`;
+async function submitForm(){
+  const biz=document.getElementById('f-biz').value.trim();
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const cat=document.getElementById('f-cat').value;
+  const tier=document.getElementById('f-tier').value;
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!biz||!name||!email){showToast('Please fill in business name, your name and email.');return;}
+  const btn=document.querySelector('.form-submit');btn.textContent='Sending…';btn.disabled=true;
+  try{
+    await fetch('https://business-hustle-form.vercel.app/api/submit',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({form:'KloofStreet Get Listed',businessName:biz,name,email,phone,category:cat,tier,message:msg,timestamp:new Date().toISOString()})
+    });
+  }catch(e){console.log('Submitted',e);}
+  document.getElementById('listForm').innerHTML=`<div style="text-align:center;padding:60px 20px;"><div style="font-size:48px;margin-bottom:16px;">✓</div><div style="font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.06em;color:var(--gold);margin-bottom:10px;">APPLICATION RECEIVED</div><p style="font-size:14px;color:var(--sand-muted);line-height:1.6;max-width:340px;margin:0 auto 24px;">We review every application personally. You'll hear from us within 24 hours with your Yoco payment link.</p><button class="btn-primary" onclick="showPage('home')">Back to Kloof Street</button></div>`;
 }
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3500);}
 </script>
 </body>
 </html>
+ 
