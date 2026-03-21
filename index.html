@@ -171,29 +171,189 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
 .footer-bottom p{font-size:12px;color:rgba(184,176,160,0.5);}
 .toast{position:fixed;bottom:30px;right:30px;background:var(--green);border:1px solid var(--gold);color:var(--white);padding:14px 20px;font-size:13px;z-index:999;display:none;max-width:300px;line-height:1.4;}
 .toast.show{display:block;}
+.section-explore{padding:70px 50px;}
+.section-pass{padding:0 50px 70px;}
+.section-top{padding-top:100px;}
+
+/* ── LAYOUT GRID CLASSES ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.listed-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.packages-grid-inner{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.pkg-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;}
+.pass-block{display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;}
+.photo-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:40px;}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.collections-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.biz-detail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px;}
+.connect-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.explore-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;}
+
+/* ── TABLET ── */
 @media(max-width:900px){
-  nav{padding:16px 24px;}nav.scrolled{padding:12px 24px;}
-  .nav-links{display:none;}.nav-cta{display:none;}
+  /* Nav */
+  nav{padding:16px 20px;}
+  nav.scrolled{padding:13px 20px;}
+  .nav-links,.nav-cta{display:none;}
   .hamburger{display:flex;}
-  section{padding:60px 24px;}
-  .hero-content{padding:40px 24px;}
-  .hero h1{font-size:48px;}
+
+  /* Layout */
+  section{padding:52px 20px;}
+  .section-title{font-size:clamp(32px,7vw,48px);}
+
+  /* Hero */
+  .hero-content{padding:36px 20px;}
+  .hero h1{font-size:clamp(44px,10vw,64px);}
+  .hero-sub{font-size:14px;}
   .stats-bar{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2){border-right:none;}
+  .stat-item:nth-child(3){border-right:1px solid rgba(255,255,255,0.08);}
+
+  /* Categories */
   .cat-grid{grid-template-columns:1fr 1fr;}
+  .cat-title{font-size:18px;}
+  .cat-desc{display:none;}
+
+  /* Brands */
   .brands-grid{grid-template-columns:1fr 1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
-  .kpi-row{grid-template-columns:1fr 1fr;}
-  .dash-panels{grid-template-columns:1fr;}
+
+  /* Section padding */
+  .section-explore{padding:52px 20px;}
+  .section-pass{padding:0 20px 52px;}
+  .section-top{padding-top:80px;}
+
+  /* Named layout grids */
+  .about-grid,.ai-grid,.listed-grid{grid-template-columns:1fr;}
+  .pkg-header{grid-template-columns:1fr;}
+  .packages-grid-inner{grid-template-columns:1fr;}
+  .pass-block{grid-template-columns:1fr;padding:36px 20px!important;}
+  .pass-price-col{text-align:left!important;}
+  .connect-cards{grid-template-columns:repeat(3,1fr);}
+  .explore-row{grid-template-columns:1fr 1fr;}
+
+  /* Packages — stack on tablet */
+  .packages-grid-inner{grid-template-columns:1fr!important;}
+
+  /* Business detail */
+  .biz-detail-body{grid-template-columns:1fr;gap:32px;padding:36px 20px;}
+  .biz-hero-content{padding:28px 20px;}
+  .biz-hero{height:40vh;min-height:280px;}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr!important;}
+  .about-img-wrap{display:none;}
+
+  /* AI concierge */
+  .ai-grid{grid-template-columns:1fr!important;}
+  .ai-features{display:none;}
+
+  /* Get listed */
+  .listed-grid{grid-template-columns:1fr!important;}
+  .listed-steps{display:none;}
+
+  /* Dashboard */
   .dash-layout{grid-template-columns:1fr;}
   .dash-sidebar{display:none;}
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .dash-panels{grid-template-columns:1fr;}
+
+  /* Forms */
   .form-row2{grid-template-columns:1fr;}
-  .biz-detail-body{grid-template-columns:1fr;padding:40px 24px;}
-  .biz-hero-content{padding:30px 24px;}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px;}
+  footer{padding:48px 20px 24px;}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+}
+
+/* ── MOBILE ── */
+@media(max-width:520px){
+  /* Section padding */
+  .section-explore{padding:40px 16px;}
+  .section-pass{padding:0 16px 44px;}
+  .section-top{padding-top:70px;}
+
+  /* Named grids collapse */
+  .services-grid,.collections-grid{grid-template-columns:1fr;}
+  .connect-cards{grid-template-columns:1fr;}
+  .explore-row{grid-template-columns:1fr;}
+  .biz-detail-actions{flex-direction:column;}
+  .biz-detail-actions .btn-primary,
+  .biz-detail-actions .btn-ghost{text-align:center;padding:14px;display:block;}
+
+  /* Nav */
+  nav{padding:14px 16px;}
+
+  /* Layout */
+  section{padding:44px 16px;}
+
+  /* Hero */
+  .hero-content{padding:28px 16px;}
+  .hero h1{font-size:clamp(38px,12vw,54px);line-height:0.92;}
+  .hero-sub{font-size:13px;margin-bottom:24px;}
+  .hero-btns{flex-direction:column;gap:10px;}
+  .hero-btns .btn-primary,.hero-btns .btn-ghost{display:block;text-align:center;padding:14px 20px;}
+  .stats-bar{grid-template-columns:1fr 1fr;margin-top:32px;}
+  .stat-num{font-size:28px;}
+  .stat-item{padding:14px 0;}
+  .stat-item:nth-child(3){border-right:none;}
+
+  /* Categories — single col on small mobile */
+  .cat-grid{grid-template-columns:1fr;}
+  .cat-card{aspect-ratio:16/9;}
+
+  /* Brands — single col on small mobile */
+  .brands-grid{grid-template-columns:1fr;}
+
+  /* Street pass block */
+  .pass-block{flex-direction:column!important;padding:32px 20px!important;}
+  .pass-block .pass-price-col{text-align:left!important;margin-top:28px;}
+
+  /* Packages */
+  .pkg-card{padding:24px 18px;}
+  .pkg-price{font-size:40px;}
+
+  /* Business detail */
+  .biz-detail-body{padding:28px 16px;gap:24px;}
+  .biz-hero-content{padding:20px 16px;}
+  .biz-hero{height:35vh;min-height:240px;}
+  .biz-detail-actions{flex-direction:column;}
+  .biz-detail-actions .btn-primary,
+  .biz-detail-actions .btn-ghost{display:block;text-align:center;margin:0 0 10px;}
+
+  /* Photo grid in detail pages */
+  .photo-grid-3{grid-template-columns:1fr!important;}
+
+  /* Chat widget */
+  .chat-widget{height:400px;}
+
+  /* Dashboard KPIs */
+  .kpi-row{grid-template-columns:1fr 1fr;}
+  .kpi-val{font-size:26px;}
+
+  /* Forms */
+  .form-field input,.form-field select,.form-field textarea{font-size:16px;} /* prevent iOS zoom */
+  .form-submit{font-size:13px;}
+
+  /* Footer */
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-col:nth-child(3),.footer-col:nth-child(4){display:none;}
+  footer{padding:40px 16px 20px;}
+
+  /* Toast */
+  .toast{left:16px;right:16px;bottom:16px;max-width:none;}
+
+  /* Section titles */
+  .section-title{font-size:clamp(28px,9vw,40px);}
+  .section-desc{font-size:14px;}
+
+  /* Buttons full-width when stacked */
+  .btn-primary,.btn-ghost{padding:13px 24px;font-size:11px;}
 }
 </style>
 </head>
 <body>
- 
+
 <nav id="mainNav">
   <div class="nav-logo" onclick="showPage('home')">KLOOF<span>.</span>ONLINE</div>
   <ul class="nav-links">
@@ -209,7 +369,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     <span></span><span></span><span></span>
   </button>
 </nav>
- 
+
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="document.getElementById('mobileMenu').classList.remove('open')">✕</button>
   <a onclick="go('home')">Home</a>
@@ -220,9 +380,9 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
   <a onclick="go('ai')">AI Concierge</a>
   <a onclick="go('listed')">Get Listed</a>
 </div>
- 
+
 <div class="toast" id="toast"></div>
- 
+
 <!-- HOME -->
 <div id="page-home" class="page active">
   <div class="hero-wrap">
@@ -243,7 +403,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
       </div>
     </div>
   </div>
-  <section style="padding:70px 50px;">
+  <section class="section-explore">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;">
       <div><div class="section-tag">Discover</div><div class="section-title">EXPLORE KLOOF STREET</div></div>
       <a style="font-size:12px;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;" onclick="showPage('explore')">View All →</a>
@@ -254,8 +414,8 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
       <div class="cat-card" onclick="showPage('ubuntu')"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Selected spaces for mindful care</div><div class="cat-title">Wellness & Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
     </div>
   </section>
-  <section style="padding:0 50px 70px;">
-    <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:60px;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;">
+  <section class="section-pass">
+    <div class="pass-block" style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:60px;">
       <div>
         <div class="section-tag">Street Pass</div>
         <div class="section-title">THE INSIDER'S KLOOF STREET</div>
@@ -266,7 +426,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
           <span style="font-size:13px;color:var(--sand-muted);display:flex;align-items:center;gap:10px;"><span style="color:var(--gold);">—</span>Members-only events monthly</span>
         </div>
       </div>
-      <div style="text-align:center;flex-shrink:0;">
+      <div class="pass-price-col" style="text-align:center;flex-shrink:0;">
         <div style="font-family:'Bebas Neue',sans-serif;font-size:72px;color:var(--gold);line-height:1;">R199</div>
         <div style="font-size:13px;color:var(--sand-muted);margin-bottom:20px;">/month</div>
         <a class="btn-primary" onclick="showPage('listed')">Get Street Pass</a>
@@ -274,11 +434,11 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </section>
 </div>
- 
+
 <!-- ABOUT -->
 <div id="page-about" class="page">
-  <section style="padding-top:100px;background:var(--dark2);">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+  <section class="section-top" style="background:var(--dark2);">
+    <div class="about-grid">
       <div>
         <div class="section-tag">About Us</div>
         <div class="section-title">CURATED. MODERN.<br>DISTINCTLY KLOOF.</div>
@@ -286,46 +446,46 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
         <p style="font-size:14px;color:var(--sand-muted);line-height:1.7;margin-top:16px;max-width:460px;">KloofStreet.online is a curated digital platform — not a directory. Every listing is handpicked. Every business on this platform is here because it belongs here.</p>
         <div style="margin-top:48px;">
           <div style="font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;">Let's Connect.</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+          <div class="connect-cards">
             <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:28px 16px;text-align:center;cursor:pointer;transition:all 0.25s;" onclick="showPage('explore')" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"><div style="font-size:28px;margin-bottom:12px;">🗺️</div><div style="font-size:12px;color:var(--sand);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Explore Kloof Street</div></div>
             <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:28px 16px;text-align:center;cursor:pointer;transition:all 0.25s;" onclick="showPage('listed')" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"><div style="font-size:28px;margin-bottom:12px;">⭐</div><div style="font-size:12px;color:var(--sand);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Apply for a Feature</div></div>
             <div style="background:var(--green);border:1px solid rgba(201,168,76,0.2);padding:28px 16px;text-align:center;cursor:pointer;transition:all 0.25s;" onclick="showPage('packages')" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.2)'"><div style="font-size:28px;margin-bottom:12px;">📍</div><div style="font-size:12px;color:var(--sand);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;">Market with Us</div></div>
           </div>
         </div>
       </div>
-      <div style="position:relative;">
+      <div class="about-img-wrap" style="position:relative;">
         <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85" alt="Cape Town" style="width:100%;height:520px;object-fit:cover;"/>
         <div style="position:absolute;bottom:-20px;right:-20px;background:var(--green);border:1px solid var(--gold);padding:24px;text-align:center;width:140px;"><strong style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);display:block;line-height:1;">51</strong><span style="font-size:11px;color:var(--sand-muted);text-transform:uppercase;letter-spacing:0.1em;">Curated Spots</span></div>
       </div>
     </div>
   </section>
 </div>
- 
+
 <!-- EXPLORE -->
 <div id="page-explore" class="page">
-  <section style="padding-top:100px;">
+  <section class="section-top">
     <div class="section-title" style="margin-bottom:40px;">EXPLORE KLOOF STREET</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;">
+    <div class="explore-row">
       <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover & Experience</div><div class="cat-title">Restaurants & Dining</div><div class="cat-desc">The finest culinary experiences and signature flavours</div></div></div>
       <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80" alt="Art Studios" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Designed for makers and innovators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Explore inspiring studios and artistic environments</div></div></div>
       <div class="cat-card" onclick="showPage('ubuntu')"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Selected spaces for mindful care</div><div class="cat-title">Wellness & Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;">
+    <div class="explore-row">
       <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" alt="Bars" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Experience Kloof's vibrant culture</div><div class="cat-title">Bars & Nightlife</div><div class="cat-desc">Exclusive lounges, bars and the best brews on Kloof Street</div></div></div>
       <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Creative" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Connect with local artists</div><div class="cat-title">Creative Spaces</div><div class="cat-desc">Galleries, creative hubs and cultural touchpoints</div></div></div>
       <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Shopping" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Browse unique boutiques</div><div class="cat-title">Shopping & Boutiques</div><div class="cat-desc">Lifestyle stores and local designer brands</div></div></div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+    <div class="explore-row">
       <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="Cafes" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Uncover artisanal cafes</div><div class="cat-title">Cafes & Bakeries</div><div class="cat-desc">Kloof Street's best brews and bakes</div></div></div>
       <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Hotels" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Explore boutique stays</div><div class="cat-title">Hotel & Stays</div><div class="cat-desc">Luxury accommodation along Kloof Street</div></div></div>
       <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80" alt="Experiences" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Handpicked experiences</div><div class="cat-title">Curated Experiences</div><div class="cat-desc">Boutique experiences crafted for Kloof Street explorers</div></div></div>
     </div>
   </section>
 </div>
- 
+
 <!-- FEATURED BRANDS -->
 <div id="page-brands" class="page">
-  <section style="padding-top:100px;">
+  <section class="section-top">
     <div style="margin-bottom:48px;"><div class="section-tag">Kloof Street</div><div class="section-title">FEATURED BRANDS</div><p class="section-desc">Handpicked businesses that define the street. Curated — not crowded.</p></div>
     <div class="brands-grid">
       <div class="brand-card" onclick="showPage('on-safari')">
@@ -359,7 +519,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </section>
 </div>
- 
+
 <!-- ON SAFARI -->
 <div id="page-on-safari" class="page">
   <div class="biz-hero">
@@ -378,14 +538,14 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
       <h2 style="font-size:24px;font-weight:600;color:var(--white);margin-bottom:20px;">Africa Through the Lens</h2>
       <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:20px;">On Safari brings the raw beauty of African wildlife into your home through stunning photographic fine art prints. Each image is captured in the wild — lions, elephants, zebras, hippos — and printed to museum-quality standards.</p>
       <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:32px;">Whether you're looking for a statement piece for your living room or a meaningful gift, On Safari's collections span the breadth of Africa's most iconic animals and landscapes.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:40px;">
+      <div class="photo-grid-3">
         <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);"/>
         <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);"/>
         <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);"/>
       </div>
       <div style="background:var(--dark2);border:1px solid var(--border);padding:28px;margin-bottom:32px;">
         <div class="section-tag" style="margin-bottom:16px;">Collections</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div class="collections-grid">
           <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🦁 Lions</div>
           <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🐘 Elephants</div>
           <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🦓 Zebra</div>
@@ -394,8 +554,10 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
           <div style="padding:14px;border:1px solid rgba(255,255,255,0.06);font-size:13px;color:var(--sand-muted);">🐾 Meercat</div>
         </div>
       </div>
-      <a href="https://www.on-safari.co.za" target="_blank" class="btn-primary" style="margin-right:12px;">Shop Fine Art Prints</a>
-      <a href="https://www.on-safari.co.za/collections" target="_blank" class="btn-ghost">View All Collections</a>
+      <div class="biz-detail-actions">
+        <a href="https://www.on-safari.co.za" target="_blank" class="btn-primary">Shop Fine Art Prints</a>
+        <a href="https://www.on-safari.co.za/collections" target="_blank" class="btn-ghost">View All Collections</a>
+      </div>
     </div>
     <div>
       <div class="biz-info-card">
@@ -419,7 +581,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </div>
 </div>
- 
+
 <!-- UBUNTU WELLNESS -->
 <div id="page-ubuntu" class="page">
   <div class="biz-hero">
@@ -438,7 +600,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
       <h2 style="font-size:24px;font-weight:600;color:var(--white);margin-bottom:20px;">A Sanctuary for Mind, Body & Spirit</h2>
       <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:20px;">Ubuntu Wellness is Cape Town's most holistic health sanctuary. From float therapy and spa treatments to homeopathy, vegan nutrition and stress management — this is where healing happens.</p>
       <p style="font-size:15px;color:var(--sand-muted);line-height:1.8;margin-bottom:32px;">Rooted in the African philosophy of Ubuntu — "I am because we are" — the centre offers a complete approach to wellness that treats the whole person.</p>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px;">
+      <div class="services-grid" style="margin-bottom:32px;">
         <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🧘</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Spa & Medi-Spa</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Luxurious treatments for total body restoration</div></div>
         <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">💧</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Float Therapy</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Sensory deprivation floating for deep relaxation</div></div>
         <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🌿</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Homeopathy</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Natural healing with qualified practitioners</div></div>
@@ -446,8 +608,10 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
         <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🏢</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Corporate Wellness</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Tailored wellness programmes for teams</div></div>
         <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.06);padding:20px;"><div style="font-size:20px;margin-bottom:10px;">🎓</div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:6px;">Wellness Academy</div><div style="font-size:12px;color:var(--sand-muted);line-height:1.5;">Skills training, plant-based cooking and Ubuntu Chefs</div></div>
       </div>
-      <a href="https://ubuntuwellness.com" target="_blank" class="btn-primary" style="margin-right:12px;">Visit Ubuntu Wellness</a>
-      <a href="https://ubuntuwellness.com/contact/" target="_blank" class="btn-ghost">Book a Treatment</a>
+      <div class="biz-detail-actions">
+        <a href="https://ubuntuwellness.com" target="_blank" class="btn-primary">Visit Ubuntu Wellness</a>
+        <a href="https://ubuntuwellness.com/contact/" target="_blank" class="btn-ghost">Book a Treatment</a>
+      </div>
     </div>
     <div>
       <div class="biz-info-card">
@@ -470,15 +634,15 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </div>
 </div>
- 
+
 <!-- PACKAGES -->
 <div id="page-packages" class="page">
-  <section style="padding-top:100px;background:var(--dark2);">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;">
+  <section class="section-top" style="background:var(--dark2);">
+    <div class="pkg-header">
       <div><div class="section-tag">For Businesses</div><div class="section-title">BECOME A FEATURED BRAND</div></div>
       <p style="font-size:15px;color:var(--sand-muted);line-height:1.7;padding-top:12px;">Limited spots. Real scarcity. Every tier is handpicked — not just paid for. All payments processed securely via <strong style="color:var(--gold);">Yoco</strong> on the Business Hustle platform.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;">
+    <div class="packages-grid-inner" class="explore-row">
       <div class="pkg-card">
         <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;font-weight:600;color:#a07850;">Essential</div>
         <div class="pkg-price">R750</div><div class="pkg-per">/month</div>
@@ -531,16 +695,16 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     <p style="text-align:center;font-size:13px;color:var(--sand-muted);margin-top:32px;padding-bottom:20px;">Payments processed securely via <strong style="color:var(--gold);">Yoco</strong> on the Business Hustle platform. Questions? <a onclick="showPage('listed')" style="color:var(--gold);cursor:pointer;text-decoration:underline;">Contact us</a></p>
   </section>
 </div>
- 
+
 <!-- AI CONCIERGE -->
 <div id="page-ai" class="page">
-  <section style="padding-top:100px;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+  <section class="section-top">
+    <div class="ai-grid">
       <div>
         <div class="section-tag">AI Concierge</div>
         <div class="section-title">YOUR PERSONAL<br>STREET GUIDE</div>
         <p class="section-desc">Tell it your vibe, budget, group size and time — it plans your perfect Kloof Street experience.</p>
-        <div style="margin-top:40px;display:flex;flex-direction:column;gap:20px;">
+        <div class="ai-features" style="margin-top:40px;display:flex;flex-direction:column;gap:20px;">
           <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🎯</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Intent-aware recommendations</div><div style="font-size:12px;color:var(--sand-muted);">Understands mood, budget and timing</div></div></div>
           <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🎨</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Art & culture aware</div><div style="font-size:12px;color:var(--sand-muted);">Knows On Safari exhibitions and gallery events</div></div></div>
           <div style="display:flex;gap:16px;align-items:flex-start;"><div style="width:40px;height:40px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">🧘</div><div><div style="font-size:13px;font-weight:600;color:var(--white);margin-bottom:3px;">Wellness-informed</div><div style="font-size:12px;color:var(--sand-muted);">Recommends Ubuntu Wellness for spa, float and homeopathy</div></div></div>
@@ -568,10 +732,10 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </section>
 </div>
- 
+
 <!-- DASHBOARD -->
 <div id="page-dash" class="page">
-  <section style="padding-top:100px;">
+  <section class="section-top">
     <div style="margin-bottom:28px;"><div class="section-tag">Business Owner</div><div class="section-title">YOUR DASHBOARD</div></div>
     <div class="dash-layout">
       <div class="dash-sidebar">
@@ -622,12 +786,12 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </section>
 </div>
- 
+
 <!-- GET LISTED -->
 <div id="page-listed" class="page">
-  <section style="padding-top:100px;background:var(--dark2);">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;">
-      <div>
+  <section class="section-top" style="background:var(--dark2);">
+    <div class="listed-grid">
+      <div class="listed-steps">
         <div class="section-tag">Get Listed</div>
         <div class="section-title">JOIN KLOOF STREET'S CURATED PLATFORM</div>
         <p class="section-desc">We review every application personally. Expect a response within 24 hours.</p>
@@ -683,7 +847,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     </div>
   </section>
 </div>
- 
+
 <footer>
   <div class="footer-grid">
     <div>
@@ -728,7 +892,7 @@ footer{background:#0c0c0b;border-top:1px solid rgba(255,255,255,0.05);padding:60
     <p style="font-size:11px;color:rgba(184,176,160,0.4);">POWERED BY <span style="color:var(--gold);">BUSINESS HUSTLE</span></p>
   </div>
 </footer>
- 
+
 <script>
 const ALL_PAGES=['home','about','explore','brands','on-safari','ubuntu','packages','ai','dash','listed'];
 const NAV_IDS=['home','about','explore','brands','packages','ai'];
@@ -792,4 +956,3 @@ function showToast(msg){const t=document.getElementById('toast');t.textContent=m
 </script>
 </body>
 </html>
- 
