@@ -631,13 +631,117 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .photo-safari-3{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet-3.png") center/cover no-repeat;}
 .about-img{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85") center/cover no-repeat;}
 .cat-card::before,.life-cell::before{display:none;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes countUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}50%{box-shadow:0 0 18px 4px rgba(245,197,24,.18)}}
+@keyframes borderFlow{0%{border-color:rgba(245,197,24,.1)}50%{border-color:rgba(245,197,24,.4)}100%{border-color:rgba(245,197,24,.1)}}
+
+/* Hero entrance */
+.hero-tag{animation:slideRight .7s cubic-bezier(.22,1,.36,1) .2s both}
+.hero h1{animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .35s both}
+.hero-sub{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .5s both}
+.hero-btns{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .65s both}
+.stats{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .8s both}
+
+/* Stat numbers pop */
+.stat-n{animation:countUp .5s cubic-bezier(.22,1,.36,1) 1s both}
+.stat:nth-child(2) .stat-n{animation-delay:1.1s}
+.stat:nth-child(3) .stat-n{animation-delay:1.2s}
+.stat:nth-child(4) .stat-n{animation-delay:1.3s}
+
+/* Trust strip slide */
+.trust-i{animation:slideRight .5s cubic-bezier(.22,1,.36,1) both}
+.trust-i:nth-child(1){animation-delay:.1s}
+.trust-i:nth-child(2){animation-delay:.2s}
+.trust-i:nth-child(3){animation-delay:.3s}
+.trust-i:nth-child(4){animation-delay:.4s}
+.trust-i:nth-child(5){animation-delay:.5s}
+.trust-i:nth-child(6){animation-delay:.6s}
+.trust-i:nth-child(7){animation-delay:.7s}
+
+/* Life strip scale */
+.life-cell{animation:scaleIn .6s cubic-bezier(.22,1,.36,1) both}
+.life-cell:nth-child(1){animation-delay:.1s}
+.life-cell:nth-child(2){animation-delay:.2s}
+.life-cell:nth-child(3){animation-delay:.3s}
+.life-cell:nth-child(4){animation-delay:.4s}
+
+/* Scroll-reveal base — JS adds .visible */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.95);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.reveal-scale.visible{opacity:1;transform:none}
+
+/* Stagger children */
+.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.12s}
+.stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.19s}
+.stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.26s}
+.stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.33s}
+.stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.40s}
+.stagger.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:.47s}
+.stagger.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:.54s}
+.stagger.visible>*:nth-child(9){opacity:1;transform:none;transition-delay:.61s}
+
+/* Button hover effects */
+.btn-gold{transition:background .2s,transform .15s,box-shadow .2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,197,24,.25)}
+.btn-outline{transition:border-color .2s,color .2s,transform .15s}
+.btn-outline:hover{transform:translateY(-2px)}
+
+/* Card hover lift */
+.brand-card{transition:border-color .3s,transform .25s,box-shadow .25s}
+.brand-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.lcard{transition:border-color .3s,transform .2s}
+.lcard:hover{transform:translateY(-3px)}
+.cat-card{transition:filter .3s,transform .4s}
+.cat-card:hover{transform:scale(1.02)}
+.pkg-card{transition:border-color .25s,transform .2s,box-shadow .25s}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.35)}
+.info-card{transition:border-color .25s,transform .2s}
+.info-card:hover{border-color:rgba(245,197,24,.2);transform:translateY(-2px)}
+.connect-card{transition:border-color .25s,transform .2s}
+.connect-card:hover{transform:translateY(-3px)}
+
+/* Featured badge glow */
+.pkg-card.featured{animation:glowPulse 3s ease-in-out infinite}
+
+/* Nav link underline slide */
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--a);transition:width .25s}
+.nav-links a:hover::after,.nav-links a.on::after{width:100%}
+
+/* Chat message entrance */
+.msg{animation:fadeUp .3s cubic-bezier(.22,1,.36,1) both}
+
+/* Shimmer on gold buttons */
+.btn-gold{background-size:200% auto}
+.btn-gold:hover{background-image:linear-gradient(90deg,var(--a) 0%,var(--al) 40%,var(--a) 100%);background-size:200% auto;animation:shimmer .8s linear}
+
+/* Pass block border animation */
+.pass-block{animation:borderFlow 4s ease-in-out infinite}
+
+/* Section tag pulse dot */
+.sec-tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--a);margin-right:8px;animation:pulse 2s infinite;vertical-align:middle}
+
+/* Locked card stagger in directory */
+.stores-grid .lcard{transition:border-color .3s,transform .2s,opacity .4s}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav id="mainNav">
-  <div class="logo" onclick="go('home')">KLOOF<em>.</em>ONLINE</div>
+  <div class="logo" onclick="go('home')">KLOOFSTREET<em>.</em>ONLINE</div>
   <ul class="nav-links">
     <li><a onclick="go('home')" id="nl-home" class="on">Home</a></li>
     <li><a onclick="go('about')" id="nl-about">About</a></li>
@@ -796,7 +900,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 
         <div class="brand-card" onclick="go('on-safari')">
           <div class="brand-img brand-img-safari">
-            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="brand-tier tier-g">Starter Partner</div>
             <div class="open-pill">Open</div>
             <div class="vibe-bar">Exhibition on now 🎨</div>
           </div>
@@ -946,7 +1050,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
     <div class="biz-hero-inner">
       <button class="biz-back" onclick="go('brands')">← Back to Directory</button>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Starter Partner</span>
         <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
         <span class="badge">✓ Verified</span>
       </div>
@@ -1241,7 +1345,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-logo">KLOOF<em>.</em>ONLINE</div>
+      <div class="footer-logo">KLOOFSTREET<em>.</em>ONLINE</div>
       <p class="footer-desc">The curated digital platform for Kloof Street, Cape Town. Verified listings. Real discovery. Powered by Business Hustle.</p>
       <div class="badge">✓ Verified Platform</div>
     </div>
@@ -1268,14 +1372,14 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
       <h4>Business Hustle</h4>
       <ul>
         <li><a href="https://businesshustle.co.za" target="_blank">businesshustle.co.za</a></li>
-        <li><a href="https://app.businesshustle.co.za" target="_blank">BH Platform</a></li>
-        <li><a href="mailto:hello@businesshustle.co.za">hello@businesshustle.co.za</a></li>
+        <li><a href="https://www.hustleportal.online/" target="_blank">BH Platform</a></li>
+        <li><a href="mailto:team@businesshustle.co.za">team@businesshustle.co.za</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bot">
     <p>© 2026 KloofStreet.online — Cape Town, South Africa</p>
-    <p>POWERED BY <em>BUSINESS HUSTLE</em></p>
+    <p><a href="https://www.hustleportal.online/" target="_blank" style="color:rgba(122,122,120,.45);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--a)'" onmouseout="this.style.color='rgba(122,122,120,.45)'">POWERED BY <em style="color:var(--a);">BUSINESS HUSTLE</em></a></p>
   </div>
 </footer>
 
@@ -1461,6 +1565,93 @@ function submitForm() {
     '<a class="btn btn-gold" onclick="go(\'brands\')">Explore the Directory</a>' +
     '</div>';
 }
+
+// ── SCROLL REVEAL ──
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+
+  function attachReveal(){
+    // Section titles & descriptions
+    document.querySelectorAll('.sec-title,.sec-desc,.sec-tag').forEach(function(el){
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+    // Cat grids — stagger
+    document.querySelectorAll('.cat-grid,.brands-grid,.pkg-grid').forEach(function(el){
+      if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}
+    });
+    // Stores grid items
+    document.querySelectorAll('.stores-grid .lcard').forEach(function(el,i){
+      el.style.transitionDelay=(i%4*0.07)+'s';
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+    // Brand cards
+    document.querySelectorAll('.brand-card').forEach(function(el,i){
+      el.style.transitionDelay=(i*0.12)+'s';
+      if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}
+    });
+    // Info cards
+    document.querySelectorAll('.info-card').forEach(function(el){
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+    // Pass block
+    document.querySelectorAll('.pass-block').forEach(function(el){
+      if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}
+    });
+    // Life strip
+    document.querySelectorAll('.life').forEach(function(el){
+      if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}
+    });
+    // Biz sections
+    document.querySelectorAll('.biz-body>div').forEach(function(el){
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+    // Connect cards
+    document.querySelectorAll('.connect-cards').forEach(function(el){
+      if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}
+    });
+    // Photo grid cells
+    document.querySelectorAll('.photo-cell').forEach(function(el,i){
+      el.style.transitionDelay=(i*0.1)+'s';
+      if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}
+    });
+    // KPI cards
+    document.querySelectorAll('.kpi').forEach(function(el,i){
+      el.style.transitionDelay=(i*0.1)+'s';
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+    // Service cards
+    document.querySelectorAll('.svc').forEach(function(el,i){
+      el.style.transitionDelay=(i*0.08)+'s';
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+    // Footer cols
+    document.querySelectorAll('.footer-grid>div').forEach(function(el,i){
+      el.style.transitionDelay=(i*0.1)+'s';
+      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
+    });
+  }
+  attachReveal();
+
+  // Re-attach on page navigation
+  var _go = window.go;
+  window.go = function(name){
+    _go(name);
+    setTimeout(attachReveal, 50);
+  };
+  var _mgo = window.mgo;
+  window.mgo = function(name){
+    _mgo(name);
+    setTimeout(attachReveal, 50);
+  };
+})();
+
 </script>
 </body>
 </html>
