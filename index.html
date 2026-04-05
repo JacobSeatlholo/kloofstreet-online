@@ -68,7 +68,7 @@ section{padding:80px 50px;}
 
 /* ── HERO ── */
 .hero-wrap{position:relative;height:100vh;min-height:600px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,11,0.95) 0%,rgba(10,10,11,0.3) 55%,rgba(10,10,11,0.05) 100%),url('https://images.unsplash.com/photo-1571619004747-1843eef96fb6?w=1600&q=85') center/cover no-repeat;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,11,1) 0%,rgba(17,14,5,0.97) 40%,rgba(30,22,3,0.95) 70%,rgba(10,10,11,1) 100%);}
 .hero-content{position:relative;z-index:2;padding:60px 50px;}
 .hero-tag{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--a);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
 .hero-tag::before{content:'';display:block;width:32px;height:1px;background:var(--a);}
@@ -88,9 +88,9 @@ section{padding:80px 50px;}
 
 /* ── CATEGORIES ── */
 .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.cat-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;}
-.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s;filter:brightness(0.7);}
-.cat-card:hover img{transform:scale(1.05);filter:brightness(0.5);}
+.cat-card{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer;background:var(--bg2);}
+.cat-card .cat-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.7);transition:transform 0.6s,filter 0.6s;}
+.cat-card:hover .cat-bg{transform:scale(1.05);filter:brightness(0.5);}
 .cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,11,0.92) 0%,transparent 60%);}
 .cat-body{position:absolute;bottom:0;left:0;right:0;padding:24px;}
 .cat-tag{font-size:10px;color:var(--a);letter-spacing:0.2em;text-transform:uppercase;font-weight:600;margin-bottom:8px;font-family:'Barlow Condensed',sans-serif;}
@@ -242,9 +242,8 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 
 /* ── SMILE/LIFE SECTION ── */
 .life-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;height:300px;overflow:hidden;}
-.life-strip-item{overflow:hidden;position:relative;}
-.life-strip-item img{width:100%;height:100%;object-fit:cover;filter:brightness(0.8);transition:transform 0.6s;}
-.life-strip-item:hover img{transform:scale(1.06);filter:brightness(0.95);}
+.life-strip-item{overflow:hidden;position:relative;transition:filter 0.4s;}
+.life-strip-item:hover{filter:brightness(1.15);}
 .life-strip-item .life-label{position:absolute;bottom:0;left:0;right:0;padding:16px;background:linear-gradient(to top,rgba(10,10,11,0.85),transparent);font-size:11px;color:var(--a);letter-spacing:0.15em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-weight:600;}
 
 /* ── SCROLL REVEAL ── */
@@ -386,20 +385,20 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 
   <!-- Life strip — smiles and vibrancy -->
   <div class="life-strip">
-    <div class="life-strip-item">
-      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Dining" loading="lazy"/>
+    <div class="life-strip-item" style="background:linear-gradient(135deg,#1a0f00,#3d2800);">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;opacity:0.18;">🍽️</div>
       <div class="life-label">Fine Dining</div>
     </div>
-    <div class="life-strip-item">
-      <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=600&q=85" alt="Wellness" loading="lazy"/>
+    <div class="life-strip-item" style="background:linear-gradient(135deg,#050f0a,#0d2318);">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;opacity:0.18;">🧘</div>
       <div class="life-label">Wellness</div>
     </div>
-    <div class="life-strip-item">
-      <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=85" alt="Art" loading="lazy"/>
+    <div class="life-strip-item" style="background:linear-gradient(135deg,#0a0a1a,#151530);">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;opacity:0.18;">🎨</div>
       <div class="life-label">Art & Culture</div>
     </div>
-    <div class="life-strip-item">
-      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=600&q=85" alt="Coffee" loading="lazy"/>
+    <div class="life-strip-item" style="background:linear-gradient(135deg,#100800,#2a1800);">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:52px;opacity:0.18;">☕</div>
       <div class="life-label">Coffee & Cafés</div>
     </div>
   </div>
@@ -410,9 +409,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
       <a style="font-size:12px;color:var(--a);letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;" onclick="showPage('brands')">View All →</a>
     </div>
     <div class="cat-grid">
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div><div class="cat-desc">The finest culinary experiences and signature flavours</div></div></div>
-      <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80" alt="Art Studios" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Makers &amp; creators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Inspiring studios and artistic environments</div></div></div>
-      <div class="cat-card" onclick="showPage('ubuntu')"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Mindful care &amp; restoration</div><div class="cat-title">Wellness &amp; Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#1a0800,#3d1500);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🍽️</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div><div class="cat-desc">The finest culinary experiences and signature flavours</div></div></div>
+      <div class="cat-card" onclick="showPage('on-safari')"><div class="cat-bg" style="background:linear-gradient(135deg,#0a0a1a,#1a1535);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🎨</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Makers &amp; creators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Inspiring studios and artistic environments</div></div></div>
+      <div class="cat-card" onclick="showPage('ubuntu')"><div class="cat-bg" style="background:linear-gradient(135deg,#050f0a,#0d2318);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🧘</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Mindful care &amp; restoration</div><div class="cat-title">Wellness &amp; Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
     </div>
   </section>
 
@@ -457,7 +456,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
         </div>
       </div>
       <div style="position:relative;">
-        <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85" alt="Cape Town" style="width:100%;height:520px;object-fit:cover;border-radius:var(--radius);"/>
+        <div style="width:100%;height:520px;background:linear-gradient(135deg,#0f0a00,#2a1e00,#0a0a0b);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;"><span style="font-size:80px;opacity:0.15;">🏔️</span></div>
         <div style="position:absolute;bottom:-20px;right:-20px;background:var(--bg2);border:1px solid var(--a);padding:24px;text-align:center;width:140px;border-radius:var(--radius);"><strong style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--a);display:block;line-height:1;">51+</strong><span style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Businesses</span></div>
       </div>
     </div>
@@ -469,19 +468,19 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
   <section class="section-top">
     <div style="margin-bottom:40px;"><div class="section-tag">Discover</div><div class="section-title">EXPLORE KLOOF STREET</div></div>
     <div class="explore-row">
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=80" alt="Restaurants" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div><div class="cat-desc">The finest culinary experiences</div></div></div>
-      <div class="cat-card" onclick="showPage('on-safari')"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80" alt="Art Studios" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Makers &amp; innovators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Inspiring studios and galleries</div></div></div>
-      <div class="cat-card" onclick="showPage('ubuntu')"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" alt="Wellness" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Mindful care</div><div class="cat-title">Wellness &amp; Beauty</div><div class="cat-desc">Premium care and restoration</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#1a0800,#3d1500);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🍽️</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div><div class="cat-desc">The finest culinary experiences</div></div></div>
+      <div class="cat-card" onclick="showPage('on-safari')"><div class="cat-bg" style="background:linear-gradient(135deg,#0a0a1a,#1a1535);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🎨</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Makers &amp; innovators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Inspiring studios and galleries</div></div></div>
+      <div class="cat-card" onclick="showPage('ubuntu')"><div class="cat-bg" style="background:linear-gradient(135deg,#050f0a,#0d2318);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🧘</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Mindful care</div><div class="cat-title">Wellness &amp; Beauty</div><div class="cat-desc">Premium care and restoration</div></div></div>
     </div>
     <div class="explore-row">
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80" alt="Bars" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Kloof's vibrant nightlife</div><div class="cat-title">Bars &amp; Nightlife</div><div class="cat-desc">Best bars and brews on the street</div></div></div>
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Creative" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Local artists &amp; makers</div><div class="cat-title">Creative Spaces</div><div class="cat-desc">Galleries and cultural touchpoints</div></div></div>
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80" alt="Shopping" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Browse unique boutiques</div><div class="cat-title">Shopping &amp; Boutiques</div><div class="cat-desc">Lifestyle stores and local designers</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#0f0010,#220033);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🍺</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Kloof's vibrant nightlife</div><div class="cat-title">Bars &amp; Nightlife</div><div class="cat-desc">Best bars and brews on the street</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#0d0d00,#2a2800);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">✏️</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Local artists &amp; makers</div><div class="cat-title">Creative Spaces</div><div class="cat-desc">Galleries and cultural touchpoints</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#050518,#0f0f30);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🛍️</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Browse unique boutiques</div><div class="cat-title">Shopping &amp; Boutiques</div><div class="cat-desc">Lifestyle stores and local designers</div></div></div>
     </div>
     <div class="explore-row">
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80" alt="Cafes" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Artisanal cafés</div><div class="cat-title">Cafés &amp; Bakeries</div><div class="cat-desc">Kloof Street's best brews and bakes</div></div></div>
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80" alt="Hotels" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Boutique stays</div><div class="cat-title">Hotels &amp; Stays</div><div class="cat-desc">Luxury accommodation on Kloof Street</div></div></div>
-      <div class="cat-card" onclick="showPage('brands')"><img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80" alt="Experiences" loading="lazy"/><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Handpicked experiences</div><div class="cat-title">Curated Experiences</div><div class="cat-desc">Boutique experiences for explorers</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#100800,#2a1800);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">☕</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Artisanal cafés</div><div class="cat-title">Cafés &amp; Bakeries</div><div class="cat-desc">Kloof Street's best brews and bakes</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#0a080f,#1e1530);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🏨</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Boutique stays</div><div class="cat-title">Hotels &amp; Stays</div><div class="cat-desc">Luxury accommodation on Kloof Street</div></div></div>
+      <div class="cat-card" onclick="showPage('brands')"><div class="cat-bg" style="background:linear-gradient(135deg,#080f05,#152510);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">✨</div></div><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Handpicked experiences</div><div class="cat-title">Curated Experiences</div><div class="cat-desc">Boutique experiences for explorers</div></div></div>
     </div>
   </section>
 </div>
@@ -523,11 +522,11 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
       <div style="font-size:10px;color:var(--a);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:12px;font-family:'Barlow Condensed',sans-serif;font-weight:600;display:flex;align-items:center;gap:10px;"><span>⭐ Featured Partners</span><span style="color:var(--muted);font-size:9px;">— Verified &amp; Active</span></div>
       <div class="brands-grid" style="margin-bottom:2px;">
         <div class="brand-card" data-cat="art" onclick="showPage('on-safari')">
-          <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=700&q=80" alt="On Safari" loading="lazy"/><div class="brand-tier tier-growth">Growth Partner</div><div class="open-pill open">Open</div><div class="vibe-strip">Exhibition on now 🎨</div></div>
+          <div class="brand-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="brand-tier tier-growth">Growth Partner</div><div class="open-pill open">Open</div><div class="vibe-strip">Exhibition on now 🎨</div></div>
           <div class="brand-body"><div class="brand-cat">🎨 Art Studio · Photography</div><div class="brand-name">On Safari</div><div class="brand-tagline">Wildlife photographic fine art prints. Africa through the lens of a master photographer. 99B Kloof Street.</div><div class="brand-footer"><span class="brand-price">Fine Art · Photography</span><a class="view-btn" onclick="event.stopPropagation();showPage('on-safari')">View Profile →</a></div></div>
         </div>
         <div class="brand-card" data-cat="wellness" onclick="showPage('ubuntu')">
-          <div class="brand-card-img"><img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=700&q=80" alt="Ubuntu Wellness" loading="lazy"/><div class="brand-tier tier-growth">Growth Partner</div><div class="open-pill open">Open</div><div class="vibe-strip">Float &amp; spa sessions available 🧘</div></div>
+          <div class="brand-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#050f0a,#0d2318);"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;opacity:0.15;">🧘</div></div><div class="brand-tier tier-growth">Growth Partner</div><div class="open-pill open">Open</div><div class="vibe-strip">Float &amp; spa sessions available 🧘</div></div>
           <div class="brand-body"><div class="brand-cat">✨ Wellness · Spa · Homeopathy</div><div class="brand-name">Ubuntu Wellness & Cape Town Medi-Spa</div><div class="brand-tagline">Health spa, float therapy, homeopathy and vegan wellness. A sanctuary on Kloof Street.</div><div class="brand-footer"><span class="brand-price">Spa · Float · Wellness</span><a class="view-btn" onclick="event.stopPropagation();showPage('ubuntu')">View Profile →</a></div></div>
         </div>
         <!-- Placeholder slot -->
@@ -550,226 +549,226 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 
       <!-- DINING -->
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=70" alt="Sweet Revenge" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Sweet Revenge</div><div class="locked-address">115 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400&q=70" alt="Hudson's" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Hudson's</div><div class="locked-address">22 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=70" alt="Rick's Cafe" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Rick's Cafe</div><div class="locked-address">103 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=400&q=70" alt="Our Local" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Our Local</div><div class="locked-address">117 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=70" alt="Batanga" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Batanga</div><div class="locked-address">70A Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=70" alt="Onosbay" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Onosbay</div><div class="locked-address">105 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400&q=70" alt="Carne Kloof" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Carne Kloof</div><div class="locked-address">153 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&q=70" alt="Kyoto Garden" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Kyoto Garden</div><div class="locked-address">Kloof Nek Rd</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=400&q=70" alt="Vadivelu" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Vadivelu</div><div class="locked-address">151 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1528736235302-52922df5c122?w=400&q=70" alt="Bootleggers" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Bootleggers</div><div class="locked-address">112 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1574936145840-28808d77a0b6?w=400&q=70" alt="Judds Local" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Judd's Local</div><div class="locked-address">141 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=70" alt="Stud Burger" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Stud. The Burger Shop</div><div class="locked-address">98 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1543332164-6e82f355badc?w=400&q=70" alt="Toni's on Kloof" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Toni's on Kloof</div><div class="locked-address">88 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1525857222889-8c34aa61cecc?w=400&q=70" alt="Saigon" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Saigon</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=400&q=70" alt="Yindee's" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Yindee's Thai</div><div class="locked-address">Cnr Kloof &amp; Camp St</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=70" alt="ELGR" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">ELGR Restaurant</div><div class="locked-address">75 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1576866209830-589e1bfbaa4d?w=400&q=70" alt="Love Matcha" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Love Matcha</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1526318896980-cf78c088247c?w=400&q=70" alt="Olivebranch Deli" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Olivebranch Deli</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=400&q=70" alt="Smokin Joes" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Smokin Joe's</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=400&q=70" alt="Sushibox" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Sushibox</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
 
       <!-- NIGHTLIFE -->
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=400&q=70" alt="Vortex" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Vortex Shisha Lounge</div><div class="locked-address">66 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?w=400&q=70" alt="Club Kloof" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Club Kloof</div><div class="locked-address">84 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=400&q=70" alt="Van Hunks" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Van Hunks</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=400&q=70" alt="Born High" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Born High</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1538488881038-e252a119ace7?w=400&q=70" alt="Tiger's Milk" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Tiger's Milk</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1616531770192-6eaea74c2456?w=400&q=70" alt="Yours Truly" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Yours Truly</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1425421669292-0c3da3b8f529?w=400&q=70" alt="Kloof Street House" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Kloof Street House</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
 
       <!-- WELLNESS -->
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1593870846073-06be007c2ee0?w=400&q=70" alt="Shanti Natural" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Shanti Natural</div><div class="locked-address">115 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1562359371-8408082a3c8d?w=400&q=70" alt="BOA Beauty Bar" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">BOA Beauty Bar</div><div class="locked-address">7 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400&q=70" alt="Skin and Sage" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Skin and Sage</div><div class="locked-address">115 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=70" alt="Excentric on Kloof" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Excentric on Kloof</div><div class="locked-address">39 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=400&q=70" alt="Spoilt Hair" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Spoilt Hair</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&q=70" alt="Yemaya Salon" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Yemaya Salon</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&q=70" alt="Pulse on Kloof" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Pulse on Kloof</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&q=70" alt="The Body Shop" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">The Body Shop</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=400&q=70" alt="Kak Lucky Tattoos" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Kak Lucky Tattoos</div><div class="locked-address">43 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&q=70" alt="The Piercery" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">The Piercery</div><div class="locked-address">8 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
 
       <!-- RETAIL / LIFESTYLE -->
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=70" alt="Tonic Furniture" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Tonic Furniture</div><div class="locked-address">87 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&q=70" alt="LIM Furniture" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">LIM Furniture Store</div><div class="locked-address">86 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&q=70" alt="Boetik" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Boetik</div><div class="locked-address">79 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=70" alt="Deus Ex Machina" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Deus Ex Machina</div><div class="locked-address">18 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=400&q=70" alt="Lifestyle on Kloof" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Lifestyle on Kloof</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=70" alt="Aliverti" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Aliverti</div><div class="locked-address">50 Kloof Street, G04B</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1556742400-b5b7c512df37?w=400&q=70" alt="Urban Connect" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Urban Connect</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=400&q=70" alt="Widow Maker" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Widow Maker</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&q=70" alt="Paris Cape Town" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Paris – Cape Town</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1613203495595-4d6b9ef98e6b?w=400&q=70" alt="Mamacita's" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Mamacita's</div><div class="locked-address">8 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
 
       <!-- ART / CULTURE -->
       <div class="locked-card" data-cat="art" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&q=70" alt="AKJP Studio" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">AKJP Studio</div><div class="locked-address">73 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="art" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=400&q=70" alt="Museum of Illusions" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Museum of Illusions</div><div class="locked-address">10 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="art" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=400&q=70" alt="Never at Home" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Never@Home</div><div class="locked-address">73 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="art" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1508615970927-bc48b6a8bab3?w=400&q=70" alt="Ayepyep" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Ayepyep</div><div class="locked-address">14 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="art" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?w=400&q=70" alt="Rosendal" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Rosendal</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
 
       <!-- HOTELS / PREMIUM -->
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')" style="border-color:rgba(245,197,24,0.12);">
         <div class="locked-card-img" style="height:200px;position:relative;">
-          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80" alt="Mt Nelson Hotel" loading="lazy" style="filter:brightness(0.4) grayscale(20%);"/>
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1400,#2e2500);display:flex;align-items:center;justify-content:center;"><span style="font-size:48px;opacity:0.2;">🏨</span></div>
           <div class="locked-overlay"><div class="lock-icon" style="font-size:18px;">🔒</div><div class="lock-text">Claim Profile</div></div>
           <div style="position:absolute;top:10px;left:10px;background:rgba(245,197,24,0.15);border:1px solid rgba(245,197,24,0.3);color:var(--a);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;padding:3px 8px;font-family:'Barlow Condensed',sans-serif;font-weight:600;">Iconic</div>
         </div>
@@ -778,59 +777,59 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 
       <!-- REMAINING FROM SPREADSHEET -->
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=400&q=70" alt="Arnolds" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Arnold's</div><div class="locked-address">60 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1536489885071-87983c3e2859?w=400&q=70" alt="Rosedene" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Rosedene</div><div class="locked-address">28 Upper Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&q=70" alt="Unframed" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Unframed Ice Cream</div><div class="locked-address">45C Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=70" alt="Zuneyburgers" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Zuney Burgers</div><div class="locked-address">69A Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&q=70" alt="Black Sheep" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Black Sheep Restaurant</div><div class="locked-address">104 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&q=70" alt="Kloofkonbini" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Kloofkonbini</div><div class="locked-address">121 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=70" alt="Mixa's" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Mixa's</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1578474846511-04ba529f0b88?w=400&q=70" alt="Smokey Treats" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Smokey Treats</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="nightlife" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1534353436294-0dbd4bdac845?w=400&q=70" alt="Blondie Bar" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Blondie Bar</div><div class="locked-address">71 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="dining" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=400&q=70" alt="Monks" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Monks Chinese</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=70" alt="Workshop17" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Workshop17</div><div class="locked-address">32 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=400&q=70" alt="Life and Brand" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Life and Brand</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="retail" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=400&q=70" alt="Postnet" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">PostNet</div><div class="locked-address">Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
       <div class="locked-card" data-cat="wellness" onclick="showPage('listed')">
-        <div class="locked-card-img"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=70" alt="Robyn Page Physio" loading="lazy"/><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
+        <div class="locked-card-img"><div class="cat-bg" style="background:linear-gradient(135deg,#111,#222);"></div><div class="locked-overlay"><div class="lock-icon">🔒</div><div class="lock-text">Claim Profile</div></div></div>
         <div class="locked-body"><div class="locked-name">Robyn Page Physiotherapy</div><div class="locked-address">50 Kloof Street</div><button class="locked-cta" onclick="event.stopPropagation();showPage('listed')">Get Listed →</button></div>
       </div>
 
@@ -852,7 +851,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 <!-- ══════════════════ ON SAFARI ══════════════════ -->
 <div id="page-on-safari" class="page">
   <div class="biz-hero">
-    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1400&q=85" alt="On Safari"/>
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a1200,#1a3000,#2d4a10);"></div>
     <div class="biz-hero-overlay"></div>
     <div class="biz-hero-content">
       <button class="biz-back" onclick="showPage('brands')">← Back to Directory</button>
@@ -872,9 +871,9 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
       <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:20px;">On Safari brings the raw beauty of African wildlife into your home through stunning photographic fine art prints. Each image is captured in the wild — lions, elephants, zebras, hippos — and printed to museum-quality standards.</p>
       <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px;">Whether you're looking for a statement piece for your living room or a meaningful gift, On Safari's collections span the breadth of Africa's most iconic animals and landscapes.</p>
       <div class="photo-grid-3">
-        <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);border-radius:6px;"/>
-        <img src="https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);border-radius:6px;"/>
-        <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=400&q=80" alt="Wildlife" style="width:100%;height:180px;object-fit:cover;filter:brightness(0.85);border-radius:6px;"/>
+        <div style="width:100%;height:180px;background:linear-gradient(135deg,#0a1200,#2a3a10);border-radius:6px;display:flex;align-items:center;justify-content:center;"><span style="font-size:40px;opacity:0.3;">🦁</span></div>
+        <div style="width:100%;height:180px;background:linear-gradient(135deg,#0a1200,#2a3a10);border-radius:6px;display:flex;align-items:center;justify-content:center;"><span style="font-size:40px;opacity:0.3;">🐘</span></div>
+        <div style="width:100%;height:180px;background:linear-gradient(135deg,#0a1200,#2a3a10);border-radius:6px;display:flex;align-items:center;justify-content:center;"><span style="font-size:40px;opacity:0.3;">🐘</span></div>
       </div>
       <div style="background:var(--bg2);border:1px solid var(--border);padding:28px;margin-bottom:32px;border-radius:var(--radius);">
         <div class="section-tag" style="margin-bottom:16px;">Collections</div>
@@ -918,7 +917,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 <!-- ══════════════════ UBUNTU WELLNESS ══════════════════ -->
 <div id="page-ubuntu" class="page">
   <div class="biz-hero">
-    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1400&q=85" alt="Ubuntu Wellness"/>
+    <div style="width:100%;height:100%;background:linear-gradient(135deg,#050f0a,#0d2318,#152e20);"></div>
     <div class="biz-hero-overlay"></div>
     <div class="biz-hero-content">
       <button class="biz-back" onclick="showPage('brands')">← Back to Directory</button>
@@ -1218,7 +1217,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
       <ul>
         <li><a href="https://businesshustle.co.za" target="_blank">businesshustle.co.za</a></li>
         <li><a href="https://app.businesshustle.co.za" target="_blank">BH Platform</a></li>
-        <li><a href="mailto:hello@businesshustle.co.za">hello@businesshustle.co.za</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#650d0009090a250710160c0b0016160d10161109004b060a4b1f04"><span class="__cf_email__" data-cfemail="5139343d3d3e11332422383f342222392422253d347f323e7f2b30">[email&#160;protected]</span></a></li>
       </ul>
     </div>
   </div>
@@ -1228,7 +1227,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const ALL_PAGES=['home','about','explore','brands','on-safari','ubuntu','packages','ai','listed','dash'];
 const NAV_IDS=['home','about','explore','brands','packages','ai'];
 
@@ -1300,9 +1299,6 @@ function initBars(){
   });
 }
 
-// Re-init bars when dashboard shown
-const _origShow=window.showPage;
-
 // Vibe controls
 function toggleVibes(){const o=document.getElementById('vibeOpts');if(o)o.style.display=o.style.display==='none'?'grid':'none';}
 function setVibe(v){const el=document.getElementById('vibeText');if(el)el.textContent=v;const o=document.getElementById('vibeOpts');if(o)o.style.display='none';}
@@ -1324,7 +1320,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 // AI Chat
 const replies={
-  'Where should I have dinner tonight for under R300?':'For under R300 tonight, I'd head straight to Rick\'s Cafe (103 Kloof St) — warm vibes, solid mains under R200. Alternatively Our Local at 117 is great value. Want a full evening plan from drinks to dessert? 🍽️',
+  'Where should I have dinner tonight for under R300?':'For under R300 tonight, I\'d head straight to Rick\'s Cafe (103 Kloof St) — warm vibes, solid mains under R200. Alternatively Our Local at 117 is great value. Want a full evening plan from drinks to dessert? 🍽️',
   'Any art exhibitions or galleries to visit?':'🎨 Two great spots right now:\n\nOn Safari (99B Kloof St) — wildlife photographic fine art prints. A working studio showcasing Africa\'s most iconic animals. Free to browse, prints available to purchase. Street Pass holders get 10% off.\n\nAKJP Studio (73 Kloof St) — contemporary architecture and design studio. Worth a visit.\n\nWant me to build an afternoon itinerary around these?',
   'I need a full wellness and relaxation day':'🧘 Ubuntu Wellness is your answer.\n\nStart with a float therapy session (60–90 mins of total sensory relaxation), follow with a spa treatment, and consider a homeopathy consultation.\n\nStreet Pass holders get 10% off all treatments and priority booking.\n\nAfterwards, walk to any of the great cafés on Kloof for a post-session coffee.\n\nTotal budget: R400–800 depending on treatments. Want me to plan the full day?',
   'Plan my perfect Kloof Street afternoon':'☕ 2:00pm — Start with a great coffee on Kloof Street.\n\n🎨 3:00pm — On Safari studio (99B). Browse the wildlife fine art collection, free entry.\n\n🖼️ 4:00pm — AKJP Studio (73 Kloof St) for creative inspiration.\n\n🧘 5:30pm — Ubuntu Wellness drop-in float session to decompress.\n\n🍽️ 7:30pm — Dinner at any of the 15+ restaurants on the street.\n\nTotal: R400–700. Want to adjust for budget or vibe?'
