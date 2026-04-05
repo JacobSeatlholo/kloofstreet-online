@@ -626,10 +626,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .brand-img-ubuntu{background:linear-gradient(rgba(10,10,11,.15),rgba(10,10,11,.15)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness.png") center/cover no-repeat;}
 .biz-hero-safari{background:linear-gradient(rgba(10,10,11,.4),rgba(10,10,11,.4)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat;}
 .biz-hero-ubuntu{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness-2.png") center/cover no-repeat;}
-.photo-safari-1{background:url("https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=400&q=80") center/cover no-repeat;}
-.photo-safari-2{background:url("https://images.unsplash.com/photo-1474511320723-9a56873867b5?w=400&q=80") center/cover no-repeat;}
-.photo-safari-3{background:url("https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=400&q=80") center/cover no-repeat;}
+.photo-safari-1{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet.png") center/cover no-repeat;}
+.photo-safari-2{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet-2.png") center/cover no-repeat;}
+.photo-safari-3{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet-3.png") center/cover no-repeat;}
 .about-img{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85") center/cover no-repeat;}
+/* Remove emoji overlays */
+.cat-card::before,.life-cell::before{display:none;}
 </style>
 </head>
 <body>
@@ -943,7 +945,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 <!-- ══════════ ON SAFARI ══════════ -->
 <div id="pg-on-safari" class="pg">
   <div class="biz-hero biz-hero-safari">
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:120px;opacity:.08;">📸</div>
+    
     <div class="biz-hero-inner">
       <button class="biz-back" onclick="go('brands')">← Back to Directory</button>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
@@ -962,9 +964,9 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">On Safari brings the raw beauty of African wildlife into your home through stunning photographic fine art prints. Each image is captured in the wild — lions, elephants, zebras, hippos — and printed to museum-quality standards.</p>
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">Whether you're looking for a statement piece or a meaningful gift, On Safari's collections span the breadth of Africa's most iconic animals and landscapes.</p>
       <div class="photo-grid">
-        <div class="photo-cell photo-safari-1"><span style="opacity:.3;">🦁</span></div>
-        <div class="photo-cell photo-safari-2"><span style="opacity:.3;">🐘</span></div>
-        <div class="photo-cell photo-safari-3"><span style="opacity:.3;">🦓</span></div>
+        <div class="photo-cell photo-safari-1"></div>
+        <div class="photo-cell photo-safari-2"></div>
+        <div class="photo-cell photo-safari-3"></div>
       </div>
       <div style="background:var(--bg2);border:1px solid var(--bdr);padding:24px;margin-bottom:28px;border-radius:var(--r);">
         <div class="sec-tag" style="margin-bottom:14px;">Collections</div>
@@ -1008,7 +1010,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 <!-- ══════════ UBUNTU ══════════ -->
 <div id="pg-ubuntu" class="pg">
   <div class="biz-hero biz-hero-ubuntu">
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:120px;opacity:.08;">🧘</div>
+    
     <div class="biz-hero-inner">
       <button class="biz-back" onclick="go('brands')">← Back to Directory</button>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
