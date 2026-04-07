@@ -631,7 +631,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .photo-safari-3{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet-3.png") center/cover no-repeat;}
 .about-img{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85") center/cover no-repeat;}
 .cat-card::before,.life-cell::before{display:none;}
-
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -641,64 +640,31 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 @keyframes countUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 @keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}50%{box-shadow:0 0 18px 4px rgba(245,197,24,.18)}}
 @keyframes borderFlow{0%{border-color:rgba(245,197,24,.1)}50%{border-color:rgba(245,197,24,.4)}100%{border-color:rgba(245,197,24,.1)}}
-
-/* Hero entrance */
 .hero-tag{animation:slideRight .7s cubic-bezier(.22,1,.36,1) .2s both}
 .hero h1{animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .35s both}
 .hero-sub{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .5s both}
 .hero-btns{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .65s both}
 .stats{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .8s both}
-
-/* Stat numbers pop */
 .stat-n{animation:countUp .5s cubic-bezier(.22,1,.36,1) 1s both}
 .stat:nth-child(2) .stat-n{animation-delay:1.1s}
 .stat:nth-child(3) .stat-n{animation-delay:1.2s}
 .stat:nth-child(4) .stat-n{animation-delay:1.3s}
-
-/* Trust strip slide */
 .trust-i{animation:slideRight .5s cubic-bezier(.22,1,.36,1) both}
-.trust-i:nth-child(1){animation-delay:.1s}
-.trust-i:nth-child(2){animation-delay:.2s}
-.trust-i:nth-child(3){animation-delay:.3s}
-.trust-i:nth-child(4){animation-delay:.4s}
-.trust-i:nth-child(5){animation-delay:.5s}
-.trust-i:nth-child(6){animation-delay:.6s}
-.trust-i:nth-child(7){animation-delay:.7s}
-
-/* Life strip scale */
+.trust-i:nth-child(1){animation-delay:.1s}.trust-i:nth-child(2){animation-delay:.2s}.trust-i:nth-child(3){animation-delay:.3s}.trust-i:nth-child(4){animation-delay:.4s}.trust-i:nth-child(5){animation-delay:.5s}.trust-i:nth-child(6){animation-delay:.6s}.trust-i:nth-child(7){animation-delay:.7s}
 .life-cell{animation:scaleIn .6s cubic-bezier(.22,1,.36,1) both}
-.life-cell:nth-child(1){animation-delay:.1s}
-.life-cell:nth-child(2){animation-delay:.2s}
-.life-cell:nth-child(3){animation-delay:.3s}
-.life-cell:nth-child(4){animation-delay:.4s}
-
-/* Scroll-reveal base — JS adds .visible */
+.life-cell:nth-child(1){animation-delay:.1s}.life-cell:nth-child(2){animation-delay:.2s}.life-cell:nth-child(3){animation-delay:.3s}.life-cell:nth-child(4){animation-delay:.4s}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal.visible{opacity:1;transform:none}
 .reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
 .reveal-left.visible{opacity:1;transform:none}
 .reveal-scale{opacity:0;transform:scale(.95);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
 .reveal-scale.visible{opacity:1;transform:none}
-
-/* Stagger children */
 .stagger>*{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
-.stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
-.stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.12s}
-.stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.19s}
-.stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.26s}
-.stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.33s}
-.stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.40s}
-.stagger.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:.47s}
-.stagger.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:.54s}
-.stagger.visible>*:nth-child(9){opacity:1;transform:none;transition-delay:.61s}
-
-/* Button hover effects */
+.stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}.stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.12s}.stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.19s}.stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.26s}.stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.33s}.stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.40s}.stagger.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:.47s}.stagger.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:.54s}.stagger.visible>*:nth-child(9){opacity:1;transform:none;transition-delay:.61s}
 .btn-gold{transition:background .2s,transform .15s,box-shadow .2s}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,197,24,.25)}
 .btn-outline{transition:border-color .2s,color .2s,transform .15s}
 .btn-outline:hover{transform:translateY(-2px)}
-
-/* Card hover lift */
 .brand-card{transition:border-color .3s,transform .25s,box-shadow .25s}
 .brand-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
 .lcard{transition:border-color .3s,transform .2s}
@@ -711,29 +677,15 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .info-card:hover{border-color:rgba(245,197,24,.2);transform:translateY(-2px)}
 .connect-card{transition:border-color .25s,transform .2s}
 .connect-card:hover{transform:translateY(-3px)}
-
-/* Featured badge glow */
 .pkg-card.featured{animation:glowPulse 3s ease-in-out infinite}
-
-/* Nav link underline slide */
 .nav-links a{position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--a);transition:width .25s}
 .nav-links a:hover::after,.nav-links a.on::after{width:100%}
-
-/* Chat message entrance */
 .msg{animation:fadeUp .3s cubic-bezier(.22,1,.36,1) both}
-
-/* Shimmer on gold buttons */
 .btn-gold{background-size:200% auto}
 .btn-gold:hover{background-image:linear-gradient(90deg,var(--a) 0%,var(--al) 40%,var(--a) 100%);background-size:200% auto;animation:shimmer .8s linear}
-
-/* Pass block border animation */
 .pass-block{animation:borderFlow 4s ease-in-out infinite}
-
-/* Section tag pulse dot */
 .sec-tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--a);margin-right:8px;animation:pulse 2s infinite;vertical-align:middle}
-
-/* Locked card stagger in directory */
 .stores-grid .lcard{transition:border-color .3s,transform .2s,opacity .4s}
 </style>
 </head>
@@ -926,12 +878,17 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
           </div>
         </div>
 
-        <div class="brand-card brand-img-slot" style="display:flex;align-items:center;justify-content:center;min-height:300px;cursor:pointer;" onclick="go('packages')">
-          <div style="text-align:center;padding:32px 20px;">
-            <div style="font-size:28px;margin-bottom:14px;opacity:.35;">+</div>
-            <div style="font-size:12px;font-weight:700;color:rgba(240,240,238,.4);margin-bottom:6px;">Your Business Here</div>
-            <div style="font-size:11px;color:var(--muted);margin-bottom:18px;line-height:1.6;">Only 2 Growth spots remaining</div>
-            <a class="btn btn-gold" style="font-size:10px;padding:9px 18px;" onclick="event.stopPropagation();go('packages')">View Packages</a>
+        <div class="brand-card" onclick="go('dr-wendy')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg') center top/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Allergy &amp; GP consultations &#x1FA7A;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x1FA7A; Medical &middot; Allergy Specialist &middot; GP</div>
+            <div class="brand-name">Dr Wendy Dicks</div>
+            <div class="brand-sub">Experienced GP &amp; Allergologist. Airway, skin &amp; food allergies, paediatrics, mental health &amp; more. At Cape Town Medi-Spa, 99B Kloof Street.</div>
+            <div class="brand-foot"><span class="brand-tag">Allergy &middot; GP &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -999,6 +956,18 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
       <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Smokey Treats</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Yours Truly</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <!-- WELLNESS -->
+      <div class="lcard" data-cat="wellness" onclick="go('dr-wendy')" style="border-color:rgba(245,197,24,.2);">
+        <div class="lcard-img" style="background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg') center top/cover no-repeat;">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;opacity:.4;">&#x1FA7A;</div>
+          <div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div>
+          <div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Open</div>
+        </div>
+        <div class="lcard-body">
+          <div class="lcard-name" style="color:var(--text2);">Dr Wendy Dicks</div>
+          <div class="lcard-addr">99B Kloof Street</div>
+          <button class="lcard-cta" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</button>
+        </div>
+      </div>
       <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Shanti Natural</div><div class="lcard-addr">115 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">BOA Beauty Bar</div><div class="lcard-addr">7 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Skin and Sage</div><div class="lcard-addr">115 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
@@ -1174,6 +1143,80 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 </div>
 
 <!-- ══════════ PACKAGES ══════════ -->
+
+<!-- ══════════ DR WENDY DICKS ══════════ -->
+<div id="pg-dr-wendy" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.55),rgba(10,10,11,.55)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg') center top/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Dr Wendy Dicks</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">GP &amp; Allergy Specialist &middot; MBChB (UP) &middot; DCH (SA) &middot; Dip HIV Med (SA) &middot; Dip Allerg (SA) &middot; 99B Kloof Street, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Medical &middot; Allergy &middot; Wellness</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">Your Family GP &amp; Allergy Specialist on Kloof Street</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Dr Wendy Dicks is an experienced General Practitioner with postgraduate diplomas in Paediatrics, HIV Medicine and Allergology. She treats all members of the family &#x2014; from babies to the elderly &#x2014; with a special interest in accurately diagnosing and treating allergies at a GP level, making specialist-quality allergy care accessible and cost-effective.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">Now consulting from the Cape Town Medi-Spa at 99B Kloof Street, Dr Wendy combines clinical excellence with a warm, holistic approach to your health.</p>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x1F927;</div><div class="svc-name">Airway Allergies</div><div class="svc-desc">Asthma, hay fever, dust mites, pet &amp; mould allergies &#x2014; skin prick &amp; blood testing</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F35D;</div><div class="svc-name">Food Allergies</div><div class="svc-desc">Accurate diagnosis &amp; management of food sensitivities and intolerances</div></div>
+        <div class="svc"><div class="svc-icon">&#x1FA79;</div><div class="svc-name">Skin Allergies</div><div class="svc-desc">Urticaria, eczema, contact dermatitis &#x2014; identification &amp; targeted treatment</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F476;</div><div class="svc-name">Paediatrics</div><div class="svc-desc">Family GP care from newborns to teens, with paediatric allergy specialisation</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F9E0;</div><div class="svc-name">Mental Health</div><div class="svc-desc">Consultations available virtually and in-person for anxiety, depression &amp; more</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F489;</div><div class="svc-name">Aesthetics &amp; Women&#x27;s Health</div><div class="svc-desc">Botox injections, pap smears, HPV testing, Gardasil vaccine &amp; STD screening</div></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--bdr);padding:24px;margin-bottom:28px;border-radius:var(--r);">
+        <div class="sec-tag" style="margin-bottom:14px;">Qualifications</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1F393; MBChB &#x2014; University of Pretoria (2000)</div>
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1F476; DCH (SA) &#x2014; Diploma in Child Health</div>
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1FA7A; Dip HIV Med (SA)</div>
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1F927; Dip Allerg (SA) &#x2014; Allergology</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://allergycapetown.co.za/book-an-appointment/" target="_blank">Book an Appointment</a>
+        <a class="btn btn-outline" href="https://allergycapetown.co.za/" target="_blank">Visit Website</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card" style="padding:0;overflow:hidden;margin-bottom:14px;">
+        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg" alt="Dr Wendy Dicks" style="width:100%;display:block;max-height:280px;object-fit:cover;object-position:center top;">
+        <div style="padding:14px 18px;background:rgba(245,197,24,.04);border-top:1px solid rgba(245,197,24,.15);">
+          <div style="font-size:13px;font-weight:700;color:var(--text2);">Dr Wendy Dicks</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;">MBChB &middot; DCH &middot; Dip HIV Med &middot; Dip Allerg (SA)</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>99B Kloof Street, Gardens, Cape Town<br><small style="opacity:.6;">At Cape Town Medi-Spa</small></span></div>
+        <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27211110572" style="color:var(--a);">021 111 0572</a></div>
+        <div class="info-row"><b>&#x1F310;</b><a href="https://allergycapetown.co.za/" target="_blank" style="color:var(--a);">allergycapetown.co.za</a></div>
+        <div class="info-row"><b>&#x2709;&#xFE0F;</b><a href="mailto:info@allergycapetown.co.za" style="color:var(--a);">info@allergycapetown.co.za</a></div>
+      </div>
+      <div class="info-card">
+        <h3>Consultation Hours</h3>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Mon&#x2013;Fri: By appointment</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Saturday: By appointment</span></div>
+        <div class="info-row"><b>&#x1F4BB;</b><span>Virtual consultations available</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> with Dr Wendy Dicks at Cape Town Medi-Spa.</p>
+      </div>
+      <a class="btn btn-gold" href="https://allergycapetown.co.za/book-an-appointment/" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1FA7A; Book an Appointment</a>
+      <a class="btn btn-outline" href="tel:+27211110572" style="display:block;text-align:center;">&#x1F4DE; Call 021 111 0572</a>
+    </div>
+  </div>
+</div>
+
 <div id="pg-packages" class="pg">
   <section style="padding-top:100px;background:var(--bg2);">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:52px;align-items:start;">
@@ -1385,7 +1428,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 
 <script>
 // ── PAGES ──
-const PAGES = ['home','about','explore','brands','on-safari','ubuntu','packages','ai','listed','dash'];
+const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','packages','ai','listed','dash'];
 const NAVLINKS = ['home','about','explore','brands','packages','ai'];
 
 function go(name) {
@@ -1566,90 +1609,32 @@ function submitForm() {
     '</div>';
 }
 
-// ── SCROLL REVEAL ──
 (function(){
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
     });
   },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-
   function attachReveal(){
-    // Section titles & descriptions
-    document.querySelectorAll('.sec-title,.sec-desc,.sec-tag').forEach(function(el){
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
-    // Cat grids — stagger
-    document.querySelectorAll('.cat-grid,.brands-grid,.pkg-grid').forEach(function(el){
-      if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}
-    });
-    // Stores grid items
-    document.querySelectorAll('.stores-grid .lcard').forEach(function(el,i){
-      el.style.transitionDelay=(i%4*0.07)+'s';
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
-    // Brand cards
-    document.querySelectorAll('.brand-card').forEach(function(el,i){
-      el.style.transitionDelay=(i*0.12)+'s';
-      if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}
-    });
-    // Info cards
-    document.querySelectorAll('.info-card').forEach(function(el){
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
-    // Pass block
-    document.querySelectorAll('.pass-block').forEach(function(el){
-      if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}
-    });
-    // Life strip
-    document.querySelectorAll('.life').forEach(function(el){
-      if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}
-    });
-    // Biz sections
-    document.querySelectorAll('.biz-body>div').forEach(function(el){
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
-    // Connect cards
-    document.querySelectorAll('.connect-cards').forEach(function(el){
-      if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}
-    });
-    // Photo grid cells
-    document.querySelectorAll('.photo-cell').forEach(function(el,i){
-      el.style.transitionDelay=(i*0.1)+'s';
-      if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}
-    });
-    // KPI cards
-    document.querySelectorAll('.kpi').forEach(function(el,i){
-      el.style.transitionDelay=(i*0.1)+'s';
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
-    // Service cards
-    document.querySelectorAll('.svc').forEach(function(el,i){
-      el.style.transitionDelay=(i*0.08)+'s';
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
-    // Footer cols
-    document.querySelectorAll('.footer-grid>div').forEach(function(el,i){
-      el.style.transitionDelay=(i*0.1)+'s';
-      if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}
-    });
+    document.querySelectorAll('.sec-title,.sec-desc,.sec-tag').forEach(function(el){if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.cat-grid,.brands-grid,.pkg-grid').forEach(function(el){if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}});
+    document.querySelectorAll('.stores-grid .lcard').forEach(function(el,i){el.style.transitionDelay=(i%4*0.07)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.brand-card').forEach(function(el,i){el.style.transitionDelay=(i*0.12)+'s';if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}});
+    document.querySelectorAll('.info-card').forEach(function(el){if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.pass-block').forEach(function(el){if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}});
+    document.querySelectorAll('.life').forEach(function(el){if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}});
+    document.querySelectorAll('.biz-body>div').forEach(function(el){if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.connect-cards').forEach(function(el){if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}});
+    document.querySelectorAll('.photo-cell').forEach(function(el,i){el.style.transitionDelay=(i*0.1)+'s';if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}});
+    document.querySelectorAll('.kpi').forEach(function(el,i){el.style.transitionDelay=(i*0.1)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.svc').forEach(function(el,i){el.style.transitionDelay=(i*0.08)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.footer-grid>div').forEach(function(el,i){el.style.transitionDelay=(i*0.1)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
   }
   attachReveal();
-
-  // Re-attach on page navigation
-  var _go = window.go;
-  window.go = function(name){
-    _go(name);
-    setTimeout(attachReveal, 50);
-  };
-  var _mgo = window.mgo;
-  window.mgo = function(name){
-    _mgo(name);
-    setTimeout(attachReveal, 50);
-  };
+  var _go=window.go;
+  window.go=function(name){_go(name);setTimeout(attachReveal,50);};
+  var _mgo=window.mgo;
+  window.mgo=function(name){_mgo(name);setTimeout(attachReveal,50);};
 })();
 
 </script>
