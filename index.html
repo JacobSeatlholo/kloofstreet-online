@@ -687,6 +687,82 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .pass-block{animation:borderFlow 4s ease-in-out infinite}
 .sec-tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--a);margin-right:8px;animation:pulse 2s infinite;vertical-align:middle}
 .stores-grid .lcard{transition:border-color .3s,transform .2s,opacity .4s}
+
+/* PRESS MARQUEE */
+.accolade-bar{background:var(--a);padding:12px 0;overflow:hidden;white-space:nowrap;}
+.accolade-track{display:inline-flex;animation:marquee 28s linear infinite;}
+.accolade-track:hover{animation-play-state:paused;}
+.accolade-item{display:inline-flex;align-items:center;gap:10px;padding:0 40px;font-size:12px;font-weight:700;color:var(--bg);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+.accolade-item span{font-size:16px;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PRESS CARDS */
+.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.press-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s,transform .2s;text-decoration:none;cursor:pointer;}
+.press-card:hover{border-color:rgba(245,197,24,.35);transform:translateY(-3px);}
+.press-logo{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--a);}
+.press-headline{font-size:14px;font-weight:700;color:var(--text2);line-height:1.45;}
+.press-snippet{font-size:12px;color:var(--muted);line-height:1.6;}
+.press-date{font-size:10px;color:rgba(122,122,120,.6);letter-spacing:.08em;text-transform:uppercase;margin-top:auto;}
+.press-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);color:var(--a);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:3px;width:fit-content;}
+.award-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;}
+.award-cell{background:var(--bg2);border:1px solid var(--bdr);padding:24px 20px;text-align:center;border-radius:0;}
+.award-num{font-size:40px;font-weight:900;color:var(--a);line-height:1;}
+.award-lbl{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;line-height:1.5;}
+@media(max-width:900px){.press-grid{grid-template-columns:1fr 1fr;}.award-strip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.press-grid{grid-template-columns:1fr;}.award-strip{grid-template-columns:1fr 1fr;}}
+
+/* LIGHT MODE */
+[data-theme="light"]{--bg:#f5f4f0;--bg2:#ffffff;--bg3:#ede9e0;--bdr:rgba(0,0,0,.09);--muted:#5e5e5b;--text:#1a1a18;--text2:#0d0d0c;--a:#c9a200;--al:#e0b400;}
+[data-theme="light"] body{background:var(--bg);color:var(--text);}
+[data-theme="light"] nav.scrolled{background:rgba(245,244,240,.97);}
+[data-theme="light"] .mmenu{background:var(--bg2);}
+[data-theme="light"] .mmenu a,[data-theme="light"] .logo,[data-theme="light"] .footer-logo,[data-theme="light"] .hero h1,[data-theme="light"] .hero-tag{color:var(--text2);}
+[data-theme="light"] .nav-links a{color:var(--muted);}
+[data-theme="light"] .nav-links a:hover,[data-theme="light"] .nav-links a.on{color:var(--text2);}
+[data-theme="light"] .hero-bg{background:linear-gradient(to top,rgba(245,244,240,1) 0%,rgba(245,244,240,.45) 50%,rgba(245,244,240,.05) 100%),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1600&q=85") center/cover no-repeat;}
+[data-theme="light"] .hero-sub,[data-theme="light"] .sec-desc,[data-theme="light"] .stat-l,[data-theme="light"] .trust-i,[data-theme="light"] .brand-sub,[data-theme="light"] .brand-cat,[data-theme="light"] .lcard-addr,[data-theme="light"] .press-snippet,[data-theme="light"] .press-date,[data-theme="light"] .pkg-per,[data-theme="light"] .pkg-billed,[data-theme="light"] .footer-desc,[data-theme="light"] .footer-col a,[data-theme="light"] .perk,[data-theme="light"] .info-row,[data-theme="light"] .svc-desc,[data-theme="light"] .award-lbl,[data-theme="light"] .pkg-feats li,[data-theme="light"] .chat-status,[data-theme="light"] .vibe-txt,[data-theme="light"] .biz-back{color:var(--muted);}
+[data-theme="light"] .brand-name,[data-theme="light"] .lcard-name,[data-theme="light"] .press-headline,[data-theme="light"] .press-logo,[data-theme="light"] .award-num,[data-theme="light"] .pkg-price,[data-theme="light"] .stat-n,[data-theme="light"] .sec-title,[data-theme="light"] .kpi-v,[data-theme="light"] .chat-name,[data-theme="light"] .svc-name,[data-theme="light"] .form-title{color:var(--text2);}
+[data-theme="light"] .btn-outline{color:var(--text2);border-color:rgba(0,0,0,.2);}
+[data-theme="light"] .btn-outline:hover{border-color:var(--a);color:var(--a);}
+[data-theme="light"] .trust{background:var(--bg3);border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .cat-overlay{background:linear-gradient(to top,rgba(245,244,240,.92) 0%,transparent 55%);}
+[data-theme="light"] .cat-title{color:var(--text2);}
+[data-theme="light"] .cat-desc{color:rgba(26,26,24,.65);}
+[data-theme="light"] .pass-block{background:rgba(201,162,0,.06);}
+[data-theme="light"] .brand-card{background:var(--bg2);border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .brand-card:hover{border-color:rgba(201,162,0,.4);}
+[data-theme="light"] .vibe-bar{background:rgba(245,244,240,.9);color:var(--text);}
+[data-theme="light"] .open-pill{background:rgba(30,80,50,.15);color:#1a6040;}
+[data-theme="light"] .lcard{background:var(--bg2);border-color:rgba(0,0,0,.06);}
+[data-theme="light"] .award-cell,[data-theme="light"] .press-card,[data-theme="light"] .info-card,[data-theme="light"] .form-wrap,[data-theme="light"] .kpi,[data-theme="light"] .dash-panel,[data-theme="light"] .svc,[data-theme="light"] .chat-box,[data-theme="light"] .about-stat{background:var(--bg2);}
+[data-theme="light"] .pkg-card{background:var(--bg3);border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .pkg-card.featured{background:rgba(201,162,0,.05);}
+[data-theme="light"] .chat-head,[data-theme="light"] .msg-ai{background:var(--bg3);}
+[data-theme="light"] .msg-ai{color:var(--text);}
+[data-theme="light"] .msg-user{background:rgba(201,162,0,.12);color:var(--text2);}
+[data-theme="light"] .cprompt{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.07);color:var(--muted);}
+[data-theme="light"] .chat-in,[data-theme="light"] .f input,[data-theme="light"] .f select,[data-theme="light"] .f textarea{background:var(--bg3);border-color:rgba(0,0,0,.1);color:var(--text);}
+[data-theme="light"] footer{background:var(--bg3);}
+[data-theme="light"] .footer-col h4{color:var(--a);}
+[data-theme="light"] .footer-bot p{color:rgba(26,26,24,.4);}
+[data-theme="light"] .connect-card{background:rgba(201,162,0,.04);}
+[data-theme="light"] .about-img{background:linear-gradient(rgba(245,244,240,.35),rgba(245,244,240,.35)),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85") center/cover no-repeat;}
+[data-theme="light"] .badge{background:rgba(201,162,0,.1);}
+[data-theme="light"] .biz-hero::after{background:linear-gradient(to top,rgba(245,244,240,1) 0%,rgba(245,244,240,.15) 60%);}
+[data-theme="light"] .life-cell:nth-child(1){background:linear-gradient(rgba(245,244,240,.4),rgba(245,244,240,.4)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Fine-dining.png") center/cover no-repeat;}
+[data-theme="light"] .life-cell:nth-child(2){background:linear-gradient(rgba(245,244,240,.3),rgba(245,244,240,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Wellness.png") center/cover no-repeat;}
+[data-theme="light"] .life-cell:nth-child(3){background:linear-gradient(rgba(245,244,240,.35),rgba(245,244,240,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Art-culture.png") center/cover no-repeat;}
+[data-theme="light"] .life-cell:nth-child(4){background:linear-gradient(rgba(245,244,240,.35),rgba(245,244,240,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Coffee-cafes.png") center/cover no-repeat;}
+.theme-toggle{background:none;border:1px solid var(--bdr);color:var(--text2);cursor:pointer;width:34px;height:34px;border-radius:50%;font-size:15px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;flex-shrink:0;}
+.theme-toggle:hover{border-color:var(--a);background:rgba(245,197,24,.08);}
+.lang-select{background:transparent;border:1px solid var(--bdr);color:var(--text2);cursor:pointer;padding:5px 24px 5px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.06em;font-family:inherit;transition:border-color .2s;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a7a78'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;}
+.lang-select:hover{border-color:var(--a);}
+.lang-select option{background:var(--bg2);color:var(--text);}
+.nav-controls{display:flex;align-items:center;gap:8px;}
+.goog-te-banner-frame,.skiptranslate{display:none!important;}
+body{top:0!important;}
+#google_translate_element{display:none!important;}
 </style>
 </head>
 <body>
@@ -702,7 +778,24 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
     <li><a onclick="go('packages')" id="nl-packages">Packages</a></li>
     <li><a onclick="go('ai')" id="nl-ai">AI Concierge</a></li>
   </ul>
-  <a class="nav-btn" onclick="go('listed')">Get Listed</a>
+  <div class="nav-controls">
+    <select class="lang-select" onchange="translateTo(this.value)" title="Language">
+      <option value="">&#x1F310; EN</option>
+      <option value="af">&#x1F1FF;&#x1F1E6; Afrikaans</option>
+      <option value="zu">&#x1F1FF;&#x1F1E6; Zulu</option>
+      <option value="xh">&#x1F1FF;&#x1F1E6; Xhosa</option>
+      <option value="fr">&#x1F1EB;&#x1F1F7; Fran&#xe7;ais</option>
+      <option value="de">&#x1F1E9;&#x1F1EA; Deutsch</option>
+      <option value="es">&#x1F1EA;&#x1F1F8; Espa&#xf1;ol</option>
+      <option value="pt">&#x1F1F5;&#x1F1F9; Portugu&#xeas;s</option>
+      <option value="nl">&#x1F1F3;&#x1F1F1; Nederlands</option>
+      <option value="zh-CN">&#x1F1E8;&#x1F1F3; &#x4e2d;&#x6587;</option>
+      <option value="ar">&#x1F1F8;&#x1F1E6; &#x627;&#x644;&#x639;&#x631;&#x628;&#x64a;&#x629;</option>
+      <option value="ru">&#x1F1F7;&#x1F1FA; &#x420;&#x443;&#x441;&#x441;&#x43a;&#x438;&#x439;</option>
+    </select>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">&#x1F319;</button>
+    <a class="nav-btn" onclick="go('listed')">Get Listed</a>
+  </div>
   <button class="burger" onclick="document.getElementById('mm').classList.add('on')">
     <span></span><span></span><span></span>
   </button>
@@ -720,6 +813,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
   <a onclick="mgo('listed')">Get Listed</a>
 </div>
 
+<div id="google_translate_element"></div>
 <div class="toast" id="toast"></div>
 
 <!-- ══════════ HOME ══════════ -->
@@ -752,6 +846,20 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
     <div class="trust-i"><b>📍</b> Kloof Street, Gardens, CPT</div>
     <div class="trust-i"><b>✦</b> AI Concierge 24/7</div>
     <div class="trust-i"><b>🎫</b> Street Pass Rewards</div>
+  </div>
+
+  <!-- Accolade marquee bar -->
+  <div class="accolade-bar">
+    <div class="accolade-track">
+      <div class="accolade-item"><span>🏆</span> #22 World's Coolest Streets — Time Out 2025</div>
+      <div class="accolade-item"><span>⭐</span> "Long Street's more refined sibling" — Time Out</div>
+      <div class="accolade-item"><span>🌍</span> Coolest Street in Africa 2025</div>
+      <div class="accolade-item"><span>🗞️</span> Featured: WantedOnline · TimesLIVE · IOL · EWN</div>
+      <div class="accolade-item"><span>🏆</span> #22 World's Coolest Streets — Time Out 2025</div>
+      <div class="accolade-item"><span>⭐</span> "Long Street's more refined sibling" — Time Out</div>
+      <div class="accolade-item"><span>🌍</span> Coolest Street in Africa 2025</div>
+      <div class="accolade-item"><span>🗞️</span> Featured: WantedOnline · TimesLIVE · IOL · EWN</div>
+    </div>
   </div>
 
   <div class="life">
@@ -815,7 +923,80 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
         </div>
       </div>
     </div>
+  
+  <!-- Press Coverage -->
+  <section style="background:var(--bg);">
+    <div class="sec-tag">As Seen In</div>
+    <div class="sec-title">The World Is Talking</div>
+    <p class="sec-desc">Kloof Street ranked #22 on Time Out's 31 Coolest Streets in the World for 2025 — the only street in Africa to make the cut.</p>
+
+    <div class="award-strip">
+      <div class="award-cell"><div class="award-num">#22</div><div class="award-lbl">World's Coolest Streets<br>Time Out 2025</div></div>
+      <div class="award-cell"><div class="award-num">#1</div><div class="award-lbl">Coolest Street<br>in Africa 2025</div></div>
+      <div class="award-cell"><div class="award-num">31</div><div class="award-lbl">Streets Globally<br>We Made the List</div></div>
+      <div class="award-cell"><div class="award-num">8+</div><div class="award-lbl">Major Publications<br>Covered the Story</div></div>
+    </div>
+
+    <div class="press-grid">
+      <a class="press-card" href="https://www.timeout.com/cape-town/things-to-do/kloof-street-a-guide-to-cape-towns-coolest-street-right-now" target="_blank" rel="noopener">
+        <div class="press-badge">🏆 Original Ranking</div>
+        <div class="press-logo">Time Out Cape Town</div>
+        <div class="press-headline">Kloof Street: A Guide to Cape Town's Coolest Street Right Now</div>
+        <div class="press-snippet">"Kloof Street feels like Long Street's more refined sibling — packed with new pop-ups, old-world character and just a hint of mischief after dark."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.wantedonline.co.za/food-and-drink/2026-01-23-kloof-street-named-one-of-the-worlds-coolest-streets/" target="_blank" rel="noopener">
+        <div class="press-logo">Wanted Online</div>
+        <div class="press-headline">Kloof Street Named One of the World's Coolest Streets</div>
+        <div class="press-snippet">"Cape Town has landed yet another global accolade — Kloof Street earned the 22nd spot on Time Out's list of the 31 coolest streets in the world for 2025."</div>
+        <div class="press-date">January 2026</div>
+      </a>
+      <a class="press-card" href="https://www.timeslive.co.za/lifestyle/food/2025-11-24-cape-towns-kloof-street-named-one-of-the-coolest-streets-in-the-world-for-2025/" target="_blank" rel="noopener">
+        <div class="press-logo">TimesLIVE</div>
+        <div class="press-headline">Cape Town's Kloof Street Named One of the Coolest Streets in the World for 2025</div>
+        <div class="press-snippet">"Victorian façades and broekie-lace balconies now house boundary-pushing restaurants, concept stores and cocktail dens — packed with old-world character and just a hint of mischief after dark."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://iol.co.za/travel/south-africa/2025-11-24-kloof-street-cape-towns-hidden-gem-named-one-of-the-coolest-streets-on-earth/" target="_blank" rel="noopener">
+        <div class="press-logo">IOL Travel</div>
+        <div class="press-headline">Kloof Street: Cape Town's Hidden Gem Named One of the Coolest Streets on Earth</div>
+        <div class="press-snippet">"Kloof Street is effortlessly stylish — not in a forced, try-hard way but in that relaxed Cape Town manner that balances heritage with modern flavour."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.capetownetc.com/news/mzansi-street-earns-global-praise-in-worlds-coolest-streets-list/" target="_blank" rel="noopener">
+        <div class="press-logo">Cape Town Etc</div>
+        <div class="press-headline">Mzansi Street Earns Global Praise in World's Coolest Streets List</div>
+        <div class="press-snippet">"Kloof Street sits between Calle del Barquillo in Madrid and London's Blackstock Road — placing it among some of the world's most sought-after urban hotspots."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.ewn.co.za/2025/11/23/cape-town-gem-makes-list-of-coolest-streets-in-the-world" target="_blank" rel="noopener">
+        <div class="press-logo">EWN</div>
+        <div class="press-headline">Cape Town Gem Makes List of 'Coolest Streets' in the World</div>
+        <div class="press-snippet">"Kloof Street 'captures the essence of Cape Town's urban charm' — it outranked streets like the Pacific Coast Highway in Malibu and Chicago's Roscoe Street."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.thesouthafrican.com/travel/coolest-street-south-africa-cape-town-kloof-street/" target="_blank" rel="noopener">
+        <div class="press-logo">The South African</div>
+        <div class="press-headline">This Is South Africa's Coolest Street for 2025</div>
+        <div class="press-snippet">"Walking its length feels like taking a quick tour of the city, complete with flavour, style and personality."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.timeout.com/news/these-african-cities-are-home-to-two-of-the-coolest-streets-in-the-world-112725" target="_blank" rel="noopener">
+        <div class="press-badge">🌍 Africa's Best</div>
+        <div class="press-logo">Time Out Global</div>
+        <div class="press-headline">Africa's Home to Two of the Coolest Streets in the World</div>
+        <div class="press-snippet">"The coolest street in Africa in 2025 is Kloof Street in Cape Town — in one direction, Table Mountain; in the other, the city bowl."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.timeout.com/cape-town/news/cape-town-favourite-grabs-spot-on-the-worlds-coolest-streets-list-111925" target="_blank" rel="noopener">
+        <div class="press-logo">Time Out Cape Town</div>
+        <div class="press-headline">Cape Town Favourite Grabs Spot on World's Coolest Streets List</div>
+        <div class="press-snippet">"Sandwiched between Madrid's Calle del Barquillo and London's Blackstock Road, Kloof Street claimed the 22nd spot — another 2025 accolade for the Mother City."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+    </div>
   </section>
+</section>
 </div>
 
 <!-- ══════════ EXPLORE ══════════ -->
@@ -879,7 +1060,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
         </div>
 
         <div class="brand-card" onclick="go('dr-wendy')">
-          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg') center top/cover no-repeat;">
+          <div class="brand-img" style="background:linear-gradient(135deg,#050a14,#0a1a2e,#0d2040);">
             <div class="brand-tier tier-g">Growth Partner</div>
             <div class="open-pill">Open</div>
             <div class="vibe-bar">Allergy &amp; GP consultations &#x1FA7A;</div>
@@ -957,7 +1138,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
       <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Yours Truly</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <!-- WELLNESS -->
       <div class="lcard" data-cat="wellness" onclick="go('dr-wendy')" style="border-color:rgba(245,197,24,.2);">
-        <div class="lcard-img" style="background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg') center top/cover no-repeat;">
+        <div class="lcard-img" style="background:linear-gradient(135deg,#050a14,#0d2040);">
           <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;opacity:.4;">&#x1FA7A;</div>
           <div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div>
           <div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Open</div>
@@ -1146,7 +1327,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 
 <!-- ══════════ DR WENDY DICKS ══════════ -->
 <div id="pg-dr-wendy" class="pg">
-  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.55),rgba(10,10,11,.55)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg') center top/cover no-repeat;">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.55),rgba(10,10,11,.55)),linear-gradient(135deg,#050a14,#0a1a2e,#0d2040);">
     <div class="biz-hero-inner">
       <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
@@ -1187,13 +1368,6 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
       </div>
     </div>
     <div>
-      <div class="info-card" style="padding:0;overflow:hidden;margin-bottom:14px;">
-        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/Dr-Wendy-2022-754x1024-1.jpg" alt="Dr Wendy Dicks" style="width:100%;display:block;max-height:280px;object-fit:cover;object-position:center top;">
-        <div style="padding:14px 18px;background:rgba(245,197,24,.04);border-top:1px solid rgba(245,197,24,.15);">
-          <div style="font-size:13px;font-weight:700;color:var(--text2);">Dr Wendy Dicks</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:3px;">MBChB &middot; DCH &middot; Dip HIV Med &middot; Dip Allerg (SA)</div>
-        </div>
-      </div>
       <div class="info-card">
         <h3>Contact &amp; Location</h3>
         <div class="info-row"><b>&#x1F4CD;</b><span>99B Kloof Street, Gardens, Cape Town<br><small style="opacity:.6;">At Cape Town Medi-Spa</small></span></div>
@@ -1408,6 +1582,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
         <li><a onclick="go('packages')">Packages</a></li>
         <li><a onclick="go('listed')">Get Listed</a></li>
         <li><a onclick="go('about')">About Us</a></li>
+        <li><a onclick="go('about')">Press &amp; Accolades</a></li>
         <li><a onclick="go('dash')">Dashboard</a></li>
       </ul>
     </div>
@@ -1637,6 +1812,39 @@ function submitForm() {
   window.mgo=function(name){_mgo(name);setTimeout(attachReveal,50);};
 })();
 
+
+// THEME
+(function(){
+  var t=localStorage.getItem('ks_theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  applyTheme(t);
+})();
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeToggle');
+  if(b)b.textContent=t==='light'?'🌙':'☀️';
+  localStorage.setItem('ks_theme',t);
+}
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'dark';
+  applyTheme(c==='dark'?'light':'dark');
+}
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:false},'google_translate_element');
+}
+function translateTo(lang){
+  if(!lang){
+    var c=document.querySelector('select.goog-te-combo');
+    if(c){c.value='';c.dispatchEvent(new Event('change'));}
+    return;
+  }
+  var tries=0,iv=setInterval(function(){
+    var c=document.querySelector('select.goog-te-combo');
+    if(c){clearInterval(iv);c.value=lang;c.dispatchEvent(new Event('change'));}
+    else if(++tries>25)clearInterval(iv);
+  },200);
+}
+
 </script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
 </body>
 </html>
