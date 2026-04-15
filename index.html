@@ -820,6 +820,189 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .goog-te-banner-frame,.skiptranslate{display:none!important;}
 body{top:0!important;}
 #google_translate_element{display:none!important;}
+
+/* ═══════════════════════════════
+   CSS FIXES & IMPROVEMENTS
+   ═══════════════════════════════ */
+
+/* 1. Missing .verified-badge / .badge alias */
+.verified-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);
+  color:var(--a);font-size:9px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;
+}
+
+/* 2. Nav controls — hide on mobile (hamburger takes over) */
+@media(max-width:900px){
+  .nav-controls{display:none;}
+  .burger{display:flex;}
+}
+
+/* 3. brands-grid — ensure 2nd row of partners wraps cleanly */
+.brands-grid{align-items:stretch;}
+.brand-card{display:flex;flex-direction:column;}
+.brand-body{flex:1;display:flex;flex-direction:column;}
+.brand-sub{flex:1;}
+.brand-foot{margin-top:auto;}
+
+/* 4. brand-img consistent height across all cards including inline-bg ones */
+.brand-img{
+  height:220px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background-size:cover;background-position:center;
+  flex-shrink:0;
+}
+
+/* 5. lcard consistent */
+.lcard{display:flex;flex-direction:column;}
+.lcard-body{flex:1;display:flex;flex-direction:column;}
+.lcard-addr{flex:1;}
+.lcard-cta{margin-top:auto;}
+
+/* 6. Photo grid in biz pages */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:28px;}
+.photo-cell{height:180px;display:flex;align-items:center;justify-content:center;font-size:40px;border-radius:6px;background-size:cover;background-position:center;}
+
+/* 7. biz-body responsive fix */
+@media(max-width:900px){
+  .biz-body{grid-template-columns:1fr;gap:24px;padding:28px 20px;}
+  .photo-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .photo-grid{grid-template-columns:1fr;}
+  .photo-cell{height:200px;}
+}
+
+/* 8. svc-grid consistent min-height */
+.svc{min-height:100px;}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px;}
+
+/* 9. pkg-grid equal height cards */
+.pkg-grid{align-items:stretch;}
+.pkg-card{display:flex;flex-direction:column;}
+.pkg-feats{flex:1;}
+
+/* 10. Press grid card min-height */
+.press-card{min-height:200px;}
+
+/* 11. Award strip responsive */
+@media(max-width:600px){
+  .award-strip{grid-template-columns:1fr 1fr;}
+  .award-num{font-size:32px;}
+}
+
+/* 12. Accolade bar text - ensure legible */
+.accolade-item{font-size:11px;font-weight:700;color:var(--bg);}
+
+/* 13. trust strip overflow on mobile */
+@media(max-width:600px){
+  .trust{padding:10px 16px;gap:18px;}
+  .trust-i{font-size:9px;}
+}
+
+/* 14. hero h1 line-height fix */
+.hero h1{line-height:.95;}
+
+/* 15. Stat bar on very small screens */
+@media(max-width:400px){
+  .stat-n{font-size:26px;}
+  .stats{grid-template-columns:1fr 1fr;}
+}
+
+/* 16. Nav gap for controls */
+nav{gap:12px;}
+
+/* 17. coll-grid in On Safari */
+.coll-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px;}
+.coll-item{padding:12px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;}
+
+/* 18. About grid stacking */
+@media(max-width:900px){
+  .about-img{height:340px;}
+  .about-stat{bottom:-14px;right:-14px;width:110px;}
+}
+
+/* 19. Packages header grid on tablet */
+@media(max-width:900px){
+  .pkg-grid{grid-template-columns:1fr;}
+}
+
+/* 20. dir-tabs wrap on small screens */
+@media(max-width:600px){
+  .dir-tabs{display:flex;flex-wrap:wrap;width:100%;}
+  .dir-tab{flex:1 0 auto;border-radius:4px;font-size:9px;padding:6px 8px;}
+}
+
+/* 21. lang-select option rendering */
+.lang-select option{background:var(--bg2);color:var(--text2);}
+
+/* 22. chat widget on small screens */
+@media(max-width:600px){
+  .chat-box{height:380px;}
+}
+
+/* 23. Form wrapper */
+@media(max-width:600px){
+  .f2{grid-template-columns:1fr;}
+}
+
+/* 24. Footer stacking */
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bot{flex-direction:column;gap:8px;text-align:center;}
+}
+
+/* 25. Ensure biz-hero has min-height on mobile */
+@media(max-width:600px){
+  .biz-hero{min-height:280px;}
+  .biz-hero-inner{padding:20px 16px;}
+}
+
+/* 26. Light mode: fix nav-controls visibility */
+[data-theme="light"] .nav-controls .lang-select{background:transparent;}
+[data-theme="light"] .theme-toggle{background:transparent;}
+
+/* 27. Section tag dot — remove from biz-body sec-tag (looks odd in cards) */
+.biz-body .sec-tag::before{display:none;}
+.info-card .sec-tag::before{display:none;}
+.info-card h3::before{display:none;}
+
+/* 28. Brand img with inline background-image via style attr */
+.brand-img[style]{background-size:cover!important;background-position:center!important;}
+
+/* 29. lcard-img with inline background */
+.lcard-img[style]{background-size:cover!important;background-position:center!important;}
+
+/* 30. Section padding consistency */
+.pg > section:first-of-type{padding-top:100px;}
+
+/* 31. Smooth page transitions */
+.pg{animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* 32. Mobile menu z-index safe */
+.mmenu{z-index:300;}
+nav{z-index:200;}
+
+/* 33. Ensure .lcard-img overlay absolute children work */
+.lcard-img{position:relative;}
+
+/* 34. svc-grid on mobile */
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:1fr;}
+}
+
+/* 35. press-grid on mobile */
+@media(max-width:600px){
+  .press-grid{grid-template-columns:1fr;}
+}
+
+/* 36. Qigong callout box sizing */
+@media(max-width:600px){
+  .biz-body > div > div[style*="rgba(245,197,24,.06)"]{padding:16px;}
+}
 </style>
 </head>
 <body>
