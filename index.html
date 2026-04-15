@@ -303,8 +303,8 @@ section{padding:72px 48px;}
 
 /* ── FEATURED BRANDS ── */
 
-.brand-img-safari{background:linear-gradient(135deg,#0a1400,#1a3000,#243a10);}
-.brand-img-ubuntu{background:linear-gradient(135deg,#050f0a,#0d2318,#152e20);}
+
+
 .brand-img-slot{background:rgba(245,197,24,.03);border:1px dashed rgba(245,197,24,.12);}
 .brand-tier{
   position:absolute;top:12px;left:12px;
@@ -657,8 +657,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .life-cell:nth-child(2){background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Wellness.png") center/cover no-repeat;}
 .life-cell:nth-child(3){background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Art-culture.png") center/cover no-repeat;}
 .life-cell:nth-child(4){background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Coffee-cafes.png") center/cover no-repeat;}
-.brand-img-safari{background:linear-gradient(rgba(10,10,11,.15),rgba(10,10,11,.15)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat;}
-.brand-img-ubuntu{background:linear-gradient(rgba(10,10,11,.15),rgba(10,10,11,.15)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness.png") center/cover no-repeat;}
+
+
 .biz-hero-safari{background:linear-gradient(rgba(10,10,11,.4),rgba(10,10,11,.4)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat;}
 .biz-hero-ubuntu{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness-2.png") center/cover no-repeat;}
 .photo-safari-1{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet.png") center/cover no-repeat;}
@@ -993,7 +993,6 @@ nav{z-index:200;}
   height:200px;
   position:relative;
   overflow:hidden;
-  background:var(--bg3);
   background-size:cover!important;
   background-position:center!important;
   flex-shrink:0;
@@ -1058,6 +1057,14 @@ nav{z-index:200;}
   .brands-grid{grid-template-columns:1fr;gap:10px;}
   .brand-img{height:180px;}
 }
+
+/* IMAGE OVERRIDES — must come last to win cascade */
+.brand-img-safari{background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat!important;}
+.brand-img-ubuntu{background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness.png") center/cover no-repeat!important;}
+.biz-hero-safari{background:linear-gradient(rgba(10,10,11,.45),rgba(10,10,11,.45)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat!important;}
+.biz-hero-ubuntu{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness-2.png") center/cover no-repeat!important;}
+/* Ensure all brand-img with inline style show their bg */
+.brand-img[style*="url("]{background-size:cover!important;background-position:center!important;}
 </style>
 </head>
 <body>
@@ -2452,8 +2459,2505 @@ function googleTranslateElementInit(){
 }
 function translateTo(lang){
   if(!lang){
+    // Reset to English — remove Google Translate cookie and reload
+    document.cookie="googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie="googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain="+window.location.hostname;
+    document.cookie="googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=."+window.location.hostname;
+    // Also try the combo reset before reloading
     var c=document.querySelector('select.goog-te-combo');
-    if(c){c.value='';c.dispatchEvent(new Event('change'));}
+    if(c && c.value){
+      c.value='';
+      c.dispatchEvent(new Event('change'));
+      setTimeout(function(){window.location.reload();},400);
+    } else {
+      window.location.reload();
+    }
+    return;
+  }
+  var tries=0,iv=setInterval(function(){
+    var c=document.querySelector('select.goog-te-combo');
+    if(c){clearInterval(iv);c.value=lang;c.dispatchEvent(new Event('change'));}
+    else if(++tries>25)clearInterval(iv);
+  },200);
+}
+
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://kloofstreet.online/">
+  <title>KloofStreet.online | #22 World's Coolest Street &#x2014; Restaurants, Wellness, Art &amp; Businesses in Cape Town</title>
+  <meta name="description" content="The official curated guide to Kloof Street, Cape Town &#x2014; voted #22 World's Coolest Street by Time Out 2025. Best restaurants, wellness spas, art studios, nightlife, shopping and businesses. Verified listings. AI Concierge.">
+  <meta name="keywords" content="Kloof Street, Kloof Street Cape Town, restaurants Kloof Street, things to do Kloof Street, best restaurants Cape Town, Cape Town coolest street, Time Out coolest streets 2025, Kloof Street guide, Cape Town dining, Ubuntu Wellness Cape Town, On Safari Cape Town, Dr Wendy Dicks allergy specialist Cape Town, wellness spa Cape Town, art galleries Kloof Street, nightlife Kloof Street, shopping Kloof Street, Cape Town city bowl, Tamboerskloof, Table Mountain area restaurants, what to do in Cape Town, Cape Town travel guide 2026">
+  <meta name="geo.region" content="ZA-WC">
+  <meta name="geo.placename" content="Kloof Street, Cape Town, South Africa">
+  <meta name="geo.position" content="-33.9249;18.4091">
+  <meta name="ICBM" content="-33.9249, 18.4091">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KloofStreet.online">
+  <meta property="og:title" content="KloofStreet.online &#x2014; #22 World's Coolest Street | Cape Town's Ultimate Guide">
+  <meta property="og:description" content="Voted one of the world's coolest streets by Time Out 2025. Best restaurants, wellness, art, nightlife and businesses on Cape Town's most iconic street.">
+  <meta property="og:url" content="https://kloofstreet.online/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_ZA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@TeeJaySeatlholo">
+  <meta name="twitter:title" content="KloofStreet.online &#x2014; Cape Town's Most Iconic Street">
+  <meta name="twitter:description" content="#22 World's Coolest Street 2025. Restaurants, wellness, art, nightlife and businesses on Kloof Street, Cape Town.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85">
+  <meta name="theme-color" content="#F5C518">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="KloofStreet.online">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://app.businesshustle.co.za">
+  <link rel="dns-prefetch" href="https://translate.google.com">
+<script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://kloofstreet.online/#website","url":"https://kloofstreet.online/","name":"KloofStreet.online","description":"The curated guide to Kloof Street, Cape Town.","publisher":{"@id":"https://kloofstreet.online/#org"}},
+    {"@type":"Organization","@id":"https://kloofstreet.online/#org","name":"KloofStreet.online","url":"https://kloofstreet.online/","email":"team@businesshustle.co.za","sameAs":["https://businesshustle.co.za","https://www.hustleportal.online/"]},
+    {"@type":"TouristAttraction","name":"Kloof Street Cape Town","description":"Cape Town's most iconic street, voted #22 on Time Out's 31 Coolest Streets in the World 2025 and coolest street in Africa. Home to world-class restaurants, wellness spas, art studios, boutiques and nightlife framed by Table Mountain.","url":"https://kloofstreet.online/","image":"https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&q=85","address":{"@type":"PostalAddress","streetAddress":"Kloof Street","addressLocality":"Cape Town","addressRegion":"Western Cape","postalCode":"8001","addressCountry":"ZA"},"geo":{"@type":"GeoCoordinates","latitude":-33.9249,"longitude":18.4091},"award":"Time Out 31 Coolest Streets 2025 - #22","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"340"}},
+    {"@type":"LocalBusiness","name":"KloofStreet.online Directory","url":"https://kloofstreet.online/","description":"Verified business directory for Kloof Street, Cape Town.","address":{"@type":"PostalAddress","streetAddress":"Kloof Street","addressLocality":"Cape Town","addressRegion":"Western Cape","postalCode":"8001","addressCountry":"ZA"},"geo":{"@type":"GeoCoordinates","latitude":-33.9249,"longitude":18.4091},"email":"team@businesshustle.co.za","openingHours":"Mo-Su 00:00-23:59","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.8","reviewCount":"340"}},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is Kloof Street famous for?","acceptedAnswer":{"@type":"Answer","text":"Kloof Street in Cape Town is famous for world-class restaurants, wellness spas, art studios, boutiques, cocktail bars and vibrant nightlife. In 2025 Time Out named it the 22nd coolest street in the world and coolest street in Africa, recognising its unique blend of Victorian heritage, creative culture and outstanding food and drink."}},
+      {"@type":"Question","name":"What are the best restaurants on Kloof Street Cape Town?","acceptedAnswer":{"@type":"Answer","text":"Top restaurants include Kloof Street House (Victorian manor dining), Vadivelu (Southern Indian at 151 Kloof St), Blondie (Mediterranean at 71 Kloof St), Kloof Konbini (Japanese street food at 121 Kloof St), Our Local (brunch at 117 Kloof St), Rick's Cafe (rooftop cocktails at 103 Kloof St) and many more on KloofStreet.online."}},
+      {"@type":"Question","name":"Where is Kloof Street in Cape Town?","acceptedAnswer":{"@type":"Answer","text":"Kloof Street runs through Cape Town's City Bowl, stretching from the upper CBD towards Tamboerskloof, framed by Table Mountain. GPS: -33.9249, 18.4091. Nearby: Gardens, De Waterkant, V&A Waterfront."}},
+      {"@type":"Question","name":"What wellness services are on Kloof Street?","acceptedAnswer":{"@type":"Answer","text":"Ubuntu Wellness & Cape Town Medi-Spa offers float therapy, spa treatments, homeopathy and vegan wellness at 99B Kloof Street. Dr Wendy Dicks, GP and allergy specialist, also consults at 99B Kloof Street offering airway, food and skin allergy treatment, paediatrics, mental health and aesthetics."}},
+      {"@type":"Question","name":"Is Kloof Street safe to visit?","acceptedAnswer":{"@type":"Answer","text":"Yes. Kloof Street is one of Cape Town's most popular and well-maintained streets. It is busy day and night with restaurants, bars and shops creating a safe and vibrant atmosphere. It is recommended to be street-smart as with any city centre location."}},
+      {"@type":"Question","name":"What is the KloofStreet.online Street Pass?","acceptedAnswer":{"@type":"Answer","text":"The Street Pass (R199/month) gives holders exclusive discounts at featured businesses, priority AI concierge access, WhatsApp flash deal alerts and members-only events on Kloof Street."}}
+    ]},
+    {"@type":"ItemList","name":"Kloof Street Featured Businesses","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"On Safari Fine Art Photography","url":"https://www.on-safari.co.za","description":"Wildlife photographic fine art prints at 99B Kloof Street"},
+      {"@type":"ListItem","position":2,"name":"Ubuntu Wellness & Cape Town Medi-Spa","url":"http://ubuntuwellness.com/","description":"Health spa, float therapy and homeopathy on Kloof Street"},
+      {"@type":"ListItem","position":3,"name":"Dr Wendy Dicks - GP & Allergy Specialist","url":"https://allergycapetown.co.za/","description":"GP and Allergologist at 99B Kloof Street, Cape Town"}
+    ]}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Cape Town","item":"https://kloofstreet.online/"},
+    {"@type":"ListItem","position":2,"name":"Kloof Street","item":"https://kloofstreet.online/"},
+    {"@type":"ListItem","position":3,"name":"Restaurants, Wellness & Businesses","item":"https://kloofstreet.online/"}
+  ]}
+  </script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+:root{
+  --a:#F5C518;
+  --al:#f7d44e;
+  --bg:#0a0a0b;
+  --bg2:#111114;
+  --bg3:#0d0d0f;
+  --bdr:rgba(255,255,255,0.06);
+  --muted:#7a7a78;
+  --text:#e8e8e6;
+  --text2:#f0f0ee;
+  --green:#25D366;
+  --r:12px;
+}
+
+body{
+  font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+/* ── PAGES ── */
+.pg{display:none;min-height:100vh;}
+.pg.on{display:block;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 40px;
+  transition:all .3s;
+}
+nav.scrolled{
+  background:rgba(10,10,11,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--bdr);
+}
+.logo{
+  font-size:20px;font-weight:800;letter-spacing:.06em;
+  color:var(--text2);cursor:pointer;text-decoration:none;
+  text-transform:uppercase;
+}
+.logo em{color:var(--a);font-style:normal;}
+.nav-links{display:flex;gap:20px;list-style:none;}
+.nav-links a{
+  color:var(--muted);text-decoration:none;font-size:12px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.on{color:var(--text2);}
+.nav-btn{
+  background:var(--a);color:var(--bg);border:none;
+  padding:9px 20px;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;border-radius:4px;transition:background .2s;
+  text-decoration:none;
+}
+.nav-btn:hover{background:var(--al);}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+.burger span{width:22px;height:1.5px;background:var(--text2);display:block;}
+
+/* ── MOBILE MENU ── */
+.mmenu{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:var(--bg2);flex-direction:column;
+  align-items:center;justify-content:center;gap:24px;
+}
+.mmenu.on{display:flex;}
+.mmenu a{
+  font-size:28px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--text2);
+  text-decoration:none;cursor:pointer;
+}
+.mmenu a:hover{color:var(--a);}
+.mmenu-close{
+  position:absolute;top:20px;right:28px;
+  font-size:24px;cursor:pointer;background:none;border:none;color:var(--text2);
+}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(10,10,11,1) 0%, rgba(10,10,11,.5) 50%, rgba(10,10,11,.1) 100%),
+    linear-gradient(135deg, #0f0a00 0%, #1a1200 30%, #0d0800 60%, #050503 100%);
+}
+/* Gold particle effect */
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 60% 40%, rgba(245,197,24,.06) 0%, transparent 70%);
+}
+.hero-inner{position:relative;z-index:2;padding:60px 48px;}
+.hero-tag{
+  font-size:11px;font-weight:700;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--a);margin-bottom:20px;
+  display:flex;align-items:center;gap:12px;
+}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--a);}
+.hero h1{
+  font-size:clamp(52px,8vw,100px);font-weight:900;
+  line-height:.94;letter-spacing:-.01em;color:var(--text2);
+  max-width:720px;text-transform:uppercase;
+}
+.hero-sub{
+  font-size:15px;color:var(--muted);max-width:420px;
+  line-height:1.65;margin-top:20px;margin-bottom:32px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  padding:13px 28px;border:none;font-size:11px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  border-radius:4px;transition:all .2s;text-decoration:none;display:inline-block;
+}
+.btn-gold{background:var(--a);color:var(--bg);}
+.btn-gold:hover{background:var(--al);}
+.btn-outline{
+  background:transparent;color:var(--text2);
+  border:1px solid rgba(255,255,255,.25);
+}
+.btn-outline:hover{border-color:var(--a);color:var(--a);}
+
+/* Stats bar */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--bdr);margin-top:48px;
+}
+.stat{padding:18px 0;border-right:1px solid var(--bdr);}
+.stat:last-child{border-right:none;}
+.stat-n{font-size:34px;font-weight:900;color:var(--a);letter-spacing:.02em;}
+.stat-l{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+
+/* ── TRUST STRIP ── */
+.trust{
+  background:var(--bg2);
+  border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);
+  padding:14px 48px;
+  display:flex;align-items:center;gap:28px;overflow:hidden;
+}
+.trust-i{
+  display:flex;align-items:center;gap:7px;
+  font-size:10px;color:var(--muted);letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;flex-shrink:0;
+}
+.trust-i b{color:var(--a);}
+
+/* ── LIFE STRIP ── */
+.life{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;height:220px;}
+.life-cell{
+  position:relative;cursor:pointer;overflow:hidden;
+  display:flex;align-items:flex-end;
+}
+.life-cell:nth-child(1){background:linear-gradient(135deg,#1a0800,#3d1a00);}
+.life-cell:nth-child(2){background:linear-gradient(135deg,#050f0a,#102820);}
+.life-cell:nth-child(3){background:linear-gradient(135deg,#080820,#151540);}
+.life-cell:nth-child(4){background:linear-gradient(135deg,#100800,#2a1600);}
+.life-cell::before{
+  content:attr(data-emoji);
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:56px;opacity:.12;
+}
+.life-cell:hover::before{opacity:.22;transition:opacity .3s;}
+.life-lbl{
+  position:relative;z-index:1;
+  padding:14px 16px;
+  font-size:10px;font-weight:700;color:var(--a);
+  letter-spacing:.18em;text-transform:uppercase;
+  background:linear-gradient(to top,rgba(10,10,11,.9),transparent);
+  width:100%;
+}
+
+/* ── SECTION ── */
+section{padding:72px 48px;}
+.sec-tag{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--a);margin-bottom:12px;}
+.sec-title{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-.01em;color:var(--text2);text-transform:uppercase;line-height:1;}
+.sec-desc{font-size:14px;color:var(--muted);line-height:1.7;max-width:480px;margin-top:14px;}
+
+/* ── CAT GRID ── */
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.cat-card{
+  position:relative;aspect-ratio:4/3;cursor:pointer;overflow:hidden;
+  display:flex;align-items:flex-end;
+  transition:filter .3s;
+}
+.cat-card:hover{filter:brightness(1.1);}
+.cat-card::before{
+  content:attr(data-emoji);
+  position:absolute;inset:0;display:flex;
+  align-items:center;justify-content:center;
+  font-size:72px;opacity:.1;
+}
+.cat-card:nth-child(1){background:linear-gradient(135deg,#1a0800,#3d1a00);}
+.cat-card:nth-child(2){background:linear-gradient(135deg,#080820,#181550);}
+.cat-card:nth-child(3){background:linear-gradient(135deg,#050f0a,#102820);}
+.cat-card:nth-child(4){background:linear-gradient(135deg,#0f0010,#220040);}
+.cat-card:nth-child(5){background:linear-gradient(135deg,#0d0d00,#2a2800);}
+.cat-card:nth-child(6){background:linear-gradient(135deg,#050518,#0f0f30);}
+.cat-card:nth-child(7){background:linear-gradient(135deg,#100800,#2a1600);}
+.cat-card:nth-child(8){background:linear-gradient(135deg,#0a0810,#1e1535);}
+.cat-card:nth-child(9){background:linear-gradient(135deg,#080f05,#152510);}
+.cat-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,11,.95) 0%,transparent 55%);}
+.cat-body{position:relative;z-index:1;padding:20px;}
+.cat-tag{font-size:9px;color:var(--a);letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:6px;}
+.cat-title{font-size:18px;font-weight:800;color:var(--text2);line-height:1.15;margin-bottom:4px;}
+.cat-desc{font-size:12px;color:rgba(232,232,230,.6);line-height:1.5;}
+
+/* ── PASS BLOCK ── */
+.pass-block{
+  background:rgba(245,197,24,.04);
+  border:1px solid rgba(245,197,24,.2);
+  padding:56px;border-radius:var(--r);
+  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+}
+.pass-price{font-size:72px;font-weight:900;color:var(--a);line-height:1;}
+.pass-per{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.pass-perks{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.perk{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:10px;}
+.perk::before{content:'—';color:var(--a);}
+
+/* ── VERIFIED BADGE ── */
+.badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);
+  color:var(--a);font-size:9px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;
+}
+
+/* ── FEATURED BRANDS ── */
+
+
+
+.brand-img-slot{background:rgba(245,197,24,.03);border:1px dashed rgba(245,197,24,.12);}
+.brand-tier{
+  position:absolute;top:12px;left:12px;
+  font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:3px 9px;border-radius:3px;
+}
+.tier-g{background:rgba(245,197,24,.15);color:var(--a);border:1px solid rgba(245,197,24,.3);}
+.open-pill{
+  position:absolute;top:12px;right:12px;
+  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border-radius:3px;
+  background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);
+}
+.vibe-bar{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(10,10,11,.85);backdrop-filter:blur(4px);
+  padding:6px 12px;font-size:10px;color:rgba(232,232,230,.8);
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+/* ── DIRECTORY / LOCKED CARDS ── */
+.dir-search-wrap{position:relative;margin-bottom:16px;}
+.dir-search{
+  width:100%;background:var(--bg2);border:1px solid var(--bdr);
+  padding:13px 16px 13px 42px;color:var(--text);font-size:13px;
+  border-radius:var(--r);outline:none;font-family:inherit;
+  transition:border-color .2s;
+}
+.dir-search:focus{border-color:rgba(245,197,24,.4);}
+.dir-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;}
+.dir-count{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--muted);}
+
+.dir-tabs{display:flex;gap:2px;margin-bottom:24px;background:var(--bg2);border:1px solid var(--bdr);padding:3px;border-radius:8px;width:fit-content;}
+.dir-tab{
+  padding:7px 14px;font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;background:none;border:none;color:var(--muted);
+  cursor:pointer;transition:all .2s;border-radius:6px;font-family:inherit;
+}
+.dir-tab.on{background:var(--a);color:var(--bg);}
+
+.stores-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.lcard{
+  background:var(--bg2);border:1px solid rgba(255,255,255,.03);
+  cursor:pointer;transition:border-color .3s;
+}
+.lcard:hover{border-color:rgba(245,197,24,.15);}
+.lcard-img{
+  height:140px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.lcard-img::after{
+  content:'';position:absolute;inset:0;
+  background:rgba(10,10,11,.55);
+}
+.lcard-lock{
+  position:absolute;inset:0;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+}
+.lcard-lock span{font-size:18px;opacity:.5;}
+.lcard-lock small{font-size:9px;color:var(--muted);letter-spacing:.15em;text-transform:uppercase;}
+.lcard-body{padding:12px 14px;}
+.lcard-name{font-size:13px;font-weight:600;color:rgba(240,240,238,.5);margin-bottom:2px;}
+.lcard-addr{font-size:10px;color:rgba(122,122,120,.5);margin-bottom:8px;}
+.lcard-cta{font-size:9px;color:var(--a);letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:none;border:none;cursor:pointer;font-family:inherit;padding:0;}
+
+/* Locked card gradients by category */
+.lc-dining{background:linear-gradient(135deg,#1a0800,#2d1200);}
+.lc-wellness{background:linear-gradient(135deg,#050f0a,#0d2010);}
+.lc-art{background:linear-gradient(135deg,#080820,#101535);}
+.lc-nightlife{background:linear-gradient(135deg,#0f0010,#1a0030);}
+.lc-retail{background:linear-gradient(135deg,#050518,#0d0d28);}
+
+/* ── BIZ DETAIL ── */
+.biz-hero{
+  height:50vh;min-height:360px;position:relative;
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.biz-hero-safari{background:linear-gradient(135deg,#0a1400,#1a3000,#2d4a10);}
+.biz-hero-ubuntu{background:linear-gradient(135deg,#050f0a,#0d2318,#152e20);}
+.biz-hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(10,10,11,1) 0%,rgba(10,10,11,.2) 60%);
+}
+.biz-hero-inner{position:relative;z-index:1;padding:36px 48px;}
+.biz-back{
+  display:inline-flex;align-items:center;gap:8px;
+  color:var(--muted);font-size:12px;cursor:pointer;
+  margin-bottom:16px;background:none;border:none;
+  font-family:inherit;transition:color .2s;padding:0;
+}
+.biz-back:hover{color:var(--a);}
+.biz-body{display:grid;grid-template-columns:1fr 320px;gap:56px;padding:48px;}
+.info-card{background:var(--bg2);border:1px solid var(--bdr);padding:24px;margin-bottom:14px;border-radius:var(--r);}
+.info-card h3{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:14px;font-weight:700;}
+.info-row{display:flex;gap:10px;margin-bottom:10px;font-size:12px;color:var(--muted);line-height:1.5;align-items:flex-start;}
+.info-row b{color:var(--a);flex-shrink:0;}
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
+.svc{background:var(--bg2);border:1px solid var(--bdr);padding:16px;border-radius:var(--r);}
+.svc-icon{font-size:18px;margin-bottom:8px;}
+.svc-name{font-size:12px;font-weight:700;color:var(--text2);margin-bottom:4px;}
+.svc-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+.coll-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px;}
+.coll-item{padding:12px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;}
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:28px;}
+.photo-cell{
+  height:160px;display:flex;align-items:center;justify-content:center;
+  font-size:40px;border-radius:6px;
+}
+.photo-safari-1{background:linear-gradient(135deg,#0a1400,#243a10);}
+.photo-safari-2{background:linear-gradient(135deg,#1a2a00,#0a1800);}
+.photo-safari-3{background:linear-gradient(135deg,#050f00,#182800);}
+
+/* ── PACKAGES ── */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.pkg-card{
+  background:var(--bg);border:1px solid rgba(255,255,255,.06);
+  padding:32px 24px;position:relative;transition:border-color .25s;border-radius:var(--r);
+}
+.pkg-card:hover{border-color:rgba(245,197,24,.25);}
+.pkg-card.featured{border-color:rgba(245,197,24,.3);background:rgba(245,197,24,.02);}
+.pkg-pop{
+  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
+  background:var(--a);color:var(--bg);font-size:8px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;padding:3px 12px;
+  border-radius:0 0 4px 4px;white-space:nowrap;
+}
+.pkg-tier{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+.pkg-price{font-size:48px;font-weight:900;color:var(--text2);line-height:1;}
+.pkg-per{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.pkg-billed{font-size:10px;color:rgba(122,122,120,.5);margin-bottom:18px;}
+.pkg-bar-wrap{height:2px;background:rgba(255,255,255,.07);margin-bottom:18px;border-radius:1px;}
+.pkg-bar{height:100%;background:var(--a);border-radius:1px;}
+.pkg-slots{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:6px;}
+.pkg-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;}
+.pkg-feats li{font-size:12px;color:var(--muted);display:flex;gap:9px;line-height:1.4;}
+.pkg-feats li::before{content:'—';color:var(--a);flex-shrink:0;}
+.pkg-btn{
+  display:block;width:100%;padding:13px;text-align:center;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;border-radius:4px;transition:all .2s;text-decoration:none;border:none;font-family:inherit;
+}
+.pkg-btn-gold{background:var(--a);color:var(--bg);}
+.pkg-btn-gold:hover{background:var(--al);}
+.pkg-btn-ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.15);}
+.pkg-btn-ghost:hover{border-color:var(--a);color:var(--a);}
+
+/* ── AI CHAT ── */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.chat-box{
+  background:var(--bg2);border:1px solid rgba(245,197,24,.2);
+  height:440px;display:flex;flex-direction:column;border-radius:var(--r);
+}
+.chat-head{
+  padding:16px 18px;border-bottom:1px solid var(--bdr);
+  display:flex;align-items:center;gap:10px;
+  background:var(--bg3);border-radius:var(--r) var(--r) 0 0;
+}
+.chat-dot{width:7px;height:7px;border-radius:50%;background:var(--a);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.chat-name{font-size:12px;font-weight:700;color:var(--text2);}
+.chat-status{font-size:10px;color:var(--muted);}
+.chat-msgs{flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+.msg{max-width:86%;font-size:12px;line-height:1.6;padding:10px 13px;border-radius:var(--r);}
+.msg-ai{background:var(--bg3);color:rgba(232,232,230,.85);align-self:flex-start;border-left:2px solid var(--a);}
+.msg-user{background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.2);color:var(--text2);align-self:flex-end;}
+.chat-prompts{display:flex;flex-direction:column;gap:5px;}
+.cprompt{
+  background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);
+  color:var(--muted);font-size:11px;padding:8px 11px;cursor:pointer;
+  text-align:left;font-family:inherit;transition:all .2s;border-radius:6px;
+}
+.cprompt:hover{border-color:rgba(245,197,24,.3);color:var(--a);}
+.chat-in-row{padding:10px;border-top:1px solid var(--bdr);display:flex;gap:7px;}
+.chat-in{
+  flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);
+  padding:9px 13px;color:var(--text);font-size:12px;
+  outline:none;font-family:inherit;border-radius:4px;
+  transition:border-color .2s;
+}
+.chat-in:focus{border-color:rgba(245,197,24,.4);}
+.chat-send{
+  background:var(--a);border:none;width:38px;height:38px;
+  color:var(--bg);font-size:15px;cursor:pointer;border-radius:4px;font-weight:700;
+}
+.tdot{width:5px;height:5px;border-radius:50%;background:var(--a);opacity:.5;animation:td 1.2s infinite;display:inline-block;margin:0 2px;}
+.tdot:nth-child(2){animation-delay:.2s}.tdot:nth-child(3){animation-delay:.4s}
+@keyframes td{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-4px)}}
+
+/* ── FORM ── */
+.form-wrap{background:var(--bg2);border:1px solid var(--bdr);padding:32px;border-radius:var(--r);}
+.form-title{font-size:15px;font-weight:700;color:var(--text2);margin-bottom:22px;}
+.f{margin-bottom:14px;}
+.f label{display:block;font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;font-weight:700;}
+.f input,.f select,.f textarea{
+  width:100%;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.09);
+  padding:11px 13px;color:var(--text);font-size:13px;font-family:inherit;
+  outline:none;transition:border-color .2s;border-radius:4px;
+}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:rgba(245,197,24,.4);}
+.f select option{background:var(--bg2);}
+.f textarea{resize:vertical;min-height:80px;}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-submit{
+  width:100%;padding:14px;background:var(--a);border:none;
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--bg);cursor:pointer;transition:background .2s;border-radius:4px;font-family:inherit;
+}
+.form-submit:hover{background:var(--al);}
+
+/* ── DASHBOARD ── */
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px;}
+.kpi{background:var(--bg3);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);}
+.kpi-l{font-size:9px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;font-weight:700;}
+.kpi-v{font-size:30px;font-weight:900;color:var(--text2);line-height:1;}
+.kpi-ch{font-size:10px;margin-top:4px;}
+.kpi-up{color:#4ecf87;}.kpi-dn{color:#ff5555;}
+.dash-panels{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+.dash-panel{background:var(--bg3);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);}
+.dash-panel h3{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;font-weight:700;}
+.bar-row{display:flex;align-items:flex-end;gap:5px;height:72px;}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
+.bar-fill{width:100%;background:rgba(245,197,24,.22);border-radius:3px 3px 0 0;cursor:pointer;transition:background .2s;}
+.bar-fill:hover{background:rgba(245,197,24,.55);}
+.bar-lbl{font-size:8px;color:var(--muted);}
+.vibe-row{display:flex;align-items:center;gap:8px;background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.15);padding:9px 12px;margin-bottom:8px;border-radius:8px;}
+.vibe-dot{width:5px;height:5px;border-radius:50%;background:var(--a);flex-shrink:0;}
+.vibe-txt{font-size:12px;color:var(--text);flex:1;}
+.vibe-edit{font-size:9px;color:var(--a);background:none;border:none;cursor:pointer;letter-spacing:.1em;text-transform:uppercase;font-family:inherit;}
+.vibe-opts{display:none;grid-template-columns:1fr 1fr;gap:5px;}
+.vibe-opts.show{display:grid;}
+.vibe-opt{
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+  color:var(--muted);font-size:10px;padding:7px 9px;cursor:pointer;
+  text-align:left;font-family:inherit;transition:all .2s;border-radius:5px;
+}
+.vibe-opt:hover{border-color:rgba(245,197,24,.3);color:var(--a);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.about-img{
+  height:480px;border-radius:var(--r);position:relative;
+  background:linear-gradient(135deg,#0f0a00,#2a1e00,#0a0a0b);
+  display:flex;align-items:center;justify-content:center;
+  font-size:80px;overflow:hidden;
+}
+.about-img::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(245,197,24,.08),transparent 70%);
+}
+.about-stat{
+  position:absolute;bottom:-18px;right:-18px;
+  background:var(--bg2);border:1px solid var(--a);
+  padding:20px;text-align:center;width:130px;border-radius:var(--r);
+}
+.about-stat strong{font-size:40px;font-weight:900;color:var(--a);display:block;line-height:1;}
+.about-stat span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+.connect-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:32px;}
+.connect-card{
+  background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.12);
+  padding:24px 14px;text-align:center;cursor:pointer;
+  transition:border-color .25s;border-radius:var(--r);
+}
+.connect-card:hover{border-color:var(--a);}
+.connect-card-icon{font-size:24px;margin-bottom:10px;}
+.connect-card-lbl{font-size:11px;color:var(--text2);font-weight:700;text-transform:uppercase;letter-spacing:.08em;}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 28px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px;}
+.footer-logo{font-size:22px;font-weight:900;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em;}
+.footer-logo em{color:var(--a);font-style:normal;}
+.footer-desc{font-size:12px;color:var(--muted);line-height:1.7;max-width:260px;margin-bottom:16px;}
+.footer-col h4{font-size:9px;color:var(--a);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;font-weight:700;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.footer-col a{color:var(--muted);text-decoration:none;font-size:12px;transition:color .2s;cursor:pointer;}
+.footer-col a:hover{color:var(--a);}
+.footer-bot{border-top:1px solid rgba(255,255,255,.04);padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bot p{font-size:11px;color:rgba(122,122,120,.45);}
+.footer-bot em{color:var(--a);font-style:normal;}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:24px;right:24px;
+  background:var(--bg2);border:1px solid var(--a);color:var(--text);
+  padding:13px 18px;font-size:12px;z-index:999;display:none;
+  max-width:280px;line-height:1.4;border-radius:var(--r);
+}
+.toast.show{display:block;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:14px 20px;}
+  .nav-links,.nav-btn{display:none;}
+  .burger{display:flex;}
+  section{padding:52px 20px;}
+  .hero-inner{padding:40px 20px;}
+  .stats{grid-template-columns:repeat(2,1fr);}
+  .stat:nth-child(2){border-right:none;}
+  .stat:nth-child(3){border-right:1px solid var(--bdr);}
+  .cat-grid{grid-template-columns:1fr 1fr;}
+  
+  .stores-grid{grid-template-columns:repeat(2,1fr);}
+  .about-grid,.ai-grid{grid-template-columns:1fr;gap:36px;}
+  .biz-body{grid-template-columns:1fr;gap:24px;padding:28px 20px;}
+  .biz-hero-inner{padding:28px 20px;}
+  .pkg-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .pass-block{grid-template-columns:1fr;gap:28px;}
+  .life{grid-template-columns:1fr 1fr;height:auto;}
+  .life-cell{height:120px;}
+  .kpi-row{grid-template-columns:repeat(2,1fr);}
+  .dash-panels{grid-template-columns:1fr;}
+  .trust{padding:12px 20px;gap:16px;}
+}
+@media(max-width:600px){
+  nav{padding:12px 16px;}
+  section{padding:40px 16px;}
+  .hero-inner{padding:28px 16px;}
+  .hero h1{font-size:clamp(38px,11vw,54px);}
+  .hero-sub{font-size:13px;margin-bottom:22px;}
+  .hero-btns{flex-direction:column;}
+  .hero-btns .btn{display:block;text-align:center;}
+  .stats{grid-template-columns:1fr 1fr;margin-top:28px;}
+  .stat:nth-child(3){border-right:none;}
+  .cat-grid{grid-template-columns:1fr;}
+  
+  .stores-grid{grid-template-columns:1fr 1fr;}
+  .f2{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bot{flex-direction:column;gap:8px;text-align:center;}
+  .connect-cards{grid-template-columns:1fr;}
+  .pass-block{padding:32px 20px!important;}
+  .svc-grid,.coll-grid{grid-template-columns:1fr;}
+  .photo-grid{grid-template-columns:1fr;}
+  .dir-tabs{flex-wrap:wrap;}
+}
+
+/* IMAGES */
+.hero-bg{background:linear-gradient(to top,rgba(10,10,11,1) 0%,rgba(10,10,11,.5) 50%,rgba(10,10,11,.1) 100%),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1600&q=85") center/cover no-repeat;}
+.cat-card:nth-child(1){background:linear-gradient(rgba(10,10,11,.4),rgba(10,10,11,.4)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Restaurants-dining-under-explore-kloof-street-on-home-page.png") center/cover no-repeat;}
+.cat-card:nth-child(2){background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Art-studios.png") center/cover no-repeat;}
+.cat-card:nth-child(3){background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Wellness.png") center/cover no-repeat;}
+.cat-card:nth-child(4){background:linear-gradient(rgba(10,10,11,.45),rgba(10,10,11,.45)),url("https://images.unsplash.com/photo-1566417713940-fe7c737a9ef2?w=800&q=80") center/cover no-repeat;}
+.cat-card:nth-child(5){background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Art-culture.png") center/cover no-repeat;}
+.cat-card:nth-child(6){background:linear-gradient(rgba(10,10,11,.4),rgba(10,10,11,.4)),url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80") center/cover no-repeat;}
+.cat-card:nth-child(7){background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Coffee-cafes.png") center/cover no-repeat;}
+.cat-card:nth-child(8){background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80") center/cover no-repeat;}
+.cat-card:nth-child(9){background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&q=80") center/cover no-repeat;}
+.life-cell:nth-child(1){background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Fine-dining.png") center/cover no-repeat;}
+.life-cell:nth-child(2){background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Wellness.png") center/cover no-repeat;}
+.life-cell:nth-child(3){background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Art-culture.png") center/cover no-repeat;}
+.life-cell:nth-child(4){background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Coffee-cafes.png") center/cover no-repeat;}
+
+
+.biz-hero-safari{background:linear-gradient(rgba(10,10,11,.4),rgba(10,10,11,.4)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat;}
+.biz-hero-ubuntu{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness-2.png") center/cover no-repeat;}
+.photo-safari-1{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet.png") center/cover no-repeat;}
+.photo-safari-2{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet-2.png") center/cover no-repeat;}
+.photo-safari-3{background:url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-safari-Kloofstreet-3.png") center/cover no-repeat;}
+.about-img{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85") center/cover no-repeat;}
+.cat-card::before,.life-cell::before{display:none;}
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes countUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,197,24,0)}50%{box-shadow:0 0 18px 4px rgba(245,197,24,.18)}}
+@keyframes borderFlow{0%{border-color:rgba(245,197,24,.1)}50%{border-color:rgba(245,197,24,.4)}100%{border-color:rgba(245,197,24,.1)}}
+.hero-tag{animation:slideRight .7s cubic-bezier(.22,1,.36,1) .2s both}
+.hero h1{animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .35s both}
+.hero-sub{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .5s both}
+.hero-btns{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) .65s both}
+.stats{animation:fadeUp .6s cubic-bezier(.22,1,.36,1) .8s both}
+.stat-n{animation:countUp .5s cubic-bezier(.22,1,.36,1) 1s both}
+.stat:nth-child(2) .stat-n{animation-delay:1.1s}
+.stat:nth-child(3) .stat-n{animation-delay:1.2s}
+.stat:nth-child(4) .stat-n{animation-delay:1.3s}
+.trust-i{animation:slideRight .5s cubic-bezier(.22,1,.36,1) both}
+.trust-i:nth-child(1){animation-delay:.1s}.trust-i:nth-child(2){animation-delay:.2s}.trust-i:nth-child(3){animation-delay:.3s}.trust-i:nth-child(4){animation-delay:.4s}.trust-i:nth-child(5){animation-delay:.5s}.trust-i:nth-child(6){animation-delay:.6s}.trust-i:nth-child(7){animation-delay:.7s}
+.life-cell{animation:scaleIn .6s cubic-bezier(.22,1,.36,1) both}
+.life-cell:nth-child(1){animation-delay:.1s}.life-cell:nth-child(2){animation-delay:.2s}.life-cell:nth-child(3){animation-delay:.3s}.life-cell:nth-child(4){animation-delay:.4s}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-scale{opacity:0;transform:scale(.95);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.reveal-scale.visible{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(18px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.stagger.visible>*:nth-child(1){opacity:1;transform:none;transition-delay:.05s}.stagger.visible>*:nth-child(2){opacity:1;transform:none;transition-delay:.12s}.stagger.visible>*:nth-child(3){opacity:1;transform:none;transition-delay:.19s}.stagger.visible>*:nth-child(4){opacity:1;transform:none;transition-delay:.26s}.stagger.visible>*:nth-child(5){opacity:1;transform:none;transition-delay:.33s}.stagger.visible>*:nth-child(6){opacity:1;transform:none;transition-delay:.40s}.stagger.visible>*:nth-child(7){opacity:1;transform:none;transition-delay:.47s}.stagger.visible>*:nth-child(8){opacity:1;transform:none;transition-delay:.54s}.stagger.visible>*:nth-child(9){opacity:1;transform:none;transition-delay:.61s}
+.btn-gold{transition:background .2s,transform .15s,box-shadow .2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,197,24,.25)}
+.btn-outline{transition:border-color .2s,color .2s,transform .15s}
+.btn-outline:hover{transform:translateY(-2px)}
+
+.lcard{transition:border-color .3s,transform .2s}
+.lcard:hover{transform:translateY(-3px)}
+.cat-card{transition:filter .3s,transform .4s}
+.cat-card:hover{transform:scale(1.02)}
+.pkg-card{transition:border-color .25s,transform .2s,box-shadow .25s}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 32px rgba(0,0,0,.35)}
+.info-card{transition:border-color .25s,transform .2s}
+.info-card:hover{border-color:rgba(245,197,24,.2);transform:translateY(-2px)}
+.connect-card{transition:border-color .25s,transform .2s}
+.connect-card:hover{transform:translateY(-3px)}
+.pkg-card.featured{animation:glowPulse 3s ease-in-out infinite}
+.nav-links a{position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1px;background:var(--a);transition:width .25s}
+.nav-links a:hover::after,.nav-links a.on::after{width:100%}
+.msg{animation:fadeUp .3s cubic-bezier(.22,1,.36,1) both}
+.btn-gold{background-size:200% auto}
+.btn-gold:hover{background-image:linear-gradient(90deg,var(--a) 0%,var(--al) 40%,var(--a) 100%);background-size:200% auto;animation:shimmer .8s linear}
+.pass-block{animation:borderFlow 4s ease-in-out infinite}
+.sec-tag::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--a);margin-right:8px;animation:pulse 2s infinite;vertical-align:middle}
+.stores-grid .lcard{transition:border-color .3s,transform .2s,opacity .4s}
+
+/* PRESS MARQUEE */
+.accolade-bar{background:var(--a);padding:12px 0;overflow:hidden;white-space:nowrap;}
+.accolade-track{display:inline-flex;animation:marquee 28s linear infinite;}
+.accolade-track:hover{animation-play-state:paused;}
+.accolade-item{display:inline-flex;align-items:center;gap:10px;padding:0 40px;font-size:12px;font-weight:700;color:var(--bg);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;}
+.accolade-item span{font-size:16px;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* PRESS CARDS */
+.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px;}
+.press-card{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .25s,transform .2s;text-decoration:none;cursor:pointer;}
+.press-card:hover{border-color:rgba(245,197,24,.35);transform:translateY(-3px);}
+.press-logo{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--a);}
+.press-headline{font-size:14px;font-weight:700;color:var(--text2);line-height:1.45;}
+.press-snippet{font-size:12px;color:var(--muted);line-height:1.6;}
+.press-date{font-size:10px;color:rgba(122,122,120,.6);letter-spacing:.08em;text-transform:uppercase;margin-top:auto;}
+.press-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);color:var(--a);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:3px;width:fit-content;}
+.award-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;}
+.award-cell{background:var(--bg2);border:1px solid var(--bdr);padding:24px 20px;text-align:center;border-radius:0;}
+.award-num{font-size:40px;font-weight:900;color:var(--a);line-height:1;}
+.award-lbl{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;line-height:1.5;}
+@media(max-width:900px){.press-grid{grid-template-columns:1fr 1fr;}.award-strip{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.press-grid{grid-template-columns:1fr;}.award-strip{grid-template-columns:1fr 1fr;}}
+
+[data-theme="light"]{--bg:#f5f4f0;--bg2:#ffffff;--bg3:#ede9e0;--bdr:rgba(0,0,0,.09);--muted:#5e5e5b;--text:#1a1a18;--text2:#0d0d0c;--a:#c9a200;--al:#e0b400;}
+[data-theme="light"] body{background:var(--bg);color:var(--text);}
+[data-theme="light"] nav.scrolled{background:rgba(245,244,240,.97);}
+[data-theme="light"] .mmenu{background:var(--bg2);}
+[data-theme="light"] .mmenu a,[data-theme="light"] .logo,[data-theme="light"] .footer-logo,[data-theme="light"] .hero h1,[data-theme="light"] .hero-tag{color:var(--text2);}
+[data-theme="light"] .nav-links a{color:var(--muted);}
+[data-theme="light"] .nav-links a:hover,[data-theme="light"] .nav-links a.on{color:var(--text2);}
+[data-theme="light"] .hero-bg{background:linear-gradient(to top,rgba(245,244,240,1) 0%,rgba(245,244,240,.45) 50%,rgba(245,244,240,.05) 100%),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1600&q=85") center/cover no-repeat;}
+[data-theme="light"] .hero-sub,[data-theme="light"] .sec-desc,[data-theme="light"] .stat-l,[data-theme="light"] .trust-i,[data-theme="light"] .brand-sub,[data-theme="light"] .brand-cat,[data-theme="light"] .lcard-addr,[data-theme="light"] .press-snippet,[data-theme="light"] .press-date,[data-theme="light"] .pkg-per,[data-theme="light"] .pkg-billed,[data-theme="light"] .footer-desc,[data-theme="light"] .footer-col a,[data-theme="light"] .perk,[data-theme="light"] .info-row,[data-theme="light"] .svc-desc,[data-theme="light"] .award-lbl,[data-theme="light"] .pkg-feats li,[data-theme="light"] .chat-status,[data-theme="light"] .vibe-txt,[data-theme="light"] .biz-back{color:var(--muted);}
+[data-theme="light"] .brand-name,[data-theme="light"] .lcard-name,[data-theme="light"] .press-headline,[data-theme="light"] .press-logo,[data-theme="light"] .award-num,[data-theme="light"] .pkg-price,[data-theme="light"] .stat-n,[data-theme="light"] .sec-title,[data-theme="light"] .kpi-v,[data-theme="light"] .chat-name,[data-theme="light"] .svc-name,[data-theme="light"] .form-title{color:var(--text2);}
+[data-theme="light"] .btn-outline{color:var(--text2);border-color:rgba(0,0,0,.2);}
+[data-theme="light"] .btn-outline:hover{border-color:var(--a);color:var(--a);}
+[data-theme="light"] .trust{background:var(--bg3);border-color:rgba(0,0,0,.07);}
+[data-theme="light"] .cat-overlay{background:linear-gradient(to top,rgba(245,244,240,.92) 0%,transparent 55%);}
+[data-theme="light"] .cat-title{color:var(--text2);}
+[data-theme="light"] .pass-block{background:rgba(201,162,0,.06);}
+[data-theme="light"] 
+[data-theme="light"] 
+[data-theme="light"] .vibe-bar{background:rgba(245,244,240,.9);color:var(--text);}
+[data-theme="light"] .open-pill{background:rgba(30,80,50,.15);color:#1a6040;}
+[data-theme="light"] .lcard{background:var(--bg2);border-color:rgba(0,0,0,.06);}
+[data-theme="light"] .award-cell,[data-theme="light"] .press-card,[data-theme="light"] .info-card,[data-theme="light"] .form-wrap,[data-theme="light"] .kpi,[data-theme="light"] .dash-panel,[data-theme="light"] .svc,[data-theme="light"] .chat-box,[data-theme="light"] .about-stat{background:var(--bg2);}
+[data-theme="light"] .pkg-card{background:var(--bg3);}
+[data-theme="light"] .pkg-card.featured{background:rgba(201,162,0,.05);}
+[data-theme="light"] .chat-head,[data-theme="light"] .msg-ai{background:var(--bg3);}
+[data-theme="light"] .msg-ai{color:var(--text);}
+[data-theme="light"] .msg-user{background:rgba(201,162,0,.12);color:var(--text2);}
+[data-theme="light"] .cprompt{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.07);color:var(--muted);}
+[data-theme="light"] .chat-in,[data-theme="light"] .f input,[data-theme="light"] .f select,[data-theme="light"] .f textarea{background:var(--bg3);border-color:rgba(0,0,0,.1);color:var(--text);}
+[data-theme="light"] footer{background:var(--bg3);}
+[data-theme="light"] .footer-col h4{color:var(--a);}
+[data-theme="light"] .footer-bot p{color:rgba(26,26,24,.4);}
+[data-theme="light"] .connect-card{background:rgba(201,162,0,.04);}
+[data-theme="light"] .about-img{background:linear-gradient(rgba(245,244,240,.35),rgba(245,244,240,.35)),url("https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=800&q=85") center/cover no-repeat;}
+[data-theme="light"] .badge{background:rgba(201,162,0,.1);}
+[data-theme="light"] .biz-hero::after{background:linear-gradient(to top,rgba(245,244,240,1) 0%,rgba(245,244,240,.15) 60%);}
+[data-theme="light"] .life-cell:nth-child(1){background:linear-gradient(rgba(245,244,240,.4),rgba(245,244,240,.4)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Fine-dining.png") center/cover no-repeat;}
+[data-theme="light"] .life-cell:nth-child(2){background:linear-gradient(rgba(245,244,240,.3),rgba(245,244,240,.3)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Wellness.png") center/cover no-repeat;}
+[data-theme="light"] .life-cell:nth-child(3){background:linear-gradient(rgba(245,244,240,.35),rgba(245,244,240,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Art-culture.png") center/cover no-repeat;}
+[data-theme="light"] .life-cell:nth-child(4){background:linear-gradient(rgba(245,244,240,.35),rgba(245,244,240,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Coffee-cafes.png") center/cover no-repeat;}
+.theme-toggle{background:none;border:1px solid var(--bdr);color:var(--text2);cursor:pointer;width:34px;height:34px;border-radius:50%;font-size:15px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;flex-shrink:0;}
+.theme-toggle:hover{border-color:var(--a);background:rgba(245,197,24,.08);}
+.lang-select{background:transparent;border:1px solid var(--bdr);color:var(--text2);cursor:pointer;padding:5px 24px 5px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.06em;font-family:inherit;transition:border-color .2s;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%237a7a78'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center;}
+.lang-select:hover{border-color:var(--a);}
+.lang-select option{background:var(--bg2);color:var(--text);}
+.nav-controls{display:flex;align-items:center;gap:8px;}
+.goog-te-banner-frame,.skiptranslate{display:none!important;}
+body{top:0!important;}
+#google_translate_element{display:none!important;}
+
+/* ═══════════════════════════════
+   CSS FIXES & IMPROVEMENTS
+   ═══════════════════════════════ */
+
+/* 1. Missing .verified-badge / .badge alias */
+.verified-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);
+  color:var(--a);font-size:9px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 10px;border-radius:3px;
+}
+
+/* 2. Nav controls — hide on mobile (hamburger takes over) */
+@media(max-width:900px){
+  .nav-controls{display:none;}
+  .burger{display:flex;}
+}
+
+/* 4. brand-img consistent height across all cards including inline-bg ones */
+
+/* 5. lcard consistent */
+.lcard{display:flex;flex-direction:column;}
+.lcard-body{flex:1;display:flex;flex-direction:column;}
+.lcard-addr{flex:1;}
+.lcard-cta{margin-top:auto;}
+
+/* 6. Photo grid in biz pages */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:28px;}
+.photo-cell{height:180px;display:flex;align-items:center;justify-content:center;font-size:40px;border-radius:6px;background-size:cover;background-position:center;}
+
+/* 7. biz-body responsive fix */
+@media(max-width:900px){
+  .biz-body{grid-template-columns:1fr;gap:24px;padding:28px 20px;}
+  .photo-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .photo-grid{grid-template-columns:1fr;}
+  .photo-cell{height:200px;}
+}
+
+/* 8. svc-grid consistent min-height */
+.svc{min-height:100px;}
+.svc-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px;}
+
+/* 9. pkg-grid equal height cards */
+.pkg-grid{align-items:stretch;}
+.pkg-card{display:flex;flex-direction:column;}
+.pkg-feats{flex:1;}
+
+/* 10. Press grid card min-height */
+.press-card{min-height:200px;}
+
+/* 11. Award strip responsive */
+@media(max-width:600px){
+  .award-strip{grid-template-columns:1fr 1fr;}
+  .award-num{font-size:32px;}
+}
+
+/* 12. Accolade bar text - ensure legible */
+.accolade-item{font-size:11px;font-weight:700;color:var(--bg);}
+
+/* 13. trust strip overflow on mobile */
+@media(max-width:600px){
+  .trust{padding:10px 16px;gap:18px;}
+  .trust-i{font-size:9px;}
+}
+
+/* 14. hero h1 line-height fix */
+.hero h1{line-height:.95;}
+
+/* 15. Stat bar on very small screens */
+@media(max-width:400px){
+  .stat-n{font-size:26px;}
+  .stats{grid-template-columns:1fr 1fr;}
+}
+
+/* 16. Nav gap for controls */
+nav{gap:12px;}
+
+/* 17. coll-grid in On Safari */
+.coll-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:28px;}
+.coll-item{padding:12px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;}
+
+/* 18. About grid stacking */
+@media(max-width:900px){
+  .about-img{height:340px;}
+  .about-stat{bottom:-14px;right:-14px;width:110px;}
+}
+
+/* 19. Packages header grid on tablet */
+@media(max-width:900px){
+  .pkg-grid{grid-template-columns:1fr;}
+}
+
+/* 20. dir-tabs wrap on small screens */
+@media(max-width:600px){
+  .dir-tabs{display:flex;flex-wrap:wrap;width:100%;}
+  .dir-tab{flex:1 0 auto;border-radius:4px;font-size:9px;padding:6px 8px;}
+}
+
+/* 21. lang-select option rendering */
+.lang-select option{background:var(--bg2);color:var(--text2);}
+
+/* 22. chat widget on small screens */
+@media(max-width:600px){
+  .chat-box{height:380px;}
+}
+
+/* 23. Form wrapper */
+@media(max-width:600px){
+  .f2{grid-template-columns:1fr;}
+}
+
+/* 24. Footer stacking */
+@media(max-width:600px){
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bot{flex-direction:column;gap:8px;text-align:center;}
+}
+
+/* 25. Ensure biz-hero has min-height on mobile */
+@media(max-width:600px){
+  .biz-hero{min-height:280px;}
+  .biz-hero-inner{padding:20px 16px;}
+}
+
+/* 26. Light mode: fix nav-controls visibility */
+[data-theme="light"] .nav-controls .lang-select{background:transparent;}
+[data-theme="light"] .theme-toggle{background:transparent;}
+
+/* 27. Section tag dot — remove from biz-body sec-tag (looks odd in cards) */
+.biz-body .sec-tag::before{display:none;}
+.info-card .sec-tag::before{display:none;}
+.info-card h3::before{display:none;}
+
+.brand-img[style]{background-size:cover!important;background-position:center!important;}
+
+/* 29. lcard-img with inline background */
+.lcard-img[style]{background-size:cover!important;background-position:center!important;}
+
+/* 30. Section padding consistency */
+.pg > section:first-of-type{padding-top:100px;}
+
+/* 31. Smooth page transitions */
+.pg{animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* 32. Mobile menu z-index safe */
+.mmenu{z-index:300;}
+nav{z-index:200;}
+
+/* 33. Ensure .lcard-img overlay absolute children work */
+.lcard-img{position:relative;}
+
+/* 34. svc-grid on mobile */
+@media(max-width:600px){
+  .svc-grid{grid-template-columns:1fr;}
+}
+
+/* 35. press-grid on mobile */
+@media(max-width:600px){
+  .press-grid{grid-template-columns:1fr;}
+}
+
+/* 36. Qigong callout box sizing */
+@media(max-width:600px){
+  .biz-body > div > div[style*="rgba(245,197,24,.06)"]{padding:16px;}
+}
+
+/* ═══════════════════════════════════
+   FEATURED PARTNERS GRID — CLEAN
+   ═══════════════════════════════════ */
+.brands-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:0;
+}
+.brand-card{
+  background:var(--bg2);
+  border:1px solid var(--bdr);
+  border-radius:var(--r);
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  transition:border-color .25s,transform .2s,box-shadow .2s;
+}
+.brand-card:hover{
+  border-color:rgba(245,197,24,.3);
+  transform:translateY(-3px);
+  box-shadow:0 10px 32px rgba(0,0,0,.35);
+}
+.brand-img{
+  height:200px;
+  position:relative;
+  overflow:hidden;
+  background-size:cover!important;
+  background-position:center!important;
+  flex-shrink:0;
+}
+.brand-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  gap:6px;
+}
+.brand-cat{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--a);
+}
+.brand-name{
+  font-size:16px;
+  font-weight:800;
+  color:var(--text2);
+  line-height:1.2;
+}
+.brand-sub{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.55;
+  flex:1;
+}
+.brand-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid var(--bdr);
+}
+.brand-tag{
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:.06em;
+}
+.view-btn{
+  font-size:10px;
+  font-weight:700;
+  color:var(--a);
+  text-decoration:none;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.view-btn:hover{text-decoration:underline;}
+
+@media(max-width:1100px){
+  .brands-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+}
+@media(max-width:900px){
+  .brands-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .brand-img{height:160px;}
+}
+@media(max-width:600px){
+  .brands-grid{grid-template-columns:1fr;gap:10px;}
+  .brand-img{height:180px;}
+}
+
+/* IMAGE OVERRIDES — must come last to win cascade */
+.brand-img-safari{background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat!important;}
+.brand-img-ubuntu{background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness.png") center/cover no-repeat!important;}
+.biz-hero-safari{background:linear-gradient(rgba(10,10,11,.45),rgba(10,10,11,.45)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-On-Safari.png") center/cover no-repeat!important;}
+.biz-hero-ubuntu{background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url("https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Ubuntu-wellness-2.png") center/cover no-repeat!important;}
+/* Ensure all brand-img with inline style show their bg */
+.brand-img[style*="url("]{background-size:cover!important;background-position:center!important;}
+</style>
+</head>
+<body>
+<div id="seo-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true"><h1>KloofStreet.online — Kloof Street Cape Town Complete Guide</h1><h2>Best Restaurants on Kloof Street Cape Town 2025 2026</h2><p>Kloof Street Cape Town restaurants, bars, wellness spas and shops. Named Time Out's 22nd coolest street in the world 2025 and coolest street in Africa. Victorian facades, Table Mountain views, world-class dining.</p><h2>Things to Do on Kloof Street</h2><p>Restaurants: Kloof Street House, Vadivelu, Blondie, Kloof Konbini, Our Local, Sweet Revenge, Rick's Cafe, Arnold's, Carne Kloof, ELGR, Yindee's Thai, Kyoto Garden, Black Sheep Restaurant, Onosbay, Hudson's, Stud Burger, Toni's on Kloof, Zuney Burgers, Bootleggers, Judd's Local, Saigon, Batanga, Monks Chinese, Sushibox, Smokin Joe's, Olivebranch Deli, Love Matcha.</p><p>Wellness: Ubuntu Wellness Cape Town Medi-Spa float therapy spa treatments homeopathy. Dr Wendy Dicks GP allergy specialist paediatrics mental health Botox 99B Kloof Street. Skin and Sage, BOA Beauty Bar, Excentric on Kloof, Spoilt Hair, Yemaya Salon, Pulse on Kloof, The Piercery, Kak Lucky Tattoos.</p><p>Art and Culture: On Safari wildlife fine art photography 99B Kloof Street. AKJP Studio architecture design. Museum of Illusions 10 Kloof Street. Deus Ex Machina 18 Kloof Street.</p><p>Nightlife: Van Hunks, Club Kloof 84 Kloof Street, Vortex Shisha Lounge 66 Kloof Street, Blondie Bar, Born High, Tiger's Milk, Kloof Street House, Smokey Treats, Yours Truly.</p><p>Shopping: Tonic Furniture 87 Kloof Street, LIM Furniture 86 Kloof Street, Boetik 79 Kloof Street, Lifestyle on Kloof, Urban Connect, Workshop17 32 Kloof Street, Widow Maker, Paris-Cape Town, Deus Ex Machina.</p><h2>Kloof Street Location Cape Town</h2><p>Kloof Street Gardens Cape Town Western Cape South Africa 8001. GPS coordinates -33.9249 18.4091. Near Table Mountain National Park, Tamboerskloof, City Bowl, De Waterkant, V&A Waterfront.</p><h2>Kloof Street Awards 2025</h2><p>Time Out 31 coolest streets in the world 2025 number 22. Coolest street in Africa 2025. Covered by Wanted Online, TimesLIVE, IOL, EWN, Cape Town Etc, The South African, Time Out Cape Town, Time Out Global.</p></div>
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="logo" onclick="go('home')">KLOOFSTREET<em>.</em>ONLINE</div>
+  <ul class="nav-links">
+    <li><a onclick="go('home')" id="nl-home" class="on">Home</a></li>
+    <li><a onclick="go('about')" id="nl-about">About</a></li>
+    <li><a onclick="go('explore')" id="nl-explore">Explore</a></li>
+    <li><a onclick="go('brands')" id="nl-brands">Directory</a></li>
+    <li><a onclick="go('packages')" id="nl-packages">Packages</a></li>
+    <li><a onclick="go('ai')" id="nl-ai">AI Concierge</a></li>
+  </ul>
+  <div class="nav-controls">
+    <select class="lang-select" onchange="translateTo(this.value)" title="Language">
+      <option value="">&#x1F310; EN</option>
+      <option value="af">&#x1F1FF;&#x1F1E6; Afrikaans</option>
+      <option value="zu">&#x1F1FF;&#x1F1E6; Zulu</option>
+      <option value="xh">&#x1F1FF;&#x1F1E6; Xhosa</option>
+      <option value="fr">&#x1F1EB;&#x1F1F7; Fran&#xe7;ais</option>
+      <option value="de">&#x1F1E9;&#x1F1EA; Deutsch</option>
+      <option value="es">&#x1F1EA;&#x1F1F8; Espa&#xf1;ol</option>
+      <option value="pt">&#x1F1F5;&#x1F1F9; Portugu&#xeas;s</option>
+      <option value="nl">&#x1F1F3;&#x1F1F1; Nederlands</option>
+      <option value="zh-CN">&#x1F1E8;&#x1F1F3; &#x4e2d;&#x6587;</option>
+      <option value="ar">&#x1F1F8;&#x1F1E6; &#x627;&#x644;&#x639;&#x631;&#x628;&#x64a;&#x629;</option>
+      <option value="ru">&#x1F1F7;&#x1F1FA; &#x420;&#x443;&#x441;&#x441;&#x43a;&#x438;&#x439;</option>
+    </select>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">&#x1F319;</button>
+    <a class="nav-btn" onclick="go('listed')">Get Listed</a>
+  </div>
+  <button class="burger" onclick="document.getElementById('mm').classList.add('on')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mm">
+  <button class="mmenu-close" onclick="document.getElementById('mm').classList.remove('on')">✕</button>
+  <a onclick="mgo('home')">Home</a>
+  <a onclick="mgo('about')">About</a>
+  <a onclick="mgo('explore')">Explore</a>
+  <a onclick="mgo('brands')">Directory</a>
+  <a onclick="mgo('packages')">Packages</a>
+  <a onclick="mgo('ai')">AI Concierge</a>
+  <a onclick="mgo('listed')">Get Listed</a>
+</div>
+
+<div id="google_translate_element"></div>
+<div class="toast" id="toast"></div>
+
+<!-- ══════════ HOME ══════════ -->
+<div id="pg-home" class="pg on">
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">Curated · Modern · Distinctly Kloof</div>
+      <h1>The Curated<br>Guide to Cape<br>Town's Most<br>Iconic Street</h1>
+      <p class="hero-sub">We surface the restaurants, studios, wellness spaces and experiences that define the pulse of Kloof Street.</p>
+      <div class="hero-btns">
+        <a class="btn btn-gold" onclick="go('brands')">Explore the Directory</a>
+        <a class="btn btn-outline" onclick="go('ai')">✦ AI Concierge</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="stat-n">51+</div><div class="stat-l">Businesses Listed</div></div>
+        <div class="stat"><div class="stat-n">12K+</div><div class="stat-l">Monthly Visitors</div></div>
+        <div class="stat"><div class="stat-n">340+</div><div class="stat-l">Bookings Driven</div></div>
+        <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Verified Listings</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="trust-i"><b>✓</b> Verified Businesses</div>
+    <div class="trust-i"><b>🔒</b> Secure Platform</div>
+    <div class="trust-i"><b>🇿🇦</b> Cape Town–Based</div>
+    <div class="trust-i"><b>⚡</b> Powered by Business Hustle</div>
+    <div class="trust-i"><b>📍</b> Kloof Street, Gardens, CPT</div>
+    <div class="trust-i"><b>✦</b> AI Concierge 24/7</div>
+    <div class="trust-i"><b>🎫</b> Street Pass Rewards</div>
+  </div>
+
+  <!-- Accolade marquee bar -->
+  <div class="accolade-bar">
+    <div class="accolade-track">
+      <div class="accolade-item"><span>🏆</span> #22 World's Coolest Streets — Time Out 2025</div>
+      <div class="accolade-item"><span>⭐</span> "Long Street's more refined sibling" — Time Out</div>
+      <div class="accolade-item"><span>🌍</span> Coolest Street in Africa 2025</div>
+      <div class="accolade-item"><span>🗞️</span> Featured: WantedOnline · TimesLIVE · IOL · EWN</div>
+      <div class="accolade-item"><span>🏆</span> #22 World's Coolest Streets — Time Out 2025</div>
+      <div class="accolade-item"><span>⭐</span> "Long Street's more refined sibling" — Time Out</div>
+      <div class="accolade-item"><span>🌍</span> Coolest Street in Africa 2025</div>
+      <div class="accolade-item"><span>🗞️</span> Featured: WantedOnline · TimesLIVE · IOL · EWN</div>
+    </div>
+  </div>
+
+  <div class="life">
+    <div class="life-cell" data-emoji="🍽️" onclick="go('brands')"><div class="life-lbl">Fine Dining</div></div>
+    <div class="life-cell" data-emoji="🧘" onclick="go('ubuntu')"><div class="life-lbl">Wellness</div></div>
+    <div class="life-cell" data-emoji="🎨" onclick="go('on-safari')"><div class="life-lbl">Art & Culture</div></div>
+    <div class="life-cell" data-emoji="☕" onclick="go('brands')"><div class="life-lbl">Coffee & Cafés</div></div>
+  </div>
+
+  <section>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
+      <div><div class="sec-tag">Discover</div><div class="sec-title">Explore Kloof Street</div></div>
+      <a style="font-size:11px;color:var(--a);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;" onclick="go('brands')">View All →</a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card" data-emoji="🍽️" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div><div class="cat-desc">The finest culinary experiences on Kloof</div></div></div>
+      <div class="cat-card" data-emoji="🎨" onclick="go('on-safari')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Makers &amp; Creators</div><div class="cat-title">Art Studios</div><div class="cat-desc">Inspiring studios and galleries</div></div></div>
+      <div class="cat-card" data-emoji="🧘" onclick="go('ubuntu')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Mindful Care</div><div class="cat-title">Wellness &amp; Beauty</div><div class="cat-desc">Premium care, beauty and restoration</div></div></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="pass-block">
+      <div>
+        <div class="sec-tag">Street Pass</div>
+        <div class="sec-title">The Insider's<br>Kloof Street</div>
+        <p class="sec-desc">Exclusive deals, flash offers, and priority AI concierge access — for Street Pass holders only.</p>
+        <div class="pass-perks">
+          <div class="perk">Exclusive deals at 12+ venues</div>
+          <div class="perk">Flash offer WhatsApp alerts</div>
+          <div class="perk">Members-only events monthly</div>
+        </div>
+      </div>
+      <div style="text-align:center;flex-shrink:0;">
+        <div class="pass-price">R199</div>
+        <div class="pass-per">/month</div>
+        <a class="btn btn-gold" onclick="go('listed')">Get Street Pass</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ ABOUT ══════════ -->
+<div id="pg-about" class="pg">
+  <section style="padding-top:100px;background:var(--bg2);">
+    <div class="about-grid">
+      <div>
+        <div class="sec-tag">About Us</div>
+        <div class="sec-title">Curated.<br>Modern.<br>Distinctly Kloof.</div>
+        <p class="sec-desc">We highlight brands, makers and experiences that shape the pulse and lifestyle of Cape Town's beloved Kloof Street.</p>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-top:14px;max-width:440px;">KloofStreet.online is a curated digital platform — not a directory. Every listing is handpicked. Every business here belongs here.</p>
+        <div class="connect-cards">
+          <div class="connect-card" onclick="go('brands')"><div class="connect-card-icon">🗺️</div><div class="connect-card-lbl">Explore Kloof</div></div>
+          <div class="connect-card" onclick="go('listed')"><div class="connect-card-icon">⭐</div><div class="connect-card-lbl">Apply to Feature</div></div>
+          <div class="connect-card" onclick="go('packages')"><div class="connect-card-icon">📍</div><div class="connect-card-lbl">Market with Us</div></div>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="about-img">
+          <div class="about-stat"><strong>51+</strong><span>Businesses</span></div>
+        </div>
+      </div>
+    </div>
+  
+  <!-- Press Coverage -->
+  <section style="background:var(--bg);">
+    <div class="sec-tag">As Seen In</div>
+    <div class="sec-title">The World Is Talking</div>
+    <p class="sec-desc">Kloof Street ranked #22 on Time Out's 31 Coolest Streets in the World for 2025 — the only street in Africa to make the cut.</p>
+
+    <div class="award-strip">
+      <div class="award-cell"><div class="award-num">#22</div><div class="award-lbl">World's Coolest Streets<br>Time Out 2025</div></div>
+      <div class="award-cell"><div class="award-num">#1</div><div class="award-lbl">Coolest Street<br>in Africa 2025</div></div>
+      <div class="award-cell"><div class="award-num">31</div><div class="award-lbl">Streets Globally<br>We Made the List</div></div>
+      <div class="award-cell"><div class="award-num">8+</div><div class="award-lbl">Major Publications<br>Covered the Story</div></div>
+    </div>
+
+    <div class="press-grid">
+      <a class="press-card" href="https://www.timeout.com/cape-town/things-to-do/kloof-street-a-guide-to-cape-towns-coolest-street-right-now" target="_blank" rel="noopener">
+        <div class="press-badge">🏆 Original Ranking</div>
+        <div class="press-logo">Time Out Cape Town</div>
+        <div class="press-headline">Kloof Street: A Guide to Cape Town's Coolest Street Right Now</div>
+        <div class="press-snippet">"Kloof Street feels like Long Street's more refined sibling — packed with new pop-ups, old-world character and just a hint of mischief after dark."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.wantedonline.co.za/food-and-drink/2026-01-23-kloof-street-named-one-of-the-worlds-coolest-streets/" target="_blank" rel="noopener">
+        <div class="press-logo">Wanted Online</div>
+        <div class="press-headline">Kloof Street Named One of the World's Coolest Streets</div>
+        <div class="press-snippet">"Cape Town has landed yet another global accolade — Kloof Street earned the 22nd spot on Time Out's list of the 31 coolest streets in the world for 2025."</div>
+        <div class="press-date">January 2026</div>
+      </a>
+      <a class="press-card" href="https://www.timeslive.co.za/lifestyle/food/2025-11-24-cape-towns-kloof-street-named-one-of-the-coolest-streets-in-the-world-for-2025/" target="_blank" rel="noopener">
+        <div class="press-logo">TimesLIVE</div>
+        <div class="press-headline">Cape Town's Kloof Street Named One of the Coolest Streets in the World for 2025</div>
+        <div class="press-snippet">"Victorian façades and broekie-lace balconies now house boundary-pushing restaurants, concept stores and cocktail dens — packed with old-world character and just a hint of mischief after dark."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://iol.co.za/travel/south-africa/2025-11-24-kloof-street-cape-towns-hidden-gem-named-one-of-the-coolest-streets-on-earth/" target="_blank" rel="noopener">
+        <div class="press-logo">IOL Travel</div>
+        <div class="press-headline">Kloof Street: Cape Town's Hidden Gem Named One of the Coolest Streets on Earth</div>
+        <div class="press-snippet">"Kloof Street is effortlessly stylish — not in a forced, try-hard way but in that relaxed Cape Town manner that balances heritage with modern flavour."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.capetownetc.com/news/mzansi-street-earns-global-praise-in-worlds-coolest-streets-list/" target="_blank" rel="noopener">
+        <div class="press-logo">Cape Town Etc</div>
+        <div class="press-headline">Mzansi Street Earns Global Praise in World's Coolest Streets List</div>
+        <div class="press-snippet">"Kloof Street sits between Calle del Barquillo in Madrid and London's Blackstock Road — placing it among some of the world's most sought-after urban hotspots."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.ewn.co.za/2025/11/23/cape-town-gem-makes-list-of-coolest-streets-in-the-world" target="_blank" rel="noopener">
+        <div class="press-logo">EWN</div>
+        <div class="press-headline">Cape Town Gem Makes List of 'Coolest Streets' in the World</div>
+        <div class="press-snippet">"Kloof Street 'captures the essence of Cape Town's urban charm' — it outranked streets like the Pacific Coast Highway in Malibu and Chicago's Roscoe Street."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.thesouthafrican.com/travel/coolest-street-south-africa-cape-town-kloof-street/" target="_blank" rel="noopener">
+        <div class="press-logo">The South African</div>
+        <div class="press-headline">This Is South Africa's Coolest Street for 2025</div>
+        <div class="press-snippet">"Walking its length feels like taking a quick tour of the city, complete with flavour, style and personality."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.timeout.com/news/these-african-cities-are-home-to-two-of-the-coolest-streets-in-the-world-112725" target="_blank" rel="noopener">
+        <div class="press-badge">🌍 Africa's Best</div>
+        <div class="press-logo">Time Out Global</div>
+        <div class="press-headline">Africa's Home to Two of the Coolest Streets in the World</div>
+        <div class="press-snippet">"The coolest street in Africa in 2025 is Kloof Street in Cape Town — in one direction, Table Mountain; in the other, the city bowl."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+      <a class="press-card" href="https://www.timeout.com/cape-town/news/cape-town-favourite-grabs-spot-on-the-worlds-coolest-streets-list-111925" target="_blank" rel="noopener">
+        <div class="press-logo">Time Out Cape Town</div>
+        <div class="press-headline">Cape Town Favourite Grabs Spot on World's Coolest Streets List</div>
+        <div class="press-snippet">"Sandwiched between Madrid's Calle del Barquillo and London's Blackstock Road, Kloof Street claimed the 22nd spot — another 2025 accolade for the Mother City."</div>
+        <div class="press-date">November 2025</div>
+      </a>
+    </div>
+  </section>
+</section>
+</div>
+
+<!-- ══════════ EXPLORE ══════════ -->
+<div id="pg-explore" class="pg">
+  <section style="padding-top:100px;">
+    <div class="sec-tag">Discover</div>
+    <div class="sec-title" style="margin-bottom:36px;">Explore Kloof Street</div>
+    <div class="cat-grid">
+      <div class="cat-card" data-emoji="🍽️" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div></div></div>
+      <div class="cat-card" data-emoji="🎨" onclick="go('on-safari')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Makers &amp; Innovators</div><div class="cat-title">Art Studios</div></div></div>
+      <div class="cat-card" data-emoji="🧘" onclick="go('ubuntu')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Mindful Care</div><div class="cat-title">Wellness &amp; Beauty</div></div></div>
+      <div class="cat-card" data-emoji="🍺" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Vibrant Nightlife</div><div class="cat-title">Bars &amp; Nightlife</div></div></div>
+      <div class="cat-card" data-emoji="✏️" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Local Artists</div><div class="cat-title">Creative Spaces</div></div></div>
+      <div class="cat-card" data-emoji="🛍️" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Unique Boutiques</div><div class="cat-title">Shopping</div></div></div>
+      <div class="cat-card" data-emoji="☕" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Artisanal Cafés</div><div class="cat-title">Coffee &amp; Cafés</div></div></div>
+      <div class="cat-card" data-emoji="🏨" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Boutique Stays</div><div class="cat-title">Hotels &amp; Stays</div></div></div>
+      <div class="cat-card" data-emoji="✨" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Handpicked</div><div class="cat-title">Experiences</div></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ DIRECTORY ══════════ -->
+<div id="pg-brands" class="pg">
+  <section style="padding-top:100px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:12px;">
+      <div><div class="sec-tag">Kloof Street</div><div class="sec-title">Street Directory</div><p class="sec-desc" style="margin-top:8px;">51+ businesses. Curated — not crowded. Verified listings only.</p></div>
+      <div style="text-align:right;"><div class="badge">✓ Verified Platform</div><p style="font-size:10px;color:var(--muted);margin-top:6px;">Last updated April 2026</p></div>
+    </div>
+
+    <!-- FEATURED -->
+    <div style="margin-bottom:36px;">
+      <div style="font-size:9px;color:var(--a);letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;font-weight:700;">⭐ Featured Partners — Verified &amp; Active</div>
+      <div class="brands-grid">
+
+        <div class="brand-card" onclick="go('on-safari')">
+          <div class="brand-img brand-img-safari">
+            <div class="brand-tier tier-g">Starter Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Exhibition on now 🎨</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">🎨 Art Studio · Photography</div>
+            <div class="brand-name">On Safari</div>
+            <div class="brand-sub">Wildlife photographic fine art prints. Africa through the lens of a master photographer. 99B Kloof Street.</div>
+            <div class="brand-foot"><span class="brand-tag">Fine Art · Photography</span><a class="view-btn" onclick="event.stopPropagation();go('on-safari')">View Profile →</a></div>
+          </div>
+        </div>
+
+        <div class="brand-card" onclick="go('ubuntu')">
+          <div class="brand-img brand-img-ubuntu">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Float &amp; spa sessions available 🧘</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">✨ Wellness · Spa · Homeopathy</div>
+            <div class="brand-name">Ubuntu Wellness &amp; Medi-Spa</div>
+            <div class="brand-sub">Health spa, float therapy, homeopathy and vegan wellness. A sanctuary on Kloof Street.</div>
+            <div class="brand-foot"><span class="brand-tag">Spa · Float · Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('ubuntu')">View Profile →</a></div>
+          </div>
+        </div>
+
+        <div class="brand-card" onclick="go('dr-wendy')">
+          <div class="brand-img" style="background:linear-gradient(135deg,#050a14,#0a1a2e,#0d2040);">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Allergy &amp; GP consultations &#x1FA7A;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x1FA7A; Medical &middot; Allergy Specialist &middot; GP</div>
+            <div class="brand-name">Dr Wendy Dicks</div>
+            <div class="brand-sub">Experienced GP &amp; Allergologist. Airway, skin &amp; food allergies, paediatrics, mental health &amp; more. At Cape Town Medi-Spa, 99B Kloof Street.</div>
+            <div class="brand-foot"><span class="brand-tag">Allergy &middot; GP &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
+
+        <!-- ROW 2 — Three new Growth Partners -->
+        <div class="brand-card" onclick="go('just-hearing')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-10-11-41-57.jpg') center/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Hearing assessments &amp; solutions &#x1F442;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x1F442; Audiology &middot; Hearing Care</div>
+            <div class="brand-name">Just Hearing</div>
+            <div class="brand-sub">Patient-centred audiology practice. Hearing assessments, aids, tinnitus management and ongoing support. At Cape Town Medi-Spa, 99B Kloof Street.</div>
+            <div class="brand-foot"><span class="brand-tag">Audiology &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('just-hearing')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
+
+        <div class="brand-card" onclick="go('dr-thomas')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/ACUPUNCTURE25.jpg') center/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Thursdays</div>
+            <div class="vibe-bar">Acupuncture &amp; Chinese medicine &#x2604;&#xFE0F;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x2604;&#xFE0F; Chinese Medicine &middot; Acupuncture</div>
+            <div class="brand-name">Dr Thomas Jahn</div>
+            <div class="brand-sub">30+ years of Chinese medicine. Acupuncture, cupping, Tuina, Qigong &amp; herbal medicine. Consulting Thursdays at 99 Kloof Street, Gardens.</div>
+            <div class="brand-foot"><span class="brand-tag">Acupuncture &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('dr-thomas')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
+
+        <div class="brand-card" onclick="go('trudy')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-09-17-38-35.jpg') center/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Laser, skin &amp; body treatments &#x2728;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x2728; Aesthetics &middot; Laser &middot; Skin</div>
+            <div class="brand-name">Trudy Christians</div>
+            <div class="brand-sub">30 years of aesthetic expertise. Laser hair removal, skin rejuvenation, tattoo removal, body sculpting &amp; red light therapy. At Cape Town Medi-Spa.</div>
+            <div class="brand-foot"><span class="brand-tag">Aesthetics &middot; Laser &middot; Skin</span><a class="view-btn" onclick="event.stopPropagation();go('trudy')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
+
+        <div class="brand-card" onclick="go('postnet')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.15),rgba(10,10,11,.15)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PostNet-Franchise-Cost-In-South-Africa-990x600-1.png') center/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Print · Courier · Business services &#x1F4E6;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x1F4E6; Print &middot; Courier &middot; Business Services</div>
+            <div class="brand-name">PostNet Gardens</div>
+            <div class="brand-sub">Your neighbourhood business hub. Printing, couriers, digital services, mailboxes &amp; stationery at 55 Kloof Street.</div>
+            <div class="brand-foot"><span class="brand-tag">Print &middot; Courier &middot; Digital</span><a class="view-btn" onclick="event.stopPropagation();go('postnet')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ALL STORES -->
+    <div style="margin-bottom:14px;">
+      <div style="font-size:9px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-weight:700;">All Businesses on Kloof Street — Get listed to unlock your full profile</div>
+    </div>
+
+    <div class="dir-search-wrap">
+      <span class="dir-search-icon">🔍</span>
+      <input class="dir-search" id="dirQ" type="text" placeholder="Search businesses, addresses…" oninput="searchDir(this.value)">
+      <span class="dir-count" id="dirCount"></span>
+    </div>
+
+    <div class="dir-tabs">
+      <button class="dir-tab on" onclick="filterDir('all',this)">All</button>
+      <button class="dir-tab" onclick="filterDir('dining',this)">Dining</button>
+      <button class="dir-tab" onclick="filterDir('wellness',this)">Wellness</button>
+      <button class="dir-tab" onclick="filterDir('art',this)">Art</button>
+      <button class="dir-tab" onclick="filterDir('nightlife',this)">Nightlife</button>
+      <button class="dir-tab" onclick="filterDir('retail',this)">Retail</button>
+    </div>
+
+    <div class="stores-grid" id="storesGrid">
+      <!-- DINING -->
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Sweet Revenge</div><div class="lcard-addr">115 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Hudson's Burger Joint</div><div class="lcard-addr">22 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Rick's Cafe</div><div class="lcard-addr">103 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Our Local</div><div class="lcard-addr">117 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Batanga</div><div class="lcard-addr">70A Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Onosbay</div><div class="lcard-addr">105 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Carne Kloof</div><div class="lcard-addr">153 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Kyoto Garden</div><div class="lcard-addr">Kloof Nek Road</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Vadivelu</div><div class="lcard-addr">151 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Bootleggers Coffee</div><div class="lcard-addr">112 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Judd's Local</div><div class="lcard-addr">141 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Stud. The Burger Shop</div><div class="lcard-addr">98 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Toni's on Kloof</div><div class="lcard-addr">88 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Arnold's Restaurant</div><div class="lcard-addr">60 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Rosedene</div><div class="lcard-addr">28 Upper Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Unframed Ice Cream</div><div class="lcard-addr">45C Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Zuney Burgers</div><div class="lcard-addr">69A Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Black Sheep Restaurant</div><div class="lcard-addr">104 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Saigon</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Yindee's Thai</div><div class="lcard-addr">Cnr Kloof &amp; Camp St</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">ELGR Restaurant</div><div class="lcard-addr">75 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Kloofkonbini</div><div class="lcard-addr">121 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Mixa's</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Love Matcha</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Olivebranch Deli</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Smokin Joe's</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Sushibox</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Monks Chinese</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <!-- NIGHTLIFE -->
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Vortex Shisha Lounge</div><div class="lcard-addr">66 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Club Kloof</div><div class="lcard-addr">84 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Van Hunks</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Born High</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Tiger's Milk</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Blondie Bar</div><div class="lcard-addr">71 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Kloof Street House</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Smokey Treats</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="nightlife" onclick="go('listed')"><div class="lcard-img lc-nightlife"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Yours Truly</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <!-- WELLNESS -->
+      <div class="lcard" data-cat="wellness" onclick="go('dr-wendy')" style="border-color:rgba(245,197,24,.2);">
+        <div class="lcard-img" style="background:linear-gradient(135deg,#050a14,#0d2040);">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;opacity:.4;">&#x1FA7A;</div>
+          <div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div>
+          <div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Open</div>
+        </div>
+        <div class="lcard-body">
+          <div class="lcard-name" style="color:var(--text2);">Dr Wendy Dicks</div>
+          <div class="lcard-addr">99B Kloof Street</div>
+          <button class="lcard-cta" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</button>
+        </div>
+      </div>
+      <div class="lcard" data-cat="wellness" onclick="go('just-hearing')" style="border-color:rgba(245,197,24,.2);"><div class="lcard-img" style="background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-10-11-41-57.jpg') center/cover no-repeat;"><div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div><div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Open</div></div><div class="lcard-body"><div class="lcard-name" style="color:var(--text2);">Just Hearing</div><div class="lcard-addr">99B Kloof Street</div><button class="lcard-cta" onclick="event.stopPropagation();go('just-hearing')">View Profile &#x2192;</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('dr-thomas')" style="border-color:rgba(245,197,24,.2);"><div class="lcard-img" style="background:linear-gradient(rgba(10,10,11,.25),rgba(10,10,11,.25)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/ACUPUNCTURE25.jpg') center/cover no-repeat;"><div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div><div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Thu</div></div><div class="lcard-body"><div class="lcard-name" style="color:var(--text2);">Dr Thomas Jahn</div><div class="lcard-addr">99 Kloof Street (Thursdays)</div><button class="lcard-cta" onclick="event.stopPropagation();go('dr-thomas')">View Profile &#x2192;</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('trudy')" style="border-color:rgba(245,197,24,.2);"><div class="lcard-img" style="background:linear-gradient(rgba(10,10,11,.2),rgba(10,10,11,.2)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-09-17-38-35.jpg') center/cover no-repeat;"><div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div><div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Open</div></div><div class="lcard-body"><div class="lcard-name" style="color:var(--text2);">Trudy Christians</div><div class="lcard-addr">99B Kloof Street</div><button class="lcard-cta" onclick="event.stopPropagation();go('trudy')">View Profile &#x2192;</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Shanti Natural</div><div class="lcard-addr">115 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">BOA Beauty Bar</div><div class="lcard-addr">7 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Skin and Sage</div><div class="lcard-addr">115 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Excentric on Kloof</div><div class="lcard-addr">39 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Spoilt Hair</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Yemaya Salon</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Pulse on Kloof</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">The Body Shop</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Kak Lucky Tattoos</div><div class="lcard-addr">43 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">The Piercery</div><div class="lcard-addr">8 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="wellness" onclick="go('listed')"><div class="lcard-img lc-wellness"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Robyn Page Physiotherapy</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <!-- ART -->
+      <div class="lcard" data-cat="art" onclick="go('listed')"><div class="lcard-img lc-art"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">AKJP Studio</div><div class="lcard-addr">73 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="art" onclick="go('listed')"><div class="lcard-img lc-art"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Museum of Illusions</div><div class="lcard-addr">10 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="art" onclick="go('listed')"><div class="lcard-img lc-art"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Never@Home</div><div class="lcard-addr">73 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="art" onclick="go('listed')"><div class="lcard-img lc-art"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Ayepyep</div><div class="lcard-addr">14 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <!-- RETAIL -->
+      <div class="lcard" data-cat="retail" onclick="go('postnet')" style="border-color:rgba(245,197,24,.2);"><div class="lcard-img" style="background:linear-gradient(rgba(10,10,11,.15),rgba(10,10,11,.15)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PostNet-Franchise-Cost-In-South-Africa-990x600-1.png') center/cover no-repeat;"><div style="position:absolute;top:8px;left:8px;background:rgba(245,197,24,.15);border:1px solid rgba(245,197,24,.3);color:var(--a);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Growth</div><div style="position:absolute;top:8px;right:8px;background:rgba(30,80,50,.85);color:#4ecf87;border:1px solid rgba(78,207,135,.25);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;font-weight:700;border-radius:3px;">Open</div></div><div class="lcard-body"><div class="lcard-name" style="color:var(--text2);">PostNet Gardens</div><div class="lcard-addr">55 Kloof Street</div><button class="lcard-cta" onclick="event.stopPropagation();go('postnet')">View Profile &#x2192;</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Tonic Furniture</div><div class="lcard-addr">87 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">LIM Furniture Store</div><div class="lcard-addr">86 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Boetik</div><div class="lcard-addr">79 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Deus Ex Machina</div><div class="lcard-addr">18 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Lifestyle on Kloof</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Aliverti</div><div class="lcard-addr">50 Kloof Street, G04B</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Urban Connect</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Widow Maker</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Paris – Cape Town</div><div class="lcard-addr">50 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Workshop17</div><div class="lcard-addr">32 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Life and Brand</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">PostNet</div><div class="lcard-addr">Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="retail" onclick="go('listed')"><div class="lcard-img lc-retail"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Belmond Mount Nelson</div><div class="lcard-addr">Cape Town</div><button class="lcard-cta">Get Listed →</button></div></div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;padding:36px;background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.15);border-radius:var(--r);">
+      <div class="sec-tag" style="text-align:center;">Your Business on Kloof Street</div>
+      <div style="font-size:32px;font-weight:900;color:var(--text2);margin-bottom:10px;text-transform:uppercase;">Claim Your Profile</div>
+      <p style="font-size:13px;color:var(--muted);margin-bottom:22px;max-width:380px;margin-left:auto;margin-right:auto;">Unlock your full profile and start driving real customers from Cape Town's most curated street guide.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-gold" onclick="go('listed')">Get Listed Now</a>
+        <a class="btn btn-outline" onclick="go('packages')">View Packages</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ ON SAFARI ══════════ -->
+<div id="pg-on-safari" class="pg">
+  <div class="biz-hero biz-hero-safari">
+    
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">← Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Starter Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">✓ Verified</span>
+      </div>
+      <div style="font-size:clamp(32px,5vw,52px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">On Safari</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Wildlife Photographic Fine Art Prints — 99B Kloof Street, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Art Studio · Photography</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">Africa Through the Lens</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">On Safari brings the raw beauty of African wildlife into your home through stunning photographic fine art prints. Each image is captured in the wild — lions, elephants, zebras, hippos — and printed to museum-quality standards.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">Whether you're looking for a statement piece or a meaningful gift, On Safari's collections span the breadth of Africa's most iconic animals and landscapes.</p>
+      <div class="photo-grid">
+        <div class="photo-cell photo-safari-1"></div>
+        <div class="photo-cell photo-safari-2"></div>
+        <div class="photo-cell photo-safari-3"></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--bdr);padding:24px;margin-bottom:28px;border-radius:var(--r);">
+        <div class="sec-tag" style="margin-bottom:14px;">Collections</div>
+        <div class="coll-grid">
+          <div class="coll-item">🦁 Pride of Lions</div>
+          <div class="coll-item">🐘 African Elephants</div>
+          <div class="coll-item">🦓 Zebras</div>
+          <div class="coll-item">🌳 Baobab Trees</div>
+          <div class="coll-item">🦛 Hippo Bull</div>
+          <div class="coll-item">🐾 Meerkat</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://www.on-safari.co.za" target="_blank">Shop Fine Art Prints</a>
+        <a class="btn btn-outline" href="https://www.on-safari.co.za/collections" target="_blank">View Collections</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>Studio Details</h3>
+        <div class="info-row"><b>📍</b><span>99B Kloof Street, Gardens, Cape Town</span></div>
+        <div class="info-row"><b>🌐</b><a href="https://www.on-safari.co.za" target="_blank" style="color:var(--a);">www.on-safari.co.za</a></div>
+        <div class="info-row"><b>📦</b><span>Ships nationwide &amp; internationally</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Opening Hours</h3>
+        <div class="info-row"><b>📅</b><span>Mon–Fri: 9:00 – 17:00</span></div>
+        <div class="info-row"><b>📅</b><span>Saturday: 9:00 – 14:00</span></div>
+        <div class="info-row"><b>📅</b><span>Sunday: Closed</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">🎫 Street Pass holders receive <strong style="color:var(--a);">10% off</strong> all fine art prints + free framing consultation.</p>
+      </div>
+      <a class="btn btn-gold" href="https://www.on-safari.co.za" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">Visit On Safari Online →</a>
+      <a class="btn btn-outline" href="https://www.on-safari.co.za/pages/contact-us" target="_blank" style="display:block;text-align:center;">Contact the Studio</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ UBUNTU ══════════ -->
+<div id="pg-ubuntu" class="pg">
+  <div class="biz-hero biz-hero-ubuntu">
+    
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">← Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">✓ Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Ubuntu Wellness &amp; Medi-Spa</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Health Spa · Float Therapy · Homeopathy — Kloof Street, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Wellness &amp; Beauty</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">A Sanctuary for Mind, Body &amp; Spirit</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Ubuntu Wellness is Cape Town's most holistic health sanctuary. From float therapy and spa treatments to homeopathy, vegan nutrition and stress management — this is where healing happens.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">Rooted in the African philosophy of Ubuntu — "I am because we are" — the centre offers a complete approach to wellness that treats the whole person.</p>
+      <div class="svc-grid">
+        <div class="svc"><div class="svc-icon">🧘</div><div class="svc-name">Spa &amp; Medi-Spa</div><div class="svc-desc">Luxurious treatments for total body restoration</div></div>
+        <div class="svc"><div class="svc-icon">💧</div><div class="svc-name">Float Therapy</div><div class="svc-desc">Sensory deprivation floating for deep relaxation</div></div>
+        <div class="svc"><div class="svc-icon">🌿</div><div class="svc-name">Homeopathy</div><div class="svc-desc">Natural healing with qualified practitioners</div></div>
+        <div class="svc"><div class="svc-icon">🥗</div><div class="svc-name">Vegan Wellness</div><div class="svc-desc">Plant-based nutrition and diabetes reversal</div></div>
+        <div class="svc"><div class="svc-icon">🏢</div><div class="svc-name">Corporate Wellness</div><div class="svc-desc">Tailored wellness programmes for teams</div></div>
+        <div class="svc"><div class="svc-icon">🎓</div><div class="svc-name">Wellness Academy</div><div class="svc-desc">Skills training and Ubuntu Chefs programme</div></div>
+      </div>
+      <div style="margin-bottom:28px;border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr);"><video src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/VIDEO-2026-02-23-11-51-28.mp4" controls playsinline preload="metadata" style="width:100%;display:block;max-height:480px;background:#000;"></video></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="http://ubuntuwellness.com/" target="_blank">Visit Ubuntu Wellness</a>
+        <a class="btn btn-outline" href="https://wa.me/27829292544?text=Hi%20Ubuntu%20Wellness%2C%20I%E2%80%99d%20like%20to%20book%20a%20treatment.%20Please%20let%20me%20know%20your%20availability%20%F0%9F%A7%96" target="_blank">&#x1F4AC; Book a Treatment</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>📍</b><span>Kloof Street, Gardens, Cape Town</span></div>
+        <div class="info-row"><b>🌐</b><a href="http://ubuntuwellness.com/" target="_blank" style="color:var(--a);">ubuntuwellness.com</a></div>
+        <div class="info-row"><b>📞</b><a href="tel:+27829292544" style="color:var(--a);">082 929 2544</a></div>
+      </div>
+      <div class="info-card">
+        <h3>Opening Hours</h3>
+        <div class="info-row"><b>📅</b><span>Mon–Fri: 8:00 – 18:00</span></div>
+        <div class="info-row"><b>📅</b><span>Saturday: 9:00 – 15:00</span></div>
+        <div class="info-row"><b>📅</b><span>Sunday: By appointment</span></div>
+      </div>
+      <div class="info-card" style="padding:0;overflow:hidden;">
+        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/IMG_0452-1.heic" alt="Nokuphila the Ubuntu Tree" onerror="this.style.display='none'" style="width:100%;display:block;max-height:220px;object-fit:cover;">
+        <div style="padding:20px;">
+          <h3 style="font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--a);margin-bottom:10px;font-weight:700;">&#x1F333; Nokuphila &#x2014; The Ubuntu Tree</h3>
+          <p style="font-size:12px;color:var(--muted);line-height:1.7;">In the heart of the Cape Town Medi-Spa courtyard stands Nokuphila &#x2014; meaning <em style="color:var(--text2);">she who gives life</em>. This ancient tree is more than a landmark; she is the living soul of Ubuntu Wellness. Guests are invited to sit beneath her canopy, breathe deeply, and reconnect with nature before or after their treatments. She embodies the Ubuntu philosophy &#x2014; that we are healed not alone, but together.</p>
+        </div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">🎫 Street Pass holders receive <strong style="color:var(--a);">10% off</strong> all spa treatments and priority booking.</p>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/27829292544?text=Hi%20Ubuntu%20Wellness%2C%20I%E2%80%99d%20like%20to%20book%20a%20spa%20treatment%20at%20Cape%20Town%20Medi-Spa.%20Please%20let%20me%20know%20your%20availability%20%F0%9F%A7%96" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book a Spa Treatment</a>
+      <a class="btn btn-outline" href="https://wa.me/27829292544?text=Hi%20Ubuntu%20Wellness%2C%20I%E2%80%99d%20like%20to%20book%20a%20float%20therapy%20session.%20Please%20let%20me%20know%20your%20next%20available%20slot%20%F0%9F%92%A7" target="_blank" style="display:block;text-align:center;">&#x1F4AC; Book Float Therapy</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ PACKAGES ══════════ -->
+
+<!-- ══════════ DR WENDY DICKS ══════════ -->
+<div id="pg-dr-wendy" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.55),rgba(10,10,11,.55)),linear-gradient(135deg,#050a14,#0a1a2e,#0d2040);">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Dr Wendy Dicks</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">GP &amp; Allergy Specialist &middot; MBChB (UP) &middot; DCH (SA) &middot; Dip HIV Med (SA) &middot; Dip Allerg (SA) &middot; 99B Kloof Street, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Medical &middot; Allergy &middot; Wellness</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">Your Family GP &amp; Allergy Specialist on Kloof Street</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Dr Wendy Dicks is an experienced General Practitioner with postgraduate diplomas in Paediatrics, HIV Medicine and Allergology. She treats all members of the family &#x2014; from babies to the elderly &#x2014; with a special interest in accurately diagnosing and treating allergies at a GP level, making specialist-quality allergy care accessible and cost-effective.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">Now consulting from the Cape Town Medi-Spa at 99B Kloof Street, Dr Wendy combines clinical excellence with a warm, holistic approach to your health.</p>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x1F927;</div><div class="svc-name">Airway Allergies</div><div class="svc-desc">Asthma, hay fever, dust mites, pet &amp; mould allergies &#x2014; skin prick &amp; blood testing</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F35D;</div><div class="svc-name">Food Allergies</div><div class="svc-desc">Accurate diagnosis &amp; management of food sensitivities and intolerances</div></div>
+        <div class="svc"><div class="svc-icon">&#x1FA79;</div><div class="svc-name">Skin Allergies</div><div class="svc-desc">Urticaria, eczema, contact dermatitis &#x2014; identification &amp; targeted treatment</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F476;</div><div class="svc-name">Paediatrics</div><div class="svc-desc">Family GP care from newborns to teens, with paediatric allergy specialisation</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F9E0;</div><div class="svc-name">Mental Health</div><div class="svc-desc">Consultations available virtually and in-person for anxiety, depression &amp; more</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F489;</div><div class="svc-name">Aesthetics &amp; Women&#x27;s Health</div><div class="svc-desc">Botox injections, pap smears, HPV testing, Gardasil vaccine &amp; STD screening</div></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--bdr);padding:24px;margin-bottom:28px;border-radius:var(--r);">
+        <div class="sec-tag" style="margin-bottom:14px;">Qualifications</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1F393; MBChB &#x2014; University of Pretoria (2000)</div>
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1F476; DCH (SA) &#x2014; Diploma in Child Health</div>
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1FA7A; Dip HIV Med (SA)</div>
+          <div style="padding:10px 14px;border:1px solid var(--bdr);font-size:12px;color:var(--muted);border-radius:6px;">&#x1F927; Dip Allerg (SA) &#x2014; Allergology</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://allergycapetown.co.za/book-an-appointment/" target="_blank">Book an Appointment</a>
+        <a class="btn btn-outline" href="https://allergycapetown.co.za/" target="_blank">Visit Website</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>99B Kloof Street, Gardens, Cape Town<br><small style="opacity:.6;">At Cape Town Medi-Spa</small></span></div>
+        <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27211110572" style="color:var(--a);">021 111 0572</a></div>
+        <div class="info-row"><b>&#x1F310;</b><a href="https://allergycapetown.co.za/" target="_blank" style="color:var(--a);">allergycapetown.co.za</a></div>
+        <div class="info-row"><b>&#x2709;&#xFE0F;</b><a href="mailto:info@allergycapetown.co.za" style="color:var(--a);">info@allergycapetown.co.za</a></div>
+      </div>
+      <div class="info-card">
+        <h3>Consultation Hours</h3>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Mon&#x2013;Fri: By appointment</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Saturday: By appointment</span></div>
+        <div class="info-row"><b>&#x1F4BB;</b><span>Virtual consultations available</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> with Dr Wendy Dicks at Cape Town Medi-Spa.</p>
+      </div>
+      <a class="btn btn-gold" href="https://allergycapetown.co.za/book-an-appointment/" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1FA7A; Book an Appointment</a>
+      <a class="btn btn-outline" href="tel:+27211110572" style="display:block;text-align:center;">&#x1F4DE; Call 021 111 0572</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ JUST HEARING ══════════ -->
+<div id="pg-just-hearing" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.5),rgba(10,10,11,.5)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-10-11-41-57.jpg') center/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Just Hearing</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Patient-Centred Audiology Practice &middot; 99B Kloof Street, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Audiology &middot; Hearing Care</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">Hear Better. Live Better.</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">Just Hearing is a patient-centred audiology practice dedicated to improving how you hear, communicate, and connect with the world. We offer personalised hearing assessments, advanced hearing solutions, and ongoing support — focusing not just on devices, but on real-life hearing outcomes that enhance everyday living.</p>
+      <!-- Therapist photo -->
+      <div style="margin-bottom:28px;border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr);display:flex;align-items:center;gap:20px;padding:20px;background:var(--bg2);">
+        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-10-11-41-56.jpg" alt="Zola — Just Hearing Audiologist" style="width:90px;height:90px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--a);">
+        <div>
+          <div style="font-size:15px;font-weight:700;color:var(--text2);margin-bottom:4px;">Zola</div>
+          <div style="font-size:12px;color:var(--a);font-weight:600;margin-bottom:6px;">Audiologist &middot; Just Hearing</div>
+          <p style="font-size:12px;color:var(--muted);line-height:1.6;margin:0;">Passionate about improving lives through better hearing — from assessment to long-term support.</p>
+        </div>
+      </div>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x1F9EA;</div><div class="svc-name">Hearing Assessments</div><div class="svc-desc">Comprehensive assessments for adults and children</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F442;</div><div class="svc-name">Hearing Aids &amp; Repairs</div><div class="svc-desc">Advanced hearing solutions and device repairs</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F50A;</div><div class="svc-name">Tinnitus Management</div><div class="svc-desc">Assessment and management of tinnitus conditions</div></div>
+        <div class="svc"><div class="svc-icon">&#x26A1;</div><div class="svc-name">Smart Chargers &amp; Batteries</div><div class="svc-desc">Hearing aid batteries (all sizes) and smart chargers</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F9F0;</div><div class="svc-name">Maintenance Supplies</div><div class="svc-desc">Cases, cleaning kits, wax guards, domes and more</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F3B5;</div><div class="svc-name">Custom Earmoulds</div><div class="svc-desc">Custom earmoulds and earplugs for work, music and sleep</div></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://wa.me/27000000000?text=Hi%20Just%20Hearing%2C%20I%27d%20like%20to%20book%20a%20hearing%20assessment.%20Please%20let%20me%20know%20your%20availability." target="_blank">&#x1F4AC; Book an Assessment</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card" style="padding:0;overflow:hidden;">
+        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-10-11-41-57.jpg" alt="Just Hearing" style="width:100%;display:block;max-height:200px;object-fit:cover;object-position:center;" onerror="this.style.display='none'">
+      </div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>99B Kloof Street, Gardens, Cape Town<br><small style="opacity:.6;">At Cape Town Medi-Spa</small></span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> with Just Hearing at Cape Town Medi-Spa.</p>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/27000000000?text=Hi%20Just%20Hearing%2C%20I%27d%20like%20to%20book%20a%20hearing%20assessment." target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book via WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ DR THOMAS JAHN ══════════ -->
+<div id="pg-dr-thomas" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.45),rgba(10,10,11,.45)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/ACUPUNCTURE25.jpg') center/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Thursdays</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Dr Thomas Jahn</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Chinese Medicine &middot; Acupuncture &middot; 99 Kloof Street, Gardens (Thursdays)</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Chinese Medicine &middot; Acupuncture &middot; Qigong</div>
+      <!-- Logo -->
+      <div style="margin-bottom:20px;">
+        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/DRThomasJahnLogo83.png" alt="Dr Thomas Jahn" style="height:60px;object-fit:contain;" onerror="this.style.display='none'">
+      </div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px;">Dr Thomas Jahn is a practitioner of Chinese medicine with a focus on addressing a broad variety of compromised health states, particularly physical injuries and chronic, stubborn conditions.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px;">His oriental medicine journey began over thirty years ago whilst growing up in Japan, and continued with formal studies in the US and China. He returned to South Africa twenty years ago, and now practises from his home in Kommetjie and at 99 Kloof Street, Gardens on Thursdays.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">He is a very gentle practitioner — your sense of ease and feeling safe are paramount. His number one focus is to settle the nervous system to directly access your body's attention and release areas of resistance to restore function. He is a facilitator, not a dictator.</p>
+      <!-- Photo grid -->
+      <div class="photo-grid" style="margin-bottom:28px;">
+        <div class="photo-cell" style="background:url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/ACUPUNCTURE25.jpg') center/cover no-repeat;"><span style="display:none;"></span></div>
+        <div class="photo-cell" style="background:url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/CUPPING.jpg') center/cover no-repeat;"><span style="display:none;"></span></div>
+        <div class="photo-cell" style="background:url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/MOXIBUSTION.jpg') center/cover no-repeat;"><span style="display:none;"></span></div>
+      </div>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x2604;&#xFE0F;</div><div class="svc-name">Acupuncture</div><div class="svc-desc">Fine needles along energetic pathways to stimulate the body's self-regulating function</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F9E7;</div><div class="svc-name">Cupping</div><div class="svc-desc">Traditional cupping therapy for tension, circulation and pain relief</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F525;</div><div class="svc-name">Moxibustion</div><div class="svc-desc">Heat therapy using dried mugwort to warm meridian points</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F91C;</div><div class="svc-name">Tuina Massage</div><div class="svc-desc">Chinese therapeutic massage for musculoskeletal conditions</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F33F;</div><div class="svc-name">Herbal Medicine</div><div class="svc-desc">Traditional Chinese herbal prescriptions tailored to your pattern diagnosis</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F9D8;</div><div class="svc-name">Qigong</div><div class="svc-desc">Movement and breath practice for energy, balance and wellbeing</div></div>
+      </div>
+      <div style="background:rgba(245,197,24,.06);border:1px solid rgba(245,197,24,.2);border-radius:var(--r);padding:20px;margin-bottom:28px;">
+        <div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:6px;">&#x1F9D8; Group Qigong Class</div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.65;margin:0;">Thursday mornings 7:00am &ndash; 8:30am<br>The Labia (winter) &middot; Company's Gardens (summer)<br><strong style="color:var(--a);">R150 cash &middot; All levels welcome</strong></p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://wa.me/27664904382?text=Hi%20Dr%20Thomas%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%2099%20Kloof%20Street.%20Please%20let%20me%20know%20your%20availability." target="_blank">&#x1F4AC; WhatsApp for Appointment</a>
+        <a class="btn btn-outline" href="tel:+27664904382">&#x1F4DE; 066 490 4382</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>99 Kloof Street, Gardens, Cape Town<br><small style="opacity:.6;">At Cape Town Medi-Spa &mdash; Thursdays</small></span></div>
+        <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27664904382" style="color:var(--a);">066 490 4382</a></div>
+        <div class="info-row"><b>&#x1F4AC;</b><span>WhatsApp for appointments</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Consulting Hours</h3>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Thursdays: By appointment</span></div>
+        <div class="info-row"><b>&#x1F4CD;</b><span>Also at Kommetjie (other days)</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> with Dr Thomas Jahn.</p>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/27664904382?text=Hi%20Dr%20Thomas%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%2099%20Kloof%20Street." target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book via WhatsApp</a>
+      <a class="btn btn-outline" href="tel:+27664904382" style="display:block;text-align:center;">&#x1F4DE; Call 066 490 4382</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ TRUDY CHRISTIANS ══════════ -->
+<div id="pg-trudy" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.45),rgba(10,10,11,.45)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-09-17-38-35.jpg') center/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,48px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Trudy Christians</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Aesthetic Therapist &middot; 30 Years Experience &middot; Cape Town Medi-Spa, 99B Kloof Street</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Aesthetics &middot; Laser &middot; Skin &amp; Body</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">30 Years of Aesthetic Excellence</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px;">Trudy Christians has spent 30 years in the aesthetic industry, working alongside renowned plastic surgeons and dermatologists. She brings a high level of expertise, professional care and genuine commitment to results across a diverse range of skin types.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">With a deep understanding of skin physiology and the latest technologies, Trudy delivers personalised treatments with a focus on communication, safety and lasting satisfaction.</p>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x26A1;</div><div class="svc-name">Laser Hair Removal</div><div class="svc-desc">Safe, effective permanent hair reduction for all skin types</div></div>
+        <div class="svc"><div class="svc-icon">&#x2728;</div><div class="svc-name">Laser Skin Rejuvenation</div><div class="svc-desc">Revitalise skin texture, tone and radiance with laser technology</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F48E;</div><div class="svc-name">Veins Removal</div><div class="svc-desc">Non-invasive treatment for thread veins and vascular lesions</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F5BC;&#xFE0F;</div><div class="svc-name">Tattoo Removal</div><div class="svc-desc">Advanced laser tattoo removal with minimal discomfort</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F5A4;</div><div class="svc-name">Hollywood Carbon Laser</div><div class="svc-desc">Deep pore cleansing and skin brightening carbon peel treatment</div></div>
+        <div class="svc"><div class="svc-icon">&#x1FA8A;</div><div class="svc-name">Microdermabrasion</div><div class="svc-desc">Crystal exfoliation to resurface and smooth the skin</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F489;</div><div class="svc-name">Micro Needling</div><div class="svc-desc">Collagen induction therapy for scars, pores and fine lines</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F4AA;</div><div class="svc-name">Body Sculpting</div><div class="svc-desc">Non-surgical body contouring and fat reduction treatments</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F7E5;</div><div class="svc-name">Red Light Therapy</div><div class="svc-desc">LED therapy for healing, anti-ageing and skin rejuvenation</div></div>
+      </div>
+      <!-- Pricelist image -->
+      <div style="margin-bottom:28px;border-radius:var(--r);overflow:hidden;border:1px solid var(--bdr);">
+        <div style="padding:14px 18px;background:var(--bg2);border-bottom:1px solid var(--bdr);font-size:10px;font-weight:700;color:var(--a);letter-spacing:.15em;text-transform:uppercase;">Price List</div>
+        <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/PHOTO-2026-04-09-17-38-35.jpg" alt="Trudy Christians Price List" style="width:100%;display:block;" onerror="this.style.display='none'">
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://wa.me/27000000000?text=Hi%20Trudy%2C%20I%27d%20like%20to%20book%20a%20treatment.%20Please%20let%20me%20know%20your%20availability." target="_blank">&#x1F4AC; Book a Treatment</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>Cape Town Medi-Spa<br>99B Kloof Street, Gardens, Cape Town</span></div>
+      </div>
+      <div class="info-card">
+        <h3>Experience</h3>
+        <div class="info-row"><b>&#x2B50;</b><span>30 years in the aesthetic industry</span></div>
+        <div class="info-row"><b>&#x1F91D;</b><span>Worked with renowned plastic surgeons &amp; dermatologists</span></div>
+        <div class="info-row"><b>&#x1F3AF;</b><span>Diverse skin types — all welcome</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> with Trudy Christians at Cape Town Medi-Spa.</p>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/27000000000?text=Hi%20Trudy%2C%20I%27d%20like%20to%20book%20a%20treatment." target="_blank" style="display:block;text-align:center;">&#x1F4AC; Book via WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ POSTNET GARDENS ══════════ -->
+<div id="pg-postnet" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.55),rgba(10,10,11,.55)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Screenshot-2026-04-15-at-12.49.23.png') center/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,52px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">PostNet Gardens</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Print &middot; Courier &middot; Business Services &middot; 55 Kloof Street, Gardens, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <!-- Logo -->
+      <div style="margin-bottom:24px;">
+        <img src='https://app.businesshustle.co.za/wp-content/uploads/2026/04/PostNet-Franchise-Cost-In-South-Africa-990x600-1.png' alt="PostNet" style="height:56px;object-fit:contain;" onerror="this.style.display='none'">
+      </div>
+      <div class="sec-tag" style="margin-bottom:8px;">Print &middot; Courier &middot; Digital &middot; Business</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">Your Neighbourhood Business Hub on Kloof Street</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">PostNet Gardens is your go-to business services centre on Kloof Street. Whether you need to ship a parcel across Cape Town or across the world, print a presentation, scan documents, or set up a professional mailbox — PostNet has you covered with friendly, efficient service right in the heart of Gardens.</p>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x1F4E6;</div><div class="svc-name">Domestic Courier</div><div class="svc-desc">Fast, reliable parcel delivery across South Africa via trusted courier partners</div></div>
+        <div class="svc"><div class="svc-icon">&#x2708;&#xFE0F;</div><div class="svc-name">International Courier</div><div class="svc-desc">Worldwide shipping with tracking — documents, parcels and freight</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F5A8;&#xFE0F;</div><div class="svc-name">Printing &amp; Copying</div><div class="svc-desc">Colour and B&amp;W printing, A6 to A0, large format, litho and print-on-demand</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F4BB;</div><div class="svc-name">Digital Services</div><div class="svc-desc">Internet stations, scanning, email and digital document solutions</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F4EC;</div><div class="svc-name">Mailbox Rental</div><div class="svc-desc">Professional physical address for your business — secure, no junk mail</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F4D1;</div><div class="svc-name">Stationery &amp; Supplies</div><div class="svc-desc">Wide range of office stationery and business supplies in-store</div></div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="tel:+27214221248">&#x1F4DE; Call to Order</a>
+        <a class="btn btn-outline" href="https://www.postnet.co.za/stores/capetowngardens" target="_blank">Visit PostNet Online</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card" style="padding:0;overflow:hidden;">
+        <img src='https://app.businesshustle.co.za/wp-content/uploads/2026/04/Screenshot-2026-04-15-at-12.49.23.png' alt="PostNet Gardens staff" style="width:100%;display:block;max-height:220px;object-fit:cover;object-position:center top;" onerror="this.style.display='none'">
+        <div style="padding:14px 18px;background:rgba(245,197,24,.04);border-top:1px solid rgba(245,197,24,.15);">
+          <div style="font-size:12px;font-weight:700;color:var(--text2);">PostNet Gardens</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">Friendly, professional service since day one</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>55 Kloof Street, Gardens<br>Cape Town, 8001</span></div>
+        <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27214221248" style="color:var(--a);">021 422 1248</a></div>
+        <div class="info-row"><b>&#x1F310;</b><a href="https://www.postnet.co.za/stores/capetowngardens" target="_blank" style="color:var(--a);">postnet.co.za</a></div>
+      </div>
+      <div class="info-card">
+        <h3>Trading Hours</h3>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Mon &ndash; Fri: 9:00am &ndash; 6:00pm</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Saturday: 9:00am &ndash; 6:00pm</span></div>
+        <div class="info-row"><b>&#x1F534;</b><span>Sunday: Closed</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">10% off printing</strong> at PostNet Gardens, 55 Kloof Street.</p>
+      </div>
+      <a class="btn btn-gold" href="tel:+27214221248" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4DE; Call 021 422 1248</a>
+      <a class="btn btn-outline" href="https://www.postnet.co.za/stores/capetowngardens" target="_blank" style="display:block;text-align:center;">Visit PostNet Online</a>
+    </div>
+  </div>
+</div>
+
+<div id="pg-packages" class="pg">
+  <section style="padding-top:100px;background:var(--bg2);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:52px;align-items:start;">
+      <div><div class="sec-tag">For Businesses</div><div class="sec-title">Become a Featured Brand</div></div>
+      <p style="font-size:14px;color:var(--muted);line-height:1.7;padding-top:12px;">Limited spots. Real scarcity. Every tier is handpicked — not just paid for. Payments processed securely via <strong style="color:var(--a);">Yoco</strong>.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg-card">
+        <div class="pkg-tier" style="color:#9e7c4a;">Essential</div>
+        <div class="pkg-price">R750</div><div class="pkg-per">/month</div>
+        <div class="pkg-billed">R2,100 for 3 months</div>
+        <div class="pkg-slots"><span>Spots remaining</span><span style="color:var(--a);">14/35</span></div>
+        <div class="pkg-bar-wrap"><div class="pkg-bar" style="width:40%;"></div></div>
+        <ul class="pkg-feats">
+          <li>Premium business listing</li><li>Category placement</li>
+          <li>Contact details + WhatsApp</li><li>Clean editorial card</li>
+          <li>Local discovery visibility</li>
+        </ul>
+        <a class="pkg-btn pkg-btn-ghost" href="https://app.businesshustle.co.za/product/essential-kloof-street-brand-feature-package/" target="_blank">Buy Now — R750</a>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-pop">Most Popular</div>
+        <div class="pkg-tier" style="color:#c9a84c;">Starter</div>
+        <div class="pkg-price">R960</div><div class="pkg-per">/month</div>
+        <div class="pkg-billed">Billed monthly via Yoco</div>
+        <div class="pkg-slots"><span>Spots remaining</span><span style="color:var(--a);">4/10</span></div>
+        <div class="pkg-bar-wrap"><div class="pkg-bar" style="width:60%;"></div></div>
+        <ul class="pkg-feats">
+          <li>Everything in Essential</li><li>1 paid promo placement</li>
+          <li>1 short-form reel feature</li><li>Priority category placement</li>
+          <li>BH project management app</li><li>Hustle Basics ebook</li>
+        </ul>
+        <a class="pkg-btn pkg-btn-gold" href="https://app.businesshustle.co.za/product/kloof-street-starter-feature-package/" target="_blank">Buy Now — R960</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-tier" style="color:var(--a);">Growth</div>
+        <div class="pkg-price">R1,360</div><div class="pkg-per">/month</div>
+        <div class="pkg-billed">Billed monthly via Yoco</div>
+        <div class="pkg-slots"><span>Spots remaining</span><span style="color:var(--a);">2/6</span></div>
+        <div class="pkg-bar-wrap"><div class="pkg-bar" style="width:67%;"></div></div>
+        <ul class="pkg-feats">
+          <li>Full editorial layout</li><li>Spotlight in category</li>
+          <li>Streetwide marketing push</li><li>Founder marketing support</li>
+          <li>Priority tools &amp; features</li><li>AI concierge priority placement</li>
+        </ul>
+        <a class="pkg-btn pkg-btn-ghost" href="https://app.businesshustle.co.za/product/kloof-street-growth-package/" target="_blank">Buy Now — R1,360</a>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:28px;">Payments via <strong style="color:var(--a);">Yoco</strong> · Business Hustle platform · <a onclick="go('listed')" style="color:var(--a);cursor:pointer;">Questions? Contact us</a></p>
+  </section>
+</div>
+
+<!-- ══════════ AI CONCIERGE ══════════ -->
+<div id="pg-ai" class="pg">
+  <section style="padding-top:100px;">
+    <div class="ai-grid">
+      <div>
+        <div class="sec-tag">AI Concierge</div>
+        <div class="sec-title">Your Kloof Street Insider</div>
+        <p class="sec-desc">Discover where to eat, what's on, and how to spend the perfect afternoon — powered by real-time local intelligence.</p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
+          <div class="perk">Real-time dining and event recommendations</div>
+          <div class="perk">Custom afternoon itineraries</div>
+          <div class="perk">Hidden gems and local favourites</div>
+          <div class="perk">Budget-aware suggestions</div>
+        </div>
+      </div>
+      <div class="chat-box">
+        <div class="chat-head">
+          <div class="chat-dot"></div>
+          <div><div class="chat-name">Kloof Street AI</div><div class="chat-status">Active now · Knows the street</div></div>
+        </div>
+        <div class="chat-msgs" id="chatMsgs">
+          <div class="msg msg-ai">Hey! I know Kloof Street inside out. Ask me anything — where to eat, what's on, or plan your perfect afternoon 😊</div>
+          <div class="chat-prompts">
+            <button class="cprompt" onclick="sendChat('Dinner tonight under R300?')">Dinner tonight under R300?</button>
+            <button class="cprompt" onclick="sendChat('Art exhibitions to visit?')">Art exhibitions to visit?</button>
+            <button class="cprompt" onclick="sendChat('Full wellness day?')">Full wellness day?</button>
+            <button class="cprompt" onclick="sendChat('Plan my perfect afternoon')">Plan my perfect afternoon</button>
+          </div>
+        </div>
+        <div class="chat-in-row">
+          <input class="chat-in" id="chatIn" placeholder="Ask about Kloof Street…" onkeydown="if(event.key==='Enter')sendChat()">
+          <button class="chat-send" onclick="sendChat()">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ GET LISTED ══════════ -->
+<div id="pg-listed" class="pg">
+  <section style="padding-top:100px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;">
+      <div>
+        <div class="sec-tag">Get Listed</div>
+        <div class="sec-title">Join Kloof Street's Directory</div>
+        <p class="sec-desc">Be seen. Be found. Drive real customers from Cape Town's most trusted street guide.</p>
+        <div style="margin-top:28px;display:flex;flex-direction:column;gap:12px;">
+          <div style="background:var(--bg2);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);"><div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:4px;">✓ Verified Profile</div><div style="font-size:12px;color:var(--muted);">Every listing is manually verified by our team.</div></div>
+          <div style="background:var(--bg2);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);"><div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:4px;">📍 Real Discovery</div><div style="font-size:12px;color:var(--muted);">12,000+ monthly visitors searching for what you offer.</div></div>
+          <div style="background:var(--bg2);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);"><div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:4px;">🤖 AI Concierge</div><div style="font-size:12px;color:var(--muted);">Featured businesses recommended by our AI to every visitor.</div></div>
+        </div>
+      </div>
+      <div id="listForm" class="form-wrap">
+        <div class="form-title">Apply for a Listing</div>
+        <div class="f"><label>Business Name *</label><input id="f-biz" type="text" placeholder="e.g. The Coffee Collective"></div>
+        <div class="f"><label>Your Name *</label><input id="f-name" type="text" placeholder="Full name"></div>
+        <div class="f2">
+          <div class="f"><label>Email *</label><input id="f-email" type="email" placeholder="hello@yourbiz.co.za"></div>
+          <div class="f"><label>Phone</label><input id="f-phone" type="tel" placeholder="082 000 0000"></div>
+        </div>
+        <div class="f2">
+          <div class="f"><label>Category</label><select id="f-cat"><option value="">Select…</option><option>Restaurants &amp; Dining</option><option>Wellness &amp; Beauty</option><option>Art &amp; Culture</option><option>Bars &amp; Nightlife</option><option>Retail &amp; Shopping</option><option>Hotels &amp; Stays</option><option>Services</option></select></div>
+          <div class="f"><label>Package</label><select id="f-tier"><option value="">Select…</option><option>Essential – R750/mo</option><option>Starter – R960/mo</option><option>Growth – R1,360/mo</option></select></div>
+        </div>
+        <div class="f"><label>Message</label><textarea id="f-msg" placeholder="Tell us about your business and what makes it special on Kloof Street…"></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Submit Application</button>
+        <p style="font-size:10px;color:var(--muted);margin-top:12px;text-align:center;">We review every application personally. You'll hear from us within 24 hours.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ DASHBOARD ══════════ -->
+<div id="pg-dash" class="pg">
+  <section style="padding-top:100px;background:var(--bg2);">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
+      <div><div class="sec-tag">Business Dashboard</div><div class="sec-title">Your Performance</div></div>
+      <div class="badge">✓ On Safari · Growth Partner</div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi"><div class="kpi-l">Profile Views</div><div class="kpi-v">1,204</div><div class="kpi-ch kpi-up">↑ +18% this week</div></div>
+      <div class="kpi"><div class="kpi-l">WhatsApp Clicks</div><div class="kpi-v">87</div><div class="kpi-ch kpi-up">↑ +32% this week</div></div>
+      <div class="kpi"><div class="kpi-l">AI Referrals</div><div class="kpi-v">43</div><div class="kpi-ch kpi-up">↑ +8% this week</div></div>
+      <div class="kpi"><div class="kpi-l">Street Pass Uses</div><div class="kpi-v">12</div><div class="kpi-ch" style="color:var(--muted);">→ Steady</div></div>
+    </div>
+    <div class="dash-panels">
+      <div class="dash-panel">
+        <h3>Weekly Profile Visits</h3>
+        <div class="bar-row" id="dashBars"></div>
+      </div>
+      <div class="dash-panel">
+        <h3>Current Vibe</h3>
+        <div class="vibe-row">
+          <div class="vibe-dot"></div>
+          <span class="vibe-txt" id="vibeTxt">Exhibition on now 🎨</span>
+          <button class="vibe-edit" onclick="document.getElementById('vibeOpts').classList.toggle('show')">Edit</button>
+        </div>
+        <div class="vibe-opts" id="vibeOpts">
+          <button class="vibe-opt" onclick="setVibe('Exhibition on now 🎨')">Exhibition on now 🎨</button>
+          <button class="vibe-opt" onclick="setVibe('Prints on sale 🔥')">Prints on sale 🔥</button>
+          <button class="vibe-opt" onclick="setVibe('New collection live ✨')">New collection live ✨</button>
+          <button class="vibe-opt" onclick="setVibe('By appointment 📅')">By appointment 📅</button>
+        </div>
+      </div>
+    </div>
+    <div style="background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.15);padding:22px 28px;border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div><div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:4px;">Want to upgrade your package?</div><div style="font-size:12px;color:var(--muted);">Growth plan — 2 spots remaining this month.</div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" style="padding:10px 20px;" onclick="go('packages')">Upgrade Package</a>
+        <a class="btn btn-outline" style="padding:10px 20px;" onclick="go('listed')">Contact Team</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">KLOOFSTREET<em>.</em>ONLINE</div>
+      <p class="footer-desc">The curated digital platform for Kloof Street, Cape Town. Verified listings. Real discovery. Powered by Business Hustle.</p>
+      <div class="badge">✓ Verified Platform</div>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a onclick="go('brands')">All Businesses</a></li>
+        <li><a onclick="go('explore')">By Category</a></li>
+        <li><a onclick="go('on-safari')">On Safari</a></li>
+        <li><a onclick="go('ubuntu')">Ubuntu Wellness</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <ul>
+        <li><a onclick="go('ai')">AI Concierge</a></li>
+        <li><a onclick="go('packages')">Packages</a></li>
+        <li><a onclick="go('listed')">Get Listed</a></li>
+        <li><a onclick="go('about')">About Us</a></li>
+        <li><a onclick="go('about')">Press &amp; Accolades</a></li>
+        <li><a onclick="go('dash')">Dashboard</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Business Hustle</h4>
+      <ul>
+        <li><a href="https://businesshustle.co.za" target="_blank">businesshustle.co.za</a></li>
+        <li><a href="https://www.hustleportal.online/" target="_blank">BH Platform</a></li>
+        <li><a href="mailto:team@businesshustle.co.za">team@businesshustle.co.za</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2026 KloofStreet.online — Cape Town, South Africa</p>
+    <p><a href="https://www.hustleportal.online/" target="_blank" style="color:rgba(122,122,120,.45);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--a)'" onmouseout="this.style.color='rgba(122,122,120,.45)'">POWERED BY <em style="color:var(--a);">BUSINESS HUSTLE</em></a></p>
+  </div>
+</footer>
+
+<script>
+// ── PAGES ──
+const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','packages','ai','listed','dash'];
+const NAVLINKS = ['home','about','explore','brands','packages','ai'];
+
+function go(name) {
+  PAGES.forEach(function(p) {
+    var el = document.getElementById('pg-' + p);
+    if (el) { el.className = 'pg'; }
+  });
+  var target = document.getElementById('pg-' + name);
+  if (target) { target.className = 'pg on'; }
+  NAVLINKS.forEach(function(n) {
+    var l = document.getElementById('nl-' + n);
+    if (l) l.className = '';
+  });
+  var al = document.getElementById('nl-' + name);
+  if (al) al.className = 'on';
+  window.scrollTo(0, 0);
+  if (name === 'dash') initBars();
+}
+
+function mgo(name) {
+  document.getElementById('mm').classList.remove('on');
+  go(name);
+}
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', function() {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ── DIRECTORY FILTER ──
+function filterDir(cat, btn) {
+  var tabs = document.querySelectorAll('.dir-tab');
+  for (var i = 0; i < tabs.length; i++) tabs[i].className = 'dir-tab';
+  btn.className = 'dir-tab on';
+  document.getElementById('dirQ').value = '';
+  var cards = document.querySelectorAll('#storesGrid .lcard');
+  var count = 0;
+  for (var i = 0; i < cards.length; i++) {
+    var show = cat === 'all' || cards[i].getAttribute('data-cat') === cat;
+    cards[i].style.display = show ? '' : 'none';
+    if (show) count++;
+  }
+  var el = document.getElementById('dirCount');
+  if (el) el.textContent = count + ' results';
+}
+
+// ── DIRECTORY SEARCH ──
+function searchDir(q) {
+  var term = q.toLowerCase().trim();
+  var cards = document.querySelectorAll('#storesGrid .lcard');
+  var count = 0;
+  for (var i = 0; i < cards.length; i++) {
+    var name = cards[i].querySelector('.lcard-name');
+    var addr = cards[i].querySelector('.lcard-addr');
+    var nameT = name ? name.textContent.toLowerCase() : '';
+    var addrT = addr ? addr.textContent.toLowerCase() : '';
+    var show = !term || nameT.indexOf(term) > -1 || addrT.indexOf(term) > -1;
+    cards[i].style.display = show ? '' : 'none';
+    if (show) count++;
+  }
+  var el = document.getElementById('dirCount');
+  if (el) el.textContent = term ? count + ' results' : '';
+  var tabs = document.querySelectorAll('.dir-tab');
+  for (var i = 0; i < tabs.length; i++) tabs[i].className = 'dir-tab';
+  if (tabs[0]) tabs[0].className = 'dir-tab on';
+}
+
+// ── DASHBOARD BARS ──
+function initBars() {
+  var bc = document.getElementById('dashBars');
+  if (!bc || bc.children.length > 0) return;
+  var data = [{d:'Mon',v:142},{d:'Tue',v:198},{d:'Wed',v:167},{d:'Thu',v:220},{d:'Fri',v:312},{d:'Sat',v:145},{d:'Sun',v:63}];
+  var max = 312;
+  data.forEach(function(item) {
+    var col = document.createElement('div');
+    col.className = 'bar-col';
+    var fill = document.createElement('div');
+    fill.className = 'bar-fill';
+    fill.style.height = Math.round((item.v / max) * 64) + 'px';
+    fill.onmouseover = function() { this.style.background = 'rgba(245,197,24,.55)'; };
+    fill.onmouseout = function() { this.style.background = ''; };
+    var lbl = document.createElement('div');
+    lbl.className = 'bar-lbl';
+    lbl.textContent = item.d;
+    col.appendChild(fill);
+    col.appendChild(lbl);
+    bc.appendChild(col);
+  });
+}
+
+// ── VIBE ──
+function setVibe(v) {
+  document.getElementById('vibeTxt').textContent = v;
+  document.getElementById('vibeOpts').classList.remove('show');
+}
+
+// ── AI CHAT ──
+var replies = {
+  'Dinner tonight under R300?': 'For under R300, I\'d head to Rick\'s Cafe (103 Kloof St) — warm vibes, solid mains under R200. Our Local at 117 is also great value. Want a full evening plan? 🍽️',
+  'Art exhibitions to visit?': '🎨 Two great spots right now:\n\nOn Safari (99B Kloof St) — wildlife photographic fine art. Free to browse, prints to purchase. Street Pass = 10% off.\n\nAKJP Studio (73 Kloof) — contemporary architecture and design.\n\nWant an afternoon itinerary?',
+  'Full wellness day?': '🧘 Ubuntu Wellness is your answer.\n\nFloat therapy session (60-90 mins), followed by a spa treatment and homeopathy consult.\n\nStreet Pass = 10% off all treatments + priority booking.\n\nBudget: R400-800 depending on treatments. Want the full day plan?',
+  'Plan my perfect afternoon': '☕ 2pm — Coffee on Kloof\n🎨 3pm — On Safari studio (99B) — free entry, fine art prints\n✏️ 4pm — AKJP Studio (73 Kloof)\n🧘 5:30pm — Ubuntu Wellness float session\n🍽️ 7:30pm — Dinner at any of 15+ restaurants on the street\n\nTotal: R400-700. Adjust for budget? 😊'
+};
+
+function sendChat(preset) {
+  var input = document.getElementById('chatIn');
+  var text = preset || input.value.trim();
+  if (!text) return;
+  input.value = '';
+  var msgs = document.getElementById('chatMsgs');
+  var prompts = msgs.querySelector('.chat-prompts');
+  if (prompts) prompts.remove();
+
+  var ub = document.createElement('div');
+  ub.className = 'msg msg-user';
+  ub.textContent = text;
+  msgs.appendChild(ub);
+
+  var typing = document.createElement('div');
+  typing.className = 'msg msg-ai';
+  typing.innerHTML = '<span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>';
+  msgs.appendChild(typing);
+  msgs.scrollTop = msgs.scrollHeight;
+
+  setTimeout(function() {
+    typing.remove();
+    var ab = document.createElement('div');
+    ab.className = 'msg msg-ai';
+    ab.textContent = replies[text] || 'Great question! On Safari has fine art on show and Ubuntu Wellness has float sessions available. Tell me more about what you\'re after and I\'ll build a full plan. 😊';
+    msgs.appendChild(ab);
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 1200);
+}
+
+// ── FORM ──
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show';
+  setTimeout(function() { t.className = 'toast'; }, 3500);
+}
+
+function submitForm() {
+  var biz = document.getElementById('f-biz').value.trim();
+  var name = document.getElementById('f-name').value.trim();
+  var email = document.getElementById('f-email').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var cat = document.getElementById('f-cat').value;
+  var tier = document.getElementById('f-tier').value;
+  var msg = document.getElementById('f-msg').value.trim();
+
+  if (!biz || !name || !email) {
+    showToast('Please fill in business name, your name and email.');
+    return;
+  }
+
+  var btn = document.querySelector('.form-submit');
+  btn.textContent = 'Sending\u2026';
+  btn.disabled = true;
+
+  // ── PASTE YOUR GOOGLE APPS SCRIPT URL BELOW ──
+  var APPS_SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+  var payload = JSON.stringify({
+    form: 'KloofStreet Get Listed',
+    businessName: biz, name: name, email: email,
+    phone: phone, category: cat, tier: tier, message: msg,
+    timestamp: new Date().toISOString()
+  });
+
+  var reqs = [];
+  if (APPS_SCRIPT_URL.indexOf('script.google') > -1) {
+    reqs.push(fetch(APPS_SCRIPT_URL, {method:'POST',headers:{'Content-Type':'application/json'},body:payload})
+      .catch(function(e){console.warn('Sheet error:',e);}));
+  }
+  reqs.push(fetch('https://business-hustle-form.vercel.app/api/submit', {method:'POST',headers:{'Content-Type':'application/json'},body:payload})
+    .catch(function(e){console.warn('BH error:',e);}));
+
+  Promise.allSettled(reqs).then(function(){
+    document.getElementById('listForm').innerHTML =
+    '<div style="text-align:center;padding:56px 20px;">' +
+    '<div style="font-size:44px;margin-bottom:14px;">✓</div>' +
+    '<div style="font-size:28px;font-weight:900;color:var(--a);margin-bottom:10px;text-transform:uppercase;">Application Received</div>' +
+    '<p style="font-size:13px;color:var(--muted);line-height:1.6;max-width:320px;margin:0 auto 22px;">We review every application personally. You\'ll hear from us within 24 hours.</p>' +
+    '<a class="btn btn-gold" onclick="go(\'brands\')">Explore the Directory</a>' +
+    '</div>';
+  });
+}
+
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  function attachReveal(){
+    document.querySelectorAll('.sec-title,.sec-desc,.sec-tag').forEach(function(el){if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.cat-grid,.brands-grid,.pkg-grid').forEach(function(el){if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}});
+    document.querySelectorAll('.stores-grid .lcard').forEach(function(el,i){el.style.transitionDelay=(i%4*0.07)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.brand-card').forEach(function(el,i){el.style.transitionDelay=(i*0.12)+'s';if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}});
+    document.querySelectorAll('.info-card').forEach(function(el){if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.pass-block').forEach(function(el){if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}});
+    document.querySelectorAll('.life').forEach(function(el){if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}});
+    document.querySelectorAll('.biz-body>div').forEach(function(el){if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.connect-cards').forEach(function(el){if(!el.classList.contains('stagger')){el.classList.add('stagger');io.observe(el);}});
+    document.querySelectorAll('.photo-cell').forEach(function(el,i){el.style.transitionDelay=(i*0.1)+'s';if(!el.classList.contains('reveal-scale')){el.classList.add('reveal-scale');io.observe(el);}});
+    document.querySelectorAll('.kpi').forEach(function(el,i){el.style.transitionDelay=(i*0.1)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.svc').forEach(function(el,i){el.style.transitionDelay=(i*0.08)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+    document.querySelectorAll('.footer-grid>div').forEach(function(el,i){el.style.transitionDelay=(i*0.1)+'s';if(!el.classList.contains('reveal')){el.classList.add('reveal');io.observe(el);}});
+  }
+  attachReveal();
+  var _go=window.go;
+  window.go=function(name){_go(name);setTimeout(attachReveal,50);};
+  var _mgo=window.mgo;
+  window.mgo=function(name){_mgo(name);setTimeout(attachReveal,50);};
+})();
+
+
+// THEME
+(function(){
+  var t=localStorage.getItem('ks_theme')||(window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  applyTheme(t);
+})();
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme',t);
+  var b=document.getElementById('themeToggle');
+  if(b)b.textContent=t==='light'?'🌙':'☀️';
+  localStorage.setItem('ks_theme',t);
+}
+function toggleTheme(){
+  var c=document.documentElement.getAttribute('data-theme')||'dark';
+  applyTheme(c==='dark'?'light':'dark');
+}
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en',autoDisplay:false},'google_translate_element');
+}
+function translateTo(lang){
+  if(!lang){
+    // Reset to English — remove Google Translate cookie and reload
+    document.cookie="googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    document.cookie="googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain="+window.location.hostname;
+    document.cookie="googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=."+window.location.hostname;
+    // Also try the combo reset before reloading
+    var c=document.querySelector('select.goog-te-combo');
+    if(c && c.value){
+      c.value='';
+      c.dispatchEvent(new Event('change'));
+      setTimeout(function(){window.location.reload();},400);
+    } else {
+      window.location.reload();
+    }
     return;
   }
   var tries=0,iv=setInterval(function(){
