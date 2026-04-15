@@ -302,17 +302,7 @@ section{padding:72px 48px;}
 }
 
 /* ── FEATURED BRANDS ── */
-.brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.brand-card{
-  background:var(--bg2);cursor:pointer;
-  border:1px solid rgba(255,255,255,.03);
-  transition:border-color .3s;overflow:hidden;
-}
-.brand-card:hover{border-color:rgba(245,197,24,.2);}
-.brand-img{
-  height:200px;position:relative;
-  display:flex;align-items:center;justify-content:center;font-size:64px;
-}
+
 .brand-img-safari{background:linear-gradient(135deg,#0a1400,#1a3000,#243a10);}
 .brand-img-ubuntu{background:linear-gradient(135deg,#050f0a,#0d2318,#152e20);}
 .brand-img-slot{background:rgba(245,197,24,.03);border:1px dashed rgba(245,197,24,.12);}
@@ -334,20 +324,6 @@ section{padding:72px 48px;}
   padding:6px 12px;font-size:10px;color:rgba(232,232,230,.8);
   border-top:1px solid rgba(255,255,255,.05);
 }
-.brand-body{padding:18px 20px;}
-.brand-cat{font-size:9px;color:var(--a);letter-spacing:.15em;text-transform:uppercase;font-weight:700;margin-bottom:5px;}
-.brand-name{font-size:17px;font-weight:700;color:var(--text2);margin-bottom:4px;}
-.brand-sub{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:14px;}
-.brand-foot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid rgba(255,255,255,.05);}
-.brand-tag{font-size:11px;color:var(--a);font-weight:600;}
-.view-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.25);
-  color:var(--a);padding:5px 11px;font-size:10px;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
-  border-radius:3px;transition:all .2s;text-decoration:none;
-}
-.view-btn:hover{background:rgba(245,197,24,.18);}
 
 /* ── DIRECTORY / LOCKED CARDS ── */
 .dir-search-wrap{position:relative;margin-bottom:16px;}
@@ -629,7 +605,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
   .stat:nth-child(2){border-right:none;}
   .stat:nth-child(3){border-right:1px solid var(--bdr);}
   .cat-grid{grid-template-columns:1fr 1fr;}
-  .brands-grid{grid-template-columns:1fr 1fr;}
+  
   .stores-grid{grid-template-columns:repeat(2,1fr);}
   .about-grid,.ai-grid{grid-template-columns:1fr;gap:36px;}
   .biz-body{grid-template-columns:1fr;gap:24px;padding:28px 20px;}
@@ -654,7 +630,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
   .stats{grid-template-columns:1fr 1fr;margin-top:28px;}
   .stat:nth-child(3){border-right:none;}
   .cat-grid{grid-template-columns:1fr;}
-  .brands-grid{grid-template-columns:1fr;}
+  
   .stores-grid{grid-template-columns:1fr 1fr;}
   .f2{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;}
@@ -724,8 +700,7 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(245,197,24,.25)}
 .btn-outline{transition:border-color .2s,color .2s,transform .15s}
 .btn-outline:hover{transform:translateY(-2px)}
-.brand-card{transition:border-color .3s,transform .25s,box-shadow .25s}
-.brand-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+
 .lcard{transition:border-color .3s,transform .2s}
 .lcard:hover{transform:translateY(-3px)}
 .cat-card{transition:filter .3s,transform .4s}
@@ -787,8 +762,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 [data-theme="light"] .cat-overlay{background:linear-gradient(to top,rgba(245,244,240,.92) 0%,transparent 55%);}
 [data-theme="light"] .cat-title{color:var(--text2);}
 [data-theme="light"] .pass-block{background:rgba(201,162,0,.06);}
-[data-theme="light"] .brand-card{background:var(--bg2);border-color:rgba(0,0,0,.07);}
-[data-theme="light"] .brand-card:hover{border-color:rgba(201,162,0,.4);}
+[data-theme="light"] 
+[data-theme="light"] 
 [data-theme="light"] .vibe-bar{background:rgba(245,244,240,.9);color:var(--text);}
 [data-theme="light"] .open-pill{background:rgba(30,80,50,.15);color:#1a6040;}
 [data-theme="light"] .lcard{background:var(--bg2);border-color:rgba(0,0,0,.06);}
@@ -840,20 +815,7 @@ body{top:0!important;}
   .burger{display:flex;}
 }
 
-/* 3. brands-grid — ensure 2nd row of partners wraps cleanly */
-.brands-grid{align-items:stretch;}
-.brand-card{display:flex;flex-direction:column;}
-.brand-body{flex:1;display:flex;flex-direction:column;}
-.brand-sub{flex:1;}
-.brand-foot{margin-top:auto;}
-
 /* 4. brand-img consistent height across all cards including inline-bg ones */
-.brand-img{
-  height:220px;position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  background-size:cover;background-position:center;
-  flex-shrink:0;
-}
 
 /* 5. lcard consistent */
 .lcard{display:flex;flex-direction:column;}
@@ -969,7 +931,6 @@ nav{gap:12px;}
 .info-card .sec-tag::before{display:none;}
 .info-card h3::before{display:none;}
 
-/* 28. Brand img with inline background-image via style attr */
 .brand-img[style]{background-size:cover!important;background-position:center!important;}
 
 /* 29. lcard-img with inline background */
@@ -1002,6 +963,100 @@ nav{z-index:200;}
 /* 36. Qigong callout box sizing */
 @media(max-width:600px){
   .biz-body > div > div[style*="rgba(245,197,24,.06)"]{padding:16px;}
+}
+
+/* ═══════════════════════════════════
+   FEATURED PARTNERS GRID — CLEAN
+   ═══════════════════════════════════ */
+.brands-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-bottom:0;
+}
+.brand-card{
+  background:var(--bg2);
+  border:1px solid var(--bdr);
+  border-radius:var(--r);
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  transition:border-color .25s,transform .2s,box-shadow .2s;
+}
+.brand-card:hover{
+  border-color:rgba(245,197,24,.3);
+  transform:translateY(-3px);
+  box-shadow:0 10px 32px rgba(0,0,0,.35);
+}
+.brand-img{
+  height:200px;
+  position:relative;
+  overflow:hidden;
+  background:var(--bg3);
+  background-size:cover!important;
+  background-position:center!important;
+  flex-shrink:0;
+}
+.brand-body{
+  padding:16px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  gap:6px;
+}
+.brand-cat{
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--a);
+}
+.brand-name{
+  font-size:16px;
+  font-weight:800;
+  color:var(--text2);
+  line-height:1.2;
+}
+.brand-sub{
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.55;
+  flex:1;
+}
+.brand-foot{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px solid var(--bdr);
+}
+.brand-tag{
+  font-size:9px;
+  color:var(--muted);
+  letter-spacing:.06em;
+}
+.view-btn{
+  font-size:10px;
+  font-weight:700;
+  color:var(--a);
+  text-decoration:none;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.view-btn:hover{text-decoration:underline;}
+
+@media(max-width:1100px){
+  .brands-grid{grid-template-columns:repeat(3,1fr);gap:12px;}
+}
+@media(max-width:900px){
+  .brands-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .brand-img{height:160px;}
+}
+@media(max-width:600px){
+  .brands-grid{grid-template-columns:1fr;gap:10px;}
+  .brand-img{height:180px;}
 }
 </style>
 </head>
@@ -1311,6 +1366,7 @@ nav{z-index:200;}
             <div class="brand-sub">Experienced GP &amp; Allergologist. Airway, skin &amp; food allergies, paediatrics, mental health &amp; more. At Cape Town Medi-Spa, 99B Kloof Street.</div>
             <div class="brand-foot"><span class="brand-tag">Allergy &middot; GP &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</a></div>
           </div>
+        </div>
 
         <!-- ROW 2 — Three new Growth Partners -->
         <div class="brand-card" onclick="go('just-hearing')">
