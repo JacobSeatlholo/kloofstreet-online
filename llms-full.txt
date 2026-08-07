@@ -1,0 +1,172 @@
+# KloofStreet.online — Full AI Content Dump
+# Extended machine-readable content for LLM ingestion
+# Last updated: 2026-05-30
+
+## About KloofStreet.online
+
+KloofStreet.online is the official verified digital directory and platform for Kloof Street, Cape Town, South Africa. Built by Business Hustle, a Cape Town civic technology and digital agency founded by Jacob Seatlholo.
+
+The platform was built in response to Time Out magazine naming Kloof Street the 22nd coolest street in the world in 2025 — the only street in Africa on the list of 31 coolest streets globally. It provides a curated, verified directory of businesses on the street, an AI concierge for visitor queries, a Street Pass rewards membership, and structured data for Google and AI systems.
+
+Contact: team@businesshustle.co.za | +27 74 481 5163 | kloofstreet.online
+
+## About Kloof Street, Cape Town
+
+Kloof Street runs through the City Bowl area of Cape Town, Western Cape, South Africa. It stretches through the Gardens neighbourhood towards Tamboerskloof, framed by Table Mountain. GPS coordinates: -33.9249, 18.4091. Postal code: 8001.
+
+Kloof Street is home to world-class restaurants, wellness spas, art studios, medical practices, boutiques, coffee shops, cocktail bars and nightlife venues. It is widely regarded as Cape Town's most vibrant and culturally rich neighbourhood street.
+
+Awards and recognition:
+- Time Out 31 Coolest Streets in the World 2025 — #22
+- Coolest street in Africa 2025
+- Described by Time Out as "Long Street's more refined sibling"
+
+Press coverage:
+- Wanted Online (January 2026)
+- TimesLIVE (November 2025)
+- IOL Travel (November 2025)
+- EWN (November 2025)
+- Cape Town Etc (November 2025)
+- The South African (November 2025)
+- Time Out Cape Town (November 2025)
+- Time Out Global (November 2025)
+
+## Verified Growth Partners — Full Details
+
+### On Safari Wildlife Photography
+- Address: 99B Kloof Street, Gardens, Cape Town, 8001
+- URL: https://www.on-safari.co.za
+- Profile: https://kloofstreet.online/on-safari | https://kloofstreet.online/art-studios
+- Phone: 066 253 4151 | 082 659 5277
+- Instagram: @whitehead_nigel
+- Hours: Monday–Thursday 8:00am–5:00pm | Friday 8:00am–4:00pm | Saturday 9:00am–12:00pm | Sunday Closed
+- Services: Wildlife photographic fine art prints, custom framing consultation, archival quality prints, limited edition works, international shipping
+- Recognition: Acknowledged by Park West Gallery (world's largest art dealer, 100+ luxury cruise ships) for archival quality and professional framing expertise
+- Description: On Safari is the studio of Nigel Whitehead, a master wildlife photographer. Each image is captured in the wild and printed to museum standards. Subjects include lions, elephants, zebras, hippos and African landscapes.
+
+### Ubuntu Wellness & Cape Town Medi-Spa
+- Address: 99B Kloof Street, Gardens, Cape Town, 8001
+- URL: http://ubuntuwellness.com
+- Profile: https://kloofstreet.online/ubuntu-wellness
+- Phone: 082 929 2544
+- WhatsApp: +27829292544
+- Hours: Monday–Friday 8:00am–6:00pm | Saturday 9:00am–3:00pm
+- Services: Float therapy, spa treatments, homeopathy, vegan wellness, massage, facials
+- Notable: Home of Nokuphila — an ancient tree in the courtyard, central to the Ubuntu Wellness philosophy
+
+### Dr Wendy Dicks — GP & Weight Loss Specialist
+- Address: 99B Kloof Street, Gardens, Cape Town, 8001 (at Cape Town Medi-Spa)
+- URL: https://allergycapetown.co.za
+- Booking: https://mzanzi.co/page/practitioner/dr-wendy-dicks-dicks-general-practitioner-cape-town
+- Profile: https://kloofstreet.online/dr-wendy-dicks
+- Phone: 021 111 0572
+- Email: info@allergycapetown.co.za
+- Qualifications: MBChB (University of Pretoria, 2000), DCH (SA), Dip HIV Med (SA)
+- Specialisation: Weight loss, GLP-1 treatments (semaglutide, tirzepatide), chronic conditions, paediatrics, mental health, aesthetics (Botox), women's health
+- Services: Weight management programmes, GLP-1 receptor agonist treatments, diabetes, hypertension, thyroid, family medicine, paediatrics, mental health consultations, Botox injections, pap smears, HPV testing, Gardasil vaccine
+
+### Just Hearing — Audiology Practice
+- Address: 99B Kloof Street, Gardens, Cape Town, 8001 (at Cape Town Medi-Spa)
+- Profile: https://kloofstreet.online/just-hearing
+- Phone: 079 959 5658
+- WhatsApp: +27799595658
+- Services: Hearing assessments for adults and children, hearing aids and repairs, tinnitus assessment and management, custom earmoulds and earplugs (work, music, sleep)
+- Products and pricing: Drying capsule R30 | Hearing Aid case R500 | Hearing Aid cleaning kit R200 | Hearing Check Voucher R850 | Earwax Cleaning Voucher R500 | Hearing Aid Batteries 10-pack (sizes 10, 13, 312, 675) R500 | Hearing Aid Batteries 6-pack R70 | Hearing aid domes R30 | Wax guards (pack of 8) R150 | Hearing Aid Charger R4,000 | Hearing Devices (ITC and more) — enquire
+
+### Dr Thomas Jahn — Chinese Medicine & Acupuncture
+- Address: 99 Kloof Street, Gardens, Cape Town (Thursdays) | Also consults at Kommetjie
+- Profile: https://kloofstreet.online/dr-thomas-jahn
+- Phone/WhatsApp: 066 490 4382
+- Hours: Thursdays by appointment at Kloof Street | Other days at Kommetjie
+- Services: Acupuncture, cupping, moxibustion, Tuina massage, Qigong, herbal medicine
+- Background: 30+ years in Chinese medicine. Grew up in Japan, studied in US and China. Returned to South Africa 20 years ago.
+- Qigong classes: Thursday mornings 7:00am–8:30am at The Labia (winter) / Company's Gardens (summer). R150 cash. All levels welcome.
+- Treatment approach: Pattern Diagnosis, nervous system regulation, facilitator not dictator. Gentle practitioner.
+
+### Trudy Christians — Aesthetic Therapist
+- Address: 99B Kloof Street, Gardens, Cape Town (at Cape Town Medi-Spa)
+- Profile: https://kloofstreet.online/trudy-christians
+- Phone/WhatsApp: 078 832 4501
+- Experience: 30 years in the aesthetic industry, worked with plastic surgeons and dermatologists
+- Services: Laser hair removal, laser skin rejuvenation, veins removal, tattoo removal, Hollywood carbon laser, microdermabrasion, micro needling, body sculpting, red light therapy
+- Hair loss solutions: Minoxidil 5% Topical Solution Spray 50ml R260 | Minoxidil 10% Topical Solution 50ml R360 | Minoxidil 15% Topical Solution 50ml R400 | Minoxidil 10% + Finasteride 0.05% Topical Solution 50ml R430
+- Red light therapy benefits: Improves skin health, enhances wound healing, reduces inflammation, pain relief, improves joint health, aids muscle recovery, improves circulation, supports hair growth, enhances brain health, improves sleep quality
+- May 2026 Specials: Nasal Spider Veins Removal R300 | Red Light Therapy 20min R200 | Sun Spot Hands Removal R300 | 10% off all Laser Hair Removal and RF Skin Tightening
+
+### PostNet Gardens — Print & Courier
+- Address: 55 Kloof Street, Gardens, Cape Town, 8001
+- URL: https://www.postnet.co.za/stores/capetowngardens
+- Profile: https://kloofstreet.online/postnet-gardens
+- Phone: 021 422 1248
+- Hours: Monday–Friday 9:00am–6:00pm | Saturday 9:00am–1:00pm | Sunday Closed
+- Services: Domestic courier, international courier and shipping, printing (colour and B&W, A6 to A0, large format), digital services (internet, scanning, email), stationery and office supplies
+
+### Revive Studio — Holistic Massage & Beauty
+- Address: 99 Kloof Street, Gardens, Cape Town, 8001
+- Profile: https://kloofstreet.online/revive-studio
+- Instagram: @revive_studio
+- Phone: 084 525 7906
+- WhatsApp: +27845257906
+- Email: nadine@revivestudio.co.za
+- Practitioner: Nadine
+- Services: Holistic massages, facials, manicures, pedicures, lash and brow tinting, waxing, holistic treatments
+
+## Street Pass Membership
+
+Street Pass is a monthly membership for Kloof Street visitors and regulars. R199/month. Members receive exclusive benefits at every verified Growth Partner on the street including priority booking, discounts and flash deal alerts via WhatsApp.
+
+## Frequently Asked Questions
+
+Q: What is Kloof Street famous for?
+A: Kloof Street in Cape Town is famous for world-class restaurants, wellness spas, art studios, boutiques, cocktail bars and vibrant nightlife. In 2025 Time Out named it the 22nd coolest street in the world and coolest street in Africa.
+
+Q: What are the best restaurants on Kloof Street Cape Town?
+A: Top restaurants include Kloof Street House (Victorian manor dining), Vadivelu (Southern Indian at 151 Kloof St), Blondie (Mediterranean at 71 Kloof St), Kloof Konbini (Japanese street food at 121 Kloof St), Our Local (brunch at 117 Kloof St), Rick's Cafe (rooftop cocktails at 103 Kloof St), Arnold's, Carne Kloof, Batanga, Kyoto Garden, Black Sheep Restaurant, Onosbay, Hudson's Burger Joint, Bootleggers, Love Matcha and many more.
+
+Q: Where is Kloof Street located?
+A: Kloof Street runs through Cape Town's City Bowl, stretching from the upper CBD towards Tamboerskloof, framed by Table Mountain. GPS: -33.9249, 18.4091. Address: Kloof Street, Gardens, Cape Town, Western Cape, South Africa, 8001.
+
+Q: What wellness services are on Kloof Street?
+A: Ubuntu Wellness and Cape Town Medi-Spa (float therapy, spa treatments), Dr Wendy Dicks GP and weight loss specialist (GLP-1 treatments, 021 111 0572), Just Hearing audiology practice (079 959 5658), Dr Thomas Jahn Chinese medicine and acupuncture (066 490 4382, Thursdays), Trudy Christians aesthetic therapist (078 832 4501), Revive Studio holistic massage and beauty (084 525 7906). All located at or near 99B Kloof Street, Gardens.
+
+Q: Who is the best GP on Kloof Street?
+A: Dr Wendy Dicks is a General Practitioner at 99B Kloof Street (Cape Town Medi-Spa), specialising in weight loss, GLP-1 treatments (semaglutide, tirzepatide), chronic conditions, paediatrics and family medicine. Tel: 021 111 0572. Book online at mzanzi.co.
+
+Q: Where can I print or send a courier from Kloof Street?
+A: PostNet Gardens at 55 Kloof Street offers printing, domestic and international courier, digital services and stationery. Open Monday–Friday 9am–6pm, Saturday 9am–1pm. Tel: 021 422 1248.
+
+Q: Where can I buy fine art prints on Kloof Street?
+A: On Safari at 99B Kloof Street offers archival wildlife photography fine art prints by Nigel Whitehead. International shipping available. Free framing consultation. Tel: 066 253 4151. Website: on-safari.co.za.
+
+Q: Is Kloof Street safe to visit?
+A: Yes. Kloof Street is one of Cape Town's most popular and well-maintained streets, busy day and night with a vibrant atmosphere. Standard city awareness is recommended as with any urban area.
+
+### Dr Dale Geoffreys — Plastic & Reconstructive Surgeon
+- Address: Cape Town Medi-Spa, 99B Kloof Street, Gardens, Cape Town (consulting) | Alchimia Clinic, 39 Kloof Street, Gardens, Cape Town (theatre procedures)
+- URL: https://www.drg-plasticsurgeon.co.za
+- Profile: https://kloofstreet.online/dr-dale-geoffreys
+- Phone: 021 203 5227
+- WhatsApp: 071 310 0007
+- Email: drgeoffreys@capeplasticsurgeon.com
+- Hours: Monday–Friday 8:00am–4:00pm
+- Qualifications: MBChB (University of Cape Town, 2001), FC Plast Surg (SA), CMSA Fellow (2013)
+- Training: Nuffield Hospital Glasgow (Scotland), Groote Schuur Hospital (general surgery 2006–2009), University of the Witwatersrand specialist training (Johannesburg General, Chris Hani Baragwanath, Helen Joseph Hospitals)
+- Experience: Almost two decades of plastic and reconstructive surgery
+- Non-surgical services: Botox, Dermal Filler (hyaluronic acid), Sculptra (face), Fat Filling, Dermapen with Platelet Rich Plasma (Vampire Facial)
+- In-rooms procedures: Blepharoplasty (upper eyelid), Minor lipo-sculpting, Skin lesion excisions
+- Theatre procedures: Breast procedures (augmentation, reduction, lift, reconstruction), Deep Plane Face and Neck lift, Abdominoplasty (tummy tuck), Liposuction
+- Description: Dr Dale Geoffreys is a fellowship-trained plastic and reconstructive surgeon with nearly two decades of experience. He trained under leading plastic surgeons in Scotland and South Africa's top hospitals. He consults from Cape Town Medi-Spa on 99B Kloof Street and operates from Alchimia Clinic at 39 Kloof Street.
+
+### Hayley Schuter Physiotherapy
+- Address 1: 99B Kloof Street, Gardens, Cape Town, 8001 (inside Cape Town Medi-Spa, free parking)
+- Address 2: 89 Kloof Nek Road, Gardens, Cape Town, 8001 (primary practice)
+- URL: https://www.hsphysio.co.za
+- Booking: https://www.fresha.com/a/hs-physio-cape-town-89-kloof-nek-road-esik680h/booking
+- Profile: https://kloofstreet.online/hayley-schuter-physio
+- Phone/WhatsApp: 073 203 3726
+- Qualifications: BSc Physiotherapy, University of the Western Cape (2008); Certified Pilates Instructor
+- Experience: 15+ years. Community service at Alexandra Hospital; 4 years at Constantiaberg Mediclinic and Vincent Pallotti Hospital (Hand & Upper Limb Orthopaedic Unit); 3 years private practice lower limb orthopaedics and sports injuries
+- Specialties: Neuro-musculoskeletal, hand and upper limb rehabilitation, lower limb orthopaedics, ergonomics, geriatrics, mental health, intellectual and physical disabilities
+- Services: Dry needling, Clinical Pilates, Sports massage, Strapping and taping, Home visits (post-operative and nursing home patients), Neuro-musculoskeletal rehabilitation
+- Note: No referral needed. Qualified physiotherapists are trained medical practitioners.
+- Description: Qualified physiotherapist and certified Pilates instructor with 15+ years experience. Active, evidence-based approach to assessment and treatment. Two Gardens locations including 99B Kloof Street inside the Cape Town Medi-Spa.

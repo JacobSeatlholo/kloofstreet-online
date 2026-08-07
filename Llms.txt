@@ -1,0 +1,40 @@
+# KloofStreet.online
+
+> KloofStreet.online is the curated digital platform for Kloof Street, Cape Town — ranked #22 on Time Out's World's Coolest Streets 2025. It serves as a business directory, neighbourhood guide, and AI concierge for residents, visitors, and the street's business community.
+
+Kloof Street is Cape Town's most culturally rich urban strip, running through the City Bowl with an eclectic mix of fine dining, wellness studios, art galleries, coffee shops, independent boutiques, and professional services. This platform connects people to the best of the street in real time.
+
+## Directory & Business Listings
+
+- [Full Business Directory](https://www.kloofstreet.online/#brands): Verified profiles of 50+ businesses on Kloof Street, including restaurants, wellness providers, art studios, and health practitioners.
+- [On Safari Fine Art](https://www.kloofstreet.online/#on-safari): Contemporary African fine art gallery and archival print studio.
+- [Ubuntu Wellness Centre](https://www.kloofstreet.online/#ubuntu): Holistic wellness — floatation therapy, massage, and mindful care.
+- [Dr Wendy](https://www.kloofstreet.online/#dr-wendy): Integrative health and wellness practitioner.
+- [Just Hearing](https://www.kloofstreet.online/#just-hearing): Specialist audiology and hearing care clinic.
+- [Dr Thomas Jahn](https://www.kloofstreet.online/#dr-thomas): Qigong instructor and integrative health practitioner.
+- [Trudy Christians](https://www.kloofstreet.online/#trudy): Luxury skincare and advanced facial treatments.
+- [PostNet Kloof Street](https://www.kloofstreet.online/#postnet): Business services, printing, and logistics.
+- [Revive Studio](https://www.kloofstreet.online/#revive): Therapeutic massage and body restoration.
+- [Dr Dale G](https://www.kloofstreet.online/#dr-dale): Dental and aesthetic health services.
+- [Hayley](https://www.kloofstreet.online/#hayley): Independent creative and wellness practitioner.
+
+## Neighbourhood Guide
+
+- [Explore Kloof Street](https://www.kloofstreet.online/#explore): Categories include Fine Dining, Coffee & Cafés, Art & Culture, Wellness & Beauty, Makers & Creators, and more.
+- [About KloofStreet.online](https://www.kloofstreet.online/#about): Platform background, editorial philosophy, and press mentions.
+
+## Membership
+
+- [Kloof Street Pass](https://www.kloofstreet.online/#listed): A curated neighbourhood membership with three tiers — Explorer (R199/month), Insider (R499/month), and Collector (R999/month) — granting access to partner discounts, curated experiences, and VIP events on the street.
+
+## AI Concierge
+
+- [AI Concierge](https://www.kloofstreet.online/#ai): An AI-powered assistant trained on Kloof Street businesses, helping users find recommendations, book services, and discover the street.
+
+## Platform & Packages
+
+- [List Your Business](https://www.kloofstreet.online/#listed): Business listing packages for Kloof Street traders, from basic directory entries to verified partner pages with SEO schemas, photos, and AI integration.
+
+## Optional
+
+- [llms-full.txt](https://www.kloofstreet.online/llms-full.txt): Extended content with full business descriptions, menus, and structured neighbourhood data for AI models requiring deeper context.

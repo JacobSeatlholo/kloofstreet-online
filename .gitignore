@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment variables (contains secrets)
+.env
+.env.local
+.env.production
+
+# Vercel
+.vercel/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

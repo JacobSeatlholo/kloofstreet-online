@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>List Your Business — KloofStreet.online Partner Programme</title>
+<meta name="description" content="Get your Kloof Street business found by tourists, locals and international visitors. Apply for a verified listing on KloofStreet.online — Cape Town's #22 World's Coolest Street. Live within 24 hours.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --gold:#F5C518;--gold2:#c9a200;
+  --dark:#08080a;--dark2:#111114;--dark3:#18181c;
+  --border:rgba(255,255,255,.07);--muted:#7a7a7a;
+  --text:#e8e8e6;--text2:#f4f4f2;
+  --red:#ff4444;--green:#22c55e;--r:10px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 6vw;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,10,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--text2);text-decoration:none;}
+.nav-logo em{color:var(--gold);font-style:normal;}
+.nav-links{display:flex;align-items:center;gap:24px;}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--text2);}
+@media(max-width:600px){.nav-links a:not(.nav-cta){display:none;}}
+
+/* BUTTONS */
+.btn-gold{background:var(--gold);color:#08080a;font-weight:700;padding:15px 30px;border-radius:var(--r);font-size:14px;letter-spacing:.03em;text-decoration:none;transition:transform .2s,box-shadow .2s;display:inline-block;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(245,197,24,.3);}
+.btn-ghost{border:1px solid rgba(255,255,255,.15);color:var(--text);padding:15px 30px;border-radius:var(--r);font-size:14px;text-decoration:none;transition:border-color .2s,transform .2s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.btn-sm{padding:10px 20px;font-size:13px;}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 6vw 80px;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 65% 40%,rgba(245,197,24,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(245,197,24,.04) 0%,transparent 60%);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,197,24,.08);border:1px solid rgba(245,197,24,.2);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:24px;font-family:'DM Mono',monospace;animation:fadeUp .6s ease .1s both;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,7vw,88px);font-weight:900;line-height:.95;color:var(--text2);margin-bottom:24px;max-width:780px;animation:fadeUp .7s ease .2s both;}
+.hero h1 em{color:var(--gold);font-style:normal;}
+.hero-sub{font-size:clamp(15px,1.8vw,19px);color:var(--muted);max-width:540px;line-height:1.75;margin-bottom:12px;animation:fadeUp .7s ease .3s both;}
+.hero-promise{font-size:13px;color:var(--green);font-weight:600;margin-bottom:32px;animation:fadeUp .7s ease .38s both;display:flex;align-items:center;gap:6px;}
+.hero-promise::before{content:'✓';font-size:14px;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:56px;animation:fadeUp .7s ease .45s both;}
+.trust-bar{display:flex;align-items:center;gap:24px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;animation:fadeUp .7s ease .6s both;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);}
+.trust-item strong{color:var(--text2);}
+.trust-sep{width:1px;height:20px;background:var(--border);}
+
+/* SECTIONS */
+section{padding:90px 6vw;position:relative;z-index:1;}
+section+section{border-top:1px solid var(--border);}
+.s-tag{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:var(--gold);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px;display:block;}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4.5vw,52px);font-weight:900;color:var(--text2);line-height:1.05;margin-bottom:18px;}
+.s-sub{font-size:17px;color:var(--muted);max-width:580px;line-height:1.75;margin-bottom:48px;}
+
+/* 3 PILLARS */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:0;}
+.pillar{background:var(--dark2);padding:36px 28px;border-bottom:3px solid transparent;transition:border-color .25s,background .2s;}
+.pillar:hover{border-color:var(--gold);background:var(--dark3);}
+.pillar-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:.15em;margin-bottom:16px;display:block;}
+.pillar h3{font-size:18px;font-weight:700;color:var(--text2);margin-bottom:10px;}
+.pillar p{font-size:14px;color:var(--muted);line-height:1.7;}
+
+/* TESTIMONIAL */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+.quote-block{padding:24px;background:var(--dark3);border-left:3px solid var(--gold);border-radius:0 var(--r) var(--r) 0;margin-top:24px;}
+.quote-block p{font-size:15px;color:var(--text2);font-style:italic;line-height:1.75;margin-bottom:10px;}
+.quote-block cite{font-size:12px;color:var(--muted);font-family:'DM Mono',monospace;font-style:normal;}
+
+/* TECH SECTION */
+.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.tech-card{background:var(--dark2);padding:40px 32px;}
+.tech-card h3{font-size:20px;font-weight:700;color:var(--text2);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.tech-card p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:16px;}
+.tech-tag{display:inline-block;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:var(--green);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:4px;font-family:'DM Mono',monospace;}
+
+/* VERIFIED BADGE */
+.badge-section{background:linear-gradient(135deg,rgba(245,197,24,.06),rgba(245,197,24,.02));border:1px solid rgba(245,197,24,.15);border-radius:var(--r);padding:48px;text-align:center;margin-bottom:0;}
+.verified-shield{width:80px;height:80px;background:rgba(245,197,24,.1);border:2px solid rgba(245,197,24,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;margin:0 auto 20px;}
+.badge-partners{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.badge-partner{background:var(--dark2);border:1px solid var(--border);padding:8px 16px;border-radius:20px;font-size:12px;color:var(--muted);}
+
+/* STAT CARDS */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:40px;}
+.stat-card{background:var(--dark2);padding:32px 24px;}
+.stat-card .big{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,60px);font-weight:900;line-height:1;margin-bottom:10px;}
+.stat-card.red .big{color:var(--red);}
+.stat-card.gold .big{color:var(--gold);}
+.stat-card .lbl{font-size:13px;color:var(--muted);line-height:1.6;}
+.stat-card .src{font-family:'DM Mono',monospace;font-size:9px;color:rgba(122,122,122,.45);letter-spacing:.08em;text-transform:uppercase;margin-top:10px;display:block;}
+
+/* HOW IT WORKS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.step{background:var(--dark2);padding:36px 28px;position:relative;overflow:hidden;}
+.step::before{content:attr(data-n);position:absolute;top:-10px;right:16px;font-family:'Playfair Display',serif;font-size:100px;font-weight:900;color:rgba(245,197,24,.04);line-height:1;}
+.step-icon{font-size:28px;margin-bottom:16px;}
+.step h3{font-size:16px;font-weight:700;color:var(--text2);margin-bottom:8px;}
+.step p{font-size:13px;color:var(--muted);line-height:1.7;}
+.step-time{font-family:'DM Mono',monospace;font-size:10px;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-top:12px;}
+
+/* PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.pkg{background:var(--dark2);padding:36px 28px;position:relative;}
+.pkg.featured{background:rgba(245,197,24,.04);outline:1px solid rgba(245,197,24,.25);}
+.pkg-pop{position:absolute;top:-1px;right:20px;background:var(--gold);color:#08080a;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:0 0 6px 6px;}
+.pkg-tier{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;}
+.pkg-price{font-family:'Playfair Display',serif;font-size:44px;font-weight:900;color:var(--text2);line-height:1;}
+.pkg-price sup{font-size:18px;vertical-align:top;margin-top:8px;color:var(--muted);}
+.pkg-price span{font-size:13px;color:var(--muted);font-family:'DM Sans',sans-serif;}
+.pkg-desc{font-size:13px;color:var(--muted);margin:14px 0 20px;line-height:1.6;}
+.pkg-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px;}
+.pkg-feats li{font-size:13px;color:var(--text);display:flex;align-items:flex-start;gap:9px;line-height:1.5;}
+.pkg-feats li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.pkg-feats li.no{color:var(--muted);}
+.pkg-feats li.no::before{content:'—';color:rgba(122,122,122,.3);}
+.pkg-cta{display:block;width:100%;text-align:center;padding:13px;border-radius:var(--r);font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;letter-spacing:.02em;}
+.pkg-cta-gold{background:var(--gold);color:#08080a;}
+.pkg-cta-gold:hover{box-shadow:0 6px 20px rgba(245,197,24,.3);transform:translateY(-1px);}
+.pkg-cta-ghost{border:1px solid var(--border);color:var(--text);}
+.pkg-cta-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:780px;}
+.faq-item{border-bottom:1px solid var(--border);padding:0;}
+.faq-q{width:100%;background:none;border:none;color:var(--text2);font-size:16px;font-weight:600;text-align:left;padding:22px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-family:'DM Sans',sans-serif;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{font-size:20px;color:var(--gold);flex-shrink:0;transition:transform .25s;font-weight:300;}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
+/* PARTNERS STRIP */
+.partners-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.p-card{background:var(--dark2);padding:22px 18px;transition:background .2s;}
+.p-card:hover{background:var(--dark3);}
+.p-icon{font-size:20px;margin-bottom:8px;}
+.p-name{font-size:13px;font-weight:600;color:var(--text2);margin-bottom:3px;}
+.p-cat{font-size:11px;color:var(--muted);}
+
+/* STICKY CTA */
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,10,.97);border-top:1px solid var(--border);padding:14px 6vw;display:flex;align-items:center;justify-content:space-between;gap:14px;z-index:99;backdrop-filter:blur(20px);transform:translateY(100%);transition:transform .35s ease;}
+.sticky-cta.show{transform:none;}
+.sticky-cta p{font-size:14px;color:var(--muted);}
+.sticky-cta strong{color:var(--text2);}
+
+/* FINAL CTA */
+.final-cta{background:linear-gradient(135deg,var(--dark2),var(--dark3));text-align:center;padding:110px 6vw;position:relative;overflow:hidden;}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(245,197,24,.06) 0%,transparent 70%);}
+.final-cta h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5.5vw,60px);font-weight:900;color:var(--text2);margin-bottom:16px;position:relative;}
+.final-cta p{font-size:17px;color:var(--muted);max-width:480px;margin:0 auto 36px;position:relative;line-height:1.7;}
+.final-promise{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:24px;position:relative;}
+.final-promise span{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+.final-promise span::before{content:'✓';color:var(--green);}
+
+/* VISION */
+.roadmap{display:flex;flex-direction:column;}
+.r-item{display:flex;align-items:flex-start;gap:18px;padding:20px 0;border-bottom:1px solid var(--border);}
+.r-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-top:6px;}
+.r-dot.live{background:var(--green);}
+.r-dot.soon{background:var(--gold);}
+.r-dot.plan{background:rgba(122,122,122,.3);border:1px solid var(--muted);}
+.r-item h4{font-size:14px;font-weight:600;color:var(--text2);margin-bottom:3px;}
+.r-item p{font-size:12px;color:var(--muted);line-height:1.6;}
+.r-lbl{font-family:'DM Mono',monospace;font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:auto;flex-shrink:0;align-self:flex-start;margin-top:4px;}
+.lv{background:rgba(34,197,94,.08);color:var(--green);}
+.sn{background:rgba(245,197,24,.08);color:var(--gold);}
+.pl{background:rgba(122,122,122,.08);color:var(--muted);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.on{opacity:1;transform:none;}
+
+/* FOOTER */
+footer{padding:36px 6vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+footer p{font-size:12px;color:rgba(122,122,122,.5);}
+footer a{font-size:12px;color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--gold);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .pillars,.steps,.pricing-grid,.stat-grid,.tech-grid,.testi-grid{grid-template-columns:1fr;}
+  .partners-strip{grid-template-columns:1fr 1fr;}
+  .vision-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  section{padding:60px 5vw;}
+  .sticky-cta{flex-direction:column;align-items:stretch;text-align:center;}
+  .partners-strip{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://kloofstreet.online" class="nav-logo">KLOOFSTREET<em>.</em>ONLINE</a>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://kloofstreet.online/get-listed" class="btn-gold btn-sm nav-cta">Claim Your Listing</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-badge"><span></span> Now Accepting Applications — Limited Spots</div>
+  <h1>Put your Kloof Street<br>business on Cape Town's<br><em>digital map.</em></h1>
+  <p class="hero-sub">Join verified restaurants, studios, clinics and retailers on KloofStreet.online — where tourists, locals and international visitors discover the street before they arrive.</p>
+  <div class="hero-promise">Takes less than 3 minutes to apply. Live within 24 hours.</div>
+  <div class="hero-cta">
+    <a href="https://kloofstreet.online/get-listed" class="btn-gold">Claim Your Listing →</a>
+    <a href="#testimonial" class="btn-ghost">Hear from a Partner</a>
+  </div>
+  <div class="trust-bar">
+    <div class="trust-item"><span>🏆</span><div><strong>#22</strong> World's Coolest Street — Time Out 2025</div></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span>✓</span><div><strong>8 verified</strong> Growth Partners live</div></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span>🌍</span><div><strong>12 languages</strong> — reaches international visitors</div></div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><span>📍</span><div>Google-indexed &amp; structured data</div></div>
+  </div>
+</div>
+
+<!-- ══ 3 PILLARS ══ -->
+<section class="reveal">
+  <span class="s-tag">Why Kloof Street Online?</span>
+  <h2 class="s-title">Three things a<br>listing does for you.</h2>
+  <div class="pillars">
+    <div class="pillar reveal">
+      <span class="pillar-num">01 — Get Found</span>
+      <h3>Be discovered before they arrive</h3>
+      <p>Visitors search for "best restaurants Kloof Street" or "things to do Cape Town" before they leave home. Your listing puts you in front of them at that moment — when they're deciding, not after they've walked past your door.</p>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-num">02 — Build Credibility</span>
+      <h3>A Verified badge that means something</h3>
+      <p>Not every business on the street is accepted. The curation is the point. A Verified Growth Partner badge tells customers you've been vetted — setting you apart from the hundreds of unclaimed listings in the directory.</p>
+    </div>
+    <div class="pillar reveal">
+      <span class="pillar-num">03 — Drive Bookings</span>
+      <h3>WhatsApp links, Street Pass, flash deals</h3>
+      <p>Your profile includes direct WhatsApp booking links, a Street Pass member benefit, and access to our flash deals broadcast channel. Warm, ready-to-buy customers — without you having to chase them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIAL VIDEO ══ -->
+<section id="testimonial" style="background:var(--dark2);" class="reveal">
+  <span class="s-tag">From a Partner on the Street</span>
+  <div class="testi-grid">
+    <div>
+      <h2 class="s-title" style="font-size:clamp(26px,3.5vw,40px);margin-bottom:16px;">Don't take<br>our word for it.</h2>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;"><strong style="color:var(--text2);">Nigel Whitehead</strong> of On Safari — wildlife fine art photography at 99B Kloof Street — was one of our first Growth Partners. He talks about what a verified listing has meant for his studio and how international visitors now find him before they set foot on the street.</p>
+      <p style="font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:20px;">On Safari has since been recognised by <strong style="color:var(--text2);">Park West Gallery</strong> — the world's largest art dealer, operating on 100+ luxury cruise ships globally — as a standout partner for international art programs.</p>
+      <div class="quote-block">
+        <p>"Having a verified presence on KloofStreet.online means people can find me before they even walk through the door. That's the difference."</p>
+        <cite>— Nigel Whitehead, On Safari Wildlife Photography, 99B Kloof Street</cite>
+      </div>
+    </div>
+    <div style="border-radius:var(--r);overflow:hidden;border:1px solid var(--border);background:#000;">
+      <video src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/On-Safari-Promotion-Video-1.mp4"
+        controls playsinline preload="metadata"
+        style="width:100%;display:block;max-height:460px;">
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TECH ADVANTAGE ══ -->
+<section class="reveal">
+  <span class="s-tag">The Tech Advantage</span>
+  <h2 class="s-title">Two tools that work<br>for you around the clock.</h2>
+  <p class="s-sub">As a Growth Partner, your listing is powered by two features that most directories don't have. Both run automatically. Neither requires anything from you after setup.</p>
+  <div class="tech-grid">
+    <div class="tech-card reveal">
+      <h3>🤖 AI Concierge</h3>
+      <p>KloofStreet.online has a built-in AI concierge that answers visitor questions in real time — "where can I get a massage on Kloof Street?", "best place for brunch?", "who does laser on the street?". It routes those queries directly to your listing, 24/7, without you lifting a finger.</p>
+      <p style="font-size:13px;color:var(--muted);">Think of it as a free digital concierge sitting at the front door of the street, recommending your business every time someone asks something relevant to what you offer.</p>
+      <span class="tech-tag">Live — included in all Growth Partner listings</span>
+    </div>
+    <div class="tech-card reveal">
+      <h3>🎫 Street Pass Rewards</h3>
+      <p>Street Pass is a monthly membership for Kloof Street regulars and visitors — R199/month for exclusive access to benefits at every verified partner on the street. Members actively seek out listed businesses to use their benefits.</p>
+      <p style="font-size:13px;color:var(--muted);">You set the benefit — a discount, priority booking, a free add-on. Street Pass members are warm, motivated customers. They've already paid to be here. You just need to be listed.</p>
+      <span class="tech-tag">Live — your benefit set up by us during onboarding</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VERIFIED BADGE ══ -->
+<section class="reveal" style="background:var(--dark2);">
+  <div class="badge-section reveal">
+    <div class="verified-shield">✓</div>
+    <h2 class="s-title" style="margin-bottom:12px;">The Verified Growth Partner badge.</h2>
+    <p style="font-size:16px;color:var(--muted);max-width:520px;margin:0 auto 24px;line-height:1.75;">Not every business on Kloof Street gets one. We review every application personally. The badge tells visitors — and Google — that your business has been verified, curated and endorsed by the street's official digital platform. That's worth something.</p>
+    <div class="badge-partners">
+      <span class="badge-partner">✓ On Safari</span>
+      <span class="badge-partner">✓ Ubuntu Wellness</span>
+      <span class="badge-partner">✓ Dr Wendy Dicks</span>
+      <span class="badge-partner">✓ Just Hearing</span>
+      <span class="badge-partner">✓ Dr Thomas Jahn</span>
+      <span class="badge-partner">✓ Trudy Christians</span>
+      <span class="badge-partner">✓ PostNet Gardens</span>
+      <span class="badge-partner">✓ Revive Studio</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GOOGLE SHIFT ══ -->
+<section class="reveal">
+  <span class="s-tag">Why This Matters Now</span>
+  <h2 class="s-title">More people are searching.<br>Fewer are clicking<br>your website.</h2>
+  <p class="s-sub">If your website traffic has dropped despite nothing changing, this is the reason. Google's AI now answers most questions directly — without sending anyone to your site. Being listed on a trusted, structured directory is how businesses stay visible when that happens.</p>
+  <div class="stat-grid">
+    <div class="stat-card red reveal">
+      <div class="big">65%</div>
+      <div class="lbl">of Google searches in 2025 ended without any click to a website. Google answered the question itself.</div>
+      <span class="src">SparkToro & Similarweb, 2025</span>
+    </div>
+    <div class="stat-card red reveal">
+      <div class="big">−61%</div>
+      <div class="lbl">drop in organic click-through rates when Google's AI Overviews appear — now showing on nearly half of all searches.</div>
+      <span class="src">Seer Interactive, 25M impressions, 2025</span>
+    </div>
+    <div class="stat-card gold reveal">
+      <div class="big">+35%</div>
+      <div class="lbl">higher click rate for businesses referenced inside AI Overviews and trusted directories. Being cited beats being ranked.</div>
+      <span class="src">SparkToro State of Search, 2025</span>
+    </div>
+  </div>
+  <div style="background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.15);border-radius:var(--r);padding:24px 28px;display:flex;align-items:flex-start;gap:16px;">
+    <div style="font-size:24px;flex-shrink:0;">💡</div>
+    <div>
+      <div style="font-size:14px;font-weight:600;color:var(--text2);margin-bottom:6px;">What this means for your business</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">When someone searches "audiologist Kloof Street" or "best spa Cape Town city bowl", Google's AI answers from structured data it trusts. KloofStreet.online is structured data Google can read. Your listing feeds that answer. A website alone doesn't do that anymore.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ══ -->
+<section class="reveal" id="how" style="background:var(--dark2);">
+  <span class="s-tag">How It Works</span>
+  <h2 class="s-title">Live on the street's<br>digital map in<br>3 simple steps.</h2>
+  <p class="s-sub" style="margin-bottom:40px;">No backend login. No content upload. No technical setup. We build your profile — you get customers.</p>
+  <div class="steps">
+    <div class="step reveal" data-n="1">
+      <div class="step-icon">📝</div>
+      <h3>Apply</h3>
+      <p>Fill in a short form — your business name, address, what you offer, contact details. Takes about 3 minutes. No commitment at this stage.</p>
+      <div class="step-time">⏱ 3 minutes</div>
+    </div>
+    <div class="step reveal" data-n="2">
+      <div class="step-icon">🛠️</div>
+      <h3>We Build Your Profile</h3>
+      <p>Our team reviews your application and builds your full profile — hero image, services, contact sidebar, WhatsApp links, Street Pass benefit. You don't touch anything.</p>
+      <div class="step-time">⏱ Within 24 hours</div>
+    </div>
+    <div class="step reveal" data-n="3">
+      <div class="step-icon">🚀</div>
+      <h3>Go Live & Get Found</h3>
+      <p>Your verified listing goes live at kloofstreet.online/your-business. Google indexes it. The AI concierge starts routing relevant searches your way. Street Pass members see your benefit.</p>
+      <div class="step-time">⏱ Live same day</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="reveal" id="pricing">
+  <span class="s-tag">Investment</span>
+  <h2 class="s-title">One new customer<br>pays for months<br>of listing fees.</h2>
+  <p class="s-sub">A single tourist booking a spa treatment, ordering a meal, or buying a print covers a significant portion of your monthly fee. This isn't a cost — it's a channel.</p>
+  <div class="pricing-grid">
+    <div class="pkg reveal">
+      <div class="pkg-tier">Essential</div>
+      <div class="pkg-price"><sup>R</sup>750<span>/month</span></div>
+      <p class="pkg-desc">Get into the directory. Verified presence without the full profile build.</p>
+      <ul class="pkg-feats">
+        <li>Verified directory listing</li>
+        <li>Business name, address & category</li>
+        <li>Phone & website link</li>
+        <li>Google-indexed entry</li>
+        <li class="no">Featured Partners grid</li>
+        <li class="no">Full profile page</li>
+        <li class="no">AI Concierge routing</li>
+        <li class="no">Street Pass benefit</li>
+        <li class="no">WhatsApp booking links</li>
+      </ul>
+      <a href="https://kloofstreet.online/get-listed" class="pkg-cta pkg-cta-ghost">Apply — Essential</a>
+    </div>
+    <div class="pkg featured reveal">
+      <div class="pkg-pop">Most Popular</div>
+      <div class="pkg-tier">Growth Partner</div>
+      <div class="pkg-price"><sup>R</sup>1,360<span>/month</span></div>
+      <p class="pkg-desc">Full platform presence. Built for businesses serious about being discovered.</p>
+      <ul class="pkg-feats">
+        <li>Featured Partners grid card</li>
+        <li>Full bespoke profile page</li>
+        <li>Hero image, services & photo grid</li>
+        <li>AI Concierge routing</li>
+        <li>Street Pass benefit included</li>
+        <li>WhatsApp booking links</li>
+        <li>Flash deals broadcast access</li>
+        <li>Shareable URL (kloofstreet.online/you)</li>
+        <li>12-language platform</li>
+        <li>Google SEO schema inclusion</li>
+        <li>Verified badge</li>
+      </ul>
+      <a href="https://kloofstreet.online/get-listed" class="pkg-cta pkg-cta-gold">Apply — Growth Partner</a>
+    </div>
+    <div class="pkg reveal">
+      <div class="pkg-tier">3-Month Bundle</div>
+      <div class="pkg-price"><sup>R</sup>2,100<span> once-off</span></div>
+      <p class="pkg-desc">Three months of Essential, paid upfront. Save R150, committed quarter of visibility.</p>
+      <ul class="pkg-feats">
+        <li>Everything in Essential</li>
+        <li>3 months upfront — save R150</li>
+        <li>Priority onboarding</li>
+        <li class="no">Featured Partners grid</li>
+        <li class="no">Full profile page</li>
+        <li class="no">AI Concierge routing</li>
+        <li class="no">Street Pass benefit</li>
+      </ul>
+      <a href="https://kloofstreet.online/get-listed" class="pkg-cta pkg-cta-ghost">Apply — 3-Month</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHO'S LISTED ══ -->
+<section class="reveal" style="background:var(--dark2);">
+  <span class="s-tag">Already on the Platform</span>
+  <h2 class="s-title">Your neighbours<br>are already here.</h2>
+  <p class="s-sub" style="margin-bottom:32px;">8 verified businesses live on KloofStreet.online. Here's who you'd be listed alongside.</p>
+  <div class="partners-strip">
+    <div class="p-card reveal"><div class="p-icon">🖼️</div><div class="p-name">On Safari</div><div class="p-cat">Wildlife Fine Art Photography</div></div>
+    <div class="p-card reveal"><div class="p-icon">🧖</div><div class="p-name">Ubuntu Wellness</div><div class="p-cat">Cape Town Medi-Spa</div></div>
+    <div class="p-card reveal"><div class="p-icon">⚕️</div><div class="p-name">Dr Wendy Dicks</div><div class="p-cat">GP & Weight Loss Specialist</div></div>
+    <div class="p-card reveal"><div class="p-icon">🦻</div><div class="p-name">Just Hearing</div><div class="p-cat">Audiology Practice</div></div>
+    <div class="p-card reveal"><div class="p-icon">☯️</div><div class="p-name">Dr Thomas Jahn</div><div class="p-cat">Chinese Medicine & Acupuncture</div></div>
+    <div class="p-card reveal"><div class="p-icon">✨</div><div class="p-name">Trudy Christians</div><div class="p-cat">Aesthetic Therapist</div></div>
+    <div class="p-card reveal"><div class="p-icon">📦</div><div class="p-name">PostNet Gardens</div><div class="p-cat">Print & Courier</div></div>
+    <div class="p-card reveal"><div class="p-icon">🌿</div><div class="p-name">Revive Studio</div><div class="p-cat">Holistic Massage & Beauty</div></div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="reveal" id="faq">
+  <span class="s-tag">Common Questions</span>
+  <h2 class="s-title">Answers before<br>you ask.</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is my business eligible?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Your business must have a physical presence on or immediately adjacent to Kloof Street, Gardens, Cape Town. We also look at whether you're an active operation — open regularly, customer-facing, and genuinely part of the street's character. We review every application personally, so if you're unsure, apply and we'll let you know.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How does the AI Concierge find my business?<span class="faq-icon">+</span></button>
+      <div class="faq-a">When your Growth Partner profile is built, we tag your business with relevant categories, services, keywords and hours. The AI Concierge scans these tags to match visitor queries — so if someone asks "where can I get my hearing tested on Kloof Street?" it routes them to Just Hearing. If they ask "who does laser on Kloof?" it routes them to Trudy Christians. Your listing feeds those answers automatically.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do I need to manage anything after going live?<span class="faq-icon">+</span></button>
+      <div class="faq-a">No. We build and maintain your profile. If something changes — new phone number, updated hours, a seasonal promotion — just WhatsApp us and we update it same day. The only active participation is optional: sending us flash deals to broadcast to Street Pass members, which takes 30 seconds.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What's the minimum commitment?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Monthly billing — no lock-in contract. You can cancel at any time. The 3-Month Bundle is prepaid and non-refundable, but that's the only commitment period we offer. We'd rather earn your renewal than lock you in.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long does it take to go live?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Once your application is approved and payment confirmed, your profile is built and live within 24 hours. In most cases, same day. We'll send you the link to your live profile by WhatsApp the moment it's up.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What do I need to provide?<span class="faq-icon">+</span></button>
+      <div class="faq-a">Your business name, address, a brief description of what you offer, your contact details, and any photos or images you'd like on your profile. We do the rest — write the copy, build the page, set up the WhatsApp links, configure the Street Pass benefit, and get it live.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VISION ══ -->
+<section class="reveal" style="background:var(--dark2);">
+  <span class="s-tag">Where This Is Going</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
+    <div>
+      <h2 class="s-title">We're building the<br>digital infrastructure<br>for this street.</h2>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:14px;">KloofStreet.online started as a directory. It's becoming the full digital home of one of the world's most recognised streets — a platform that generates bookings, drives foot traffic, and tells the street's story to tourists and international visitors before they arrive.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;">Businesses that join now are part of the foundation. As the platform grows — more partners, more Street Pass members, more press, more Google authority — early partners benefit most from that compounding.</p>
+    </div>
+    <div class="roadmap">
+      <div class="r-item reveal"><div class="r-dot live"></div><div><h4>Verified partner directory</h4><p>Live. 8 Growth Partners with full profiles, shareable URLs and Google schema.</p></div><span class="r-lbl lv">Live</span></div>
+      <div class="r-item reveal"><div class="r-dot live"></div><div><h4>AI Concierge</h4><p>Live. Routes visitor queries to relevant partner profiles in real time.</p></div><span class="r-lbl lv">Live</span></div>
+      <div class="r-item reveal"><div class="r-dot live"></div><div><h4>Street Pass membership</h4><p>Live. R199/month members with exclusive partner benefits.</p></div><span class="r-lbl lv">Live</span></div>
+      <div class="r-item reveal"><div class="r-dot soon"></div><div><h4>Live AI bookings</h4><p>AI Concierge moves from information to real-time appointment booking for partners.</p></div><span class="r-lbl sn">Coming</span></div>
+      <div class="r-item reveal"><div class="r-dot soon"></div><div><h4>3D property tours</h4><p>Gaussian Splat virtual tours for property and retail partners — photorealistic, fast-loading.</p></div><span class="r-lbl sn">Coming</span></div>
+      <div class="r-item reveal"><div class="r-dot plan"></div><div><h4>BreeStreet.online & beyond</h4><p>Expanding the same platform to Cape Town's other iconic streets.</p></div><span class="r-lbl pl">Planned</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<div class="final-cta reveal">
+  <h2>If your business belongs<br>on Kloof Street,<br>it belongs here.</h2>
+  <p>Applications are reviewed personally. Not every business is accepted. If you're in, you're live within 24 hours.</p>
+  <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;">
+    <a href="https://kloofstreet.online/get-listed" class="btn-gold">Claim Your Listing →</a>
+    <a href="mailto:team@businesshustle.co.za" class="btn-ghost">Ask a Question First</a>
+  </div>
+  <div class="final-promise">
+    <span>Takes 3 minutes to apply</span>
+    <span>Live within 24 hours</span>
+    <span>No lock-in contract</span>
+    <span>Profile built by us</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 KloofStreet.online — A <a href="https://businesshustle.co.za">Business Hustle</a> platform. Cape Town, South Africa.</p>
+  <div style="display:flex;gap:20px;">
+    <a href="https://kloofstreet.online">Visit the Directory</a>
+    <a href="mailto:team@businesshustle.co.za">team@businesshustle.co.za</a>
+    <a href="https://wa.me/27744815163">WhatsApp Us</a>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <p><strong>KloofStreet.online</strong> — Get your listing live within 24 hours.</p>
+  <a href="https://kloofstreet.online/get-listed" class="btn-gold btn-sm">Claim Your Listing →</a>
+</div>
+
+<script>
+// Scroll reveal
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}
+  });
+},{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el,i){
+  el.style.transitionDelay=(Math.floor(i%4)*0.08)+'s';
+  io.observe(el);
+});
+
+// Sticky CTA — show after hero
+var sticky=document.getElementById('stickyCta');
+window.addEventListener('scroll',function(){
+  sticky.classList.toggle('show',window.scrollY>window.innerHeight*0.7);
+});
+
+// FAQ accordion
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>

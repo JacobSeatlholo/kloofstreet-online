@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — allow inference/search use, block training
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+Sitemap: https://www.kloofstreet.online/sitemap.xml
