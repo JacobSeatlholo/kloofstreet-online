@@ -3994,12 +3994,12 @@ function routeFromPath() {
 }
 
 // Initial routing
-(function() {
+setTimeout(function() {
   var page = routeFromPath();
   if (page !== 'home') { go(page, true); }
   // Set canonical state for home
   history.replaceState({page: page}, '', window.location.pathname || '/');
-})();
+}, 0);
 
 // ── Dynamic meta for shared URLs ──
 var PAGE_META = {
