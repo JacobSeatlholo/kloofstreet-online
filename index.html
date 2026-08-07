@@ -4323,6 +4323,7 @@ function spGetSession() {
   return spClient().auth.getSession().then(function(r) {
     if (r.data.session) {
       spAccessToken = r.data.session.access_token;
+      spAccessToken = r.data.session.access_token;
       spUser = r.data.session.user;
       return spClient().from('profiles').select('*').eq('id', spUser.id).single();
     }
