@@ -1808,6 +1808,7 @@ nav{z-index:200;}
   <script defer data-domain="kloofstreet.online" src="https://plausible-production-63a6.up.railway.app/js/script.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@lumaai/luma-web@0.2.0/dist/library/luma-web.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="streetpass-config.js"></script>
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 </head>
 <body>
@@ -4313,6 +4314,7 @@ function spClient() {
 
 // Auth state
 var spUser = null;
+var spAccessToken = null;
 var spProfile = null;
 var spScanner = null;
 
@@ -4320,6 +4322,7 @@ var spScanner = null;
 function spGetSession() {
   return spClient().auth.getSession().then(function(r) {
     if (r.data.session) {
+      spAccessToken = r.data.session.access_token;
       spUser = r.data.session.user;
       return spClient().from('profiles').select('*').eq('id', spUser.id).single();
     }
@@ -4449,7 +4452,7 @@ function spLoadDashboard() {
     }
 
     fetch('/api/member', {
-      headers: { 'Authorization': 'Bearer ' + (spUser ? spUser.access_token : '') }
+      headers: { 'Authorization': 'Bearer ' + (spUser ? spAccessToken : '') }
     }).then(function(r) { return r.json(); }).then(function(data) {
       if (data.error) throw data;
       spRenderDashboard(data);
@@ -4575,7 +4578,7 @@ function spSaveProfile() {
   var phone = document.getElementById('sp-edit-phone').value.trim();
   fetch('/api/member', {
     method: 'PATCH',
-    headers: { 'Authorization': 'Bearer ' + spUser.access_token, 'Content-Type': 'application/json' },
+    headers: { 'Authorization': 'Bearer ' + spAccessToken, 'Content-Type': 'application/json' },
     body: JSON.stringify({ display_name: name, phone: phone })
   }).then(function(r) { return r.json(); }).then(function(data) {
     if (data.success) { spLoadDashboard(); }
