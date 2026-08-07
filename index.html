@@ -4435,6 +4435,12 @@ function spLogout() {
 function spLoadDashboard() {
   var container = document.getElementById('spDashContent');
 
+  window._spLoadTimeout = setTimeout(function() {
+    var c = document.getElementById("spDashContent");
+    if (c && c.innerHTML.indexOf("Loading") !== -1) {
+      c.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:32px;margin-bottom:12px;">&#x1F504;</div><div style="color:var(--muted);">Could not load profile. <a href="#" onclick="spLoadDashboard();return false;" style="color:var(--a);text-decoration:underline;">Tap to retry</a></div></div>';
+    }
+  }, 8000);
   spGetSession().then(function(profile) {
     if (!profile) {
       container.innerHTML = '<div class="sp-pending"><div class="sp-pending-icon">\u{1F3AB}</div>' +
@@ -4599,6 +4605,12 @@ function spCopyReferral() {
 var spScanActive = false;
 function spInitScan() {
   if (spScanActive) return;
+  window._spLoadTimeout = setTimeout(function() {
+    var c = document.getElementById("spDashContent");
+    if (c && c.innerHTML.indexOf("Loading") !== -1) {
+      c.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:32px;margin-bottom:12px;">&#x1F504;</div><div style="color:var(--muted);">Could not load profile. <a href="#" onclick="spLoadDashboard();return false;" style="color:var(--a);text-decoration:underline;">Tap to retry</a></div></div>';
+    }
+  }, 8000);
   spGetSession().then(function(profile) {
     if (!profile || profile.status !== 'active') {
       go('streetpass-signup');
@@ -4682,6 +4694,12 @@ function spResetScan() {
 // ── REWARDS ──
 function spLoadRewards() {
   var container = document.getElementById('spRewardsContent');
+  window._spLoadTimeout = setTimeout(function() {
+    var c = document.getElementById("spDashContent");
+    if (c && c.innerHTML.indexOf("Loading") !== -1) {
+      c.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:32px;margin-bottom:12px;">&#x1F504;</div><div style="color:var(--muted);">Could not load profile. <a href="#" onclick="spLoadDashboard();return false;" style="color:var(--a);text-decoration:underline;">Tap to retry</a></div></div>';
+    }
+  }, 8000);
   spGetSession().then(function(profile) {
     if (!profile || profile.status !== 'active') {
       container.innerHTML = '<div class="sp-pending"><div class="sp-pending-icon">\u{1F512}</div>' +
