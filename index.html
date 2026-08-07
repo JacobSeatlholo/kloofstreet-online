@@ -4802,5 +4802,17 @@ window.go = function(name, noPush) {
 
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+
+<script>
+// Minimal page view tracker
+!function(){
+  var d={path:location.pathname,ref:document.referrer||null,ua:navigator.userAgent.slice(0,120)};
+  try{
+    var c=spClient();
+    if(!c)return;
+    c.from('page_views').insert({path:d.path,referrer:d.ref,ua:d.ua}).then(function(){});
+  }catch(e){}
+}();
+</script>
 </body>
 </html>
