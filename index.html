@@ -1382,99 +1382,6 @@ nav{z-index:200;}
   .sp-page{padding:80px 16px 40px;}
   .sp-signup-card{padding:28px 20px;}
 }
-
-/* ── HYROX CAMPAIGN BANNER ── */
-.hyrox-bar{
-  background:linear-gradient(90deg,#b91c1c,#dc2626,#b91c1c);
-  color:#fff;text-align:center;padding:10px 16px;
-  font-size:12px;font-weight:700;letter-spacing:.06em;
-  position:relative;overflow:hidden;cursor:pointer;
-}
-.hyrox-bar::before{
-  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
-  animation:hyroxShimmer 3s ease-in-out infinite;
-}
-@keyframes hyroxShimmer{0%{left:-100%}100%{left:200%}}
-.hyrox-bar-title{font-size:13px;text-transform:uppercase;letter-spacing:.15em;}
-.hyrox-bar-code{display:inline-block;background:rgba(0,0,0,.25);padding:2px 10px;border-radius:3px;margin-left:8px;font-family:monospace;letter-spacing:.12em;}
-
-.hyrox-banner{
-  background:linear-gradient(135deg,rgba(185,28,28,.12),rgba(220,38,38,.06));
-  border:1px solid rgba(220,38,38,.2);border-radius:var(--r);
-  padding:24px 28px;margin-bottom:28px;display:grid;grid-template-columns:1fr 1fr;gap:20px;
-  position:relative;overflow:hidden;
-}
-.hyrox-banner::after{
-  content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;
-  background:radial-gradient(circle,rgba(220,38,38,.1),transparent 70%);pointer-events:none;
-}
-.hyrox-banner-tag{
-  font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:#dc2626;margin-bottom:6px;
-}
-.hyrox-banner h3{
-  font-size:clamp(18px,3vw,26px);font-weight:900;color:var(--text2);
-  text-transform:uppercase;line-height:1.1;margin-bottom:8px;
-}
-.hyrox-banner p{
-  font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px;
-}
-.hyrox-banner .hyrox-code{
-  display:inline-block;background:rgba(185,28,28,.12);color:#dc2626;
-  font-family:monospace;font-weight:700;font-size:13px;letter-spacing:.1em;
-  padding:6px 14px;border-radius:4px;border:1px solid rgba(220,38,38,.2);
-}
-.hyrox-partner{
-  background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);
-  padding:16px 18px;display:flex;flex-direction:column;gap:6px;
-}
-.hyrox-partner-name{font-size:14px;font-weight:800;color:var(--text2);text-transform:uppercase;}
-.hyrox-partner-offer{
-  font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  color:#dc2626;background:rgba(185,28,28,.08);padding:3px 8px;border-radius:3px;
-  display:inline-block;width:fit-content;
-}
-.hyrox-partner-desc{font-size:12px;color:var(--muted);line-height:1.65;}
-.hyrox-partner-redeem{font-size:11px;color:var(--text2);line-height:1.6;margin-top:2px;}
-.hyrox-partner-redeem b{color:var(--a);}
-
-/* ── HYROX OFFER BADGE on brand cards ── */
-.hyrox-badge{
-  position:absolute;top:42px;left:12px;
-  font-size:8px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
-  padding:3px 8px;border-radius:3px;z-index:2;
-  background:rgba(185,28,28,.9);color:#fff;
-  border:1px solid rgba(220,38,38,.4);
-  animation:hyroxBadgePulse 2.5s ease-in-out infinite;
-}
-@keyframes hyroxBadgePulse{0%,100%{box-shadow:0 0 0 0 rgba(220,38,38,.3)}50%{box-shadow:0 0 0 6px rgba(220,38,38,0)}}
-
-/* ── HYROX special offer block on profile pages ── */
-.hyrox-profile-offer{
-  background:linear-gradient(135deg,rgba(185,28,28,.06),rgba(220,38,38,.03));
-  border:1px solid rgba(220,38,38,.15);border-radius:var(--r);
-  padding:20px 22px;margin-bottom:24px;
-}
-.hyrox-profile-offer h4{
-  font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
-  color:#dc2626;margin-bottom:10px;
-}
-.hyrox-profile-offer p{
-  font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:8px;
-}
-.hyrox-profile-offer .hyrox-code{
-  display:inline-block;background:rgba(185,28,28,.1);color:#dc2626;
-  font-family:monospace;font-weight:700;font-size:12px;letter-spacing:.1em;
-  padding:4px 12px;border-radius:3px;border:1px solid rgba(220,38,38,.15);
-}
-
-@media(max-width:768px){
-  .hyrox-banner{grid-template-columns:1fr;}
-  .hyrox-bar{font-size:10px;padding:8px 12px;}
-  .hyrox-bar-title{font-size:11px;}
-}
-
 </style>
 
   <script type="application/ld+json">
@@ -1507,7 +1414,7 @@ nav{z-index:200;}
       "email": "team@businesshustle.co.za",
       "sameAs": [
         "https://businesshustle.co.za",
-        "https://www.businesshustle.co.za/"
+        "https://www.hustleportal.online/"
       ]
     },
     {
@@ -1840,11 +1747,33 @@ nav{z-index:200;}
     },
     {
       "@type": "ExerciseGym",
+      "@id": "https://kloofstreet.online/#edgefitness",
+      "name": "Edge Fitness Clubs — Kloof",
+      "url": "https://edgefitness.co.za/kloof_street/",
+      "telephone": "+27212033994",
+      "description": "Full-service gym at Level 2, Lifestyle on Kloof, 50 Kloof Street. Functional training zone, cardio, weights, group fitness studio, yoga room, PTinMyPocket app. Membership from R269/month. Open from 05:00 weekdays.",
+      "openingHours": [
+        "Mo-Th 05:00-20:30",
+        "Fr 05:00-19:30",
+        "Sa 07:00-16:00",
+        "Su 08:00-13:00"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Level 2, Lifestyle on Kloof, 50 Kloof Street",
+        "addressLocality": "Gardens, Cape Town",
+        "addressRegion": "Western Cape",
+        "postalCode": "8001",
+        "addressCountry": "ZA"
+      }
+    },
+    {
+      "@type": "ExerciseGym",
       "@id": "https://kloofstreet.online/#bodyvision",
       "name": "Body Vision Studio",
       "url": "https://www.bodyvision.online",
       "telephone": "+27824572118",
-      "description": "GYROTONIC and GYROKINESIS private studio by certified instructor Kim Tucker at Lifestyle Centre, 50 Kloof Street. Private and semi-private movement sessions, Pilates, seniors programme and injury rehabilitation.",
+      "description": "GYROTONIC and GYROKINESIS private studio by certified instructor Kim Tucker at Lifestyle Centre, 50 Kloof Street. Private and semi-private movement sessions, Pilates, seniors programme and injury rehabilitation. Free 30-minute intro session.",
       "review": {
         "@type": "Review",
         "author": {
@@ -1905,12 +1834,6 @@ nav{z-index:200;}
 <p>Street Pass is a social membership for Kloof Street, Cape Town. Three tiers: Explorer R199/month (discounts at all verified partners, WhatsApp flash deals, Member Night invitations, AI concierge access), Insider R499/month (all Explorer benefits plus bookable Kloof Street Experiences including The Wellness Morning R850, The Art and Aperitivo R650, The Kloof Beauty Day R1200, The Collectors Tour R1500), Collector R999/month (two included experiences per month, bespoke concierge, On Safari Collectors Tour, Dr Dale Geoffreys priority consultation, cruise shore excursion priority booking). Member Nights are monthly curated evening events at partner venues for Street Pass members.</p>
 </div>
 <!-- NAV -->
-
-<div class="hyrox-bar" onclick="go('brands')">
-  <span class="hyrox-bar-title">⚡ HYROX Finisher Recovery Zone | 20% Off</span>
-  <span class="hyrox-bar-code">HYROX20</span>
-  — Show your finisher badge & claim your recovery special
-</div>
 <nav id="mainNav">
   <div class="logo" onclick="go('home')">KLOOFSTREET<em>.</em>ONLINE</div>
   <ul class="nav-links">
@@ -2002,29 +1925,6 @@ nav{z-index:200;}
       <div class="accolade-item"><span>⭐</span> "Long Street's more refined sibling" — Time Out</div>
       <div class="accolade-item"><span>🌍</span> Coolest Street in Africa 2025</div>
       <div class="accolade-item"><span>🗞️</span> Featured: WantedOnline · TimesLIVE · IOL · EWN</div>
-    </div>
-  </div>
-
-  <div class="hyrox-banner" id="hyroxBanner">
-    <div>
-      <div class="hyrox-banner-tag">⚡ Limited Time Campaign</div>
-      <h3>HYROX Finisher Recovery Zone</h3>
-      <p>Finished HYROX Cape Town? Show your finisher badge or result page to claim <b style="color:var(--text2);">20% off</b> post-race recovery sessions at two Kloof Street partners.</p>
-      <span class="hyrox-code">Promo Code: HYROX20</span>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:12px;">
-      <div class="hyrox-partner" onclick="go('ubuntu')" style="cursor:pointer;">
-        <div class="hyrox-partner-name">Ubuntu Wellness & Medi-Spa</div>
-        <div class="hyrox-partner-offer">20% OFF HYROX RECOVERY</div>
-        <div class="hyrox-partner-desc">Float Therapy & Deep Tissue Recovery Massages. Reset your central nervous system and soothe muscle fatigue with Epsom salt floatation.</div>
-        <div class="hyrox-partner-redeem">Show race bib or Sportsplits finisher link on arrival / WhatsApp with code <b>HYROX20</b></div>
-      </div>
-      <div class="hyrox-partner" onclick="go('bodyvision')" style="cursor:pointer;">
-        <div class="hyrox-partner-name">Body Vision Studio</div>
-        <div class="hyrox-partner-offer">20% OFF ACTIVE RECOVERY</div>
-        <div class="hyrox-partner-desc">Post-Race GYROTONIC® & Pilates Mobility Sessions. Decompress your spine, restore joint range of motion, and flush out lactic acid.</div>
-        <div class="hyrox-partner-redeem">Mention <b>HYROX20</b> when booking and present your race confirmation or bib</div>
-      </div>
     </div>
   </div>
 
@@ -2163,7 +2063,6 @@ nav{z-index:200;}
         <div class="brand-card" onclick="go('ubuntu')">
           <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Untitled-design-Wellness.png') center/cover no-repeat;">
             <div class="brand-tier tier-g">Growth Partner</div>
-            <div class="hyrox-badge">20% OFF HYROX RECOVERY</div>
             <div class="open-pill">Open</div>
             <div class="vibe-bar">Float &amp; spa sessions available &#x1F9D8;</div>
           </div>
@@ -2287,20 +2186,30 @@ nav{z-index:200;}
           </div>
         </div>
 
-              <div class="brand-card">  <div class="brand-img" style="background:var(--bg2);display:flex;align-items:center;justify-content:center;">    <div style="text-align:center;"><span style="font-size:36px;">&#x1F512;</span><br><small style="color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em;">Profile Locked</small></div>  </div>  <div class="brand-body">    <div class="brand-name">Edge Fitness Clubs</div>    <div class="brand-sub" style="color:var(--muted);">Profile temporarily unavailable</div>  </div></div>
-        
+              <div class="brand-card" onclick="go('edge-fitness')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=80') center/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Gym &middot; PT &middot; Group Fitness &#x1F4AA;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x1F4AA; Gym &middot; Personal Training &middot; Group Fitness</div>
+            <div class="brand-name">Edge Fitness Clubs</div>
+            <div class="brand-sub">Premier gym at Lifestyle on Kloof, Level 2 — 50 Kloof Street. Functional Training Zone, Group Fitness Studio, semi-private Yoga Room, PTinMyPocket app. Open from 05:00 weekdays.</div>
+            <div class="brand-foot"><span class="brand-tag">Gym &middot; PT &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('edge-fitness')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
 
               <div class="brand-card" onclick="go('bodyvision')">
           <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.35),rgba(10,10,11,.35)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Screenshot-2026-04-25-at-08.31.54.png') center/cover no-repeat;">
             <div class="brand-tier tier-g">Growth Partner</div>
-            <div class="hyrox-badge">20% OFF ACTIVE RECOVERY</div>
             <div class="open-pill">By Appointment</div>
             <div class="vibe-bar">GYROTONIC&#xAE; &middot; Movement &middot; Pilates &#x1F9D8;</div>
           </div>
           <div class="brand-body">
             <div class="brand-cat">&#x1F9D8; GYROTONIC&#xAE; &middot; Movement Therapy &middot; Pilates</div>
             <div class="brand-name">Body Vision Studio</div>
-            <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street.</div>
+            <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street. Free 30-min intro session.</div>
             <div class="brand-foot"><span class="brand-tag">GYROTONIC&#xAE; &middot; Pilates &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('bodyvision')">View Profile &#x2192;</a></div>
           </div>
         </div>
@@ -2527,11 +2436,6 @@ nav{z-index:200;}
   </div>
   <div class="biz-body">
     <div>
-    <div class="hyrox-profile-offer">
-      <h4>⚡ 20% OFF HYROX RECOVERY</h4>
-      <p>20% off Float Therapy & Deep Tissue Recovery Massages for HYROX finishers. Reset your central nervous system and soothe muscle fatigue with Epsom salt floatation.</p>
-      <p><b style="color:var(--text2);">How to redeem:</b> Show your race bib or Sportsplits finisher link upon arrival, or WhatsApp your booking with code <span class="hyrox-code">HYROX20</span></p>
-    </div>
       <div class="sec-tag" style="margin-bottom:8px;">Wellness &amp; Beauty</div>
       <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">A Sanctuary for Mind, Body &amp; Spirit</h2>
       <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Ubuntu Wellness is Cape Town's most holistic health sanctuary. From float therapy and spa treatments to homeopathy, vegan nutrition and stress management — this is where healing happens.</p>
@@ -3445,17 +3349,169 @@ nav{z-index:200;}
 </div>
 
 
-<!-- ===== EDGE FITNESS - LOCKED (payment overdue) ===== -->
-<div id="pg-edge-fitness" class="pg" style="display:none;">
-  <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;padding:40px 20px;text-align:center;">
-    <div style="font-size:64px;margin-bottom:20px;">&#x1F512;</div>
-    <h1 style="font-size:clamp(24px,4vw,40px);font-weight:900;color:var(--text2);margin-bottom:12px;">Profile Locked</h1>
-    <p style="font-size:16px;color:var(--muted);max-width:420px;line-height:1.7;margin-bottom:24px;">Edge Fitness Clubs' profile is currently unavailable. Contact <a href="mailto:hello@businesshustle.co.za" style="color:var(--a);">Business Hustle</a> for reactivation.</p>
-    <button class="btn btn-gold" onclick="go('brands')">&#x2190; Back to Directory</button>
+<!-- ══════════ EDGE FITNESS ══════════ -->
+<div id="pg-edge-fitness" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(5,5,8,.6),rgba(5,5,8,.6)),url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1400&q=80') center/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open from 05:00</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,52px);font-weight:900;color:#ffffff;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;">Edge Fitness Clubs<br><span style="font-size:60%;color:rgba(255,255,255,.6);font-weight:500;text-transform:none;letter-spacing:0;">Lifestyle on Kloof &mdash; Level 2, 50 Kloof Street</span></div>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+
+      <!-- Hours strip -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:28px;">
+        <div style="background:var(--bg2);padding:14px;text-align:center;border:1px solid var(--bdr);">
+          <div style="font-size:13px;font-weight:700;color:var(--a);">05:00–20:30</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.08em;text-transform:uppercase;">Mon–Thu</div>
+        </div>
+        <div style="background:var(--bg2);padding:14px;text-align:center;border:1px solid var(--bdr);">
+          <div style="font-size:13px;font-weight:700;color:var(--a);">05:00–19:30</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.08em;text-transform:uppercase;">Friday</div>
+        </div>
+        <div style="background:var(--bg2);padding:14px;text-align:center;border:1px solid var(--bdr);">
+          <div style="font-size:13px;font-weight:700;color:var(--a);">07:00–16:00</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.08em;text-transform:uppercase;">Saturday</div>
+        </div>
+        <div style="background:var(--bg2);padding:14px;text-align:center;border:1px solid var(--bdr);">
+          <div style="font-size:13px;font-weight:700;color:var(--a);">08:00–13:00</div>
+          <div style="font-size:10px;color:var(--muted);margin-top:3px;letter-spacing:.08em;text-transform:uppercase;">Sunday</div>
+        </div>
+      </div>
+
+      <div class="sec-tag">Gym &middot; Personal Training &middot; Group Fitness</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:16px;margin-top:8px;">The Premier Fitness Club<br>on Kloof Street.</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:24px;">Edge Fitness Clubs on Kloof Street is a full-service gym located on Level 2 of Lifestyle on Kloof, 50 Kloof Street. State-of-the-art equipment, expert personal trainers, diverse group fitness classes and the PTinMyPocket training app — everything needed for an effective, results-driven training experience. Open six days a week from 05:00.</p>
+
+      <!-- Zones -->
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x1F3CB;&#xFE0F;</div><div class="svc-name">Functional Training Zone</div><div class="svc-desc">Turf area, rigs, kettlebells and functional equipment for performance-based training</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F6B4;</div><div class="svc-name">Cardio Zone</div><div class="svc-desc">Treadmills, bikes, rowers and ellipticals — full cardio floor with modern equipment</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F4AA;</div><div class="svc-name">Weight Training Zone</div><div class="svc-desc">Free weights, cable machines and resistance stations for strength and muscle building</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F9D8;</div><div class="svc-name">Group Fitness Studio</div><div class="svc-desc">Dedicated studio for group classes — HIIT, yoga, Boxing and more, daily and weekly schedule</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F33F;</div><div class="svc-name">Semi-Private Yoga & Stretching Room</div><div class="svc-desc">Available outside class times for relaxation, mobility work and warm-up routines</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F4F1;</div><div class="svc-name">PTinMyPocket App</div><div class="svc-desc">Free with membership — custom programs, expert coaching, tracks progress, syncs with MyFitnessPal and smart devices</div></div>
+      </div>
+
+      <!-- Group Classes -->
+      <div style="background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);padding:20px 24px;margin-bottom:24px;">
+        <div style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;">Group Fitness Classes</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div><div style="font-size:13px;font-weight:600;color:var(--text2);">Premium Class</div><div style="font-size:12px;color:var(--muted);margin-top:2px;">Mon–Thu 07:00 &amp; 16:00</div></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text2);">Rise &amp; Sweat</div><div style="font-size:12px;color:var(--muted);margin-top:2px;">Mon &amp; Wed 06:30 | Thu 06:30</div></div>
+        </div>
+      </div>
+
+      <!-- PT Pricing -->
+      <div style="margin-bottom:24px;">
+        <div style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;">Personal Training Pricing</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;">
+          <div style="background:var(--bg2);border:1px solid var(--bdr);padding:14px 16px;">
+            <div style="font-size:11px;color:var(--muted);margin-bottom:8px;font-weight:600;">ONE-ON-ONE PT</div>
+            <div style="font-size:13px;color:var(--text);margin-bottom:4px;">8 sessions &mdash; <strong style="color:var(--a);">R1,650/pm</strong></div>
+            <div style="font-size:13px;color:var(--text);margin-bottom:4px;">12 sessions &mdash; <strong style="color:var(--a);">R2,200/pm</strong></div>
+            <div style="font-size:13px;color:var(--text);">20 sessions &mdash; <strong style="color:var(--a);">R3,100/pm</strong></div>
+          </div>
+          <div style="background:var(--bg2);border:1px solid var(--bdr);padding:14px 16px;">
+            <div style="font-size:11px;color:var(--muted);margin-bottom:8px;font-weight:600;">GROUP TRAINING (3x/WEEK)</div>
+            <div style="font-size:13px;color:var(--text);margin-bottom:4px;">Cash &mdash; <strong style="color:var(--a);">R1,650/pm</strong></div>
+            <div style="font-size:13px;color:var(--text);margin-bottom:12px;">Debit &mdash; <strong style="color:var(--a);">R1,650/pm</strong></div>
+            <div style="font-size:11px;color:var(--muted);margin-bottom:4px;font-weight:600;">AGES 10–16 &amp; 60+</div>
+            <div style="font-size:12px;color:var(--text);">8 | 12 | 20 sessions &mdash; <strong style="color:var(--a);">R1,125 | R1,500 | R2,100/pm</strong></div>
+          </div>
+        </div>
+        <!-- Booster Packs -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;">
+          <div style="background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.2);padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;color:var(--a);margin-bottom:6px;">BOOSTER PACK &mdash; R899 ONCE-OFF</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6;">4x PT sessions &middot; 2x body assessments &middot; 1 month free PTinMyPocket</div>
+          </div>
+          <div style="background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.2);padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;color:var(--a);margin-bottom:6px;">BOOSTER PACK PLUS &mdash; R1,320 ONCE-OFF</div>
+            <div style="font-size:12px;color:var(--muted);line-height:1.6;">6x PT sessions &middot; 2x body assessments &middot; 1 month free PTinMyPocket</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trainers -->
+      <div style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;">Personal Trainers on the Floor</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px;">
+        <div style="background:var(--bg2);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);">
+          <div style="font-size:14px;font-weight:700;color:var(--text2);margin-bottom:4px;">Matthew Gordon</div>
+          <div style="font-size:11px;color:var(--a);margin-bottom:8px;">BA Sport Recreation &amp; Exercise Science (UWC)</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">All levels &middot; Functional Fitness &middot; Strength &amp; Size &middot; Weight loss &middot; Injury rehab &middot; Sport-specific programming</div>
+        </div>
+        <div style="background:var(--bg2);border:1px solid var(--bdr);padding:18px;border-radius:var(--r);">
+          <div style="font-size:14px;font-weight:700;color:var(--text2);margin-bottom:4px;">Nkosinathi Katlego Makhoba</div>
+          <div style="font-size:11px;color:var(--a);margin-bottom:8px;">Trifocus — PT Diploma &middot; UK Nutritional Diploma</div>
+          <div style="font-size:12px;color:var(--muted);line-height:1.6;">Weight loss &middot; Muscle building &middot; Strength training &middot; Pad boxing &middot; Sports performance &amp; conditioning</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="tel:+27212033994">&#x1F4DE; 021 203 3994</a>
+        <a class="btn btn-outline" href="https://wa.me/27676144804" target="_blank">&#x1F4AC; WhatsApp</a>
+        <a class="btn btn-outline" href="https://edgefitness.co.za/kloof_street/" target="_blank">&#x1F310; edgefitness.co.za</a>
+      </div>
+
+    </div>
+    <div>
+
+      <div class="info-card">
+        <h3>Location &amp; Contact</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>Level 2, Lifestyle on Kloof<br>50 Kloof Street, Gardens, Cape Town</span></div>
+        <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27212033994" style="color:var(--a);">021 203 3994</a></div>
+        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27676144804" target="_blank" style="color:var(--a);">067 614 4804 (WhatsApp)</a></div>
+        <div class="info-row"><b>&#x2709;&#xFE0F;</b><a href="mailto:join@edgefitness.co.za" style="color:var(--a);">join@edgefitness.co.za</a></div>
+        <div class="info-row"><b>&#x1F310;</b><a href="https://edgefitness.co.za/kloof_street/" target="_blank" style="color:var(--a);">edgefitness.co.za/kloof_street</a></div>
+      </div>
+
+      <div class="info-card">
+        <h3>Opening Hours</h3>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Mon–Thu: 05:00 – 20:30</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Friday: 05:00 – 19:30</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Saturday: 07:00 – 16:00</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Sunday: 08:00 – 13:00</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Public Holidays: 07:00 – 13:00</span></div>
+      </div>
+
+      <div class="info-card">
+        <h3>Membership from R269/month</h3>
+        <div class="info-row"><b>&#x2705;</b><span>2 free body assessments on joining</span></div>
+        <div class="info-row"><b>&#x2705;</b><span>PTinMyPocket app included free</span></div>
+        <div class="info-row"><b>&#x2705;</b><span>14 clubs — 1 membership</span></div>
+        <div class="info-row"><b>&#x2705;</b><span>Cancel anytime with 30 days notice</span></div>
+      </div>
+
+            <!-- GOOGLE REVIEW -->
+      <div class="info-card" style="background:var(--bg2);">
+        <h3>&#x2B50; Enjoyed your visit?</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px;">Reviews help Edge Fitness get discovered by more people — on Google and by AI assistants.</p>
+        <a class="btn btn-outline" href="https://www.google.com/search?q=Edge+Fitness+Clubs+Kloof+Street+Cape+Town+reviews" target="_blank" style="display:block;text-align:center;font-size:12px;">Rate us on Google &#x2197;</a>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;">&#x1F3AB; Street Pass members receive a <strong style="color:var(--a);">complimentary body assessment</strong> when visiting Edge Fitness Clubs Kloof.</p>
+      </div>
+
+      <div class="info-card" style="background:var(--bg2);border-color:var(--bdr);">
+        <h3>Member Services</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;">For member queries not resolved at club level, contact Head of Service <strong style="color:var(--text2);">Mike Huse</strong> directly: <a href="mailto:mike.huse@edgefit.club" style="color:var(--a);">mike.huse@edgefit.club</a></p>
+      </div>
+
+      <a class="btn btn-gold" href="tel:+27212033994" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4DE; Call to Join</a>
+      <a class="btn btn-outline" href="https://wa.me/27676144804" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; WhatsApp</a>
+      <a class="btn btn-outline" href="https://edgefitness.co.za/kloof_street/" target="_blank" style="display:block;text-align:center;">Visit Website</a>
+
+    </div>
   </div>
 </div>
-
-
 
 
 <!-- ══════════ BODY VISION STUDIO ══════════ -->
@@ -3487,16 +3543,15 @@ nav{z-index:200;}
           <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Certifications</div>
         </div>
         <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
+          <div style="font-size:26px;font-weight:900;color:var(--a);">FREE</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">30-Min Intro</div>
+        </div>
+        <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
           <div style="font-size:26px;font-weight:900;color:var(--a);">100%</div>
           <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Personalised</div>
         </div>
       </div>
 
-      <div class="hyrox-profile-offer">
-        <h4>⚡ 20% OFF ACTIVE RECOVERY</h4>
-        <p>20% off Post-Race GYROTONIC® & Pilates Mobility Sessions. Decompress your spine, restore joint range of motion, and flush out lactic acid.</p>
-        <p><b style="color:var(--text2);">How to redeem:</b> Mention <span class="hyrox-code">HYROX20</span> when booking your session and present your race confirmation or bib.</p>
-      </div>
       <div class="sec-tag">GYROTONIC&#xAE; &middot; Movement Therapy &middot; Classical Pilates</div>
       <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin:8px 0 16px;">Move Better.<br>Feel Better. Live Better.</h2>
       <p style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px;">Body Vision Studio is Cape Town's specialist GYROTONIC&#xAE; and GYROKINESIS&#xAE; studio, now open at the Lifestyle Centre on 50 Kloof Street. Kim Tucker — certified instructor with over 15 years of practice — offers private and semi-private sessions tailored to dancers, athletes, post-surgery recovery, seniors and anyone seeking a freer, stronger body.</p>
@@ -3527,7 +3582,7 @@ nav{z-index:200;}
       </div>
 
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20GYROTONIC%C2%AE%20session" target="_blank">&#x1F4AC; Book a Session</a>
+        <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank">&#x1F4AC; Book Free Intro</a>
         <a class="btn btn-outline" href="tel:+27824572118">&#x1F4DE; 082 457 2118</a>
         <a class="btn btn-outline" href="https://www.bodyvision.online/" target="_blank">&#x1F310; bodyvision.online</a>
       </div>
@@ -3549,7 +3604,7 @@ nav{z-index:200;}
         <h3>Contact &amp; Location</h3>
         <div class="info-row"><b>&#x1F4CD;</b><span>Lifestyle Centre, Level 2<br>50 Kloof Street, Gardens, Cape Town</span></div>
         <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27824572118" style="color:var(--a);">082 457 2118</a></div>
-        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20GYROTONIC%C2%AE%20session" target="_blank" style="color:var(--a);">WhatsApp Kim</a></div>
+        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank" style="color:var(--a);">WhatsApp Kim</a></div>
         <div class="info-row"><b>&#x2709;&#xFE0F;</b><a href="mailto:admin@bodyvision.co.za" style="color:var(--a);">admin@bodyvision.co.za</a></div>
         <div class="info-row"><b>&#x1F310;</b><a href="https://www.bodyvision.online/" target="_blank" style="color:var(--a);">bodyvision.online</a></div>
         <div class="info-row"><b>&#x1F4F7;</b><a href="https://www.instagram.com/capetowngyrotonicstudio" target="_blank" style="color:var(--a);">@capetowngyrotonicstudio</a></div>
@@ -3557,6 +3612,7 @@ nav{z-index:200;}
 
       <div class="info-card">
         <h3>Sessions &amp; Pricing</h3>
+        <div class="info-row"><b>&#x2B50;</b><span><strong style="color:var(--a);">FREE</strong> — Complimentary 30-Min Intro Session</span></div>
         <div class="info-row"><b>&#x1F9D8;</b><span>Private Session — contact for pricing</span></div>
         <div class="info-row"><b>&#x1F46F;</b><span>Semi-Private (2–3) — contact for pricing</span></div>
         <div class="info-row"><b>&#x1F4BB;</b><span>Online Sessions available</span></div>
@@ -3569,9 +3625,12 @@ nav{z-index:200;}
         <p style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px;">Reviews help Body Vision Studio get discovered by more people — on Google and by AI assistants.</p>
         <a class="btn btn-outline" href="https://www.google.com/search?q=Body+Vision+Studio+GYROTONIC+Kloof+Street+Cape+Town+reviews" target="_blank" style="display:block;text-align:center;font-size:12px;">Rate us on Google &#x2197;</a>
       </div>
-      
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;">&#x1F3AB; Street Pass members receive a <strong style="color:var(--a);">complimentary 30-minute GYROTONIC&#xAE; intro session</strong> with Kim Tucker at Body Vision Studio.</p>
+      </div>
 
-      <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20GYROTONIC%C2%AE%20session" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book a Session</a>
+      <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book Free Intro Session</a>
       <a class="btn btn-outline" href="tel:+27824572118" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4DE; Call Kim</a>
       <a class="btn btn-outline" href="https://www.bodyvision.online/" target="_blank" style="display:block;text-align:center;">Visit Website</a>
 
@@ -3845,79 +3904,20 @@ nav{z-index:200;}
       <h4>Business Hustle</h4>
       <ul>
         <li><a href="https://businesshustle.co.za" target="_blank">businesshustle.co.za</a></li>
-        <li><a href="https://www.businesshustle.co.za/" target="_blank">BH Platform</a></li>
+        <li><a href="https://www.hustleportal.online/" target="_blank">BH Platform</a></li>
         <li><a href="mailto:team@businesshustle.co.za">team@businesshustle.co.za</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bot">
     <p>© 2026 KloofStreet.online — Cape Town, South Africa</p>
-    <p><a href="https://www.businesshustle.co.za/" target="_blank" style="color:rgba(122,122,120,.45);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--a)'" onmouseout="this.style.color='rgba(122,122,120,.45)'">POWERED BY <em style="color:var(--a);">BUSINESS HUSTLE</em></a></p>
+    <p><a href="https://www.hustleportal.online/" target="_blank" style="color:rgba(122,122,120,.45);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--a)'" onmouseout="this.style.color='rgba(122,122,120,.45)'">POWERED BY <em style="color:var(--a);">BUSINESS HUSTLE</em></a></p>
   </div>
 </footer>
 
-
-<div id="pg-admin" class="pg">
-  <section style="padding-top:100px;min-height:80vh;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
-      <div><div class="sec-tag">Admin</div><div class="sec-title">Site Analytics</div></div>
-      <div style="display:flex;gap:8px;align-items:center;">
-        <select id="admRange" onchange="loadAnalytics()" style="background:var(--bg3);color:var(--text2);border:1px solid var(--bdr);border-radius:var(--r);padding:8px 12px;font-size:12px;cursor:pointer;">
-          <option value="7">Last 7 days</option>
-          <option value="30" selected>Last 30 days</option>
-          <option value="90">Last 90 days</option>
-        </select>
-        <button onclick="loadAnalytics()" style="background:var(--a);color:#000;border:none;border-radius:var(--r);padding:8px 16px;font-size:12px;font-weight:700;cursor:pointer;">↻ Refresh</button>
-      </div>
-    </div>
-
-    <div class="kpi-row" id="admKpi">
-      <div class="kpi"><div class="kpi-l">Total Page Views</div><div class="kpi-v" id="admViews">--</div><div class="kpi-ch" style="color:var(--muted);">Loading...</div></div>
-      <div class="kpi"><div class="kpi-l">Unique Visitors</div><div class="kpi-v" id="admVisitors">--</div><div class="kpi-ch" style="color:var(--muted);">Loading...</div></div>
-      <div class="kpi"><div class="kpi-l">Avg Views/Day</div><div class="kpi-v" id="admAvg">--</div><div class="kpi-ch" style="color:var(--muted);">Loading...</div></div>
-      <div class="kpi"><div class="kpi-l">Top Page</div><div class="kpi-v" id="admTopPage" style="font-size:16px;">--</div><div class="kpi-ch" style="color:var(--muted);">Loading...</div></div>
-    </div>
-
-    <div class="dash-panels">
-      <div class="dash-panel" style="grid-column:1/-1;">
-        <h3>Daily Page Views</h3>
-        <div class="bar-row" id="admBars" style="height:120px;align-items:flex-end;"></div>
-      </div>
-    </div>
-
-    <div class="dash-panels">
-      <div class="dash-panel">
-        <h3>Top Pages</h3>
-        <div id="admPages" style="font-size:13px;"><div style="color:var(--muted);padding:12px 0;">Loading...</div></div>
-      </div>
-      <div class="dash-panel">
-        <h3>Top Referrers</h3>
-        <div id="admRefs" style="font-size:13px;"><div style="color:var(--muted);padding:12px 0;">Loading...</div></div>
-      </div>
-    </div>
-
-    <div class="dash-panels">
-      <div class="dash-panel" style="grid-column:1/-1;">
-        <h3>Recent Page Views</h3>
-        <div id="admRecent" style="font-size:12px;max-height:300px;overflow-y:auto;"><div style="color:var(--muted);padding:12px 0;">Loading...</div></div>
-      </div>
-    </div>
-
-    <div class="dash-panel" style="margin-top:14px;">
-      <h3>Street Pass Stats</h3>
-      <div class="kpi-row" id="admSpKpi" style="margin-bottom:0;">
-        <div class="kpi"><div class="kpi-l">Total Members</div><div class="kpi-v" id="admSpMembers">--</div></div>
-        <div class="kpi"><div class="kpi-l">Active Scans (30d)</div><div class="kpi-v" id="admSpScans">--</div></div>
-        <div class="kpi"><div class="kpi-l">Points Awarded (30d)</div><div class="kpi-v" id="admSpPoints">--</div></div>
-        <div class="kpi"><div class="kpi-l">Referrals (30d)</div><div class="kpi-v" id="admSpRefs">--</div></div>
-      </div>
-    </div>
-  </section>
-</div>
-
 <script>
 // ── PAGES ──
-const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem','admin'];
+const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','edge-fitness','bodyvision','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem'];
 const NAVLINKS = ['home','about','explore','brands','ai'];
 
 // ── URL slug map ──
@@ -3930,10 +3930,10 @@ var SLUG_MAP = {
   'revive':'/revive-studio',
   'dr-dale':'/dr-dale-geoffreys',
   'hayley':'/hayley-schuter-physio',
+  'edge-fitness':'/edge-fitness-kloof',
   'bodyvision':'/body-vision-studio', 'ai':'/ai-concierge', 'listed':'/get-listed', 'dash':'/dashboard',
   'streetpass':'/streetpass','streetpass-signup':'/streetpass/join',
-  'streetpass-scan':'/streetpass/scan','streetpass-redeem':'/streetpass/rewards',
-  'admin':'/admin'
+  'streetpass-scan':'/streetpass/scan','streetpass-redeem':'/streetpass/rewards'
 };
 var SLUG_REVERSE = {};
 Object.keys(SLUG_MAP).forEach(function(k){ SLUG_REVERSE[SLUG_MAP[k]] = k; });
@@ -3994,12 +3994,12 @@ function routeFromPath() {
 }
 
 // Initial routing
-setTimeout(function() {
+(function() {
   var page = routeFromPath();
   if (page !== 'home') { go(page, true); }
   // Set canonical state for home
   history.replaceState({page: page}, '', window.location.pathname || '/');
-}, 0);
+})();
 
 // ── Dynamic meta for shared URLs ──
 var PAGE_META = {
@@ -4304,10 +4304,12 @@ var SP = window.SP || {};
 var _spClient = null;
 function spClient() {
   if (!_spClient) {
-    _spClient = supabase.createClient(
-      'https://uzzoykmbadxriycvxycy.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6em95a21iYWR4cml5Y3Z4eWN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxMDI1MzcsImV4cCI6MjEwMTY3ODUzN30.yZ79yqTu6IS8Wgmy289BzqG9JXsKpv1XROjAlXL8dvI'
-    );
+    var url = (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.url && SP_CONFIG.url.indexOf('PASTE_') !== 0) ? SP_CONFIG.url : '';
+    var key = (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.anonKey && SP_CONFIG.anonKey.indexOf('PASTE_') !== 0) ? SP_CONFIG.anonKey : '';
+    if (!url || !key) {
+      console.error('[Street Pass] Supabase keys not configured. Edit streetpass-config.js');
+    }
+    _spClient = supabase.createClient(url, key);
   }
   return _spClient;
 }
@@ -4323,7 +4325,6 @@ function spGetSession() {
   return spClient().auth.getSession().then(function(r) {
     if (r.data.session) {
       spAccessToken = r.data.session.access_token;
-      spAccessToken = r.data.session.access_token;
       spUser = r.data.session.user;
       return spClient().from('profiles').select('*').eq('id', spUser.id).single();
     }
@@ -4331,6 +4332,9 @@ function spGetSession() {
   }).then(function(r) {
     spProfile = r.data;
     return spProfile;
+  }).catch(function(e) {
+    console.warn('[Street Pass] getSession error:', e.message || e);
+    return null;
   });
 }
 
@@ -4377,7 +4381,9 @@ function spSignup() {
         id: r.data.user.id,
         display_name: name,
         phone: phone || null
-      }).then(function() {});
+      }).then(function(upR) {
+        if (upR.error) console.warn('[Street Pass] Profile upsert error:', upR.error.message);
+      });
     }
     document.getElementById('spSignupForm').style.display = 'none';
     document.getElementById('spSignupSuccess').style.display = 'block';
@@ -4415,6 +4421,7 @@ function spLogin() {
 
   spClient().auth.signInWithPassword({ email: email, password: pass }).then(function(r) {
     if (r.error) throw r.error;
+    if (r.data.session) spAccessToken = r.data.session.access_token;
     spUser = r.data.user;
     go('streetpass');
   }).catch(function(e) {
@@ -4435,12 +4442,6 @@ function spLogout() {
 function spLoadDashboard() {
   var container = document.getElementById('spDashContent');
 
-  window._spLoadTimeout = setTimeout(function() {
-    var c = document.getElementById("spDashContent");
-    if (c && c.innerHTML.indexOf("Loading") !== -1) {
-      c.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:32px;margin-bottom:12px;">&#x1F504;</div><div style="color:var(--muted);">Could not load profile. <a href="#" onclick="spLoadDashboard();return false;" style="color:var(--a);text-decoration:underline;">Tap to retry</a></div></div>';
-    }
-  }, 8000);
   spGetSession().then(function(profile) {
     if (!profile) {
       container.innerHTML = '<div class="sp-pending"><div class="sp-pending-icon">\u{1F3AB}</div>' +
@@ -4459,7 +4460,7 @@ function spLoadDashboard() {
     }
 
     fetch('/api/member', {
-      headers: { 'Authorization': 'Bearer ' + (spUser ? spAccessToken : '') }
+      headers: { 'Authorization': 'Bearer ' + (spAccessToken || '') }
     }).then(function(r) { return r.json(); }).then(function(data) {
       if (data.error) throw data;
       spRenderDashboard(data);
@@ -4585,7 +4586,7 @@ function spSaveProfile() {
   var phone = document.getElementById('sp-edit-phone').value.trim();
   fetch('/api/member', {
     method: 'PATCH',
-    headers: { 'Authorization': 'Bearer ' + spAccessToken, 'Content-Type': 'application/json' },
+    headers: { 'Authorization': 'Bearer ' + (spAccessToken || ''), 'Content-Type': 'application/json' },
     body: JSON.stringify({ display_name: name, phone: phone })
   }).then(function(r) { return r.json(); }).then(function(data) {
     if (data.success) { spLoadDashboard(); }
@@ -4605,12 +4606,6 @@ function spCopyReferral() {
 var spScanActive = false;
 function spInitScan() {
   if (spScanActive) return;
-  window._spLoadTimeout = setTimeout(function() {
-    var c = document.getElementById("spDashContent");
-    if (c && c.innerHTML.indexOf("Loading") !== -1) {
-      c.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:32px;margin-bottom:12px;">&#x1F504;</div><div style="color:var(--muted);">Could not load profile. <a href="#" onclick="spLoadDashboard();return false;" style="color:var(--a);text-decoration:underline;">Tap to retry</a></div></div>';
-    }
-  }, 8000);
   spGetSession().then(function(profile) {
     if (!profile || profile.status !== 'active') {
       go('streetpass-signup');
@@ -4694,12 +4689,6 @@ function spResetScan() {
 // ── REWARDS ──
 function spLoadRewards() {
   var container = document.getElementById('spRewardsContent');
-  window._spLoadTimeout = setTimeout(function() {
-    var c = document.getElementById("spDashContent");
-    if (c && c.innerHTML.indexOf("Loading") !== -1) {
-      c.innerHTML = '<div style="text-align:center;padding:40px;"><div style="font-size:32px;margin-bottom:12px;">&#x1F504;</div><div style="color:var(--muted);">Could not load profile. <a href="#" onclick="spLoadDashboard();return false;" style="color:var(--a);text-decoration:underline;">Tap to retry</a></div></div>';
-    }
-  }, 8000);
   spGetSession().then(function(profile) {
     if (!profile || profile.status !== 'active') {
       container.innerHTML = '<div class="sp-pending"><div class="sp-pending-icon">\u{1F512}</div>' +
@@ -4791,140 +4780,6 @@ function spTimeAgo(date) {
   return Math.floor(s / 86400) + 'd ago';
 }
 
-// \u2500\u2500 ADMIN ANALYTICS DASHBOARD \u2500\u2500
-function loadAnalytics() {
-  var days = parseInt(document.getElementById('admRange').value) || 30;
-  var since = new Date(Date.now() - days * 86400000).toISOString();
-  var c = spClient();
-  if (!c) return;
-
-  c.from('page_views').select('*').gte('created_at', since).order('created_at', {ascending:false}).then(function(res) {
-    var rows = res.data || [];
-    var totalViews = rows.length;
-    var uas = {};
-    var pageCount = {};
-    var refCount = {};
-    var dailyCount = {};
-    var daysSet = {};
-
-    for (var i = 0; i < rows.length; i++) {
-      var r = rows[i];
-      var uaKey = (r.ua || 'unknown').slice(0, 80);
-      uas[uaKey] = true;
-      var p = r.path || '/';
-      pageCount[p] = (pageCount[p] || 0) + 1;
-      if (r.referrer) {
-        try {
-          var refHost = new URL(r.referrer).hostname.replace('www.', '');
-          refCount[refHost] = (refCount[refHost] || 0) + 1;
-        } catch(e) {
-          refCount['direct/other'] = (refCount['direct/other'] || 0) + 1;
-        }
-      } else {
-        refCount['Direct'] = (refCount['Direct'] || 0) + 1;
-      }
-      var day = r.created_at ? r.created_at.slice(0, 10) : 'unknown';
-      dailyCount[day] = (dailyCount[day] || 0) + 1;
-      daysSet[day] = true;
-    }
-
-    var uniqueVisitors = Object.keys(uas).length;
-    var numDays = Math.max(Object.keys(daysSet).length, 1);
-    var avgPerDay = (totalViews / numDays).toFixed(1);
-    var topPages = Object.keys(pageCount).sort(function(a, b) { return pageCount[b] - pageCount[a]; });
-    var topReferrers = Object.keys(refCount).sort(function(a, b) { return refCount[b] - refCount[a]; });
-
-    document.getElementById('admViews').textContent = totalViews.toLocaleString();
-    document.getElementById('admVisitors').textContent = uniqueVisitors.toLocaleString();
-    document.getElementById('admAvg').textContent = avgPerDay;
-    document.getElementById('admTopPage').textContent = topPages[0] ? topPages[0].replace(/^\//, '') || '/' : '--';
-
-    var kpis = document.querySelectorAll('#admKpi .kpi-ch');
-    if (kpis[0]) kpis[0].textContent = 'Last ' + days + ' days';
-    if (kpis[1]) kpis[1].textContent = 'Est. by user agent';
-    if (kpis[2]) kpis[2].textContent = numDays + ' active days';
-    if (kpis[3] && topPages[0]) kpis[3].textContent = pageCount[topPages[0]] + ' views';
-
-    var barC = document.getElementById('admBars');
-    barC.innerHTML = '';
-    var sortedDays = Object.keys(dailyCount).sort();
-    var maxV = 1;
-    for (var i = 0; i < sortedDays.length; i++) { if (dailyCount[sortedDays[i]] > maxV) maxV = dailyCount[sortedDays[i]]; }
-
-    for (var i = 0; i < sortedDays.length; i++) {
-      var col = document.createElement('div');
-      col.className = 'bar-col';
-      var fill = document.createElement('div');
-      fill.className = 'bar-fill';
-      fill.style.height = Math.round((dailyCount[sortedDays[i]] / maxV) * 100) + 'px';
-      fill.title = sortedDays[i] + ': ' + dailyCount[sortedDays[i]] + ' views';
-      var lbl = document.createElement('div');
-      lbl.className = 'bar-lbl';
-      lbl.textContent = sortedDays[i].slice(5);
-      col.appendChild(fill);
-      col.appendChild(lbl);
-      barC.appendChild(col);
-    }
-    if (sortedDays.length === 0) {
-      barC.innerHTML = '<div style="color:var(--muted);padding:20px;text-align:center;width:100%;">No data yet</div>';
-    }
-
-    var pagesHtml = '';
-    for (var i = 0; i < Math.min(topPages.length, 10); i++) {
-      var pct = totalViews ? Math.round(pageCount[topPages[i]] / totalViews * 100) : 0;
-      pagesHtml += '<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bdr);">'
-        + '<span style="color:var(--text2);">' + (topPages[i] || '/') + '</span>'
-        + '<span style="color:var(--muted);">' + pageCount[topPages[i]] + ' <span style="font-size:10px;">(' + pct + '%)</span></span></div>';
-    }
-    document.getElementById('admPages').innerHTML = pagesHtml || '<div style="color:var(--muted);padding:12px 0;">No data</div>';
-
-    var refsHtml = '';
-    for (var i = 0; i < Math.min(topReferrers.length, 10); i++) {
-      refsHtml += '<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bdr);">'
-        + '<span style="color:var(--text2);">' + topReferrers[i] + '</span>'
-        + '<span style="color:var(--muted);">' + refCount[topReferrers[i]] + '</span></div>';
-    }
-    document.getElementById('admRefs').innerHTML = refsHtml || '<div style="color:var(--muted);padding:12px 0;">No data</div>';
-
-    var recentHtml = '';
-    for (var i = 0; i < Math.min(rows.length, 50); i++) {
-      var r = rows[i];
-      var time = r.created_at ? new Date(r.created_at).toLocaleString('en-ZA', {day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '?';
-      var refTxt = '';
-      if (r.referrer) {
-        try { refTxt = new URL(r.referrer).hostname.replace('www.', ''); } catch(e) { refTxt = 'other'; }
-      } else { refTxt = 'direct'; }
-      recentHtml += '<div style="display:grid;grid-template-columns:130px 1fr 120px;gap:8px;padding:5px 0;border-bottom:1px solid var(--bdr);font-size:11px;">'
-        + '<span style="color:var(--muted);">' + time + '</span>'
-        + '<span style="color:var(--text2);">' + (r.path || '/') + '</span>'
-        + '<span style="color:var(--muted);text-align:right;">' + refTxt + '</span></div>';
-    }
-    document.getElementById('admRecent').innerHTML = recentHtml || '<div style="color:var(--muted);padding:12px 0;">No data</div>';
-  }).catch(function(err) {
-    console.error('Analytics load error:', err);
-    document.getElementById('admViews').textContent = 'Error';
-  });
-
-  // Street Pass stats
-  c.from('profiles').select('id', {count:'exact',head:true}).then(function(res) {
-    document.getElementById('admSpMembers').textContent = (res.count || 0).toLocaleString();
-  }).catch(function(){});
-
-  c.from('point_transactions').select('*').gte('created_at', since).then(function(res) {
-    var scans = 0, points = 0;
-    var rows = res.data || [];
-    for (var i = 0; i < rows.length; i++) {
-      if (rows[i].type === 'earn') { scans++; points += (rows[i].points || 0); }
-    }
-    document.getElementById('admSpScans').textContent = scans.toLocaleString();
-    document.getElementById('admSpPoints').textContent = points.toLocaleString();
-  }).catch(function(){});
-
-  c.from('referrals').select('*').gte('created_at', since).then(function(res) {
-    document.getElementById('admSpRefs').textContent = (res.data || []).length.toLocaleString();
-  }).catch(function(){});
-}
-
 // Hook into page navigation to load dynamic content
 var _origGo = window.go;
 window.go = function(name, noPush) {
@@ -4932,22 +4787,9 @@ window.go = function(name, noPush) {
   if (name === 'streetpass') setTimeout(spLoadDashboard, 100);
   if (name === 'streetpass-scan') setTimeout(spInitScan, 300);
   if (name === 'streetpass-redeem') setTimeout(spLoadRewards, 100);
-  if (name === 'admin') setTimeout(loadAnalytics, 100);
 };
 
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
-
-<script>
-// Minimal page view tracker
-!function(){
-  var d={path:location.pathname,ref:document.referrer||null,ua:navigator.userAgent.slice(0,120)};
-  try{
-    var c=spClient();
-    if(!c)return;
-    c.from('page_views').insert({path:d.path,referrer:d.ref,ua:d.ua}).then(function(){});
-  }catch(e){}
-}();
-</script>
 </body>
 </html>
