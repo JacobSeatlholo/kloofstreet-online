@@ -1,2 +1,5 @@
-{"afterFiles":[{"source":"/(.*)","destination":"/index.html"}]}
-// ready
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
