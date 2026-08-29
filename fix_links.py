@@ -1,0 +1,5 @@
+with open('index.html','r') as f: h=f.read()
+h=h.replace('<a onclick="spShowLogin()">','<a href="#" onclick="spShowLogin()">')
+h=h.replace('<a onclick="spShowSignup()">','<a href="#" onclick="spShowSignup()">')
+with open('index.html','w') as f: f.write(h)
+print('[+] Added href to Sign in + Join Street Pass links')
