@@ -4120,12 +4120,18 @@ var SP = window.SP || {};
 var _spClient = null;
 function spClient() {
   if (!_spClient) {
-    var url = (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.url && SP_CONFIG.url.indexOf('PASTE_') !== 0) ? SP_CONFIG.url : '';
-    var key = (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.anonKey && SP_CONFIG.anonKey.indexOf('PASTE_') !== 0) ? SP_CONFIG.anonKey : '';
-    if (!url || !key) {
-      console.error('[Street Pass] Supabase keys not configured. Edit streetpass-config.js');
+    if (window._supabase) {
+      _spClient = window._supabase;
+    } else {
+      var url = (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.url && SP_CONFIG.url.indexOf('PASTE_') !== 0) ? SP_CONFIG.url : '';
+      var key = (typeof SP_CONFIG !== 'undefined' && SP_CONFIG.anonKey && SP_CONFIG.anonKey.indexOf('PASTE_') !== 0) ? SP_CONFIG.anonKey : '';
+      if (!url || !key) {
+        console.error('[Street Pass] Supabase keys not configured. Edit streetpass-config.js');
+        return null;
+      }
+      try { _spClient = supabase.createClient(url, key); }
+      catch(e) { console.error('[Street Pass] createClient failed:', e); return null; }
     }
-    _spClient = supabase.createClient(url, key);
   }
   return _spClient;
 }
@@ -4139,8 +4145,9 @@ var spScanner = null;
 // ── AUTH HELPERS ──
 function spGetSession() {
   var timeout = new Promise(function(resolve) { setTimeout(function() { resolve(null); }, 5000); });
+  var client = spClient(); if (!client) return Promise.resolve(null);
   return Promise.race([
-    spClient().auth.getSession().then(function(r) {
+    client.auth.getSession().then(function(r) {
       if (r.data.session) {
         spAccessToken = r.data.session.access_token;
         spUser = r.data.session.user;
