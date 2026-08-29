@@ -3806,13 +3806,8 @@ function routeFromPath() {
   return SLUG_REVERSE[path] || 'home';
 }
 
-// Initial routing
-(function() {
-  var page = routeFromPath();
-  if (page !== 'home') { go(page, true); }
-  // Set canonical state for home
-  history.replaceState({page: page}, '', window.location.pathname || '/');
-})();
+// Initial routing (moved below updateMeta)
+
 
 // ── Dynamic meta for shared URLs ──
 var PAGE_META = {
@@ -3845,6 +3840,14 @@ function updateMeta(name) {
   var slug = SLUG_MAP[name] || '/' + name;
   if (canon) canon.setAttribute('href', 'https://kloofstreet.online' + slug);
 }
+
+// Initial routing
+(function() {
+  var page = routeFromPath();
+  if (page !== 'home') { go(page, true); }
+  // Set canonical state for home
+  history.replaceState({page: page}, '', window.location.pathname || '/');
+})();
 
 
 // ── NAV SCROLL ──
