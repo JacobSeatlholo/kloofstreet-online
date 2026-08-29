@@ -1786,7 +1786,13 @@ nav{z-index:200;}
   <script defer data-domain="kloofstreet.online" src="https://plausible-production-63a6.up.railway.app/js/script.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@lumaai/luma-web@0.2.0/dist/library/luma-web.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="streetpass-config.js"></script>
+<script src="streetpass-config.js"><script>window.addEventListener("DOMContentLoaded",function(){if(typeof supabase!=="undefined"&&SP_CONFIG){window._supabase=supabase.createClient(SP_CONFIG.url,SP_CONFIG.anonKey);}});</script>
+
+// ══ PAGEVIEW TRACKING ══
+function trackPageview(){try{if(typeof SP_CONFIG==="undefined"||!SP_CONFIG.url)return;var p=location.pathname||"/";var r=document.referrer?new URL(document.referrer).hostname:"";var d=new Date().toISOString().slice(0,10);if(window._supabase&&window._supabase.auth){window._supabase.from("daily_stats").select("views,referrers").eq("day",d).eq("path",p).single().then(function(row){var v=(row.data&&row.data.views||0)+1;var rf=(row.data&&row.data.referrers||0)+(r?1:0);window._supabase.from("daily_stats").upsert({day:d,path:p,views:v,referrers:rf},{onConflict:"day,path"}).then();}).catch(function(){window._supabase.from("daily_stats").upsert({day:d,path:p,views:1,referrers:r?1:0},{onConflict:"day,path"}).then();});}}catch(e){}}
+var _origGo=window.go;if(typeof go==="function"&&!window._pvPatched){window.go=function(p){var res=_origGo?_origGo.apply(this,arguments):undefined;setTimeout(trackPageview,300);return res;};window._pvPatched=true;}
+setTimeout(trackPageview,800);
+// ══ END PAGEVIEW TRACKING ══</script>
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 </head>
 <body>
