@@ -4135,20 +4135,24 @@ var spScanner = null;
 
 // ── AUTH HELPERS ──
 function spGetSession() {
-  return spClient().auth.getSession().then(function(r) {
-    if (r.data.session) {
-      spAccessToken = r.data.session.access_token;
-      spUser = r.data.session.user;
-      return spClient().from('profiles').select('*').eq('id', spUser.id).single();
-    }
-    return { data: null };
-  }).then(function(r) {
-    spProfile = r.data;
-    return spProfile;
-  }).catch(function(e) {
-    console.warn('[Street Pass] getSession error:', e.message || e);
-    return null;
-  });
+  var timeout = new Promise(function(resolve) { setTimeout(function() { resolve(null); }, 5000); });
+  return Promise.race([
+    spClient().auth.getSession().then(function(r) {
+      if (r.data.session) {
+        spAccessToken = r.data.session.access_token;
+        spUser = r.data.session.user;
+        return spClient().from('profiles').select('*').eq('id', spUser.id).single();
+      }
+      return { data: null };
+    }).then(function(r) {
+      spProfile = r.data;
+      return spProfile;
+    }).catch(function(e) {
+      console.warn('[Street Pass] getSession error:', e.message || e);
+      return null;
+    }),
+    timeout
+  ]);
 }
 
 // ── SIGNUP ──
