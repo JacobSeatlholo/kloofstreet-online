@@ -719,6 +719,12 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 @media(max-width:600px){.press-grid{grid-template-columns:1fr;}.award-strip{grid-template-columns:1fr 1fr;}}
 
 [data-theme="light"]{--bg:#f5f4f0;--bg2:#ffffff;--bg3:#ede9e0;--bdr:rgba(0,0,0,.09);--muted:#5e5e5b;--text:#1a1a18;--text2:#0d0d0c;--a:#c9a200;--al:#e0b400;}
+[data-theme="light"] .btn-gold{color:#3d2e00}
+[data-theme="light"] .accolade-item{color:#3d2e00}
+[data-theme="light"] .dir-tab.active{color:#3d2e00}
+[data-theme="light"] .footer-bot p{color:#50504b}
+[data-theme="light"] .footer-bot a{color:#50504b}
+[data-theme="light"] .footer-bot em{color:#8a6d00}
 [data-theme="light"] body{background:var(--bg);color:var(--text);}
 [data-theme="light"] nav.scrolled{background:rgba(245,244,240,.97);}
 [data-theme="light"] .mmenu{background:var(--bg2);}
@@ -1785,8 +1791,8 @@ nav{z-index:200;}
   <!-- Privacy-friendly analytics — self-hosted Plausible on Railway -->
   <script defer data-domain="kloofstreet.online" src="https://plausible-production-63a6.up.railway.app/js/script.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@lumaai/luma-web@0.2.0/dist/library/luma-web.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script src="streetpass-config.js"><script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="streetpass-config.js"></script><script>
 if(typeof supabase!=="undefined"&&typeof SP_CONFIG!=="undefined"){window._supabase=supabase.createClient(SP_CONFIG.url,SP_CONFIG.anonKey);}
 </script><script>
 // ══ PAGEVIEW TRACKING ══
@@ -1794,8 +1800,11 @@ function trackPageview(){try{if(typeof SP_CONFIG==="undefined"||!SP_CONFIG.url)r
 var _origGo=window.go;if(typeof go==="function"&&!window._pvPatched){window.go=function(p){var res=_origGo?_origGo.apply(this,arguments):undefined;setTimeout(trackPageview,300);return res;};window._pvPatched=true;}
 setTimeout(trackPageview,800);
 // ══ END PAGEVIEW TRACKING ══</script>
-<script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
-</head>
+<script defer src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="dns-prefetch" href="https://plausible-production-63a6.up.railway.app"></head>
 <body>
 <div id="seo-content" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);" aria-hidden="true" tabindex="-1">
 <h1>KloofStreet.online — Kloof Street Cape Town Complete Guide 2026</h1>
@@ -1822,11 +1831,11 @@ setTimeout(trackPageview,800);
 <nav id="mainNav">
   <div class="logo" onclick="go('home')">KLOOFSTREET<em>.</em>ONLINE</div>
   <ul class="nav-links">
-    <li><a onclick="go('home')" id="nl-home" class="on">Home</a></li>
-    <li><a onclick="go('about')" id="nl-about">About</a></li>
-    <li><a onclick="go('explore')" id="nl-explore">Explore</a></li>
-    <li><a onclick="go('brands')" id="nl-brands">Directory</a></li>
-    <li><a onclick="go('ai')" id="nl-ai">AI Concierge</a></li>
+    <li><a href="/" onclick="go('home')" id="nl-home" class="on">Home</a></li>
+    <li><a href="/about" onclick="go('about')" id="nl-about">About</a></li>
+    <li><a href="/explore" onclick="go('explore')" id="nl-explore">Explore</a></li>
+    <li><a href="/directory" onclick="go('brands')" id="nl-brands">Directory</a></li>
+    <li><a href="/ai-concierge" onclick="go('ai')" id="nl-ai">AI Concierge</a></li>
   </ul>
   <div class="nav-controls">
     <select class="lang-select" onchange="translateTo(this.value)" title="Language">
@@ -1844,9 +1853,9 @@ setTimeout(trackPageview,800);
       <option value="ru">&#x1F1F7;&#x1F1FA; &#x420;&#x443;&#x441;&#x441;&#x43a;&#x438;&#x439;</option>
     </select>
     <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Toggle theme">&#x1F319;</button>
-    <a class="nav-btn" onclick="go('listed')">Get Listed</a>
+    <a href="/get-listed" class="nav-btn" onclick="go('listed')">Get Listed</a>
   </div>
-  <button class="burger" onclick="document.getElementById('mm').classList.add('on')">
+  <button class="burger" aria-label="Toggle navigation menu" onclick="document.getElementById('mm').classList.add('on')">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -1854,14 +1863,14 @@ setTimeout(trackPageview,800);
 <!-- MOBILE MENU -->
 <div class="mmenu" id="mm">
   <button class="mmenu-close" onclick="document.getElementById('mm').classList.remove('on')">✕</button>
-  <a onclick="mgo('home')">Home</a>
-  <a onclick="mgo('about')">About</a>
-  <a onclick="mgo('explore')">Explore</a>
-  <a onclick="mgo('brands')">Directory</a>
-  <a onclick="mgo('listed')">Get Listed</a>
-  <a onclick="mgo('ai')">AI Concierge</a>
-  <a onclick="mgo('streetpass')">Street Pass</a>
-  <a onclick="mgo('listed')">Get Listed</a>
+  <a href="/" onclick="mgo('home')">Home</a>
+  <a href="/about" onclick="mgo('about')">About</a>
+  <a href="/explore" onclick="mgo('explore')">Explore</a>
+  <a href="/directory" onclick="mgo('brands')">Directory</a>
+  <a href="/get-listed" onclick="mgo('listed')">Get Listed</a>
+  <a href="/ai-concierge" onclick="mgo('ai')">AI Concierge</a>
+  <a href="/streetpass" onclick="mgo('streetpass')">Street Pass</a>
+  <a href="/get-listed" onclick="mgo('listed')">Get Listed</a>
 </div>
 
 <div id="google_translate_element"></div>
@@ -1877,8 +1886,8 @@ setTimeout(trackPageview,800);
       <h1>The Curated<br>Guide to Cape<br>Town's Most<br>Iconic Street</h1>
       <p class="hero-sub">We surface the restaurants, studios, wellness spaces and experiences that define the pulse of Kloof Street.</p>
       <div class="hero-btns">
-        <a class="btn btn-gold" onclick="go('brands')">Explore the Directory</a>
-        <a class="btn btn-outline" onclick="go('ai')">✦ AI Concierge</a>
+        <a href="/directory" class="btn btn-gold" onclick="go('brands')">Explore the Directory</a>
+        <a href="/ai-concierge" class="btn btn-outline" onclick="go('ai')">✦ AI Concierge</a>
       </div>
       <div class="stats">
         <div class="stat"><div class="stat-n">51+</div><div class="stat-l">Businesses Listed</div></div>
@@ -1923,7 +1932,7 @@ setTimeout(trackPageview,800);
   <section>
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:12px;">
       <div><div class="sec-tag">Discover</div><div class="sec-title">Explore Kloof Street</div></div>
-      <a style="font-size:11px;color:var(--a);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;" onclick="go('brands')">View All →</a>
+      <a href="/directory" style="font-size:11px;color:var(--a);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;" onclick="go('brands')">View All →</a>
     </div>
     <div class="cat-grid">
       <div class="cat-card" data-emoji="🍽️" onclick="go('brands')"><div class="cat-overlay"></div><div class="cat-body"><div class="cat-tag">Discover &amp; Experience</div><div class="cat-title">Restaurants &amp; Dining</div><div class="cat-desc">The finest culinary experiences on Kloof</div></div></div>
@@ -1946,7 +1955,7 @@ setTimeout(trackPageview,800);
             <div style="font-size:56px;font-weight:900;color:var(--text2);line-height:1;margin-bottom:4px;">R199</div>
             <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">per month &nbsp;&middot;&nbsp; cancel anytime</div>
             <a class="btn btn-gold" href="https://wa.me/27744815163?text=Hi%20Business%20Hustle%2C%20I%27d%20like%20to%20join%20the%20Kloof%20Street%20Pass%20please." target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Join via WhatsApp</a>
-            <a class="btn btn-outline" onclick="go('listed')" style="display:block;text-align:center;font-size:12px;">Apply Online</a>
+            <a href="/get-listed" class="btn btn-outline" onclick="go('listed')" style="display:block;text-align:center;font-size:12px;">Apply Online</a>
             <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--bdr);font-size:10px;color:var(--muted);line-height:2;">
               &#x2713; No lock-in contract<br>
               &#x2713; Cancel anytime<br>
@@ -2020,7 +2029,7 @@ setTimeout(trackPageview,800);
         <div style="font-size:42px;font-weight:900;color:var(--text2);line-height:1;">R199</div>
         <div style="font-size:12px;color:var(--muted);margin-bottom:20px;">/month</div>
         <a class="btn btn-gold" href="https://wa.me/27744815163?text=Hi%20Business%20Hustle%2C%20I%27d%20like%20to%20join%20the%20Kloof%20Street%20Pass%20please." target="_blank" style="display:block;margin-bottom:10px;">&#x1F4AC; Join via WhatsApp</a>
-        <a class="btn btn-outline" onclick="go('listed')" style="display:block;margin-bottom:20px;">Apply Online</a>
+        <a href="/get-listed" class="btn btn-outline" onclick="go('listed')" style="display:block;margin-bottom:20px;">Apply Online</a>
         <div style="padding-top:20px;border-top:1px solid var(--bdr);font-size:11px;color:var(--muted);line-height:2;text-align:left;">
           &#x2713; Less than one coffee a week<br>
           &#x2713; Cancel anytime<br>
@@ -2041,7 +2050,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1F58C;&#xFE0F; Art Studio &middot; Photography</div>
             <div class="brand-name">On Safari</div>
             <div class="brand-sub">Archival wildlife fine art prints by Nigel Whitehead. Recognised by Park West Gallery &mdash; 100+ cruise ships. 99B Kloof Street.</div>
-            <div class="brand-foot"><span class="brand-tag">Fine Art &middot; Photography</span><a class="view-btn" onclick="event.stopPropagation();go('on-safari')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Fine Art &middot; Photography</span><a href="/on-safari" class="view-btn" onclick="event.stopPropagation();go('on-safari')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2055,7 +2064,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x2728; Wellness &middot; Spa &middot; Homeopathy</div>
             <div class="brand-name">Ubuntu Wellness &amp; Medi-Spa</div>
             <div class="brand-sub">Health spa, float therapy, homeopathy and vegan wellness. A sanctuary on Kloof Street.</div>
-            <div class="brand-foot"><span class="brand-tag">Spa &middot; Float &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('ubuntu')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Spa &middot; Float &middot; Wellness</span><a href="/ubuntu-wellness" class="view-btn" onclick="event.stopPropagation();go('ubuntu')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2069,7 +2078,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1FA7A; Medical &middot; Weight Loss &middot; GLP-1 &middot; GP</div>
             <div class="brand-name">Dr Wendy Dicks</div>
             <div class="brand-sub">Experienced GP specialising in weight loss, GLP-1 treatments, chronic conditions &amp; family medicine. At Cape Town Medi-Spa, 99B Kloof Street.</div>
-            <div class="brand-foot"><span class="brand-tag">Weight Loss &middot; GLP-1 &middot; GP</span><a class="view-btn" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Weight Loss &middot; GLP-1 &middot; GP</span><a href="/dr-wendy-dicks" class="view-btn" onclick="event.stopPropagation();go('dr-wendy')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2083,7 +2092,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1F442; Audiology &middot; Hearing Care</div>
             <div class="brand-name">Just Hearing</div>
             <div class="brand-sub">Patient-centred audiology practice. Hearing assessments for adults and children, aids, tinnitus management &amp; ongoing support. At Cape Town Medi-Spa, 99B Kloof Street.</div>
-            <div class="brand-foot"><span class="brand-tag">Audiology &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('just-hearing')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Audiology &middot; Wellness</span><a href="/just-hearing" class="view-btn" onclick="event.stopPropagation();go('just-hearing')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2097,7 +2106,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1F9BF; Chinese Medicine &middot; Acupuncture</div>
             <div class="brand-name">Dr Thomas Jahn</div>
             <div class="brand-sub">30+ years of Chinese medicine. Acupuncture, cupping, Tuina, Qigong &amp; herbal medicine. Consulting Thursdays at 99 Kloof Street, Gardens.</div>
-            <div class="brand-foot"><span class="brand-tag">Acupuncture &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('dr-thomas')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Acupuncture &middot; Wellness</span><a href="/dr-thomas-jahn" class="view-btn" onclick="event.stopPropagation();go('dr-thomas')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2111,7 +2120,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x2728; Aesthetics &middot; Laser &middot; Hair Loss &middot; Red Light</div>
             <div class="brand-name">Trudy Christians</div>
             <div class="brand-sub">30 years of aesthetic expertise. Laser hair removal, skin rejuvenation, hair loss solutions, red light therapy &amp; body sculpting. At Cape Town Medi-Spa.</div>
-            <div class="brand-foot"><span class="brand-tag">Aesthetics &middot; Laser &middot; Skin</span><a class="view-btn" onclick="event.stopPropagation();go('trudy')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Aesthetics &middot; Laser &middot; Skin</span><a href="/trudy-christians" class="view-btn" onclick="event.stopPropagation();go('trudy')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2125,7 +2134,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1F4E6; Print &middot; Courier &middot; Business Services</div>
             <div class="brand-name">PostNet Gardens</div>
             <div class="brand-sub">Your neighbourhood business hub. Printing, couriers, digital services &amp; stationery at 55 Kloof Street.</div>
-            <div class="brand-foot"><span class="brand-tag">Print &middot; Courier &middot; Digital</span><a class="view-btn" onclick="event.stopPropagation();go('postnet')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Print &middot; Courier &middot; Digital</span><a href="/postnet-gardens" class="view-btn" onclick="event.stopPropagation();go('postnet')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2139,7 +2148,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1F331; Holistic Beauty &middot; Massage &middot; Wellness</div>
             <div class="brand-name">Revive Studio</div>
             <div class="brand-sub">Holistic massage and beauty clinic by Nadine. Facials, massages, manicures, pedicures, lash &amp; brow tinting, waxing. At 99 Kloof Street, Gardens.</div>
-            <div class="brand-foot"><span class="brand-tag">Beauty &middot; Massage &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('revive')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Beauty &middot; Massage &middot; Wellness</span><a href="/revive-studio" class="view-btn" onclick="event.stopPropagation();go('revive')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2153,7 +2162,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x2695;&#xFE0F; Plastic Surgery &middot; Cosmetic &middot; Reconstructive</div>
             <div class="brand-name">Dr Dale Geoffreys</div>
             <div class="brand-sub">Fellowship-trained plastic &amp; reconstructive surgeon. CMSA Fellow. Nearly two decades of surgical excellence. At 99B Kloof Street &amp; 39 Kloof Street, Cape Town.</div>
-            <div class="brand-foot"><span class="brand-tag">Plastic Surgery &middot; Cosmetic &middot; Medical</span><a class="view-btn" onclick="event.stopPropagation();go('dr-dale')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Plastic Surgery &middot; Cosmetic &middot; Medical</span><a href="/dr-dale-geoffreys" class="view-btn" onclick="event.stopPropagation();go('dr-dale')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2167,7 +2176,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1FA7A; Physiotherapy &middot; Dry Needling &middot; Sports Rehab</div>
             <div class="brand-name">Hayley Schuter Physio</div>
             <div class="brand-sub">Qualified physiotherapist specialising in dry needling, sports massage, strapping &amp; home visits. At 99B Kloof Street, Gardens.</div>
-            <div class="brand-foot"><span class="brand-tag">Physio &middot; Dry Needling &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('hayley')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">Physio &middot; Dry Needling &middot; Wellness</span><a href="/hayley-schuter-physio" class="view-btn" onclick="event.stopPropagation();go('hayley')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2181,7 +2190,7 @@ setTimeout(trackPageview,800);
             <div class="brand-cat">&#x1F9D8; GYROTONIC&#xAE; &middot; Movement Therapy &middot; Pilates</div>
             <div class="brand-name">Body Vision Studio</div>
             <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street. Free 30-min intro session.</div>
-            <div class="brand-foot"><span class="brand-tag">GYROTONIC&#xAE; &middot; Pilates &middot; Wellness</span><a class="view-btn" onclick="event.stopPropagation();go('bodyvision')">View Profile &#x2192;</a></div>
+            <div class="brand-foot"><span class="brand-tag">GYROTONIC&#xAE; &middot; Pilates &middot; Wellness</span><a href="/body-vision-studio" class="view-btn" onclick="event.stopPropagation();go('bodyvision')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2306,8 +2315,8 @@ setTimeout(trackPageview,800);
       <div style="font-size:32px;font-weight:900;color:var(--text2);margin-bottom:10px;text-transform:uppercase;">Claim Your Profile</div>
       <p style="font-size:13px;color:var(--muted);margin-bottom:22px;max-width:380px;margin-left:auto;margin-right:auto;">Unlock your full profile and start driving real customers from Cape Town's most curated street guide.</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn btn-gold" onclick="go('listed')">Get Listed Now</a>
-        <a class="btn btn-outline" onclick="go('listed')">Get Listed</a>
+        <a href="/get-listed" class="btn btn-gold" onclick="go('listed')">Get Listed Now</a>
+        <a href="/get-listed" class="btn btn-outline" onclick="go('listed')">Get Listed</a>
       </div>
     </div>
   </section>
@@ -3549,8 +3558,8 @@ setTimeout(trackPageview,800);
     <div style="background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.15);padding:22px 28px;border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
       <div><div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:4px;">Want to upgrade your package?</div><div style="font-size:12px;color:var(--muted);">Growth plan — 2 spots remaining this month.</div></div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn btn-gold" style="padding:10px 20px;" onclick="go('listed')">Upgrade Package</a>
-        <a class="btn btn-outline" style="padding:10px 20px;" onclick="go('listed')">Contact Team</a>
+        <a href="/get-listed" class="btn btn-gold" style="padding:10px 20px;" onclick="go('listed')">Upgrade Package</a>
+        <a href="/get-listed" class="btn btn-outline" style="padding:10px 20px;" onclick="go('listed')">Contact Team</a>
       </div>
     </div>
   </section>
@@ -3622,7 +3631,7 @@ setTimeout(trackPageview,800);
         <div class="sp-eft-row"><span>Amount</span><span>R199.00</span></div>
       </div>
       <div style="text-align:center;margin-top:20px;">
-        <a class="btn btn-gold" onclick="go('streetpass')" style="display:inline-block;">Go to Dashboard</a>
+        <a href="/streetpass" class="btn btn-gold" onclick="go('streetpass')" style="display:inline-block;">Go to Dashboard</a>
       </div>
     </div>
   </div>
@@ -3685,27 +3694,27 @@ setTimeout(trackPageview,800);
       <div class="badge">✓ Verified Platform</div>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
+      <h3>Explore</h3>
       <ul>
-        <li><a onclick="go('brands')">All Businesses</a></li>
-        <li><a onclick="go('explore')">By Category</a></li>
-        <li><a onclick="go('on-safari')">On Safari</a></li>
-        <li><a onclick="go('ubuntu')">Ubuntu Wellness</a></li>
+        <li><a href="/directory" onclick="go('brands')">All Businesses</a></li>
+        <li><a href="/explore" onclick="go('explore')">By Category</a></li>
+        <li><a href="/on-safari" onclick="go('on-safari')">On Safari</a></li>
+        <li><a href="/ubuntu-wellness" onclick="go('ubuntu')">Ubuntu Wellness</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Platform</h4>
+      <h3>Platform</h3>
       <ul>
-        <li><a onclick="go('ai')">AI Concierge</a></li>
-        <li><a onclick="go('listed')">Get Listed</a></li>
-        <li><a onclick="go('listed')">Get Listed</a></li>
-        <li><a onclick="go('about')">About Us</a></li>
-        <li><a onclick="go('about')">Press &amp; Accolades</a></li>
-        <li><a onclick="go('dash')">Dashboard</a></li>
+        <li><a href="/ai-concierge" onclick="go('ai')">AI Concierge</a></li>
+        <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
+        <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
+        <li><a href="/about" onclick="go('about')">About Us</a></li>
+        <li><a href="/about" onclick="go('about')">Press &amp; Accolades</a></li>
+        <li><a href="/dashboard" onclick="go('dash')">Dashboard</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Business Hustle</h4>
+      <h3>Business Hustle</h3>
       <ul>
         <li><a href="https://businesshustle.co.za" target="_blank">businesshustle.co.za</a></li>
         <li><a href="https://www.hustleportal.online/" target="_blank">BH Platform</a></li>
