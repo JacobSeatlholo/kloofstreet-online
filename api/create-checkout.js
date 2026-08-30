@@ -5,7 +5,7 @@ module.exports = async function handler(req, res) {
   const YOCO_KEY = process.env.YOCO_SECRET_KEY;
   if (!YOCO_KEY) return res.status(500).json({ error: 'YOCO_SECRET_KEY not configured' });
   try {
-    const yocoRes = await fetch('https://online.yoco.com/v1/checkouts', {
+    const yocoRes = await fetch('https://payments.yoco.com/api/checkouts', {
       method: 'POST',
       headers: { 'Authorization': 'Bearer ' + YOCO_KEY, 'Content-Type': 'application/json' },
       body: JSON.stringify({
