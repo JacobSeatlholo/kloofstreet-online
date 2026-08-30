@@ -2,7 +2,8 @@
   "framework": null,
   "buildCommand": "",
   "outputDirectory": ".",
-  "afterFiles": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
