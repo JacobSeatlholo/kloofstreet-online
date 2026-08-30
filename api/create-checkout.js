@@ -15,13 +15,8 @@ module.exports = async function handler(req, res) {
         metadata: { user_id: userId, email: email, name: displayName || '' }
       })
     });
-    const text = await yocoRes.text();
-    if (!yocoRes.ok) return res.status(502).json({ error: 'Yoco API error', status: yocoRes.status, body: text.substring(0, 500) });
-    let data;
-    try { data = JSON.parse(text); } catch(e) {
-      return res.status(502).json({ error: 'Yoco returned non-JSON', body: text.substring(0, 500) });
-    }
-    // Return full Yoco response to find correct redirect URL field
-    res.status(200).json({ yocoResponse: data, checkoutUrl: data.redirect_url || data.url || data.redirectUrl || data.checkoutUrl || data._links?.redirect?.href || '' });
+    const data = await yocoRes.json();
+    if (!yocoRes.ok) return res.status(502).json({ error: 'Yoco API error', details: data });
+    res.status(200).json({ checkoutUrl: data.redirectUrl });
   } catch (e) { res.status(500).json({ error: e.message }); }
 };
