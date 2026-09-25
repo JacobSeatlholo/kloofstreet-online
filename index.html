@@ -3473,12 +3473,13 @@ setTimeout(trackPageview,800);
       <div>
         <div class="sec-tag">AI Concierge</div>
         <div class="sec-title">Your Kloof Street Insider</div>
-        <p class="sec-desc">Discover where to eat, what's on, and how to spend the perfect afternoon — powered by real-time local intelligence.</p>
+        <p class="sec-desc">Powered by Gemini AI — real answers about every listed business, current promos, Street Pass benefits, and custom itineraries. Only recommends verified Kloof Street businesses.</p>
         <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
-          <div class="perk">Real-time dining and event recommendations</div>
-          <div class="perk">Custom afternoon itineraries</div>
-          <div class="perk">Hidden gems and local favourites</div>
-          <div class="perk">Budget-aware suggestions</div>
+          <div class="perk">Real-time AI answers from Gemini</div>
+          <div class="perk">Only verified Kloof Street businesses</div>
+          <div class="perk">Current promos &amp; Street Pass benefits</div>
+          <div class="perk">Custom itineraries &amp; booking links</div>
+          <div class="perk">Time-aware suggestions</div>
         </div>
       </div>
       <div class="chat-box">
@@ -3487,13 +3488,8 @@ setTimeout(trackPageview,800);
           <div><div class="chat-name">Kloof Street AI</div><div class="chat-status">Active now · Knows the street</div></div>
         </div>
         <div class="chat-msgs" id="chatMsgs">
-          <div class="msg msg-ai">Hey! I know Kloof Street inside out. Ask me anything — where to eat, what's on, or plan your perfect afternoon 😊</div>
-          <div class="chat-prompts">
-            <button class="cprompt" onclick="sendChat('Dinner tonight under R300?')">Dinner tonight under R300?</button>
-            <button class="cprompt" onclick="sendChat('Art exhibitions to visit?')">Art exhibitions to visit?</button>
-            <button class="cprompt" onclick="sendChat('Full wellness day?')">Full wellness day?</button>
-            <button class="cprompt" onclick="sendChat('Plan my perfect afternoon')">Plan my perfect afternoon</button>
-          </div>
+          <div class="msg msg-ai">Hey! I know every business on Kloof Street inside out. Ask me about treatments, art, wellness days, or plan your perfect visit 😊</div>
+          <!-- Smart prompts injected by JS on load -->
         </div>
         <div class="chat-in-row">
           <input class="chat-in" id="chatIn" placeholder="Ask about Kloof Street…" onkeydown="if(event.key==='Enter')sendChat()">
@@ -3938,15 +3934,117 @@ function setVibe(v) {
   document.getElementById('vibeOpts').classList.remove('show');
 }
 
-// ── AI CHAT ──
-var replies = {
-  'Dinner tonight under R300?': 'For under R300, I\'d head to Rick\'s Cafe (103 Kloof St) — warm vibes, solid mains under R200. Our Local at 117 is also great value. Want a full evening plan? 🍽️',
-  'Art exhibitions to visit?': '🎨 Two great spots right now:\n\nOn Safari (99B Kloof St) — wildlife photographic fine art. Free to browse, prints to purchase. Street Pass = 10% off.\n\nAKJP Studio (73 Kloof) — contemporary architecture and design.\n\nWant an afternoon itinerary?',
-  'Full wellness day?': '🧘 Ubuntu Wellness is your answer.\n\nFloat therapy session (60-90 mins), followed by a spa treatment and homeopathy consult.\n\nStreet Pass = 10% off all treatments + priority booking.\n\nBudget: R400-800 depending on treatments. Want the full day plan?',
-  'Plan my perfect afternoon': '☕ 2pm — Coffee on Kloof\n🎨 3pm — On Safari studio (99B) — free entry, fine art prints\n✏️ 4pm — AKJP Studio (73 Kloof)\n🧘 5:30pm — Ubuntu Wellness float session\n🍽️ 7:30pm — Dinner at any of 15+ restaurants on the street\n\nTotal: R400-700. Adjust for budget? 😊'
-};
+// ── AI CHAT (Gemini-powered) ──
+var aiHistory = [];
+var aiLoading = false;
+
+// Detect Street Pass holder
+function isStreetPassHolder() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('paid') === '1') return true;
+  try { return localStorage.getItem('sp_status') === 'active'; } catch(e) { return false; }
+}
+
+// Time-aware prompt suggestions
+function getSmartPrompts() {
+  var h = new Date().getHours();
+  var month = new Date().getMonth(); // 0-11
+  var prompts;
+  if (h >= 5 && h < 11) {
+    prompts = [
+      { text: 'Morning wellness session?', icon: '🧘' },
+      { text: 'What opens early on Kloof?', icon: '🕘' },
+      { text: 'Art gallery open now?', icon: '🎨' },
+      { text: 'Plan my morning on Kloof', icon: '✨' }
+    ];
+  } else if (h >= 11 && h < 15) {
+    prompts = [
+      { text: 'Best spa treatment today?', icon: '💆' },
+      { text: 'Art exhibitions to visit?', icon: '🎨' },
+      { text: 'Full wellness day?', icon: '🧘' },
+      { text: 'What can I do this afternoon?', icon: '☀️' }
+    ];
+  } else if (h >= 15 && h < 19) {
+    prompts = [
+      { text: 'Afternoon float session?', icon: '🌊' },
+      { text: 'Quick beauty treatment?', icon: '✨' },
+      { text: 'GYROTONIC session today?', icon: '🤸' },
+      { text: 'Plan my perfect afternoon', icon: '📋' }
+    ];
+  } else {
+    prompts = [
+      { text: 'Late appointment available?', icon: '🌙' },
+      { text: 'What can I book for tomorrow?', icon: '📅' },
+      { text: 'Street Pass benefits?', icon: '🎟️' },
+      { text: 'September promos on Kloof?', icon: '🔥' }
+    ];
+  }
+  // Add seasonal prompt if September
+  if (month === 8) { // September
+    prompts[3] = { text: 'September promos on Kloof?', icon: '🔥' };
+  }
+  // Street Pass holder gets a tailored prompt
+  if (isStreetPassHolder()) {
+    prompts[0] = { text: 'My Street Pass benefits?', icon: '🎟️' };
+  }
+  return prompts;
+}
+
+// Render smart prompts into chat
+function renderSmartPrompts() {
+  var msgs = document.getElementById('chatMsgs');
+  var existing = msgs.querySelector('.chat-prompts');
+  if (existing) existing.remove();
+  var prompts = getSmartPrompts();
+  var container = document.createElement('div');
+  container.className = 'chat-prompts';
+  prompts.forEach(function(p) {
+    var btn = document.createElement('button');
+    btn.className = 'cprompt';
+    btn.textContent = p.icon + ' ' + p.text;
+    btn.onclick = function() { sendChat(p.text); };
+    container.appendChild(btn);
+  });
+  msgs.appendChild(container);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+// Convert markdown-like text to HTML with clickable links
+function formatAiReply(text) {
+  // Convert markdown bold **text** → <strong>
+  var html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Convert kloofstreet.online links → clickable
+  html = html.replace(/https:\/\/kloofstreet\.online\/([^\s<,\)]+)/g, function(match, slug) {
+    var names = {
+      '/ubuntu-wellness': 'Ubuntu Wellness',
+      '/on-safari': 'On Safari',
+      '/postnet-gardens': 'PostNet Gardens',
+      '/dr-wendy-dicks': 'Dr Wendy Dicks',
+      '/dr-thomas-jahn': 'Dr Thomas Jahn',
+      '/trudy-christians': 'Trudy Christians',
+      '/just-hearing': 'Just Hearing',
+      '/dr-dale-geoffreys': 'Dr Dale Geoffreys',
+      '/hayley-schuter': 'Hayley Schuter',
+      '/body-vision-studio': 'Body Vision Studio',
+      '/revive-studio': 'Revive Studio',
+      '/streetpass/join': 'Join Street Pass'
+    };
+    var label = names['/' + slug] || slug;
+    return '<a href="/' + slug + '" onclick="event.preventDefault();go(\'' + slug.replace('/','') + '\')" style="color:var(--a);text-decoration:underline;font-weight:600;">' + label + '</a>';
+  });
+  // Convert WhatsApp links → clickable
+  html = html.replace(/https:\/\/wa\.me\/(\d+)(\?[^\s<]*)?/g, function(match, num, params) {
+    return '<a href="' + match + '" target="_blank" style="color:var(--a);text-decoration:underline;font-weight:600;">WhatsApp ' + num + '</a>';
+  });
+  // Convert bare phone numbers → clickable
+  html = html.replace(/(0\d{2}\s\d{3}\s\d{4})/g, '<a href="tel:+27$1" style="color:var(--a);text-decoration:underline;">$1</a>');
+  // Convert newlines to <br>
+  html = html.replace(/\n/g, '<br>');
+  return html;
+}
 
 function sendChat(preset) {
+  if (aiLoading) return;
   var input = document.getElementById('chatIn');
   var text = preset || input.value.trim();
   if (!text) return;
@@ -3955,26 +4053,63 @@ function sendChat(preset) {
   var prompts = msgs.querySelector('.chat-prompts');
   if (prompts) prompts.remove();
 
+  // Add user message
   var ub = document.createElement('div');
   ub.className = 'msg msg-user';
   ub.textContent = text;
   msgs.appendChild(ub);
 
+  // Store in history
+  aiHistory.push({ role: 'user', content: text });
+
+  // Show typing indicator
   var typing = document.createElement('div');
   typing.className = 'msg msg-ai';
   typing.innerHTML = '<span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>';
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
+  aiLoading = true;
 
-  setTimeout(function() {
+  // Call Gemini API
+  fetch('/api/ai-chat', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message: text,
+      history: aiHistory.slice(0, -1), // send previous turns only
+      isStreetPassHolder: isStreetPassHolder()
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
     typing.remove();
+    aiLoading = false;
     var ab = document.createElement('div');
     ab.className = 'msg msg-ai';
-    ab.textContent = replies[text] || 'Great question! On Safari has fine art on show and Ubuntu Wellness has float sessions available. Tell me more about what you\'re after and I\'ll build a full plan. 😊';
+    if (data.error) {
+      ab.textContent = 'I\'m having trouble connecting — try again in a moment. 😔';
+    } else {
+      ab.innerHTML = formatAiReply(data.reply);
+      aiHistory.push({ role: 'model', content: data.reply });
+    }
+    msgs.appendChild(ab);
+    // Show follow-up prompts after AI reply
+    setTimeout(renderSmartPrompts, 600);
+    msgs.scrollTop = msgs.scrollHeight;
+  })
+  .catch(function(err) {
+    typing.remove();
+    aiLoading = false;
+    var ab = document.createElement('div');
+    ab.className = 'msg msg-ai';
+    ab.textContent = 'Connection issue — please try again. 😔';
     msgs.appendChild(ab);
     msgs.scrollTop = msgs.scrollHeight;
-  }, 1200);
+  });
 }
+
+// Initialise smart prompts on page load
+setTimeout(renderSmartPrompts, 100);
 
 // ── FORM ──
 function showToast(msg) {
