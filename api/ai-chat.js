@@ -145,7 +145,7 @@ Kloof Street runs through Gardens/Tamboerskloof in Cape Town's City Bowl. It was
 
   // ── CALL GEMINI API ──
   // Try multiple models + API versions until one works
-  const MODELS = ['gemini-2.5-flash', 'gemini-2.5-flash-lite', 'gemini-flash-latest', 'gemini-pro-latest', 'gemini-2.5-pro'];
+  const MODELS = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.6-flash', 'gemini-3.7-flash', 'gemini-3.8-flash', 'gemini-2.5-flash'];
   const VERSIONS = ['v1beta', 'v1'];
 
   const requestBody = {
