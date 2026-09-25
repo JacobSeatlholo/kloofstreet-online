@@ -4087,7 +4087,15 @@ function sendChat(preset) {
     var ab = document.createElement('div');
     ab.className = 'msg msg-ai';
     if (data.error) {
-      ab.textContent = 'I\'m having trouble connecting — try again in a moment. 😔';
+      var errText = data.detail || data.error;
+      // Don't show raw JSON errors to users — give friendly messages
+      if (errText && errText.indexOf('API key') !== -1) {
+        ab.textContent = 'API key issue — check that GEMINI_API_KEY is set correctly in Vercel and redeploy. 🔑';
+      } else if (errText && errText.indexOf('All Gemini') !== -1) {
+        ab.textContent = 'Could not connect to Gemini AI — verify your API key at aistudio.google.com and redeploy Vercel. 🔧';
+      } else {
+        ab.textContent = 'I\'m having trouble connecting — try again in a moment. 😔';
+      }
     } else {
       ab.innerHTML = formatAiReply(data.reply);
       aiHistory.push({ role: 'model', content: data.reply });
