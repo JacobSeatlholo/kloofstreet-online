@@ -4720,11 +4720,21 @@ function spLoadRewards() {
         '<div style="margin-top:20px;"><a class="btn btn-gold" onclick="go(\x27streetpass-signup\x27)" style="display:inline-block;">Sign In</a></div></div>';
       return;
     }
-    spClient().from('rewards').select('*').eq('active', true).order('sort_order').then(function(r) {
-      var rewards = r.data || [];
-      return spClient().from('redemptions').select('id,code,status,expires_at,points_used,reward:rewards(name,partner_id)').eq('member_id', profile.id).in('status', ['pending','confirmed']).order('created_at', {ascending:false}).then(function(redR) {
-        spRenderRewards(profile, rewards, redR.data || []);
-      });
+    // Hardcoded Kloof Street rewards (always available to active members)
+    var rewards = [
+      { id: 'r-bv', name: '10% Off Pilates & GYROTONIC', description: '10% discount on all bookings at Body Vision Studio — private sessions, semi-private and Pilates mat classes with Kim Tucker.', partner_id: 'bodyvision', points_required: 0, max_per_month: 0, sort_order: 1 },
+      { id: 'r-uw', name: 'The Wellness Morning — R1,550', description: 'Float & Massage combo + R300 Arnold\'s brunch voucher at Ubuntu Wellness. The signature half-day Kloof Street Experience.', partner_id: 'ubuntu', points_required: 0, max_per_month: 0, sort_order: 2 },
+      { id: 'r-dw', name: 'Priority Booking', description: 'Skip the queue — priority booking for GP consults, weight loss and GLP-1 treatments with Dr Wendy Dicks.', partner_id: 'dr-wendy', points_required: 0, max_per_month: 0, sort_order: 3 },
+      { id: 'r-jh', name: 'Priority Booking', description: 'Priority booking for hearing assessments, hearing aids and tinnitus management at Just Hearing.', partner_id: 'just-hearing', points_required: 0, max_per_month: 0, sort_order: 4 },
+      { id: 'r-dt', name: 'Priority Booking', description: 'Priority booking for acupuncture, cupping, Qigong and Chinese medicine consults with Dr Thomas Jahn.', partner_id: 'dr-thomas', points_required: 0, max_per_month: 0, sort_order: 5 },
+      { id: 'r-tc', name: 'Priority Booking + 5% Off', description: 'Priority booking plus an additional 5% off all September promo treatments with Trudy Christians at Cape Town Medi-Spa.', partner_id: 'trudy', points_required: 0, max_per_month: 0, sort_order: 6 },
+      { id: 'r-pn', name: '10% Off Printing & Shipping', description: '10% discount on printing and shipping at PostNet Gardens — 55 Kloof Street. Stack with Street Pass Art & Aperitivo framing discount.', partner_id: 'postnet', points_required: 0, max_per_month: 0, sort_order: 7 },
+      { id: 'r-os', name: 'The Collector\'s Tour — R1,850', description: 'On Safari print + lunch at Arnold\'s + 30-min massage at Ubuntu Wellness. Plus free framing with each picture from On Safari Photography.', partner_id: 'on-safari', points_required: 0, max_per_month: 0, sort_order: 8 }
+    ];
+    spClient().from('redemptions').select('id,code,status,expires_at,points_used,reward:rewards(name,partner_id)').eq('member_id', profile.id).in('status', ['pending','confirmed']).order('created_at', {ascending:false}).then(function(redR) {
+      spRenderRewards(profile, rewards, redR.data || []);
+    }).catch(function() {
+      spRenderRewards(profile, rewards, []);
     });
   });
 }
@@ -4744,18 +4754,21 @@ function spRenderRewards(profile, rewards, redemptions) {
     var canAfford = points >= reward.points_required;
     var partnerName = '';
     if (reward.partner_id) {
-      var names = {'on-safari':'On Safari','ubuntu':'Ubuntu Wellness','dr-wendy':'Dr Wendy Dicks','trudy':'Trudy Christians','revive':'Revive Studio'};
+      var names = {'on-safari':'On Safari Photography','ubuntu':'Ubuntu Wellness','dr-wendy':'Dr Wendy Dicks','trudy':'Trudy Christians','revive':'Revive Studio','bodyvision':'Body Vision Studio','just-hearing':'Just Hearing','dr-thomas':'Dr Thomas Jahn','postnet':'PostNet Gardens','dr-dale':'Dr Dale Geoffreys','hayley':'Hayley Schuter Physio'};
       partnerName = names[reward.partner_id] || reward.partner_id;
     }
-    html += '<div class="sp-reward-card' + (canAfford ? '' : ' locked') + '">' +
+    html += '<div class="sp-reward-card">' +
       '<div class="sp-reward-name">' + escHtml(reward.name) + '</div>' +
       '<div class="sp-reward-desc">' + escHtml(reward.description) + '</div>' +
       (partnerName ? '<div class="sp-reward-partner">' + escHtml(partnerName) + '</div>' : '') +
-      '<div class="sp-reward-foot"><div class="sp-reward-cost"><b>' + reward.points_required + '</b> pts' +
+      '<div class="sp-reward-foot"><div class="sp-reward-cost">' + (reward.points_required > 0 ? '<b>' + reward.points_required + '</b> pts' : '<b style="color:var(--green);">Free</b>') +
       (reward.max_per_month > 0 ? ' &middot; max ' + reward.max_per_month + '/mo' : '') + '</div>' +
-      '<button class="sp-reward-btn' + (canAfford ? '' : ' ghost') + '"' +
-      (canAfford ? ' onclick="spRedeemReward(\x27' + reward.id + '\x27)"' : ' disabled') +
-      '>' + (canAfford ? 'Redeem' : 'Not enough') + '</button></div></div>';
+      (reward.points_required > 0 ?
+        '<button class="sp-reward-btn' + (canAfford ? '' : ' ghost') + '"' +
+        (canAfford ? ' onclick="spRedeemReward(\x27' + reward.id + '\x27)"' : ' disabled') +
+        '>' + (canAfford ? 'Redeem' : 'Not enough') + '</button>' :
+        '<span style="font-size:10px;color:var(--green);font-weight:700;letter-spacing:.08em;text-transform:uppercase;">&#x2713; Active</span>') +
+      '</div></div>';
   });
   html += '</div>';
 
