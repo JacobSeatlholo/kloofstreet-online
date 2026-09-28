@@ -1757,7 +1757,7 @@ nav{z-index:200;}
       "name": "Body Vision Studio",
       "url": "https://www.bodyvision.online",
       "telephone": "+27824572118",
-      "description": "GYROTONIC and GYROKINESIS private studio by certified instructor Kim Tucker at Lifestyle Centre, 50 Kloof Street. Private and semi-private movement sessions, Pilates, seniors programme and injury rehabilitation. 10% discount for Street Pass holders.",
+      "description": "GYROTONIC and GYROKINESIS private studio by certified instructor Kim Tucker at Lifestyle Centre, 50 Kloof Street. Private and semi-private movement sessions, Pilates, seniors programme and injury rehabilitation. Free 30-minute intro session.",
       "review": {
         "@type": "Review",
         "author": {
@@ -1792,23 +1792,7 @@ nav{z-index:200;}
   <script defer data-domain="kloofstreet.online" src="https://plausible-production-63a6.up.railway.app/js/script.js"></script>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@lumaai/luma-web@0.2.0/dist/library/luma-web.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-<script>
-// ══════════════════════════════════════════════════════════════
-// STREET PASS CONFIG — EDIT THIS FILE WITH YOUR SUPABASE KEYS
-// ══════════════════════════════════════════════════════════════
-// This file is SEPARATE from index.html so your keys survive
-// any future code updates. Only edit the two values below.
-//
-// Find your keys in Supabase Dashboard > Settings > API:
-//   Project URL  = the one starting with https://
-//   Anon Public = the long string starting with eyJ...
-// ══════════════════════════════════════════════════════════════
-
-var SP_CONFIG = {
-  url: 'https://uzzoykmbadxriycvxycy.supabase.co',
-  anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6em95a21iYWR4cml5Y3Z4eWN5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODYxMDI1MzcsImV4cCI6MjEwMTY3ODUzN30.yZ79yqTu6IS8Wgmy289BzqG9JXsKpv1XROjAlXL8dvI'
-};
-</script><script>
+<script src="streetpass-config.js"></script><script>
 if(typeof supabase!=="undefined"&&typeof SP_CONFIG!=="undefined"){window._supabase=supabase.createClient(SP_CONFIG.url,SP_CONFIG.anonKey);}
 </script><script>
 // ══ PAGEVIEW TRACKING ══
@@ -1841,7 +1825,7 @@ setTimeout(trackPageview,800);
 <h2>Book Appointments and Services on Kloof Street</h2>
 <p>Book Dr Wendy Dicks allergy GP appointment 021 111 0572 allergycapetown.co.za. Book Ubuntu Wellness spa float therapy 082 929 2544 ubuntuwellness.com. Book Just Hearing hearing assessment 99B Kloof Street. Book Dr Thomas Jahn acupuncture appointment 066 490 4382 Thursdays Kloof Street. Book Trudy Christians laser treatments 99B Kloof Street. Contact PostNet Gardens printing courier 021 422 1248 55 Kloof Street. Contact On Safari fine art photography on-safari.co.za 99B Kloof Street.</p>
 <h2>KloofStreet.online Street Pass Membership</h2>
-<p>Street Pass is a social membership for Kloof Street, Cape Town. Three tiers: Explorer R199/month (discounts at all verified partners, WhatsApp flash deals, Member Night invitations, AI concierge access), Insider R499/month (all Explorer benefits plus bookable Kloof Street Experiences including The Wellness Morning R1550, The Art and Aperitivo (Street Pass Exclusive), The Kloof Beauty Day R2850, The Collectors Tour R1850), Collector R999/month (two included experiences per month, bespoke concierge, On Safari Collectors Tour, Dr Dale Geoffreys priority consultation, cruise shore excursion priority booking). Member Nights are monthly curated evening events at partner venues for Street Pass members.</p>
+<p>Street Pass is a social membership for Kloof Street, Cape Town. Three tiers: Explorer R199/month (discounts at all verified partners, WhatsApp flash deals, Member Night invitations, AI concierge access), Insider R499/month (all Explorer benefits plus bookable Kloof Street Experiences including The Wellness Morning R850, The Art and Aperitivo R650, The Kloof Beauty Day R1200, The Collectors Tour R1500), Collector R999/month (two included experiences per month, bespoke concierge, On Safari Collectors Tour, Dr Dale Geoffreys priority consultation, cruise shore excursion priority booking). Member Nights are monthly curated evening events at partner venues for Street Pass members.</p>
 </div>
 <!-- NAV -->
 <nav id="mainNav">
@@ -1971,7 +1955,7 @@ setTimeout(trackPageview,800);
             <div style="font-size:56px;font-weight:900;color:var(--text2);line-height:1;margin-bottom:4px;">R199</div>
             <div style="font-size:13px;color:var(--muted);margin-bottom:24px;">per month &nbsp;&middot;&nbsp; cancel anytime</div>
             <a class="btn btn-gold" href="https://wa.me/27744815163?text=Hi%20Business%20Hustle%2C%20I%27d%20like%20to%20join%20the%20Kloof%20Street%20Pass%20please." target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Join via WhatsApp</a>
-            <a href="/streetpass/join" class="btn btn-outline" onclick="go('streetpass-signup')" style="display:block;text-align:center;font-size:12px;">Join Online</a>
+            <a href="/get-listed" class="btn btn-outline" onclick="go('listed')" style="display:block;text-align:center;font-size:12px;">Apply Online</a>
             <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--bdr);font-size:10px;color:var(--muted);line-height:2;">
               &#x2713; No lock-in contract<br>
               &#x2713; Cancel anytime<br>
@@ -2013,26 +1997,26 @@ setTimeout(trackPageview,800);
             <div class="pass-exp">
               <div class="pass-exp-icon">&#x1F9D8;</div>
               <div class="pass-exp-name">The Wellness Morning</div>
-              <div class="pass-exp-detail">Float &amp; Massage combo &#x2192; brunch voucher at Arnold&#x27;s</div>
-              <div class="pass-exp-price">R1,550 / person</div>
+              <div class="pass-exp-detail">Qigong with Dr Thomas &#x2192; Ubuntu float or massage &#x2192; brunch</div>
+              <div class="pass-exp-price">R1,800 / person</div>
             </div>
             <div class="pass-exp">
               <div class="pass-exp-icon">&#x1F5BC;&#xFE0F;</div>
               <div class="pass-exp-name">The Art &amp; Aperitivo</div>
-              <div class="pass-exp-detail">Free framing with each picture from On Safari Photography &#x2192; discount on shipping at PostNet for Street Pass holders</div>
-              <div class="pass-exp-price">Street Pass Exclusive</div>
+              <div class="pass-exp-detail">Private gallery tour with Nigel at On Safari &#x2192; sunset cocktails</div>
+              <div class="pass-exp-price">R1,250 / person</div>
             </div>
             <div class="pass-exp">
               <div class="pass-exp-icon">&#x2728;</div>
               <div class="pass-exp-name">The Kloof Beauty Day</div>
-              <div class="pass-exp-detail">Revive Studio &#x2192; Trudy Christians voucher &#x2192; premium beauty experience</div>
-              <div class="pass-exp-price">R2,850 / person</div>
+              <div class="pass-exp-detail">Revive Studio massage &#x2192; Trudy Christians treatment &#x2192; Dr Dale consult</div>
+              <div class="pass-exp-price">R2,250 / person</div>
             </div>
             <div class="pass-exp">
               <div class="pass-exp-icon">&#x1F6A2;</div>
               <div class="pass-exp-name">The Collector&#x27;s Tour</div>
-              <div class="pass-exp-detail">On Safari print &#x2192; lunch at Arnold&#x27;s &#x2192; 30-min massage at Ubuntu Wellness</div>
-              <div class="pass-exp-price">R1,850 / person</div>
+              <div class="pass-exp-detail">On Safari print session &#x2192; street art walk &#x2192; champagne close</div>
+              <div class="pass-exp-price">R2,100 / person</div>
             </div>
           </div>
           <p style="font-size:11px;color:var(--muted);margin-top:12px;line-height:1.6;">&#x2139;&#xFE0F; To book an Experience, WhatsApp us on <a href="https://wa.me/27744815163" target="_blank" style="color:var(--a);">+27 74 481 5163</a> or <a href="mailto:team@businesshustle.co.za" style="color:var(--a);">email us</a>.</p>
@@ -2045,7 +2029,7 @@ setTimeout(trackPageview,800);
         <div style="font-size:42px;font-weight:900;color:var(--text2);line-height:1;">R199</div>
         <div style="font-size:12px;color:var(--muted);margin-bottom:20px;">/month</div>
         <a class="btn btn-gold" href="https://wa.me/27744815163?text=Hi%20Business%20Hustle%2C%20I%27d%20like%20to%20join%20the%20Kloof%20Street%20Pass%20please." target="_blank" style="display:block;margin-bottom:10px;">&#x1F4AC; Join via WhatsApp</a>
-        <a href="/streetpass/join" class="btn btn-outline" onclick="go('streetpass-signup')" style="display:block;margin-bottom:20px;">Join Online</a>
+        <a href="/get-listed" class="btn btn-outline" onclick="go('listed')" style="display:block;margin-bottom:20px;">Apply Online</a>
         <div style="padding-top:20px;border-top:1px solid var(--bdr);font-size:11px;color:var(--muted);line-height:2;text-align:left;">
           &#x2713; Less than one coffee a week<br>
           &#x2713; Cancel anytime<br>
@@ -2205,8 +2189,22 @@ setTimeout(trackPageview,800);
           <div class="brand-body">
             <div class="brand-cat">&#x1F9D8; GYROTONIC&#xAE; &middot; Movement Therapy &middot; Pilates</div>
             <div class="brand-name">Body Vision Studio</div>
-            <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street. 10% off for Street Pass holders.</div>
+            <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street. Free 30-min intro session.</div>
             <div class="brand-foot"><span class="brand-tag">GYROTONIC&#xAE; &middot; Pilates &middot; Wellness</span><a href="/body-vision-studio" class="view-btn" onclick="event.stopPropagation();go('bodyvision')">View Profile &#x2192;</a></div>
+          </div>
+        </div>
+
+        <div class="brand-card" onclick="go('arnolds')">
+          <div class="brand-img" style="background:linear-gradient(rgba(10,10,11,.3),rgba(10,10,11,.3)),url('https://www.arnolds.co.za/wp-content/uploads/2020/10/About_us1.png') center/cover no-repeat;">
+            <div class="brand-tier tier-g">Growth Partner</div>
+            <div class="open-pill">Open</div>
+            <div class="vibe-bar">Cape Town&rsquo;s iconic restaurant &amp; bar &#x1F37D;</div>
+          </div>
+          <div class="brand-body">
+            <div class="brand-cat">&#x1F37D; Restaurant &middot; Bar &middot; Brunch &middot; Dinner</div>
+            <div class="brand-name">Arnold&rsquo;s Restaurant</div>
+            <div class="brand-sub">Cape Town&rsquo;s celebrated heritage restaurant on Kloof Street. Legendary weekend brunch, fine dining, curated cocktails &amp; warm hospitality since 1999.</div>
+            <div class="brand-foot"><span class="brand-tag">Restaurant &middot; Bar &middot; Brunch</span><a href="/arnolds-restaurant" class="view-btn" onclick="event.stopPropagation();go('arnolds')">View Profile &#x2192;</a></div>
           </div>
         </div>
 
@@ -2249,7 +2247,7 @@ setTimeout(trackPageview,800);
       <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Judd's Local</div><div class="lcard-addr">141 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Stud. The Burger Shop</div><div class="lcard-addr">98 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Toni's on Kloof</div><div class="lcard-addr">88 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
-      <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Arnold's Restaurant</div><div class="lcard-addr">60 Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
+      <div class="lcard" data-cat="dining" onclick="go('arnolds')"><div class="lcard-img lc-dining"><div class="lcard-lock" style="display:none"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Arnold's Restaurant</div><div class="lcard-addr">80 Kloof Street</div><button class="lcard-cta">View Profile →</button></div></div>
       <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Rosedene</div><div class="lcard-addr">28 Upper Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Unframed Ice Cream</div><div class="lcard-addr">45C Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
       <div class="lcard" data-cat="dining" onclick="go('listed')"><div class="lcard-img lc-dining"><div class="lcard-lock"><span>🔒</span><small>Claim Profile</small></div></div><div class="lcard-body"><div class="lcard-name">Zuney Burgers</div><div class="lcard-addr">69A Kloof Street</div><button class="lcard-cta">Get Listed →</button></div></div>
@@ -2749,7 +2747,7 @@ setTimeout(trackPageview,800);
       <!-- MAY PROMO -->
       <div style="margin-bottom:28px;border-radius:var(--r);overflow:hidden;border:2px solid rgba(245,197,24,.4);background:rgba(245,197,24,.04);">
         <div style="background:var(--a);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-          <div style="font-size:12px;font-weight:900;color:#0a0a0b;letter-spacing:.08em;text-transform:uppercase;">&#x1F525; September Special — Valid September 2026 Only</div>
+          <div style="font-size:12px;font-weight:900;color:#0a0a0b;letter-spacing:.08em;text-transform:uppercase;">&#x1F525; July Month Special — Valid July 2026 Only</div>
           <div style="font-size:10px;font-weight:700;color:rgba(0,0,0,.6);text-transform:uppercase;letter-spacing:.06em;">While slots last</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
@@ -2761,10 +2759,10 @@ setTimeout(trackPageview,800);
               <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--bdr);"><span style="font-size:13px;color:var(--text2);font-weight:600;">Sun Spot Hands Removal</span><span style="font-size:14px;font-weight:900;color:var(--a);">R300</span></div>
               <div style="padding-bottom:8px;border-bottom:1px solid var(--bdr);"><span style="font-size:13px;color:var(--text2);font-weight:600;">10% off All Laser Hair Removal &amp; RF Skin Tightening</span></div>
             </div>
-            <a href="https://wa.me/27788324501?text=Hi%20Trudy%2C%20I%27d%20like%20to%20book%20a%20September%20promo%20treatment.%20Please%20let%20me%20know%20your%20availability." target="_blank" class="btn btn-gold" style="margin-top:18px;display:block;text-align:center;">&#x1F4AC; Book September Promo</a>
+            <a href="https://wa.me/27788324501?text=Hi%20Trudy%2C%20I%27d%20like%20to%20book%20a%20July%20promo%20treatment.%20Please%20let%20me%20know%20your%20availability." target="_blank" class="btn btn-gold" style="margin-top:18px;display:block;text-align:center;">&#x1F4AC; Book July Promo</a>
           </div>
           <div style="border-left:1px solid var(--bdr);">
-            <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/127a933f-4b46-4c17-8c5c-e6e0ea674302.jpg" alt="Trudy Christians September 2026 Promo" style="width:100%;height:100%;object-fit:cover;display:block;min-height:220px;" onerror="this.parentElement.style.display='none'">
+            <img src="https://app.businesshustle.co.za/wp-content/uploads/2026/04/127a933f-4b46-4c17-8c5c-e6e0ea674302.jpg" alt="Trudy Christians July 2026 Promo" style="width:100%;height:100%;object-fit:cover;display:block;min-height:220px;" onerror="this.parentElement.style.display='none'">
           </div>
         </div>
       </div>
@@ -2805,7 +2803,7 @@ setTimeout(trackPageview,800);
         <div style="background:linear-gradient(135deg,#1a0505,#2a0a0a);padding:16px 22px;">
           <div style="font-size:9px;font-weight:700;color:#ff6b6b;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;">&#x1F7E5; Why Red Light Therapy?</div>
           <div style="font-size:16px;font-weight:800;color:var(--text2);">Top 10 Clinically Proven Benefits</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:3px;">20-minute sessions &mdash; September Special R200</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:3px;">20-minute sessions &mdash; July Special R200</div>
         </div>
         <div style="padding:16px 22px;border-top:1px solid rgba(200,50,50,.2);">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
@@ -2842,8 +2840,8 @@ setTimeout(trackPageview,800);
       </div>
       <div class="info-card" style="border-color:rgba(245,197,24,.4);background:rgba(245,197,24,.06);">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-          <h3 style="margin:0;">&#x1F525; September Specials</h3>
-          <span style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.1em;text-transform:uppercase;">September 2026 Only</span>
+          <h3 style="margin:0;">&#x1F525; July Specials</h3>
+          <span style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.1em;text-transform:uppercase;">July 2026 Only</span>
         </div>
         <div style="font-size:12px;color:var(--muted);line-height:1.9;">
           Nasal Spider Veins Removal <strong style="color:var(--a);">R300</strong><br>
@@ -2851,7 +2849,7 @@ setTimeout(trackPageview,800);
           Sun Spot Hands Removal <strong style="color:var(--a);">R300</strong><br>
           10% off Laser Hair Removal &amp; RF Skin Tightening
         </div>
-        <a href="https://wa.me/27788324501?text=Hi%20Trudy%2C%20I%27d%20like%20to%20book%20a%20September%20promo%20treatment.%20Please%20let%20me%20know%20your%20availability." target="_blank" class="btn btn-gold" style="margin-top:12px;display:block;text-align:center;font-size:11px;">Book September Promo &#x2192;</a>
+        <a href="https://wa.me/27788324501?text=Hi%20Trudy%2C%20I%27d%20like%20to%20book%20a%20July%20promo%20treatment.%20Please%20let%20me%20know%20your%20availability." target="_blank" class="btn btn-gold" style="margin-top:12px;display:block;text-align:center;font-size:11px;">Book July Promo &#x2192;</a>
       </div>
             <!-- GOOGLE REVIEW -->
       <div class="info-card" style="background:var(--bg2);">
@@ -2861,7 +2859,7 @@ setTimeout(trackPageview,800);
       </div>
       <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
         <h3>Street Pass Benefit</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> plus an <strong style="color:var(--a);">additional 5% off</strong> all September promo treatments with Trudy Christians at Cape Town Medi-Spa.</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">priority booking</strong> with Trudy Christians at Cape Town Medi-Spa.</p>
       </div>
       <div class="info-card" style="padding:0;overflow:hidden;">
         <div style="padding:12px 16px;background:var(--bg2);border-bottom:1px solid var(--bdr);font-size:10px;font-weight:700;color:var(--a);letter-spacing:.15em;text-transform:uppercase;">Price List</div>
@@ -3343,6 +3341,90 @@ setTimeout(trackPageview,800);
 
 
 
+<!-- ══════════ ARNOLD'S RESTAURANT ══════════ -->
+<div id="pg-arnolds" class="pg">
+  <div class="biz-hero" style="background:linear-gradient(rgba(10,10,11,.45),rgba(10,10,11,.45)),url('https://www.arnolds.co.za/wp-content/uploads/2020/10/Gallery_Slider9.png') center/cover no-repeat;">
+    <div class="biz-hero-inner">
+      <button class="biz-back" onclick="go('brands')">&#x2190; Back to Directory</button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+        <span class="brand-tier tier-g" style="position:relative;top:auto;left:auto;">Growth Partner</span>
+        <span class="open-pill" style="position:relative;top:auto;right:auto;">Open</span>
+        <span class="badge">&#x2713; Verified</span>
+      </div>
+      <div style="font-size:clamp(28px,4vw,52px);font-weight:900;color:var(--text2);text-transform:uppercase;line-height:1;">Arnold&rsquo;s Restaurant</div>
+      <p style="font-size:14px;color:var(--muted);margin-top:8px;">Restaurant &middot; Bar &middot; Brunch &middot; Dinner &middot; 80 Kloof Street, Gardens, Cape Town</p>
+    </div>
+  </div>
+  <div class="biz-body">
+    <div>
+      <div class="sec-tag" style="margin-bottom:8px;">Restaurant &middot; Bar &middot; Brunch &middot; Heritage Dining</div>
+      <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin-bottom:18px;">Cape Town&rsquo;s Iconic Dining Destination on Kloof Street</h2>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:14px;">Arnold&rsquo;s is one of Cape Town&rsquo;s most celebrated restaurants, housed in a beautiful heritage building on Kloof Street. With a history spanning over two decades, it has earned its place as a must-visit destination for locals and visitors alike &mdash; a place where exceptional food, warm hospitality and timeless atmosphere come together.</p>
+      <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:28px;">From the legendary weekend brunch that draws queues down the block, to elegant evening dining with a menu that showcases the best of South African and international cuisine, Arnold&rsquo;s delivers an experience that is both refined and unmistakably Cape Town. The curated cocktail menu and carefully selected wine list complete the picture.</p>
+      <div class="svc-grid" style="margin-bottom:28px;">
+        <div class="svc"><div class="svc-icon">&#x1F37D;</div><div class="svc-name">Fine Dining</div><div class="svc-desc">South African and international cuisine with seasonal, locally sourced ingredients</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F37A;</div><div class="svc-name">Bar &amp; Cocktails</div><div class="svc-desc">Curated cocktail menu and carefully selected wine list at the bar</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F35E;</div><div class="svc-name">Weekend Brunch</div><div class="svc-desc">Cape Town&rsquo;s legendary brunch &mdash; the one everyone talks about</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F3E0;</div><div class="svc-name">Heritage Venue</div><div class="svc-desc">Beautiful historic building with character, charm and timeless atmosphere</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F381;</div><div class="svc-name">Private Events</div><div class="svc-desc">Venue hire for private dinners, celebrations and corporate functions</div></div>
+        <div class="svc"><div class="svc-icon">&#x1F30D;</div><div class="svc-name">Al Fresco</div><div class="svc-desc">Outdoor seating on Kloof Street &mdash; perfect for people-watching</div></div>
+      </div>
+      <div style="display:flex;gap:12px;margin-bottom:24px;">
+        <img src="https://www.arnolds.co.za/wp-content/uploads/2020/10/About_us1.png" alt="Arnold's Restaurant interior" style="width:50%;border-radius:var(--r);border:1px solid var(--bdr);display:block;object-fit:cover;min-height:200px;" onerror="this.style.display='none'">
+        <img src="https://www.arnolds.co.za/wp-content/uploads/2020/10/Gallery_Slider9.png" alt="Arnold's Restaurant food" style="width:50%;border-radius:var(--r);border:1px solid var(--bdr);display:block;object-fit:cover;min-height:200px;" onerror="this.style.display='none'">
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a class="btn btn-gold" href="https://wa.me/27214245748?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20Arnold%27s.%20Please%20let%20me%20know%20your%20availability." target="_blank">&#x1F4AC; Book a Table</a>
+        <a class="btn btn-outline" href="https://www.arnolds.co.za/wp-content/uploads/2026/09/1-dinner-1_compressed-2.pdf" target="_blank">&#x1F4D6; Dinner Menu</a>
+        <a class="btn btn-outline" href="https://www.arnolds.co.za/wp-content/uploads/2026/09/2-brekkie-lunch-1_compressed.pdf" target="_blank">&#x1F35E; Brekkie &amp; Lunch</a>
+        <a class="btn btn-outline" href="https://arnolds.co.za" target="_blank">Visit Arnold&rsquo;s Online</a>
+      </div>
+    </div>
+    <div>
+      <div class="info-card" style="padding:0;overflow:hidden;">
+        <img src="https://www.arnolds.co.za/wp-content/uploads/2020/10/About_us1.png" alt="Arnold's Restaurant" style="width:100%;display:block;max-height:220px;object-fit:cover;object-position:center;" onerror="this.style.display='none'">
+        <div style="padding:14px 18px;background:rgba(245,197,24,.04);border-top:1px solid rgba(245,197,24,.15);">
+          <div style="font-size:12px;font-weight:700;color:var(--text2);">Arnold&rsquo;s Restaurant</div>
+          <div style="font-size:11px;color:var(--muted);margin-top:2px;">Cape Town&rsquo;s iconic dining destination since 1999</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <h3>Contact &amp; Location</h3>
+        <div class="info-row"><b>&#x1F4CD;</b><span>80 Kloof Street, Gardens<br>Cape Town, 8001</span></div>
+        <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27214245748" style="color:var(--a);">021 424 5748</a></div>
+        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27214245748" target="_blank" style="color:var(--a);">WhatsApp to Book</a></div>
+        <div class="info-row"><b>&#x1F310;</b><a href="https://arnolds.co.za" target="_blank" style="color:var(--a);">arnolds.co.za</a></div>
+      </div>
+      <div class="info-card">
+        <h3>Trading Hours</h3>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Mon &ndash; Thu: 12:00pm &ndash; 10:00pm</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Fri &ndash; Sat: 12:00pm &ndash; 11:00pm</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Sunday Brunch: 10:00am &ndash; 3:00pm</span></div>
+        <div class="info-row"><b>&#x1F4C5;</b><span>Sunday Dinner: 5:00pm &ndash; 9:30pm</span></div>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>&#x1F4D6; Menus</h3>
+        <div class="info-row"><b>&#x1F37D;</b><a href="https://www.arnolds.co.za/wp-content/uploads/2026/09/1-dinner-1_compressed-2.pdf" target="_blank" style="color:var(--a);">Dinner Menu</a></div>
+        <div class="info-row"><b>&#x1F35E;</b><a href="https://www.arnolds.co.za/wp-content/uploads/2026/09/2-brekkie-lunch-1_compressed.pdf" target="_blank" style="color:var(--a);">Brekkie &amp; Lunch Menu</a></div>
+        <div class="info-row"><b>&#x1F37A;</b><a href="https://www.arnolds.co.za/wp-content/uploads/2026/09/3-beverage-1.pdf" target="_blank" style="color:var(--a);">Beverage Menu</a></div>
+        <div class="info-row"><b>&#x1F978;</b><a href="https://www.arnolds.co.za/wp-content/uploads/2026/09/4-cocktails-1.pdf" target="_blank" style="color:var(--a);">Cocktail Menu</a></div>
+        <div class="info-row"><b>&#x1F389;</b><a href="https://www.arnolds.co.za/wp-content/uploads/2026/09/5-happy-hour-.pdf" target="_blank" style="color:var(--a);">Happy Hour Menu</a></div>
+      </div>
+      <div class="info-card" style="background:var(--bg2);">
+        <h3>&#x2B50; Enjoyed your visit?</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:10px;">Reviews help Arnold&rsquo;s get discovered by more people &mdash; on Google and by AI assistants.</p>
+        <a class="btn btn-outline" href="https://www.google.com/search?q=Arnolds+Restaurant+Kloof+Street+Cape+Town+reviews" target="_blank" style="display:block;text-align:center;font-size:12px;">Rate us on Google &#x2197;</a>
+      </div>
+      <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
+        <h3>Street Pass Benefit</h3>
+        <p style="font-size:12px;color:var(--muted);line-height:1.5;">&#x1F3AB; Street Pass holders receive <strong style="color:var(--a);">10% off brunch &amp; dinner</strong> at Arnold&rsquo;s Restaurant, 80 Kloof Street.</p>
+      </div>
+      <a class="btn btn-gold" href="https://wa.me/27214245748?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20Arnold%27s.%20Please%20let%20me%20know%20your%20availability." target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book a Table</a>
+      <a class="btn btn-outline" href="https://arnolds.co.za" target="_blank" style="display:block;text-align:center;">Visit Arnold&rsquo;s Online</a>
+    </div>
+  </div>
+</div>
+
 <!-- ══════════ BODY VISION STUDIO ══════════ -->
 <div id="pg-bodyvision" class="pg">
   <div class="biz-hero" style="background:linear-gradient(rgba(5,5,8,.55),rgba(5,5,8,.55)),url('https://app.businesshustle.co.za/wp-content/uploads/2026/04/Screenshot-2026-04-25-at-08.31.54.png') center/cover no-repeat;">
@@ -3372,8 +3454,8 @@ setTimeout(trackPageview,800);
           <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Certifications</div>
         </div>
         <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
-          <div style="font-size:26px;font-weight:900;color:var(--a);">10% OFF</div>
-          <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">All Bookings</div>
+          <div style="font-size:26px;font-weight:900;color:var(--a);">FREE</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">30-Min Intro</div>
         </div>
         <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
           <div style="font-size:26px;font-weight:900;color:var(--a);">100%</div>
@@ -3411,7 +3493,7 @@ setTimeout(trackPageview,800);
       </div>
 
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20GYROTONIC%C2%AE%20session" target="_blank">&#x1F4AC; Book a Session</a>
+        <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank">&#x1F4AC; Book Free Intro</a>
         <a class="btn btn-outline" href="tel:+27824572118">&#x1F4DE; 082 457 2118</a>
         <a class="btn btn-outline" href="https://www.bodyvision.online/" target="_blank">&#x1F310; bodyvision.online</a>
       </div>
@@ -3433,7 +3515,7 @@ setTimeout(trackPageview,800);
         <h3>Contact &amp; Location</h3>
         <div class="info-row"><b>&#x1F4CD;</b><span>Lifestyle Centre, Level 2<br>50 Kloof Street, Gardens, Cape Town</span></div>
         <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27824572118" style="color:var(--a);">082 457 2118</a></div>
-        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20GYROTONIC%C2%AE%20session" target="_blank" style="color:var(--a);">WhatsApp Kim</a></div>
+        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank" style="color:var(--a);">WhatsApp Kim</a></div>
         <div class="info-row"><b>&#x2709;&#xFE0F;</b><a href="mailto:admin@bodyvision.co.za" style="color:var(--a);">admin@bodyvision.co.za</a></div>
         <div class="info-row"><b>&#x1F310;</b><a href="https://www.bodyvision.online/" target="_blank" style="color:var(--a);">bodyvision.online</a></div>
         <div class="info-row"><b>&#x1F4F7;</b><a href="https://www.instagram.com/capetowngyrotonicstudio" target="_blank" style="color:var(--a);">@capetowngyrotonicstudio</a></div>
@@ -3441,7 +3523,7 @@ setTimeout(trackPageview,800);
 
       <div class="info-card">
         <h3>Sessions &amp; Pricing</h3>
-        <div class="info-row"><b>&#x2B50;</b><span><strong style="color:var(--a);">10% OFF</strong> — All bookings for Street Pass holders</span></div>
+        <div class="info-row"><b>&#x2B50;</b><span><strong style="color:var(--a);">FREE</strong> — Complimentary 30-Min Intro Session</span></div>
         <div class="info-row"><b>&#x1F9D8;</b><span>Private Session — contact for pricing</span></div>
         <div class="info-row"><b>&#x1F46F;</b><span>Semi-Private (2–3) — contact for pricing</span></div>
         <div class="info-row"><b>&#x1F4BB;</b><span>Online Sessions available</span></div>
@@ -3456,10 +3538,10 @@ setTimeout(trackPageview,800);
       </div>
       <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
         <h3>Street Pass Benefit</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.6;">&#x1F3AB; Street Pass members receive <strong style="color:var(--a);">10% off all bookings</strong> with Kim Tucker at Body Vision Studio — private sessions, semi-private and Pilates mat classes.</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;">&#x1F3AB; Street Pass members receive a <strong style="color:var(--a);">complimentary 30-minute GYROTONIC&#xAE; intro session</strong> with Kim Tucker at Body Vision Studio.</p>
       </div>
 
-      <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20GYROTONIC%C2%AE%20session" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book a Session</a>
+      <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book Free Intro Session</a>
       <a class="btn btn-outline" href="tel:+27824572118" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4DE; Call Kim</a>
       <a class="btn btn-outline" href="https://www.bodyvision.online/" target="_blank" style="display:block;text-align:center;">Visit Website</a>
 
@@ -3473,13 +3555,12 @@ setTimeout(trackPageview,800);
       <div>
         <div class="sec-tag">AI Concierge</div>
         <div class="sec-title">Your Kloof Street Insider</div>
-        <p class="sec-desc">Powered by Gemini AI — real answers about every listed business, current promos, Street Pass benefits, and custom itineraries. Only recommends verified Kloof Street businesses.</p>
+        <p class="sec-desc">Discover where to eat, what's on, and how to spend the perfect afternoon — powered by real-time local intelligence.</p>
         <div style="margin-top:28px;display:flex;flex-direction:column;gap:10px;">
-          <div class="perk">Real-time AI answers from Gemini</div>
-          <div class="perk">Only verified Kloof Street businesses</div>
-          <div class="perk">Current promos &amp; Street Pass benefits</div>
-          <div class="perk">Custom itineraries &amp; booking links</div>
-          <div class="perk">Time-aware suggestions</div>
+          <div class="perk">Real-time dining and event recommendations</div>
+          <div class="perk">Custom afternoon itineraries</div>
+          <div class="perk">Hidden gems and local favourites</div>
+          <div class="perk">Budget-aware suggestions</div>
         </div>
       </div>
       <div class="chat-box">
@@ -3488,8 +3569,13 @@ setTimeout(trackPageview,800);
           <div><div class="chat-name">Kloof Street AI</div><div class="chat-status">Active now · Knows the street</div></div>
         </div>
         <div class="chat-msgs" id="chatMsgs">
-          <div class="msg msg-ai">Hey! I know every business on Kloof Street inside out. Ask me about treatments, art, wellness days, or plan your perfect visit 😊</div>
-          <!-- Smart prompts injected by JS on load -->
+          <div class="msg msg-ai">Hey! I know Kloof Street inside out. Ask me anything — where to eat, what's on, or plan your perfect afternoon 😊</div>
+          <div class="chat-prompts">
+            <button class="cprompt" onclick="sendChat('Dinner tonight under R300?')">Dinner tonight under R300?</button>
+            <button class="cprompt" onclick="sendChat('Art exhibitions to visit?')">Art exhibitions to visit?</button>
+            <button class="cprompt" onclick="sendChat('Full wellness day?')">Full wellness day?</button>
+            <button class="cprompt" onclick="sendChat('Plan my perfect afternoon')">Plan my perfect afternoon</button>
+          </div>
         </div>
         <div class="chat-in-row">
           <input class="chat-in" id="chatIn" placeholder="Ask about Kloof Street…" onkeydown="if(event.key==='Enter')sendChat()">
@@ -3631,16 +3717,19 @@ setTimeout(trackPageview,800);
       <div class="sp-signup-success show">
         <div class="sp-signup-success-icon">&#x2705;</div>
         <div class="sp-signup-success-title">Account Created</div>
-        <div class="sp-signup-success-desc">Your Street Pass account is ready. Pay R199 to activate your membership and start earning points at every verified Kloof Street partner.</div>
+        <div class="sp-signup-success-desc">Your Street Pass account is ready. To activate your membership, please make the first payment below. We'll confirm within 24 hours.</div>
       </div>
-      <div style="text-align:center;margin-top:24px;">
-        <button class="btn btn-gold" id="spPayBtn" onclick="spPayNow()" style="padding:14px 40px;font-size:14px;">
-          Pay R199 via Yoco
-        </button>
-        <div id="spPayError" class="sp-signup-error" style="margin-top:12px;"></div>
-        <div style="margin-top:16px;">
-          <a href="#" onclick="go('home')" style="color:var(--muted);font-size:12px;text-decoration:none;">Skip for now &rarr;</a>
-        </div>
+      <div class="sp-eft">
+        <div class="sp-eft-title">EFT Payment Details</div>
+        <div class="sp-eft-row"><span>Bank</span><span>FNB</span></div>
+        <div class="sp-eft-row"><span>Account Name</span><span>Simple Eternity Holdings (Pty) Ltd</span></div>
+        <div class="sp-eft-row"><span>Account Number</span><span>6292 2517 185</span></div>
+        <div class="sp-eft-row"><span>Branch Code</span><span>250655</span></div>
+        <div class="sp-eft-row"><span>Reference</span><span id="spPaymentRef">STREETPASS</span></div>
+        <div class="sp-eft-row"><span>Amount</span><span>R199.00</span></div>
+      </div>
+      <div style="text-align:center;margin-top:20px;">
+        <a href="/streetpass" class="btn btn-gold" onclick="go('streetpass')" style="display:inline-block;">Go to Dashboard</a>
       </div>
     </div>
   </div>
@@ -3714,10 +3803,11 @@ setTimeout(trackPageview,800);
     <div class="footer-col">
       <h3>Platform</h3>
       <ul>
-        <li><a href="/streetpass/join" onclick="go('streetpass-signup')">Street Pass</a></li>
         <li><a href="/ai-concierge" onclick="go('ai')">AI Concierge</a></li>
         <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
+        <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
         <li><a href="/about" onclick="go('about')">About Us</a></li>
+        <li><a href="/about" onclick="go('about')">Press &amp; Accolades</a></li>
         <li><a href="/dashboard" onclick="go('dash')">Dashboard</a></li>
       </ul>
     </div>
@@ -3739,7 +3829,7 @@ setTimeout(trackPageview,800);
 
 <script>
 // ── PAGES ──
-const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem'];
+const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','arnolds','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem'];
 const NAVLINKS = ['home','about','explore','brands','ai'];
 
 // ── URL slug map ──
@@ -3752,7 +3842,7 @@ var SLUG_MAP = {
   'revive':'/revive-studio',
   'dr-dale':'/dr-dale-geoffreys',
   'hayley':'/hayley-schuter-physio',
-  'bodyvision':'/body-vision-studio', 'ai':'/ai-concierge', 'listed':'/get-listed', 'dash':'/dashboard',
+  'bodyvision':'/body-vision-studio', 'arnolds':'/arnolds-restaurant', 'ai':'/ai-concierge', 'listed':'/get-listed', 'dash':'/dashboard',
   'streetpass':'/streetpass','streetpass-signup':'/streetpass/join',
   'streetpass-scan':'/streetpass/scan','streetpass-redeem':'/streetpass/rewards'
 };
@@ -3853,10 +3943,6 @@ function updateMeta(name) {
 (function() {
   var page = routeFromPath();
   if (page !== 'home') { go(page, true); }
-  // Direct-load hook for Street Pass dynamic content
-  if (page === 'streetpass') setTimeout(spLoadDashboard, 200);
-  if (page === 'streetpass-scan') setTimeout(spInitScan, 400);
-  if (page === 'streetpass-redeem') setTimeout(spLoadRewards, 200);
   // Set canonical state for home
   history.replaceState({page: page}, '', window.location.pathname || '/');
 })();
@@ -3934,117 +4020,15 @@ function setVibe(v) {
   document.getElementById('vibeOpts').classList.remove('show');
 }
 
-// ── AI CHAT (Gemini-powered) ──
-var aiHistory = [];
-var aiLoading = false;
-
-// Detect Street Pass holder
-function isStreetPassHolder() {
-  var params = new URLSearchParams(window.location.search);
-  if (params.get('paid') === '1') return true;
-  try { return localStorage.getItem('sp_status') === 'active'; } catch(e) { return false; }
-}
-
-// Time-aware prompt suggestions
-function getSmartPrompts() {
-  var h = new Date().getHours();
-  var month = new Date().getMonth(); // 0-11
-  var prompts;
-  if (h >= 5 && h < 11) {
-    prompts = [
-      { text: 'Morning wellness session?', icon: '🧘' },
-      { text: 'What opens early on Kloof?', icon: '🕘' },
-      { text: 'Art gallery open now?', icon: '🎨' },
-      { text: 'Plan my morning on Kloof', icon: '✨' }
-    ];
-  } else if (h >= 11 && h < 15) {
-    prompts = [
-      { text: 'Best spa treatment today?', icon: '💆' },
-      { text: 'Art exhibitions to visit?', icon: '🎨' },
-      { text: 'Full wellness day?', icon: '🧘' },
-      { text: 'What can I do this afternoon?', icon: '☀️' }
-    ];
-  } else if (h >= 15 && h < 19) {
-    prompts = [
-      { text: 'Afternoon float session?', icon: '🌊' },
-      { text: 'Quick beauty treatment?', icon: '✨' },
-      { text: 'GYROTONIC session today?', icon: '🤸' },
-      { text: 'Plan my perfect afternoon', icon: '📋' }
-    ];
-  } else {
-    prompts = [
-      { text: 'Late appointment available?', icon: '🌙' },
-      { text: 'What can I book for tomorrow?', icon: '📅' },
-      { text: 'Street Pass benefits?', icon: '🎟️' },
-      { text: 'September promos on Kloof?', icon: '🔥' }
-    ];
-  }
-  // Add seasonal prompt if September
-  if (month === 8) { // September
-    prompts[3] = { text: 'September promos on Kloof?', icon: '🔥' };
-  }
-  // Street Pass holder gets a tailored prompt
-  if (isStreetPassHolder()) {
-    prompts[0] = { text: 'My Street Pass benefits?', icon: '🎟️' };
-  }
-  return prompts;
-}
-
-// Render smart prompts into chat
-function renderSmartPrompts() {
-  var msgs = document.getElementById('chatMsgs');
-  var existing = msgs.querySelector('.chat-prompts');
-  if (existing) existing.remove();
-  var prompts = getSmartPrompts();
-  var container = document.createElement('div');
-  container.className = 'chat-prompts';
-  prompts.forEach(function(p) {
-    var btn = document.createElement('button');
-    btn.className = 'cprompt';
-    btn.textContent = p.icon + ' ' + p.text;
-    btn.onclick = function() { sendChat(p.text); };
-    container.appendChild(btn);
-  });
-  msgs.appendChild(container);
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-// Convert markdown-like text to HTML with clickable links
-function formatAiReply(text) {
-  // Convert markdown bold **text** → <strong>
-  var html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  // Convert kloofstreet.online links → clickable
-  html = html.replace(/https:\/\/kloofstreet\.online\/([^\s<,\)]+)/g, function(match, slug) {
-    var names = {
-      '/ubuntu-wellness': 'Ubuntu Wellness',
-      '/on-safari': 'On Safari',
-      '/postnet-gardens': 'PostNet Gardens',
-      '/dr-wendy-dicks': 'Dr Wendy Dicks',
-      '/dr-thomas-jahn': 'Dr Thomas Jahn',
-      '/trudy-christians': 'Trudy Christians',
-      '/just-hearing': 'Just Hearing',
-      '/dr-dale-geoffreys': 'Dr Dale Geoffreys',
-      '/hayley-schuter': 'Hayley Schuter',
-      '/body-vision-studio': 'Body Vision Studio',
-      '/revive-studio': 'Revive Studio',
-      '/streetpass/join': 'Join Street Pass'
-    };
-    var label = names['/' + slug] || slug;
-    return '<a href="/' + slug + '" onclick="event.preventDefault();go(\'' + slug.replace('/','') + '\')" style="color:var(--a);text-decoration:underline;font-weight:600;">' + label + '</a>';
-  });
-  // Convert WhatsApp links → clickable
-  html = html.replace(/https:\/\/wa\.me\/(\d+)(\?[^\s<]*)?/g, function(match, num, params) {
-    return '<a href="' + match + '" target="_blank" style="color:var(--a);text-decoration:underline;font-weight:600;">WhatsApp ' + num + '</a>';
-  });
-  // Convert bare phone numbers → clickable
-  html = html.replace(/(0\d{2}\s\d{3}\s\d{4})/g, '<a href="tel:+27$1" style="color:var(--a);text-decoration:underline;">$1</a>');
-  // Convert newlines to <br>
-  html = html.replace(/\n/g, '<br>');
-  return html;
-}
+// ── AI CHAT ──
+var replies = {
+  'Dinner tonight under R300?': 'For under R300, I\'d head to Rick\'s Cafe (103 Kloof St) — warm vibes, solid mains under R200. Our Local at 117 is also great value. Want a full evening plan? 🍽️',
+  'Art exhibitions to visit?': '🎨 Two great spots right now:\n\nOn Safari (99B Kloof St) — wildlife photographic fine art. Free to browse, prints to purchase. Street Pass = 10% off.\n\nAKJP Studio (73 Kloof) — contemporary architecture and design.\n\nWant an afternoon itinerary?',
+  'Full wellness day?': '🧘 Ubuntu Wellness is your answer.\n\nFloat therapy session (60-90 mins), followed by a spa treatment and homeopathy consult.\n\nStreet Pass = 10% off all treatments + priority booking.\n\nBudget: R400-800 depending on treatments. Want the full day plan?',
+  'Plan my perfect afternoon': '☕ 2pm — Coffee on Kloof\n🎨 3pm — On Safari studio (99B) — free entry, fine art prints\n✏️ 4pm — AKJP Studio (73 Kloof)\n🧘 5:30pm — Ubuntu Wellness float session\n🍽️ 7:30pm — Dinner at any of 15+ restaurants on the street\n\nTotal: R400-700. Adjust for budget? 😊'
+};
 
 function sendChat(preset) {
-  if (aiLoading) return;
   var input = document.getElementById('chatIn');
   var text = preset || input.value.trim();
   if (!text) return;
@@ -4053,71 +4037,26 @@ function sendChat(preset) {
   var prompts = msgs.querySelector('.chat-prompts');
   if (prompts) prompts.remove();
 
-  // Add user message
   var ub = document.createElement('div');
   ub.className = 'msg msg-user';
   ub.textContent = text;
   msgs.appendChild(ub);
 
-  // Store in history
-  aiHistory.push({ role: 'user', content: text });
-
-  // Show typing indicator
   var typing = document.createElement('div');
   typing.className = 'msg msg-ai';
   typing.innerHTML = '<span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>';
   msgs.appendChild(typing);
   msgs.scrollTop = msgs.scrollHeight;
-  aiLoading = true;
 
-  // Call Gemini API
-  fetch('/api/ai-chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      message: text,
-      history: aiHistory.slice(0, -1), // send previous turns only
-      isStreetPassHolder: isStreetPassHolder()
-    })
-  })
-  .then(function(r) { return r.json(); })
-  .then(function(data) {
+  setTimeout(function() {
     typing.remove();
-    aiLoading = false;
     var ab = document.createElement('div');
     ab.className = 'msg msg-ai';
-    if (data.error) {
-      var errText = data.detail || data.error;
-      // Don't show raw JSON errors to users — give friendly messages
-      if (errText && errText.indexOf('API key') !== -1) {
-        ab.textContent = 'API key issue — check that GEMINI_API_KEY is set correctly in Vercel and redeploy. 🔑';
-      } else if (errText && errText.indexOf('All Gemini') !== -1) {
-        ab.textContent = 'Could not connect to Gemini AI — verify your API key at aistudio.google.com and redeploy Vercel. 🔧';
-      } else {
-        ab.textContent = 'I\'m having trouble connecting — try again in a moment. 😔';
-      }
-    } else {
-      ab.innerHTML = formatAiReply(data.reply);
-      aiHistory.push({ role: 'model', content: data.reply });
-    }
-    msgs.appendChild(ab);
-    // Show follow-up prompts after AI reply
-    setTimeout(renderSmartPrompts, 600);
-    msgs.scrollTop = msgs.scrollHeight;
-  })
-  .catch(function(err) {
-    typing.remove();
-    aiLoading = false;
-    var ab = document.createElement('div');
-    ab.className = 'msg msg-ai';
-    ab.textContent = 'Connection issue — please try again. 😔';
+    ab.textContent = replies[text] || 'Great question! On Safari has fine art on show and Ubuntu Wellness has float sessions available. Tell me more about what you\'re after and I\'ll build a full plan. 😊';
     msgs.appendChild(ab);
     msgs.scrollTop = msgs.scrollHeight;
-  });
+  }, 1200);
 }
-
-// Initialise smart prompts on page load
-setTimeout(renderSmartPrompts, 100);
 
 // ── FORM ──
 function showToast(msg) {
@@ -4361,8 +4300,7 @@ function spSignup() {
     if (r.error) throw r.error;
     spUser = r.data.user;
     if (r.data.user) {
-      window._spPendingUserId = r.data.user.id;
-      window._spPendingEmail = email;
+      document.getElementById('spPaymentRef').textContent = 'SP-' + r.data.user.id.substring(0, 8).toUpperCase();
       // Create profile row (trigger removed — do it from frontend)
       spClient().from('profiles').upsert({
         id: r.data.user.id,
@@ -4378,38 +4316,6 @@ function spSignup() {
     errEl.textContent = e.message || 'Signup failed. Please try again.';
     errEl.className = 'sp-signup-error show';
     btn.textContent = 'Create Account & Join';
-    btn.disabled = false;
-  });
-}
-
-
-// ── YOCO PAYMENT ──
-function spPayNow() {
-  var btn = document.getElementById('spPayBtn');
-  var errEl = document.getElementById('spPayError');
-  btn.textContent = 'Opening checkout...';
-  btn.disabled = true;
-  errEl.className = 'sp-signup-error';
-  errEl.textContent = '';
-
-  fetch('/api/create-checkout', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      userId: window._spPendingUserId,
-      email: window._spPendingEmail,
-      displayName: document.getElementById('sp-name') ? document.getElementById('sp-name').value : ''
-    })
-  }).then(function(r) { return r.json(); }).then(function(data) {
-    if (data.checkoutUrl) {
-      window.location.href = data.checkoutUrl;
-    } else {
-      throw new Error(data.error || 'Could not create checkout');
-    }
-  }).catch(function(e) {
-    errEl.textContent = e.message || 'Payment failed. Try again or contact us.';
-    errEl.className = 'sp-signup-error show';
-    btn.textContent = 'Pay R199 via Yoco';
     btn.disabled = false;
   });
 }
@@ -4471,12 +4377,8 @@ function spLoadDashboard() {
     }
 
     if (profile.status === 'pending') {
-      var paidMsg = '';
-      if (window.location.search.indexOf('paid=1') !== -1) {
-        paidMsg = '<div style="background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:#22c55e;">&#x2705; Payment received! Your Street Pass will be activated shortly.</div>';
-      }
       container.innerHTML = '<div class="sp-pending"><div class="sp-pending-icon">\u{23F3}</div>' +
-        '<div class="sp-pending-title">Account Pending Activation</div>' + paidMsg +
+        '<div class="sp-pending-title">Account Pending Activation</div>' +
         '<div class="sp-pending-desc">Your payment has been noted. We\x27ll activate your Street Pass within 24 hours.</div>' +
         '<div style="margin-top:20px;"><a class="btn btn-outline" onclick="go(\x27home\x27)" style="display:inline-block;">Back to Home</a></div></div>';
       return;
@@ -4720,21 +4622,11 @@ function spLoadRewards() {
         '<div style="margin-top:20px;"><a class="btn btn-gold" onclick="go(\x27streetpass-signup\x27)" style="display:inline-block;">Sign In</a></div></div>';
       return;
     }
-    // Hardcoded Kloof Street rewards (always available to active members)
-    var rewards = [
-      { id: 'r-bv', name: '10% Off Pilates & GYROTONIC', description: '10% discount on all bookings at Body Vision Studio — private sessions, semi-private and Pilates mat classes with Kim Tucker.', partner_id: 'bodyvision', points_required: 0, max_per_month: 0, sort_order: 1 },
-      { id: 'r-uw', name: 'The Wellness Morning — R1,550', description: 'Float & Massage combo + R300 Arnold\'s brunch voucher at Ubuntu Wellness. The signature half-day Kloof Street Experience.', partner_id: 'ubuntu', points_required: 0, max_per_month: 0, sort_order: 2 },
-      { id: 'r-dw', name: 'Priority Booking', description: 'Skip the queue — priority booking for GP consults, weight loss and GLP-1 treatments with Dr Wendy Dicks.', partner_id: 'dr-wendy', points_required: 0, max_per_month: 0, sort_order: 3 },
-      { id: 'r-jh', name: 'Priority Booking', description: 'Priority booking for hearing assessments, hearing aids and tinnitus management at Just Hearing.', partner_id: 'just-hearing', points_required: 0, max_per_month: 0, sort_order: 4 },
-      { id: 'r-dt', name: 'Priority Booking', description: 'Priority booking for acupuncture, cupping, Qigong and Chinese medicine consults with Dr Thomas Jahn.', partner_id: 'dr-thomas', points_required: 0, max_per_month: 0, sort_order: 5 },
-      { id: 'r-tc', name: 'Priority Booking + 5% Off', description: 'Priority booking plus an additional 5% off all September promo treatments with Trudy Christians at Cape Town Medi-Spa.', partner_id: 'trudy', points_required: 0, max_per_month: 0, sort_order: 6 },
-      { id: 'r-pn', name: '10% Off Printing & Shipping', description: '10% discount on printing and shipping at PostNet Gardens — 55 Kloof Street. Stack with Street Pass Art & Aperitivo framing discount.', partner_id: 'postnet', points_required: 0, max_per_month: 0, sort_order: 7 },
-      { id: 'r-os', name: 'The Collector\'s Tour — R1,850', description: 'On Safari print + lunch at Arnold\'s + 30-min massage at Ubuntu Wellness. Plus free framing with each picture from On Safari Photography.', partner_id: 'on-safari', points_required: 0, max_per_month: 0, sort_order: 8 }
-    ];
-    spClient().from('redemptions').select('id,code,status,expires_at,points_used,reward:rewards(name,partner_id)').eq('member_id', profile.id).in('status', ['pending','confirmed']).order('created_at', {ascending:false}).then(function(redR) {
-      spRenderRewards(profile, rewards, redR.data || []);
-    }).catch(function() {
-      spRenderRewards(profile, rewards, []);
+    spClient().from('rewards').select('*').eq('active', true).order('sort_order').then(function(r) {
+      var rewards = r.data || [];
+      return spClient().from('redemptions').select('id,code,status,expires_at,points_used,reward:rewards(name,partner_id)').eq('member_id', profile.id).in('status', ['pending','confirmed']).order('created_at', {ascending:false}).then(function(redR) {
+        spRenderRewards(profile, rewards, redR.data || []);
+      });
     });
   });
 }
@@ -4754,21 +4646,18 @@ function spRenderRewards(profile, rewards, redemptions) {
     var canAfford = points >= reward.points_required;
     var partnerName = '';
     if (reward.partner_id) {
-      var names = {'on-safari':'On Safari Photography','ubuntu':'Ubuntu Wellness','dr-wendy':'Dr Wendy Dicks','trudy':'Trudy Christians','revive':'Revive Studio','bodyvision':'Body Vision Studio','just-hearing':'Just Hearing','dr-thomas':'Dr Thomas Jahn','postnet':'PostNet Gardens','dr-dale':'Dr Dale Geoffreys','hayley':'Hayley Schuter Physio'};
+      var names = {'on-safari':'On Safari','ubuntu':'Ubuntu Wellness','dr-wendy':'Dr Wendy Dicks','trudy':'Trudy Christians','revive':'Revive Studio'};
       partnerName = names[reward.partner_id] || reward.partner_id;
     }
-    html += '<div class="sp-reward-card">' +
+    html += '<div class="sp-reward-card' + (canAfford ? '' : ' locked') + '">' +
       '<div class="sp-reward-name">' + escHtml(reward.name) + '</div>' +
       '<div class="sp-reward-desc">' + escHtml(reward.description) + '</div>' +
       (partnerName ? '<div class="sp-reward-partner">' + escHtml(partnerName) + '</div>' : '') +
-      '<div class="sp-reward-foot"><div class="sp-reward-cost">' + (reward.points_required > 0 ? '<b>' + reward.points_required + '</b> pts' : '<b style="color:var(--green);">Free</b>') +
+      '<div class="sp-reward-foot"><div class="sp-reward-cost"><b>' + reward.points_required + '</b> pts' +
       (reward.max_per_month > 0 ? ' &middot; max ' + reward.max_per_month + '/mo' : '') + '</div>' +
-      (reward.points_required > 0 ?
-        '<button class="sp-reward-btn' + (canAfford ? '' : ' ghost') + '"' +
-        (canAfford ? ' onclick="spRedeemReward(\x27' + reward.id + '\x27)"' : ' disabled') +
-        '>' + (canAfford ? 'Redeem' : 'Not enough') + '</button>' :
-        '<span style="font-size:10px;color:var(--green);font-weight:700;letter-spacing:.08em;text-transform:uppercase;">&#x2713; Active</span>') +
-      '</div></div>';
+      '<button class="sp-reward-btn' + (canAfford ? '' : ' ghost') + '"' +
+      (canAfford ? ' onclick="spRedeemReward(\x27' + reward.id + '\x27)"' : ' disabled') +
+      '>' + (canAfford ? 'Redeem' : 'Not enough') + '</button></div></div>';
   });
   html += '</div>';
 
