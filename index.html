@@ -1388,6 +1388,109 @@ nav{z-index:200;}
   .sp-page{padding:80px 16px 40px;}
   .sp-signup-card{padding:28px 20px;}
 }
+
+/* ── NEWSLETTER SYSTEM ── */
+.nl-page{padding:120px 48px 72px;max-width:1000px;margin:0 auto;}
+.nl-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap;}
+.nl-header-right{display:flex;align-items:center;gap:10px;}
+.nl-google-status{display:flex;align-items:center;gap:8px;padding:8px 16px;border-radius:8px;font-size:12px;font-weight:600;background:rgba(255,255,255,.04);border:1px solid var(--bdr);}
+.nl-google-status.connected{border-color:rgba(37,211,102,.3);color:var(--green);}
+.nl-google-status.disconnected{border-color:rgba(245,197,24,.3);color:var(--a);}
+.nl-google-status .nl-ggl-btn{padding:6px 14px;border-radius:4px;border:none;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;margin-left:8px;}
+.nl-google-status .nl-ggl-btn.connect{background:var(--a);color:var(--bg);}
+.nl-google-status .nl-ggl-btn.disconnect{background:rgba(255,255,255,.08);color:var(--muted);border:1px solid var(--bdr);}
+.nl-tabs{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--bdr);padding-bottom:0;}
+.nl-tab{padding:10px 20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:all .2s;}
+.nl-tab:hover{color:var(--text2);}
+.nl-tab.on{color:var(--a);border-bottom-color:var(--a);}
+.nl-tab-content{display:none;}
+.nl-tab-content.on{display:block;}
+.nl-compose{display:flex;flex-direction:column;gap:18px;}
+.nl-form-group{display:flex;flex-direction:column;gap:6px;}
+.nl-form-row{display:flex;gap:14px;flex-wrap:wrap;}
+.nl-form-row .nl-form-group{flex:1;min-width:180px;}
+.nl-label{font-size:10px;font-weight:700;color:var(--text2);letter-spacing:.12em;text-transform:uppercase;}
+.nl-input,.nl-select,.nl-textarea{background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--text2);font-family:inherit;outline:none;transition:border-color .2s;}
+.nl-input:focus,.nl-select:focus,.nl-textarea:focus{border-color:rgba(245,197,24,.4);}
+.nl-input::placeholder,.nl-textarea::placeholder{color:var(--muted);}
+.nl-textarea{resize:vertical;}
+.nl-select{appearance:none;cursor:pointer;}
+.nl-filter-row{display:flex;gap:10px;}
+.nl-editor-toolbar{display:flex;gap:4px;padding:6px 8px;background:var(--bg2);border:1px solid var(--bdr);border-radius:8px 8px 0 0;flex-wrap:wrap;align-items:center;}
+.nl-editor-toolbar button{padding:4px 10px;background:none;border:1px solid transparent;border-radius:4px;cursor:pointer;font-size:12px;color:var(--text2);transition:all .15s;}
+.nl-editor-toolbar button:hover{background:rgba(255,255,255,.06);border-color:var(--bdr);}
+.nl-toolbar-sep{color:var(--bdr);margin:0 4px;}
+.nl-editor{min-height:280px;max-height:500px;overflow-y:auto;padding:16px 18px;background:var(--bg2);border:1px solid var(--bdr);border-top:none;border-radius:0 0 8px 8px;font-size:14px;line-height:1.7;color:var(--text2);outline:none;word-wrap:break-word;}
+.nl-editor:empty::before{content:attr(data-placeholder);color:var(--muted);}
+.nl-editor h2{font-size:20px;font-weight:800;color:var(--text2);margin:16px 0 8px;}
+.nl-editor h3{font-size:16px;font-weight:700;color:var(--text2);margin:12px 0 6px;}
+.nl-editor a{color:var(--a);text-decoration:underline;}
+.nl-editor ul,.nl-editor ol{padding-left:20px;margin:8px 0;}
+.nl-recipient-count{font-size:11px;color:var(--muted);margin-top:4px;}
+.nl-actions{display:flex;gap:10px;margin-top:8px;}
+.nl-btn{padding:12px 24px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;transition:all .2s;}
+.nl-btn-gold{background:var(--a);color:var(--bg);}
+.nl-btn-gold:hover{background:var(--al);}
+.nl-btn-outline{background:transparent;color:var(--text2);border:1px solid var(--bdr);}
+.nl-btn-outline:hover{border-color:rgba(245,197,24,.3);color:var(--a);}
+.nl-btn-sm{padding:8px 14px;font-size:10px;}
+.nl-progress{margin-top:28px;padding:20px;background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r);}
+.nl-progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.nl-progress-title{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:.08em;text-transform:uppercase;}
+.nl-progress-pct{font-size:20px;font-weight:900;color:var(--a);}
+.nl-progress-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden;}
+.nl-progress-fill{height:100%;background:var(--a);border-radius:3px;transition:width .3s;width:0%;}
+.nl-progress-stats{display:flex;gap:16px;margin-top:10px;font-size:11px;color:var(--muted);}
+.nl-progress-stats b{color:var(--text2);}
+.nl-progress-log{max-height:120px;overflow-y:auto;margin-top:10px;font-size:10px;color:var(--muted);font-family:monospace;}
+.nl-contacts-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;}
+.nl-contacts-title{font-size:13px;font-weight:700;color:var(--text2);}
+.nl-contacts-actions{display:flex;gap:8px;flex-wrap:wrap;}
+.nl-contacts-search{margin-bottom:14px;}
+.nl-contacts-list{display:flex;flex-direction:column;gap:2px;}
+.nl-contact-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--bg2);border-radius:6px;transition:background .15s;}
+.nl-contact-row:hover{background:rgba(255,255,255,.04);}
+.nl-contact-email{font-size:13px;font-weight:600;color:var(--text2);flex:1;word-break:break-all;}
+.nl-contact-name{font-size:11px;color:var(--muted);min-width:120px;}
+.nl-contact-source{font-size:9px;padding:2px 8px;border-radius:10px;background:rgba(245,197,24,.1);color:var(--a);font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.nl-contact-tags{display:flex;gap:4px;flex-wrap:wrap;}
+.nl-contact-tag{font-size:9px;padding:1px 6px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--muted);}
+.nl-contact-del{background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px;padding:4px 8px;border-radius:4px;transition:color .2s;}
+.nl-contact-del:hover{color:#e55;}
+.nl-pagination{display:flex;justify-content:center;gap:6px;margin-top:16px;}
+.nl-page-btn{padding:6px 12px;background:var(--bg2);border:1px solid var(--bdr);border-radius:4px;color:var(--text2);font-size:11px;cursor:pointer;}
+.nl-page-btn.on{background:var(--a);color:var(--bg);border-color:var(--a);}
+.nl-history-list{display:flex;flex-direction:column;gap:8px;}
+.nl-history-item{display:flex;align-items:center;gap:16px;padding:16px 20px;background:var(--bg2);border-radius:8px;border:1px solid var(--bdr);transition:border-color .2s;}
+.nl-history-item:hover{border-color:rgba(245,197,24,.2);}
+.nl-history-status{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.nl-history-status.draft{background:var(--muted);}
+.nl-history-status.queued{background:var(--a);}
+.nl-history-status.sending{background:var(--a);animation:nlpulse 1s infinite;}
+.nl-history-status.sent{background:var(--green);}
+.nl-history-status.failed{background:#e55;}
+@keyframes nlpulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.nl-history-info{flex:1;}
+.nl-history-subject{font-size:14px;font-weight:700;color:var(--text2);}
+.nl-history-meta{font-size:11px;color:var(--muted);margin-top:2px;}
+.nl-history-stats{display:flex;gap:12px;font-size:11px;color:var(--muted);}
+.nl-history-stats b{color:var(--text2);}
+.nl-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;}
+.nl-modal-content{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:28px;max-width:480px;width:100%;max-height:80vh;overflow-y:auto;}
+.nl-modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.nl-modal-header h3{font-size:16px;font-weight:800;color:var(--text2);}
+.nl-modal-close{background:none;border:none;color:var(--muted);font-size:16px;cursor:pointer;}
+.nl-modal-desc{font-size:12px;color:var(--muted);line-height:1.6;margin-bottom:16px;}
+.nl-modal-hint{font-size:11px;color:var(--muted);line-height:1.5;margin:10px 0 16px;padding:10px;background:rgba(255,255,255,.03);border-radius:6px;}
+@media(max-width:768px){
+  .nl-page{padding:100px 20px 48px;}
+  .nl-form-row{flex-direction:column;}
+  .nl-header{flex-direction:column;}
+  .nl-contacts-header{flex-direction:column;align-items:flex-start;}
+  .nl-contact-name{display:none;}
+  .nl-history-stats{flex-direction:column;gap:4px;}
+}
+
 </style>
 
   <script type="application/ld+json">
@@ -1836,6 +1939,7 @@ setTimeout(trackPageview,800);
     <li><a href="/explore" onclick="go('explore')" id="nl-explore">Explore</a></li>
     <li><a href="/directory" onclick="go('brands')" id="nl-brands">Directory</a></li>
     <li><a href="/ai-concierge" onclick="go('ai')" id="nl-ai">AI Concierge</a></li>
+    <li><a href="/newsletter" onclick="go('newsletter')" id="nl-newsletter">Newsletter</a></li>
   </ul>
   <div class="nav-controls">
     <select class="lang-select" onchange="translateTo(this.value)" title="Language">
@@ -1869,6 +1973,7 @@ setTimeout(trackPageview,800);
   <a href="/directory" onclick="mgo('brands')">Directory</a>
   <a href="/get-listed" onclick="mgo('listed')">Get Listed</a>
   <a href="/ai-concierge" onclick="mgo('ai')">AI Concierge</a>
+  <a href="/newsletter" onclick="mgo('newsletter')">Newsletter</a>
   <a href="/streetpass" onclick="mgo('streetpass')">Street Pass</a>
   <a href="/get-listed" onclick="mgo('listed')">Get Listed</a>
 </div>
@@ -3788,6 +3893,113 @@ setTimeout(trackPageview,800);
 </div>
 
 <!-- ══════════ FOOTER ══════════ -->
+
+<!-- ══════════ NEWSLETTER SYSTEM ══════════ -->
+<div id="pg-newsletter" class="pg">
+  <div class="nl-page">
+    <div class="nl-header">
+      <div>
+        <div class="sp-tag">&#x2709;&#xFE0F; Newsletter</div>
+        <div class="sp-title">Send Newsletters</div>
+        <div class="sp-sub">Compose and send newsletters to your subscribers via Gmail. Import contacts from Google Sheets or add manually.</div>
+      </div>
+      <div class="nl-header-right">
+        <div id="nlGoogleStatus" class="nl-google-status"></div>
+      </div>
+    </div>
+    <div class="nl-tabs">
+      <button class="nl-tab on" onclick="nlTab('compose')">Compose</button>
+      <button class="nl-tab" onclick="nlTab('contacts')">Contacts</button>
+      <button class="nl-tab" onclick="nlTab('history')">History</button>
+    </div>
+    <div class="nl-tab-content on" id="nlTabCompose">
+      <div class="nl-compose">
+        <div class="nl-form-group"><label class="nl-label">Subject</label><input type="text" id="nlSubject" class="nl-input" placeholder="e.g. New on Kloof Street this week..."></div>
+        <div class="nl-form-row">
+          <div class="nl-form-group"><label class="nl-label">From Name</label><input type="text" id="nlFromName" class="nl-input" value="KloofStreet.online"></div>
+          <div class="nl-form-group"><label class="nl-label">From Email</label><input type="text" id="nlFromEmail" class="nl-input" value="hello@kloofstreet.online"></div>
+          <div class="nl-form-group"><label class="nl-label">Reply-To</label><input type="text" id="nlReplyTo" class="nl-input" placeholder="hello@kloofstreet.online"></div>
+        </div>
+        <div class="nl-form-group">
+          <label class="nl-label">Email Content (HTML)</label>
+          <div class="nl-editor-toolbar">
+            <button onclick="nlEditorCmd('bold')" title="Bold"><b>B</b></button>
+            <button onclick="nlEditorCmd('italic')" title="Italic"><i>I</i></button>
+            <button onclick="nlEditorCmd('underline')" title="Underline"><u>U</u></button>
+            <button onclick="nlEditorCmd('insertUnorderedList')" title="Bullet list">&#x2022; List</button>
+            <button onclick="nlEditorLink()" title="Insert link">&#x1F517; Link</button>
+            <button onclick="nlEditorImage()" title="Insert image">&#x1F5BC; Image</button>
+            <span class="nl-toolbar-sep">|</span>
+            <button onclick="nlEditorH2()" title="Heading">H2</button>
+            <button onclick="nlEditorH3()" title="Subheading">H3</button>
+          </div>
+          <div id="nlEditor" class="nl-editor" contenteditable="true" data-placeholder="Write your newsletter content here..."></div>
+        </div>
+        <div class="nl-form-group">
+          <label class="nl-label">Filter Recipients</label>
+          <div class="nl-filter-row">
+            <select id="nlFilterSource" class="nl-select"><option value="">All sources</option><option value="manual">Manual</option><option value="google-sheets">Google Sheets</option><option value="streetpass">Street Pass</option><option value="website-signup">Website Signup</option></select>
+            <input type="text" id="nlFilterTags" class="nl-input" placeholder="Filter by tags (comma separated)" style="flex:1;">
+          </div>
+          <div id="nlRecipientCount" class="nl-recipient-count"></div>
+        </div>
+        <div class="nl-actions">
+          <button class="nl-btn nl-btn-outline" onclick="nlSaveDraft()">Save Draft</button>
+          <button class="nl-btn nl-btn-gold" onclick="nlSendNewsletter()">&#x2709;&#xFE0F; Send Newsletter</button>
+        </div>
+      </div>
+      <div id="nlSendProgress" class="nl-progress" style="display:none;">
+        <div class="nl-progress-header"><div class="nl-progress-title">Sending Newsletter</div><div id="nlProgressPct" class="nl-progress-pct">0%</div></div>
+        <div class="nl-progress-bar"><div id="nlProgressBar" class="nl-progress-fill"></div></div>
+        <div id="nlProgressStats" class="nl-progress-stats"></div>
+        <div id="nlProgressLog" class="nl-progress-log"></div>
+      </div>
+    </div>
+    <div class="nl-tab-content" id="nlTabContacts">
+      <div class="nl-contacts-header">
+        <div class="nl-contacts-title"><span id="nlContactCount">0</span> subscribers</div>
+        <div class="nl-contacts-actions">
+          <button class="nl-btn nl-btn-outline nl-btn-sm" onclick="nlShowAddContact()">+ Add Contact</button>
+          <button class="nl-btn nl-btn-outline nl-btn-sm" onclick="nlShowImportSheets()">&#x1F4CA; Import from Sheets</button>
+          <button class="nl-btn nl-btn-outline nl-btn-sm" onclick="nlShowBulkImport()">&#x1F4CB; Bulk Import</button>
+        </div>
+      </div>
+      <div class="nl-contacts-search"><input type="text" id="nlContactSearch" class="nl-input" placeholder="Search contacts..." oninput="nlLoadContacts()"></div>
+      <div id="nlContactsList" class="nl-contacts-list"></div>
+      <div id="nlContactsPagination" class="nl-pagination"></div>
+      <div id="nlAddContactModal" class="nl-modal" style="display:none;">
+        <div class="nl-modal-content">
+          <div class="nl-modal-header"><h3>Add Contact</h3><button class="nl-modal-close" onclick="nlCloseModal('nlAddContactModal')">&#x2715;</button></div>
+          <div class="nl-form-group"><label class="nl-label">Email</label><input type="email" id="nlNewEmail" class="nl-input" placeholder="email@example.com"></div>
+          <div class="nl-form-group"><label class="nl-label">Name</label><input type="text" id="nlNewName" class="nl-input" placeholder="John Doe"></div>
+          <div class="nl-form-group"><label class="nl-label">Tags</label><input type="text" id="nlNewTags" class="nl-input" placeholder="e.g. partner, vip"></div>
+          <button class="nl-btn nl-btn-gold" onclick="nlAddContact()">Add Contact</button>
+        </div>
+      </div>
+      <div id="nlSheetsModal" class="nl-modal" style="display:none;">
+        <div class="nl-modal-content">
+          <div class="nl-modal-header"><h3>Import from Google Sheets</h3><button class="nl-modal-close" onclick="nlCloseModal('nlSheetsModal')">&#x2715;</button></div>
+          <p class="nl-modal-desc">Paste the Google Sheets ID from your spreadsheet URL. The sheet must have an "email" column header.</p>
+          <div class="nl-form-group"><label class="nl-label">Spreadsheet ID</label><input type="text" id="nlSheetId" class="nl-input" placeholder="e.g. 1BxiMVs0Wrxk..."></div>
+          <div class="nl-form-group"><label class="nl-label">Range (optional)</label><input type="text" id="nlSheetRange" class="nl-input" value="A:Z" placeholder="A:Z"></div>
+          <p class="nl-modal-hint">Find the ID in your Google Sheets URL: docs.google.com/spreadsheets/d/<b>SPREADSHEET_ID</b>/edit</p>
+          <button class="nl-btn nl-btn-gold" onclick="nlImportSheets()">Import</button>
+        </div>
+      </div>
+      <div id="nlBulkModal" class="nl-modal" style="display:none;">
+        <div class="nl-modal-content">
+          <div class="nl-modal-header"><h3>Bulk Import</h3><button class="nl-modal-close" onclick="nlCloseModal('nlBulkModal')">&#x2715;</button></div>
+          <p class="nl-modal-desc">Paste emails below (one per line, or comma-separated). You can also use: name &lt;email&gt; format.</p>
+          <div class="nl-form-group"><label class="nl-label">Emails</label><textarea id="nlBulkEmails" class="nl-textarea" rows="10" placeholder="john@example.com&#10;Jane Doe &lt;jane@example.com&gt;&#10;bob@example.com"></textarea></div>
+          <div class="nl-form-group"><label class="nl-label">Tags</label><input type="text" id="nlBulkTags" class="nl-input" placeholder="e.g. partner, vip"></div>
+          <button class="nl-btn nl-btn-gold" onclick="nlBulkImport()">Import</button>
+        </div>
+      </div>
+    </div>
+    <div class="nl-tab-content" id="nlTabHistory"><div id="nlHistoryList" class="nl-history-list"></div></div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-grid">
     <div>
@@ -3808,6 +4020,7 @@ setTimeout(trackPageview,800);
       <h3>Platform</h3>
       <ul>
         <li><a href="/ai-concierge" onclick="go('ai')">AI Concierge</a></li>
+        <li><a href="/newsletter" onclick="go('newsletter')">Newsletter</a></li>
         <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
         <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
         <li><a href="/about" onclick="go('about')">About Us</a></li>
@@ -3833,8 +4046,8 @@ setTimeout(trackPageview,800);
 
 <script>
 // ── PAGES ──
-const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','arnolds','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem'];
-const NAVLINKS = ['home','about','explore','brands','ai'];
+const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','arnolds','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem','newsletter'];
+const NAVLINKS = ['home','about','explore','brands','ai','newsletter'];
 
 // ── URL slug map ──
 var SLUG_MAP = {
@@ -3848,7 +4061,8 @@ var SLUG_MAP = {
   'hayley':'/hayley-schuter-physio',
   'bodyvision':'/body-vision-studio', 'arnolds':'/arnolds-restaurant', 'ai':'/ai-concierge', 'listed':'/get-listed', 'dash':'/dashboard',
   'streetpass':'/streetpass','streetpass-signup':'/streetpass/join',
-  'streetpass-scan':'/streetpass/scan','streetpass-redeem':'/streetpass/rewards'
+  'streetpass-scan':'/streetpass/scan','streetpass-redeem':'/streetpass/rewards',
+  'newsletter':'/newsletter'
 };
 var SLUG_REVERSE = {};
 Object.keys(SLUG_MAP).forEach(function(k){ SLUG_REVERSE[SLUG_MAP[k]] = k; });
@@ -3881,6 +4095,7 @@ function go(name, noPush) {
   if (al) al.className = 'on';
   if (!HOME_ANCHORS.hasOwnProperty(name)) window.scrollTo(0, 0);
   if (name === 'dash') initBars();
+  if (name === 'newsletter') nlInit();
   updateMeta(name);
   // Push URL
   if (!noPush) {
@@ -3927,6 +4142,11 @@ var PAGE_META = {
   'streetpass-signup': {title:'Join Street Pass | KloofStreet.online', desc:'Join the Kloof Street Pass for R199/month. Points, rewards and exclusive access at every partner.'},
   'streetpass-scan':  {title:'Scan QR | Street Pass | KloofStreet.online', desc:'Scan partner QR codes to earn points.'},
   'streetpass-redeem': {title:'Rewards | Street Pass | KloofStreet.online', desc:'Redeem your Street Pass points for exclusive rewards.'},
+  'newsletter':  {title:'Newsletter | KloofStreet.online', desc:'Send newsletters to your Kloof Street subscribers via Gmail.'},
+  'ai':          {title:'AI Concierge | KloofStreet.online', desc:'Your AI-powered guide to Kloof Street. Ask anything about restaurants, wellness, shopping and more.'},
+  'arnolds':     {title:"Arnold's Restaurant | KloofStreet.online", desc:'Fine dining on Kloof Street. Classic heritage, bold flavours. Dinner, brekkie & lunch, cocktails.'},
+  'dash':        {title:'Dashboard | KloofStreet.online', desc:'KloofStreet platform analytics and insights.'},
+  'listed':      {title:'Get Listed | KloofStreet.online', desc:'Get your Kloof Street business on the map. Verified listings, real discovery.'},
 };
 
 function updateMeta(name) {
@@ -4719,6 +4939,268 @@ window.go = function(name, noPush) {
 };
 
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer>
+// ═══════════════════════════════════════════════════════════════════
+// NEWSLETTER SYSTEM
+// ═══════════════════════════════════════════════════════════════════
+var NL_SENDING = false;
+var NL_CURRENT_NEWSLETTER_ID = null;
+var NL_CONTACT_PAGE = 1;
+
+function nlInit() {
+  nlCheckGoogle();
+  nlLoadContacts();
+  nlLoadHistory();
+  nlCountRecipients();
+}
+
+function nlCheckGoogle() {
+  fetch('/api/newsletter/google-auth?step=status').then(function(r){return r.json();}).then(function(data) {
+    var el = document.getElementById('nlGoogleStatus');
+    if (data.connected) {
+      el.className = 'nl-google-status connected';
+      el.innerHTML = '<span>&#x2713; Connected: ' + escHtml(data.email) + '</span><button class="nl-ggl-btn disconnect" onclick="nlDisconnectGoogle()">Disconnect</button>';
+    } else {
+      el.className = 'nl-google-status disconnected';
+      el.innerHTML = '<span>&#x2713; Google not connected</span><button class="nl-ggl-btn connect" onclick="nlConnectGoogle()">Connect Gmail</button>';
+    }
+  }).catch(function(){
+    var el = document.getElementById('nlGoogleStatus');
+    el.className = 'nl-google-status disconnected';
+    el.innerHTML = '<span>&#x2713; Google not connected</span><button class="nl-ggl-btn connect" onclick="nlConnectGoogle()">Connect Gmail</button>';
+  });
+}
+
+function nlConnectGoogle() {
+  fetch('/api/newsletter/google-auth').then(function(r){return r.json();}).then(function(data) {
+    if (data.authUrl) {
+      var w = window.open(data.authUrl, 'google-auth', 'width=600,height=700');
+      window.addEventListener('message', function handler(e) {
+        if (e.data && e.data.type === 'google-auth-success') {
+          nlCheckGoogle();
+          window.removeEventListener('message', handler);
+        }
+      });
+    } else if (data.setup) {
+      showToast('Set up Google OAuth first — see console for details');
+      console.error('Google OAuth setup needed:', data);
+    }
+  });
+}
+
+function nlDisconnectGoogle() {
+  fetch('/api/newsletter/google-auth', {method:'DELETE'}).then(function(r){return r.json();}).then(function() {
+    nlCheckGoogle();
+    showToast('Google disconnected');
+  });
+}
+
+function nlTab(name) {
+  document.querySelectorAll('.nl-tab').forEach(function(t){t.classList.remove('on');});
+  document.querySelectorAll('.nl-tab-content').forEach(function(c){c.classList.remove('on');});
+  event.target.classList.add('on');
+  document.getElementById('nlTab' + name.charAt(0).toUpperCase() + name.slice(1)).classList.add('on');
+  if (name === 'contacts') nlLoadContacts();
+  if (name === 'history') nlLoadHistory();
+}
+
+function nlEditorCmd(cmd) { document.execCommand(cmd, false, null); document.getElementById('nlEditor').focus(); }
+function nlEditorLink() { var url = prompt('Enter URL:'); if (url) document.execCommand('createLink', false, url); }
+function nlEditorImage() { var url = prompt('Enter image URL:'); if (url) document.execCommand('insertImage', false, url); }
+function nlEditorH2() { document.execCommand('formatBlock', false, '<h2>'); }
+function nlEditorH3() { document.execCommand('formatBlock', false, '<h3>'); }
+
+function nlCountRecipients() {
+  var params = new URLSearchParams();
+  var source = document.getElementById('nlFilterSource').value;
+  if (source) params.set('source', source);
+  params.set('limit', '1');
+  fetch('/api/newsletter/contacts?' + params).then(function(r){return r.json();}).then(function(data) {
+    document.getElementById('nlRecipientCount').textContent = data.total + ' active subscribers will receive this newsletter';
+  }).catch(function(){});
+}
+document.addEventListener('change', function(e) {
+  if (e.target.id === 'nlFilterSource' || e.target.id === 'nlFilterTags') nlCountRecipients();
+});
+
+function nlSaveDraft() {
+  var body = nlGetComposeBody();
+  body.send_now = false;
+  fetch('/api/newsletter/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(data) {
+    if (data.error) { showToast(data.error); return; }
+    showToast('Draft saved — ' + data.total_contacts + ' recipients');
+    nlLoadHistory();
+  }).catch(function(){ showToast('Failed to save draft'); });
+}
+
+function nlSendNewsletter() {
+  if (NL_SENDING) return;
+  if (!confirm('Send this newsletter to all active subscribers?')) return;
+  var body = nlGetComposeBody();
+  body.send_now = true;
+  fetch('/api/newsletter/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(data) {
+    if (data.error) { showToast(data.error); return; }
+    NL_CURRENT_NEWSLETTER_ID = data.newsletter.id;
+    NL_SENDING = true;
+    document.getElementById('nlSendProgress').style.display = 'block';
+    showToast('Newsletter queued — sending batches...');
+    nlSendBatches(data.newsletter.id);
+  }).catch(function(){ showToast('Failed to send'); });
+}
+
+function nlGetComposeBody() {
+  var subject = document.getElementById('nlSubject').value.trim();
+  var html = document.getElementById('nlEditor').innerHTML;
+  var fromName = document.getElementById('nlFromName').value.trim();
+  var fromEmail = document.getElementById('nlFromEmail').value.trim();
+  var replyTo = document.getElementById('nlReplyTo').value.trim();
+  var source = document.getElementById('nlFilterSource').value;
+  var tagsStr = document.getElementById('nlFilterTags').value.trim();
+  var tags = tagsStr ? tagsStr.split(',').map(function(t){return t.trim();}).filter(Boolean) : [];
+  var body = {subject:subject,body_html:'<div style="max-width:600px;margin:0 auto;font-family:system-ui,sans-serif;background:#0a0a0b;color:#e8e8e6;padding:32px;">'+html+'</div>',from_name:fromName,from_email:fromEmail};
+  if (replyTo) body.reply_to = replyTo;
+  if (source) body.contact_source = source;
+  if (tags.length > 0) body.contact_tags = tags;
+  return body;
+}
+
+function nlSendBatches(newsletterId) {
+  fetch('/api/newsletter/send?step=publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:newsletterId})}).then(function(r){return r.json();}).then(function(){nlSendNextBatch(newsletterId);});
+}
+
+function nlSendNextBatch(newsletterId) {
+  fetch('/api/newsletter/send?step=send-batch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:newsletterId})}).then(function(r){return r.json();}).then(function(data) {
+    if (data.error) { showToast('Error: '+data.error); NL_SENDING=false; return; }
+    var total = data.totalSent + data.totalFailed + (data.stillPending||0);
+    var pct = data.done ? 100 : (total>0 ? Math.round(data.totalSent/total*100) : 0);
+    document.getElementById('nlProgressPct').textContent = pct+'%';
+    document.getElementById('nlProgressBar').style.width = pct+'%';
+    document.getElementById('nlProgressStats').innerHTML = '<span><b>'+data.totalSent+'</b> sent</span><span><b>'+data.totalFailed+'</b> failed</span><span><b>'+(data.stillPending||0)+'</b> pending</span>';
+    if (data.rateLimited) {
+      document.getElementById('nlProgressLog').innerHTML += '<div>Rate limit — retrying in '+(data.retryAfter||1)+'s...</div>';
+      setTimeout(function(){nlSendNextBatch(newsletterId);},(data.retryAfter||1)*1000);
+      return;
+    }
+    if (data.done) {
+      NL_SENDING=false;
+      document.getElementById('nlProgressLog').innerHTML += '<div>Done! '+data.totalSent+' sent, '+data.totalFailed+' failed</div>';
+      showToast('Newsletter sent! '+data.totalSent+' delivered');
+      nlLoadHistory();
+      return;
+    }
+    setTimeout(function(){nlSendNextBatch(newsletterId);},50);
+  }).catch(function(){showToast('Send error — retrying in 3s');setTimeout(function(){nlSendNextBatch(newsletterId);},3000);});
+}
+
+function nlLoadContacts(page) {
+  if (page) NL_CONTACT_PAGE = page;
+  var search = document.getElementById('nlContactSearch').value.trim();
+  var params = new URLSearchParams();
+  params.set('page',NL_CONTACT_PAGE);
+  params.set('limit','50');
+  if (search) params.set('search',search);
+  fetch('/api/newsletter/contacts?'+params).then(function(r){return r.json();}).then(function(data) {
+    document.getElementById('nlContactCount').textContent = data.total;
+    var html = '';
+    (data.contacts||[]).forEach(function(c) {
+      html += '<div class="nl-contact-row"><div class="nl-contact-email">'+escHtml(c.email)+'</div><div class="nl-contact-name">'+escHtml(c.name||'')+'</div><div class="nl-contact-source">'+escHtml(c.source)+'</div><div class="nl-contact-tags">'+(c.tags||[]).map(function(t){return '<span class="nl-contact-tag">'+escHtml(t)+'</span>';}).join('')+'</div><button class="nl-contact-del" onclick="nlDeleteContact(\''+c.id+'\')" title="Delete">&#x2715;</button></div>';
+    });
+    if (!data.contacts||data.contacts.length===0) html='<div class="sp-empty">No contacts yet. Add contacts or import from Google Sheets.</div>';
+    document.getElementById('nlContactsList').innerHTML = html;
+    var pagHtml='';
+    for (var i=1;i<=data.pages;i++) pagHtml+='<button class="nl-page-btn'+(i===data.page?' on':'')+'" onclick="nlLoadContacts('+i+')">'+i+'</button>';
+    document.getElementById('nlContactsPagination').innerHTML = pagHtml;
+  });
+}
+
+function nlShowAddContact(){document.getElementById('nlAddContactModal').style.display='flex';}
+function nlShowImportSheets(){document.getElementById('nlSheetsModal').style.display='flex';}
+function nlShowBulkImport(){document.getElementById('nlBulkModal').style.display='flex';}
+function nlCloseModal(id){document.getElementById(id).style.display='none';}
+
+function nlAddContact() {
+  var email=document.getElementById('nlNewEmail').value.trim();
+  var name=document.getElementById('nlNewName').value.trim();
+  var tagsStr=document.getElementById('nlNewTags').value.trim();
+  var tags=tagsStr?tagsStr.split(',').map(function(t){return t.trim();}).filter(Boolean):[];
+  if (!email){showToast('Email required');return;}
+  fetch('/api/newsletter/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,name:name,tags:tags})}).then(function(r){return r.json();}).then(function(data){
+    if (data.error){showToast(data.error);return;}
+    showToast('Contact added');nlCloseModal('nlAddContactModal');
+    document.getElementById('nlNewEmail').value='';document.getElementById('nlNewName').value='';document.getElementById('nlNewTags').value='';
+    nlLoadContacts();
+  });
+}
+
+function nlDeleteContact(id){if(!confirm('Delete this contact?'))return;fetch('/api/newsletter/contacts?id='+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(){nlLoadContacts();});}
+
+function nlImportSheets() {
+  var sheetId=document.getElementById('nlSheetId').value.trim();
+  var range=document.getElementById('nlSheetRange').value.trim()||'A:Z';
+  if (!sheetId){showToast('Spreadsheet ID required');return;}
+  var btn=event.target;btn.textContent='Importing...';btn.disabled=true;
+  fetch('/api/newsletter/contacts?import=sheets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({spreadsheetId:sheetId,range:range})}).then(function(r){return r.json();}).then(function(data){
+    btn.textContent='Import';btn.disabled=false;if(data.error){showToast(data.error);return;}
+    showToast('Imported '+data.imported+' contacts from Google Sheets');nlCloseModal('nlSheetsModal');nlLoadContacts();
+  }).catch(function(){btn.textContent='Import';btn.disabled=false;showToast('Import failed');});
+}
+
+function nlBulkImport() {
+  var text=document.getElementById('nlBulkEmails').value.trim();
+  var tagsStr=document.getElementById('nlBulkTags').value.trim();
+  var tags=tagsStr?tagsStr.split(',').map(function(t){return t.trim();}).filter(Boolean):[];
+  if (!text){showToast('Paste some emails');return;}
+  var contacts=[];
+  text.split(/[\n,;]/).forEach(function(line){line=line.trim();if(!line)return;var match=line.match(/^(.+?)\s*<([^>]+)>$/);if(match){contacts.push({name:match[1].trim(),email:match[2].trim(),tags:tags});}else{contacts.push({email:line,tags:tags});}});
+  if (contacts.length===0){showToast('No valid entries found');return;}
+  var btn=event.target;btn.textContent='Importing...';btn.disabled=true;
+  fetch('/api/newsletter/contacts?import=bulk',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contacts:contacts})}).then(function(r){return r.json();}).then(function(data){
+    btn.textContent='Import';btn.disabled=false;if(data.error){showToast(data.error);return;}
+    showToast('Imported '+data.imported+' contacts');nlCloseModal('nlBulkModal');document.getElementById('nlBulkEmails').value='';nlLoadContacts();
+  }).catch(function(){btn.textContent='Import';btn.disabled=false;showToast('Import failed');});
+}
+
+function nlLoadHistory() {
+  fetch('/api/newsletter/send').then(function(r){return r.json();}).then(function(data) {
+    var html='';
+    (data.newsletters||[]).forEach(function(n){
+      var date=new Date(n.created_at).toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'});
+      var sentDate=n.sent_at?new Date(n.sent_at).toLocaleDateString('en-ZA',{day:'numeric',month:'short'}):'';
+      html+='<div class="nl-history-item"><div class="nl-history-status '+n.status+'"></div><div class="nl-history-info"><div class="nl-history-subject">'+escHtml(n.subject)+'</div><div class="nl-history-meta">Created '+date+(sentDate?' &middot; Sent '+sentDate:'')+'</div></div><div class="nl-history-stats"><span><b>'+n.sent_count+'</b>/'+n.total_recipients+' sent</span>'+(n.fail_count>0?'<span><b>'+n.fail_count+'</b> failed</span>':'')+'</div>'+(n.status==='draft'?'<button class="nl-btn nl-btn-outline nl-btn-sm" onclick="nlEditDraft(\''+n.id+'\')">Edit</button>':'')+(n.status==='draft'?'<button class="nl-btn nl-btn-gold nl-btn-sm" onclick="nlQueueAndSend(\''+n.id+'\')">Send</button>':'')+(n.status==='queued'?'<button class="nl-btn nl-btn-gold nl-btn-sm" onclick="nlResumeSend(\''+n.id+'\')">Resume</button>':'')+'<button class="nl-contact-del" onclick="nlDeleteNewsletter(\''+n.id+'\')" title="Delete">&#x2715;</button></div>';
+    });
+    if(!data.newsletters||data.newsletters.length===0) html='<div class="sp-empty">No newsletters yet. Compose your first one!</div>';
+    document.getElementById('nlHistoryList').innerHTML=html;
+  });
+}
+
+function nlQueueAndSend(id){if(!confirm('Send this newsletter now?'))return;NL_CURRENT_NEWSLETTER_ID=id;NL_SENDING=true;document.getElementById('nlSendProgress').style.display='block';nlTab('compose');nlSendBatches(id);}
+function nlResumeSend(id){NL_CURRENT_NEWSLETTER_ID=id;NL_SENDING=true;document.getElementById('nlSendProgress').style.display='block';nlTab('compose');nlSendNextBatch(id);}
+
+function nlEditDraft(id) {
+  fetch('/api/newsletter/send?id='+id).then(function(r){return r.json();}).then(function(data){
+    if(!data.newsletter)return;
+    document.getElementById('nlSubject').value=data.newsletter.subject;
+    var temp=document.createElement('div');temp.innerHTML=data.newsletter.body_html;
+    var inner=temp.querySelector('div');
+    document.getElementById('nlEditor').innerHTML=inner?inner.innerHTML:temp.innerHTML;
+    document.getElementById('nlFromName').value=data.newsletter.from_name;
+    document.getElementById('nlFromEmail').value=data.newsletter.from_email;
+    if(data.newsletter.reply_to)document.getElementById('nlReplyTo').value=data.newsletter.reply_to;
+    nlTab('compose');showToast('Editing draft');
+  });
+}
+
+function nlDeleteNewsletter(id){if(!confirm('Delete this newsletter?'))return;fetch('/api/newsletter/send?id='+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(){nlLoadHistory();showToast('Newsletter deleted');});}
+
+function nlFooterSignup() {
+  var email=document.getElementById('footerNlEmail').value.trim();
+  if (!email){showToast('Enter your email');return;}
+  fetch('/api/newsletter/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-signup',tags:['website-signup']})}).then(function(r){return r.json();}).then(function(data){
+    if(data.error){showToast(data.error);return;}
+    showToast('Subscribed! Welcome to Kloof Street.');document.getElementById('footerNlEmail').value='';
+  }).catch(function(){showToast('Signup failed — try again');});
+}
+
+</script>
 </body>
 </html>
