@@ -11,6 +11,7 @@
 
 import { createClient } from '@supabase/supabase-js';
 import { getValidAccessToken } from './google-auth.js';
+import { requireMerchant, jsonError } from './_merchant.js';
 
 const supabase = createClient(
   process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL,
@@ -50,13 +51,13 @@ async function upsertContacts(rows) {
 }
 
 // ── Google Sheets import ─────────────────────────────────────────────
-async function importFromSheets(req, res) {
+async function importFromSheets(req, res, merchantEmail) {
   const { spreadsheetId, range } = req.body || {};
   if (!spreadsheetId) return res.status(400).json({ error: 'Spreadsheet ID required' });
 
   let token;
   try {
-    token = await getValidAccessToken();
+    token = await getValidAccessToken(merchantEmail);
   } catch (e) {
     return res.status(401).json({ error: String(e.message || e) });
   }
@@ -112,8 +113,12 @@ async function importFromSheets(req, res) {
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(200).end();
+
+  const auth = await requireMerchant(req);
+  if (!auth.ok) return jsonError(res, auth);
+  const merchantEmail = auth.merchant.email;
 
   try {
     // ── GET: list / search / paginate / count ──
@@ -167,7 +172,7 @@ export default async function handler(req, res) {
       }
 
       if (req.query.import === 'sheets') {
-        return await importFromSheets(req, res);
+        return await importFromSheets(req, res, merchantEmail);
       }
 
       // Single contact add (manual add + footer website signup)

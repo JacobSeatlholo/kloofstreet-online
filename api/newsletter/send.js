@@ -15,6 +15,7 @@
 
 import { createClient } from '@supabase/supabase-js';
 import { getValidAccessToken } from './google-auth.js';
+import { requireMerchant, jsonError } from './_merchant.js';
 
 const supabase = createClient(
   process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL,
@@ -86,7 +87,7 @@ async function gmailSend(token, raw) {
 }
 
 // ── Batch sending ────────────────────────────────────────────────────
-async function sendBatch(req, res) {
+async function sendBatch(req, res, merchantEmail) {
   const id = req.body?.id;
   if (!id) return res.status(400).json({ error: 'Newsletter id required' });
 
@@ -108,7 +109,7 @@ async function sendBatch(req, res) {
 
   let token;
   try {
-    token = await getValidAccessToken();
+    token = await getValidAccessToken(merchantEmail);
   } catch (e) {
     return res.status(200).json({ error: String(e.message || e) });
   }
@@ -168,8 +169,12 @@ async function sendBatch(req, res) {
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   if (req.method === 'OPTIONS') return res.status(200).end();
+
+  const auth = await requireMerchant(req);
+  if (!auth.ok) return jsonError(res, auth);
+  const merchantEmail = auth.merchant.email;
 
   try {
     // ── GET: history list or single ──
@@ -219,7 +224,7 @@ export default async function handler(req, res) {
       }
 
       if (req.query.step === 'send-batch') {
-        return await sendBatch(req, res);
+        return await sendBatch(req, res, merchantEmail);
       }
 
       // Create draft

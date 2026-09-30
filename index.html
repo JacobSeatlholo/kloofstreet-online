@@ -1389,6 +1389,38 @@ nav{z-index:200;}
   .sp-signup-card{padding:28px 20px;}
 }
 
+/* ── MERCHANT WORKSTATION ── */
+.mch-card{max-width:440px;margin:48px auto 0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:36px 32px;}
+.mch-card h2{font-size:22px;margin:0 0 6px;color:var(--text);}
+.mch-card .mch-sub{font-size:13px;color:var(--muted);margin:0 0 22px;}
+.mch-field{margin-bottom:14px;}
+.mch-field label{display:block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.mch-field input{width:100%;box-sizing:border-box;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:12px 14px;color:var(--text);font-size:14px;outline:none;}
+.mch-field input:focus{border-color:var(--a);}
+.mch-err{color:#ff6b6b;font-size:13px;min-height:18px;margin:8px 0 4px;}
+.mch-tabs{display:flex;gap:8px;margin:26px 0 18px;flex-wrap:wrap;}
+.mch-tab{background:transparent;border:1px solid rgba(255,255,255,.14);color:var(--text2);padding:9px 18px;border-radius:999px;font-size:13px;cursor:pointer;}
+.mch-tab.on{background:var(--a);border-color:var(--a);color:#111;font-weight:700;}
+.mch-tab-content{display:none;}
+.mch-tab-content.on{display:block;}
+.mch-panel{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px;margin-bottom:18px;}
+.mch-panel h3{margin:0 0 14px;font-size:15px;color:var(--text2);}
+.mch-kv{display:flex;justify-content:space-between;gap:16px;font-size:13px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);}
+.mch-kv:last-child{border-bottom:0;}
+.mch-kv span:first-child{color:var(--muted);}
+.mch-kv span:last-child{text-align:right;color:var(--text2);}
+.mch-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px;flex-wrap:wrap;align-items:center;}
+.mch-row:last-child{border-bottom:0;}
+.mch-chip{display:inline-block;padding:2px 10px;border-radius:999px;font-size:11px;font-weight:700;}
+.mch-chip.pending{background:rgba(245,197,24,.15);color:#f5c518;}
+.mch-chip.confirmed{background:rgba(40,167,69,.18);color:#3ddc84;}
+.mch-inline{display:flex;gap:10px;flex-wrap:wrap;}
+.mch-inline input{flex:1;min-width:180px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:11px 14px;color:var(--text);font-size:14px;outline:none;}
+.mch-ok{color:#3ddc84;}
+.mch-bad{color:#ff6b6b;}
+.mch-more{margin:14px auto 0;display:block;}
+.mch-note{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.5;}
+
 /* ── NEWSLETTER SYSTEM ── */
 .nl-page{padding:120px 48px 72px;max-width:1000px;margin:0 auto;}
 .nl-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap;}
@@ -1939,7 +1971,7 @@ setTimeout(trackPageview,800);
     <li><a href="/explore" onclick="go('explore')" id="nl-explore">Explore</a></li>
     <li><a href="/directory" onclick="go('brands')" id="nl-brands">Directory</a></li>
     <li><a href="/ai-concierge" onclick="go('ai')" id="nl-ai">AI Concierge</a></li>
-    <li><a href="/newsletter" onclick="go('newsletter')" id="nl-newsletter">Newsletter</a></li>
+    <li><a href="/merchant" onclick="go('merchant')" id="nl-merchant">For Business</a></li>
   </ul>
   <div class="nav-controls">
     <select class="lang-select" onchange="translateTo(this.value)" title="Language">
@@ -1973,7 +2005,7 @@ setTimeout(trackPageview,800);
   <a href="/directory" onclick="mgo('brands')">Directory</a>
   <a href="/get-listed" onclick="mgo('listed')">Get Listed</a>
   <a href="/ai-concierge" onclick="mgo('ai')">AI Concierge</a>
-  <a href="/newsletter" onclick="mgo('newsletter')">Newsletter</a>
+  <a href="/merchant" onclick="mgo('merchant')">For Business</a>
   <a href="/streetpass" onclick="mgo('streetpass')">Street Pass</a>
   <a href="/get-listed" onclick="mgo('listed')">Get Listed</a>
 </div>
@@ -3730,43 +3762,64 @@ setTimeout(trackPageview,800);
 </div>
 
 <!-- ══════════ DASHBOARD ══════════ -->
-<div id="pg-dash" class="pg">
-  <section style="padding-top:100px;background:var(--bg2);">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;">
-      <div><div class="sec-tag">Business Dashboard</div><div class="sec-title">Your Performance</div></div>
-      <div class="badge">✓ On Safari · Growth Partner</div>
-    </div>
-    <div class="kpi-row">
-      <div class="kpi"><div class="kpi-l">Profile Views</div><div class="kpi-v">1,204</div><div class="kpi-ch kpi-up">↑ +18% this week</div></div>
-      <div class="kpi"><div class="kpi-l">WhatsApp Clicks</div><div class="kpi-v">87</div><div class="kpi-ch kpi-up">↑ +32% this week</div></div>
-      <div class="kpi"><div class="kpi-l">AI Referrals</div><div class="kpi-v">43</div><div class="kpi-ch kpi-up">↑ +8% this week</div></div>
-      <div class="kpi"><div class="kpi-l">Street Pass Uses</div><div class="kpi-v">12</div><div class="kpi-ch" style="color:var(--muted);">→ Steady</div></div>
-    </div>
-    <div class="dash-panels">
-      <div class="dash-panel">
-        <h3>Weekly Profile Visits</h3>
-        <div class="bar-row" id="dashBars"></div>
-      </div>
-      <div class="dash-panel">
-        <h3>Current Vibe</h3>
-        <div class="vibe-row">
-          <div class="vibe-dot"></div>
-          <span class="vibe-txt" id="vibeTxt">Exhibition on now 🎨</span>
-          <button class="vibe-edit" onclick="document.getElementById('vibeOpts').classList.toggle('show')">Edit</button>
-        </div>
-        <div class="vibe-opts" id="vibeOpts">
-          <button class="vibe-opt" onclick="setVibe('Exhibition on now 🎨')">Exhibition on now 🎨</button>
-          <button class="vibe-opt" onclick="setVibe('Prints on sale 🔥')">Prints on sale 🔥</button>
-          <button class="vibe-opt" onclick="setVibe('New collection live ✨')">New collection live ✨</button>
-          <button class="vibe-opt" onclick="setVibe('By appointment 📅')">By appointment 📅</button>
-        </div>
+<div id="pg-merchant" class="pg">
+  <section style="padding-top:100px;background:var(--bg2);min-height:100vh;">
+    <div id="mchLoginWrap" style="display:none;max-width:440px;margin:0 auto;">
+      <div class="mch-card">
+        <div class="sp-tag">&#x1F3EA; For Business</div>
+        <h2>Merchant Workstation</h2>
+        <p class="mch-sub">Sign in with your store account to see check-ins, confirm rewards and send newsletters.</p>
+        <div class="mch-field"><label>Email</label><input type="email" id="mchEmail" autocomplete="email" placeholder="you@yourstore.co.za"></div>
+        <div class="mch-field"><label>Password</label><input type="password" id="mchPass" autocomplete="current-password" placeholder="Your password"></div>
+        <div class="mch-err" id="mchLoginErr"></div>
+        <button class="btn btn-gold" id="mchLoginBtn" style="width:100%;padding:13px;" onclick="mchLogin()">Sign In</button>
+        <p class="mch-note">Only registered Kloof Street stores can sign in. Want your store on Kloof Street? <a href="/get-listed" onclick="go('listed')" style="color:var(--a);">Get listed</a>.</p>
       </div>
     </div>
-    <div style="background:rgba(245,197,24,.04);border:1px solid rgba(245,197,24,.15);padding:22px 28px;border-radius:var(--r);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
-      <div><div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:4px;">Want to upgrade your package?</div><div style="font-size:12px;color:var(--muted);">Growth plan — 2 spots remaining this month.</div></div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="/get-listed" class="btn btn-gold" style="padding:10px 20px;" onclick="go('listed')">Upgrade Package</a>
-        <a href="/get-listed" class="btn btn-outline" style="padding:10px 20px;" onclick="go('listed')">Contact Team</a>
+    <div id="mchApp" style="display:none;">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:12px;">
+        <div>
+          <div class="sp-tag">&#x1F3EA; Merchant Workstation</div>
+          <div class="sp-title" id="mchStoreName">Your Store</div>
+          <div class="sp-sub" id="mchStoreSub" style="margin-bottom:0;"></div>
+        </div>
+        <button class="btn btn-outline" style="padding:9px 18px;" onclick="mchSignOut()">Sign Out</button>
+      </div>
+      <div class="mch-tabs">
+        <button class="mch-tab on" id="mchTabBtnOverview" onclick="mchTab('overview')">Overview</button>
+        <button class="mch-tab" id="mchTabBtnCheckins" onclick="mchTab('checkins')">Check-ins</button>
+        <button class="mch-tab" id="mchTabBtnRedemptions" onclick="mchTab('redemptions')">Redemptions</button>
+        <button class="mch-tab" id="mchTabBtnNewsletter" onclick="mchTab('newsletter')">Newsletter</button>
+      </div>
+      <div class="mch-tab-content on" id="mchTabOverview">
+        <div class="kpi-row" id="mchKpis"></div>
+        <div class="mch-panel"><h3>Store information</h3><div id="mchStoreInfo"></div></div>
+        <div class="mch-panel"><h3>Your Street Pass rewards</h3><div id="mchRewardsList"></div></div>
+      </div>
+      <div class="mch-tab-content" id="mchTabCheckins">
+        <div class="mch-panel">
+          <h3>Manual check-in</h3>
+          <div class="mch-inline">
+            <input type="text" id="mchRefInput" placeholder="Member referral code (e.g. KS-4F2A)">
+            <button class="btn btn-gold" style="padding:11px 22px;" onclick="mchManualCheckin()">Check In</button>
+          </div>
+          <div class="mch-err" id="mchCheckinResult"></div>
+        </div>
+        <div class="mch-panel"><h3>Recent check-ins</h3><div id="mchScanList"></div><button class="btn btn-outline mch-more" id="mchMoreBtn" style="display:none;" onclick="mchLoadScans(MCH_PAGE + 1)">Load more</button></div>
+      </div>
+      <div class="mch-tab-content" id="mchTabRedemptions">
+        <div class="mch-panel">
+          <h3>Confirm a reward</h3>
+          <div class="mch-inline">
+            <input type="text" id="mchCodeInput" placeholder="Type or paste the member's code">
+            <button class="btn btn-gold" style="padding:11px 22px;" onclick="mchConfirmCode()">Confirm</button>
+          </div>
+          <div class="mch-err" id="mchConfirmResult"></div>
+        </div>
+        <div class="mch-panel"><h3>Redemptions</h3><div id="mchRedempList"></div></div>
+      </div>
+      <div class="mch-tab-content" id="mchTabNewsletter">
+        <div id="mchNlHost"></div>
       </div>
     </div>
   </section>
@@ -4020,7 +4073,7 @@ setTimeout(trackPageview,800);
       <h3>Platform</h3>
       <ul>
         <li><a href="/ai-concierge" onclick="go('ai')">AI Concierge</a></li>
-        <li><a href="/newsletter" onclick="go('newsletter')">Newsletter</a></li>
+        <li><a href="/merchant" onclick="go('merchant')">For Business</a></li>
         <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
         <li><a href="/get-listed" onclick="go('listed')">Get Listed</a></li>
         <li><a href="/about" onclick="go('about')">About Us</a></li>
@@ -4046,8 +4099,8 @@ setTimeout(trackPageview,800);
 
 <script>
 // ── PAGES ──
-const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','arnolds','ai','listed','dash','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem','newsletter'];
-const NAVLINKS = ['home','about','explore','brands','ai','newsletter'];
+const PAGES = ['home','about','explore','brands','on-safari','ubuntu','dr-wendy','just-hearing','dr-thomas','trudy','postnet','revive','dr-dale','hayley','bodyvision','arnolds','ai','listed','merchant','streetpass','streetpass-signup','streetpass-scan','streetpass-redeem'];
+const NAVLINKS = ['home','about','explore','brands','ai','merchant'];
 
 // ── URL slug map ──
 var SLUG_MAP = {
@@ -4062,7 +4115,7 @@ var SLUG_MAP = {
   'bodyvision':'/body-vision-studio', 'arnolds':'/arnolds-restaurant', 'ai':'/ai-concierge', 'listed':'/get-listed', 'dash':'/dashboard',
   'streetpass':'/streetpass','streetpass-signup':'/streetpass/join',
   'streetpass-scan':'/streetpass/scan','streetpass-redeem':'/streetpass/rewards',
-  'newsletter':'/newsletter'
+  'merchant':'/merchant'
 };
 var SLUG_REVERSE = {};
 Object.keys(SLUG_MAP).forEach(function(k){ SLUG_REVERSE[SLUG_MAP[k]] = k; });
@@ -4070,6 +4123,8 @@ SLUG_REVERSE['/art-studios'] = 'on-safari';
 SLUG_REVERSE['/hs-physio'] = 'hayley';
 
 function go(name, noPush) {
+  // Old routes keep working: /dash and /newsletter now land on the workstation
+  if (name === 'dash' || name === 'newsletter') { name = 'merchant'; }
   // Virtual home-page anchors (no separate page div)
   var HOME_ANCHORS = { 'brands':'anchor-brands', 'explore':'anchor-explore', 'about':'anchor-brands' };
   var isAnchor = HOME_ANCHORS.hasOwnProperty(name);
@@ -4094,8 +4149,7 @@ function go(name, noPush) {
   var al = document.getElementById('nl-' + name);
   if (al) al.className = 'on';
   if (!HOME_ANCHORS.hasOwnProperty(name)) window.scrollTo(0, 0);
-  if (name === 'dash') initBars();
-  if (name === 'newsletter') nlInit();
+  if (name === 'merchant') mchOpen();
   updateMeta(name);
   // Push URL
   if (!noPush) {
@@ -4142,10 +4196,10 @@ var PAGE_META = {
   'streetpass-signup': {title:'Join Street Pass | KloofStreet.online', desc:'Join the Kloof Street Pass for R199/month. Points, rewards and exclusive access at every partner.'},
   'streetpass-scan':  {title:'Scan QR | Street Pass | KloofStreet.online', desc:'Scan partner QR codes to earn points.'},
   'streetpass-redeem': {title:'Rewards | Street Pass | KloofStreet.online', desc:'Redeem your Street Pass points for exclusive rewards.'},
-  'newsletter':  {title:'Newsletter | KloofStreet.online', desc:'Send newsletters to your Kloof Street subscribers via Gmail.'},
+  'merchant':  {title:'Merchant Workstation | KloofStreet.online', desc:'Kloof Street merchant workstation — store stats, check-ins, reward confirmations and newsletters.'},
   'ai':          {title:'AI Concierge | KloofStreet.online', desc:'Your AI-powered guide to Kloof Street. Ask anything about restaurants, wellness, shopping and more.'},
   'arnolds':     {title:"Arnold's Restaurant | KloofStreet.online", desc:'Fine dining on Kloof Street. Classic heritage, bold flavours. Dinner, brekkie & lunch, cocktails.'},
-  'dash':        {title:'Dashboard | KloofStreet.online', desc:'KloofStreet platform analytics and insights.'},
+  'dash':        {title:'Merchant Workstation | KloofStreet.online', desc:'Kloof Street merchant workstation.'},
   'listed':      {title:'Get Listed | KloofStreet.online', desc:'Get your Kloof Street business on the map. Verified listings, real discovery.'},
 };
 
@@ -4954,6 +5008,277 @@ window.go = function(name, noPush) {
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
 <script>
+// ════════════════════════════════════════════════════════════════════
+// MERCHANT WORKSTATION
+// ════════════════════════════════════════════════════════════════════
+var MCH_PAGE = 1;
+var MCH_GMAIL_POPUP = null;
+var MCH_NL_STARTED = false;
+
+function mchToken() {
+  var c = spClient();
+  if (!c) return Promise.resolve(null);
+  return c.auth.getSession().then(function(s) {
+    return (s && s.data && s.data.session) ? s.data.session.access_token : null;
+  });
+}
+
+function mchAuthFetch(url, opts) {
+  opts = opts || {};
+  opts.headers = opts.headers || {};
+  if (opts.body && !opts.headers['Content-Type']) opts.headers['Content-Type'] = 'application/json';
+  return mchToken().then(function(t) {
+    if (t) opts.headers['Authorization'] = 'Bearer ' + t;
+    return fetch(url, opts);
+  });
+}
+
+// Every newsletter API call goes through this so the merchant token rides along
+function nlFetch(url, opts) { return mchAuthFetch(url, opts); }
+
+function mchOpen() {
+  // Move the newsletter panel into the workstation tab host
+  var host = document.getElementById('mchNlHost');
+  var nlPage = document.querySelector('#pg-newsletter .nl-page');
+  if (host && nlPage && nlPage.parentNode !== host) host.appendChild(nlPage);
+  var c = spClient();
+  if (!c) {
+    document.getElementById('mchLoginWrap').style.display = 'block';
+    document.getElementById('mchLoginErr').textContent = 'Members service unavailable. Refresh and try again.';
+    return;
+  }
+  c.auth.getSession().then(function(s) {
+    var sess = s && s.data && s.data.session;
+    if (sess) {
+      mchAfterLogin(false);
+    } else {
+      document.getElementById('mchLoginWrap').style.display = 'block';
+      document.getElementById('mchApp').style.display = 'none';
+    }
+  });
+}
+
+function mchLogin() {
+  var email = document.getElementById('mchEmail').value.trim();
+  var pass = document.getElementById('mchPass').value;
+  var errEl = document.getElementById('mchLoginErr');
+  errEl.textContent = '';
+  if (!email || !pass) { errEl.textContent = 'Enter your email and password.'; return; }
+  // Open the Gmail popup inside THIS click, before anything async, so the
+  // browser allows it. We only navigate it later if Gmail is not connected.
+  try { MCH_GMAIL_POPUP = window.open('about:blank', 'google-auth', 'width=600,height=700'); } catch (e) { MCH_GMAIL_POPUP = null; }
+  var btn = document.getElementById('mchLoginBtn');
+  btn.disabled = true; btn.textContent = 'Signing in...';
+  spClient().auth.signInWithPassword({ email: email, password: pass }).then(function(r) {
+    btn.disabled = false; btn.textContent = 'Sign In';
+    if (r.error) {
+      if (MCH_GMAIL_POPUP) { try { MCH_GMAIL_POPUP.close(); } catch (e2) {} MCH_GMAIL_POPUP = null; }
+      errEl.textContent = (r.error && r.error.message) || 'Sign in failed';
+      return;
+    }
+    mchAfterLogin(true);
+  }).catch(function() {
+    btn.disabled = false; btn.textContent = 'Sign In';
+    errEl.textContent = 'Connection error — try again.';
+  });
+}
+
+function mchAfterLogin(fromClick) {
+  mchAuthFetch('/api/merchant/me').then(function(r) { return r.json(); }).then(function(data) {
+    if (data.error) {
+      document.getElementById('mchLoginWrap').style.display = 'block';
+      document.getElementById('mchApp').style.display = 'none';
+      document.getElementById('mchLoginErr').textContent = data.error;
+      if (String(data.error).indexOf('not a registered') !== -1) {
+        try { spClient().auth.signOut(); } catch (e3) {}
+      }
+      return;
+    }
+    mchRender(data);
+    document.getElementById('mchLoginWrap').style.display = 'none';
+    document.getElementById('mchApp').style.display = 'block';
+    mchTab('overview');
+    nlFetch('/api/newsletter/google-auth?step=status').then(function(r2) { return r2.json(); }).then(function(gs) {
+      nlCheckGoogle();
+      if (gs && gs.connected) {
+        if (MCH_GMAIL_POPUP) { try { MCH_GMAIL_POPUP.close(); } catch (e4) {} MCH_GMAIL_POPUP = null; }
+      } else if (fromClick) {
+        mchAutoConnectGmail();
+      }
+    }).catch(function() { nlCheckGoogle(); });
+  }).catch(function() {
+    document.getElementById('mchLoginErr').textContent = 'Connection error — try again.';
+  });
+}
+
+function mchAutoConnectGmail() {
+  nlFetch('/api/newsletter/google-auth').then(function(r) { return r.json(); }).then(function(data) {
+    if (!data.authUrl) return;
+    var w = (MCH_GMAIL_POPUP && !MCH_GMAIL_POPUP.closed) ? MCH_GMAIL_POPUP : window.open(data.authUrl, 'google-auth', 'width=600,height=700');
+    if (w) { try { w.location.href = data.authUrl; } catch (e5) {} }
+    window.addEventListener('message', function handler(e) {
+      if (e.data && e.data.type === 'google-auth-success') {
+        nlCheckGoogle();
+        window.removeEventListener('message', handler);
+      }
+    });
+  });
+}
+
+function mchSignOut() {
+  try { spClient().auth.signOut(); } catch (e) {}
+  MCH_NL_STARTED = false;
+  document.getElementById('mchApp').style.display = 'none';
+  document.getElementById('mchLoginWrap').style.display = 'block';
+  document.getElementById('mchLoginErr').textContent = '';
+  var st = document.getElementById('nlGoogleStatus');
+  if (st) st.innerHTML = '';
+}
+
+function mchRender(data) {
+  var p = data.store || {};
+  document.getElementById('mchStoreName').textContent = p.name || 'Your Store';
+  var bits = [];
+  if (p.short_name) bits.push(p.short_name);
+  if (p.category) bits.push(p.category);
+  if (p.area || p.suburb) bits.push(p.area || p.suburb);
+  document.getElementById('mchStoreSub').textContent = bits.join(' · ');
+
+  var s = data.stats || {};
+  var kpis = [
+    ['Total check-ins', s.total_scans],
+    ['This week', s.scans_this_week],
+    ['Unique members', s.unique_members],
+    ['Points awarded', s.points_awarded]
+  ];
+  document.getElementById('mchKpis').innerHTML = kpis.map(function(k) {
+    return '<div class="kpi"><div class="kpi-l">' + k[0] + '</div><div class="kpi-v">' + (k[1] !== undefined ? k[1] : '–') + '</div></div>';
+  }).join('') +
+  '<div class="kpi"><div class="kpi-l">Check-ins today</div><div class="kpi-v">' + (s.scans_today || 0) + '</div></div>' +
+  '<div class="kpi"><div class="kpi-l">Rewards awaiting confirmation</div><div class="kpi-v">' + (s.pending_redemptions || 0) + '</div></div>';
+
+  var known = ['short_name','category','description','about','address','street_address','phone','contact_number','telephone','email','website','whatsapp','instagram','area','suburb','city'];
+  var rows = '<div class="mch-kv"><span>Sign-in email</span><span>' + escHtml((data.merchant && data.merchant.email) || '') + '</span></div>';
+  known.forEach(function(k) {
+    var v = p[k];
+    if (v === undefined || v === null || v === '') return;
+    if (typeof v !== 'string' && typeof v !== 'number') return;
+    rows += '<div class="mch-kv"><span>' + k.replace(/_/g, ' ') + '</span><span>' + escHtml(String(v)) + '</span></div>';
+  });
+  rows += '<div class="mch-kv"><span>Store ID (for QR codes)</span><span>' + escHtml(p.id || '') + '</span></div>';
+  document.getElementById('mchStoreInfo').innerHTML = rows;
+
+  var rw = data.rewards || [];
+  document.getElementById('mchRewardsList').innerHTML = rw.length
+    ? rw.map(function(r) {
+        return '<div class="mch-row"><span>' + escHtml(r.name || 'Reward') + '</span><span>' + (r.points_required || 0) + ' pts · ' +
+          (r.active ? '<span class="mch-chip confirmed">active</span>' : '<span class="mch-chip pending">off</span>') + '</span></div>';
+      }).join('')
+    : '<div class="mch-kv"><span>No rewards yet — ask the KloofStreet team to add yours.</span></div>';
+}
+
+function mchTab(name) {
+  ['overview','checkins','redemptions','newsletter'].forEach(function(n) {
+    var b = document.getElementById('mchTabBtn' + n.charAt(0).toUpperCase() + n.slice(1));
+    if (b) b.className = 'mch-tab' + (n === name ? ' on' : '');
+    var c = document.getElementById('mchTab' + n.charAt(0).toUpperCase() + n.slice(1));
+    if (c) c.className = 'mch-tab-content' + (n === name ? ' on' : '');
+  });
+  if (name === 'overview') mchLoadMe();
+  if (name === 'checkins') { MCH_PAGE = 1; mchLoadScans(1); }
+  if (name === 'redemptions') mchLoadRedemptions();
+  if (name === 'newsletter' && !MCH_NL_STARTED) { MCH_NL_STARTED = true; nlInit(); }
+  if (name === 'newsletter' && MCH_NL_STARTED) { nlCheckGoogle(); }
+}
+
+function mchLoadMe() {
+  mchAuthFetch('/api/merchant/me').then(function(r) { return r.json(); }).then(function(data) {
+    if (data.error) { showToast(data.error); return; }
+    mchRender(data);
+  });
+}
+
+function mchWhen(iso) {
+  try { return new Date(iso).toLocaleString(undefined, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }); }
+  catch (e) { return ''; }
+}
+
+function mchLoadScans(page) {
+  mchAuthFetch('/api/merchant/scans?page=' + page + '&limit=25').then(function(r) { return r.json(); }).then(function(data) {
+    if (data.error) { document.getElementById('mchScanList').innerHTML = '<div class="mch-kv"><span class="mch-bad">' + escHtml(data.error) + '</span></div>'; return; }
+    MCH_PAGE = data.page || page;
+    var html = (data.scans || []).map(function(s) {
+      return '<div class="mch-row"><span><b>' + escHtml(s.member_name) + '</b> · ' + mchWhen(s.created_at) +
+        (s.is_first_visit ? ' · <span class="mch-chip pending">first visit</span>' : '') + '</span>' +
+        '<span>+' + (s.points_earned || 0) + ' pts</span></div>';
+    }).join('');
+    if (page > 1) {
+      document.getElementById('mchScanList').insertAdjacentHTML('beforeend', html);
+    } else {
+      document.getElementById('mchScanList').innerHTML = html || '<div class="mch-kv"><span>No check-ins yet. Members scan your store QR code to check in.</span></div>';
+    }
+    document.getElementById('mchMoreBtn').style.display = (data.page < data.pages) ? 'block' : 'none';
+  });
+}
+
+function mchManualCheckin() {
+  var ref = document.getElementById('mchRefInput').value.trim();
+  var out = document.getElementById('mchCheckinResult');
+  out.textContent = '';
+  if (!ref) { out.className = 'mch-err mch-bad'; out.textContent = 'Enter the member’s referral code.'; return; }
+  mchAuthFetch('/api/merchant/scans', { method: 'POST', body: JSON.stringify({ member_ref: ref }) })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.error) {
+        out.className = 'mch-err mch-bad';
+        out.textContent = data.message || data.error;
+        return;
+      }
+      out.className = 'mch-err mch-ok';
+      out.textContent = '✓ ' + data.member_name + ' checked in — +' + data.points_earned + ' pts' +
+        (data.is_first_visit ? ' (first visit!)' : '') + (data.has_multiplier ? ' (2x multiplier)' : '') +
+        ' · they now have ' + data.new_total_points + ' pts.';
+      document.getElementById('mchRefInput').value = '';
+      MCH_PAGE = 1;
+      mchLoadScans(1);
+    })
+    .catch(function() { out.className = 'mch-err mch-bad'; out.textContent = 'Connection error — try again.'; });
+}
+
+function mchLoadRedemptions() {
+  mchAuthFetch('/api/merchant/redemptions?status=all').then(function(r) { return r.json(); }).then(function(data) {
+    if (data.error) { document.getElementById('mchRedempList').innerHTML = '<div class="mch-kv"><span class="mch-bad">' + escHtml(data.error) + '</span></div>'; return; }
+    document.getElementById('mchRedempList').innerHTML = (data.redemptions || []).length
+      ? data.redemptions.map(function(x) {
+          return '<div class="mch-row"><span><b>' + escHtml(x.code) + '</b> · ' + escHtml(x.member_name) + ' · ' +
+            escHtml(x.reward_name) + ' · ' + mchWhen(x.created_at) + '</span>' +
+            '<span>' + (x.points_used || 0) + ' pts · <span class="mch-chip ' + escHtml(x.status) + '">' + escHtml(x.status) + '</span></span></div>';
+        }).join('')
+      : '<div class="mch-kv"><span>No redemptions yet.</span></div>';
+  });
+}
+
+function mchConfirmCode() {
+  var code = document.getElementById('mchCodeInput').value.trim();
+  var out = document.getElementById('mchConfirmResult');
+  out.textContent = '';
+  if (!code) { out.className = 'mch-err mch-bad'; out.textContent = 'Enter the member’s code.'; return; }
+  mchAuthFetch('/api/merchant/redemptions', { method: 'POST', body: JSON.stringify({ code: code }) })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.error) {
+        out.className = 'mch-err mch-bad';
+        out.textContent = data.error;
+        return;
+      }
+      out.className = 'mch-err mch-ok';
+      out.textContent = '✓ Confirmed — ' + data.reward_name + ' for ' + data.member_name + '.';
+      document.getElementById('mchCodeInput').value = '';
+      mchLoadRedemptions();
+    })
+    .catch(function() { out.className = 'mch-err mch-bad'; out.textContent = 'Connection error — try again.'; });
+}
+
 // ═══════════════════════════════════════════════════════════════════
 // NEWSLETTER SYSTEM
 // ═══════════════════════════════════════════════════════════════════
@@ -4969,7 +5294,7 @@ function nlInit() {
 }
 
 function nlCheckGoogle() {
-  fetch('/api/newsletter/google-auth?step=status').then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/google-auth?step=status').then(function(r){return r.json();}).then(function(data) {
     var el = document.getElementById('nlGoogleStatus');
     if (data.connected) {
       el.className = 'nl-google-status connected';
@@ -4986,7 +5311,7 @@ function nlCheckGoogle() {
 }
 
 function nlConnectGoogle() {
-  fetch('/api/newsletter/google-auth').then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/google-auth').then(function(r){return r.json();}).then(function(data) {
     if (data.authUrl) {
       var w = window.open(data.authUrl, 'google-auth', 'width=600,height=700');
       window.addEventListener('message', function handler(e) {
@@ -5003,7 +5328,7 @@ function nlConnectGoogle() {
 }
 
 function nlDisconnectGoogle() {
-  fetch('/api/newsletter/google-auth', {method:'DELETE'}).then(function(r){return r.json();}).then(function() {
+  nlFetch('/api/newsletter/google-auth', {method:'DELETE'}).then(function(r){return r.json();}).then(function() {
     nlCheckGoogle();
     showToast('Google disconnected');
   });
@@ -5030,7 +5355,7 @@ function nlCountRecipients() {
   if (source) params.set('source', source);
   params.set('limit', '1');
   params.set('active_only', 'true');
-  fetch('/api/newsletter/contacts?' + params).then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/contacts?' + params).then(function(r){return r.json();}).then(function(data) {
     document.getElementById('nlRecipientCount').textContent = data.total + ' active subscribers will receive this newsletter';
   }).catch(function(){});
 }
@@ -5041,7 +5366,7 @@ document.addEventListener('change', function(e) {
 function nlSaveDraft() {
   var body = nlGetComposeBody();
   body.send_now = false;
-  fetch('/api/newsletter/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(data) {
     if (data.error) { showToast(data.error); return; }
     showToast('Draft saved — ' + data.total_contacts + ' recipients');
     nlLoadHistory();
@@ -5053,7 +5378,7 @@ function nlSendNewsletter() {
   if (!confirm('Send this newsletter to all active subscribers?')) return;
   var body = nlGetComposeBody();
   body.send_now = true;
-  fetch('/api/newsletter/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/send', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}).then(function(r){return r.json();}).then(function(data) {
     if (data.error) { showToast(data.error); return; }
     NL_CURRENT_NEWSLETTER_ID = data.newsletter.id;
     NL_SENDING = true;
@@ -5080,11 +5405,11 @@ function nlGetComposeBody() {
 }
 
 function nlSendBatches(newsletterId) {
-  fetch('/api/newsletter/send?step=publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:newsletterId})}).then(function(r){return r.json();}).then(function(){nlSendNextBatch(newsletterId);});
+  nlFetch('/api/newsletter/send?step=publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:newsletterId})}).then(function(r){return r.json();}).then(function(){nlSendNextBatch(newsletterId);});
 }
 
 function nlSendNextBatch(newsletterId) {
-  fetch('/api/newsletter/send?step=send-batch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:newsletterId})}).then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/send?step=send-batch',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:newsletterId})}).then(function(r){return r.json();}).then(function(data) {
     if (data.error) { showToast('Error: '+data.error); NL_SENDING=false; return; }
     var total = data.totalSent + data.totalFailed + (data.stillPending||0);
     var pct = data.done ? 100 : (total>0 ? Math.round(data.totalSent/total*100) : 0);
@@ -5114,7 +5439,7 @@ function nlLoadContacts(page) {
   params.set('page',NL_CONTACT_PAGE);
   params.set('limit','50');
   if (search) params.set('search',search);
-  fetch('/api/newsletter/contacts?'+params).then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/contacts?'+params).then(function(r){return r.json();}).then(function(data) {
     document.getElementById('nlContactCount').textContent = data.total;
     var html = '';
     (data.contacts||[]).forEach(function(c) {
@@ -5139,7 +5464,7 @@ function nlAddContact() {
   var tagsStr=document.getElementById('nlNewTags').value.trim();
   var tags=tagsStr?tagsStr.split(',').map(function(t){return t.trim();}).filter(Boolean):[];
   if (!email){showToast('Email required');return;}
-  fetch('/api/newsletter/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,name:name,tags:tags})}).then(function(r){return r.json();}).then(function(data){
+  nlFetch('/api/newsletter/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,name:name,tags:tags})}).then(function(r){return r.json();}).then(function(data){
     if (data.error){showToast(data.error);return;}
     showToast('Contact added');nlCloseModal('nlAddContactModal');
     document.getElementById('nlNewEmail').value='';document.getElementById('nlNewName').value='';document.getElementById('nlNewTags').value='';
@@ -5147,14 +5472,14 @@ function nlAddContact() {
   });
 }
 
-function nlDeleteContact(id){if(!confirm('Delete this contact?'))return;fetch('/api/newsletter/contacts?id='+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(){nlLoadContacts();});}
+function nlDeleteContact(id){if(!confirm('Delete this contact?'))return;nlFetch('/api/newsletter/contacts?id='+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(){nlLoadContacts();});}
 
 function nlImportSheets() {
   var sheetId=document.getElementById('nlSheetId').value.trim();
   var range=document.getElementById('nlSheetRange').value.trim()||'A:Z';
   if (!sheetId){showToast('Spreadsheet ID required');return;}
   var btn=event.target;btn.textContent='Importing...';btn.disabled=true;
-  fetch('/api/newsletter/contacts?import=sheets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({spreadsheetId:sheetId,range:range})}).then(function(r){return r.json();}).then(function(data){
+  nlFetch('/api/newsletter/contacts?import=sheets',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({spreadsheetId:sheetId,range:range})}).then(function(r){return r.json();}).then(function(data){
     btn.textContent='Import';btn.disabled=false;if(data.error){showToast(data.error);return;}
     showToast('Imported '+data.imported+' contacts from Google Sheets');nlCloseModal('nlSheetsModal');nlLoadContacts();
   }).catch(function(){btn.textContent='Import';btn.disabled=false;showToast('Import failed');});
@@ -5169,14 +5494,14 @@ function nlBulkImport() {
   text.split(/[\n,;]/).forEach(function(line){line=line.trim();if(!line)return;var match=line.match(/^(.+?)\s*<([^>]+)>$/);if(match){contacts.push({name:match[1].trim(),email:match[2].trim(),tags:tags});}else{contacts.push({email:line,tags:tags});}});
   if (contacts.length===0){showToast('No valid entries found');return;}
   var btn=event.target;btn.textContent='Importing...';btn.disabled=true;
-  fetch('/api/newsletter/contacts?import=bulk',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contacts:contacts})}).then(function(r){return r.json();}).then(function(data){
+  nlFetch('/api/newsletter/contacts?import=bulk',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contacts:contacts})}).then(function(r){return r.json();}).then(function(data){
     btn.textContent='Import';btn.disabled=false;if(data.error){showToast(data.error);return;}
     showToast('Imported '+data.imported+' contacts');nlCloseModal('nlBulkModal');document.getElementById('nlBulkEmails').value='';nlLoadContacts();
   }).catch(function(){btn.textContent='Import';btn.disabled=false;showToast('Import failed');});
 }
 
 function nlLoadHistory() {
-  fetch('/api/newsletter/send').then(function(r){return r.json();}).then(function(data) {
+  nlFetch('/api/newsletter/send').then(function(r){return r.json();}).then(function(data) {
     var html='';
     (data.newsletters||[]).forEach(function(n){
       var date=new Date(n.created_at).toLocaleDateString('en-ZA',{day:'numeric',month:'short',year:'numeric'});
@@ -5192,7 +5517,7 @@ function nlQueueAndSend(id){if(!confirm('Send this newsletter now?'))return;NL_C
 function nlResumeSend(id){NL_CURRENT_NEWSLETTER_ID=id;NL_SENDING=true;document.getElementById('nlSendProgress').style.display='block';nlTab('compose');nlSendNextBatch(id);}
 
 function nlEditDraft(id) {
-  fetch('/api/newsletter/send?id='+id).then(function(r){return r.json();}).then(function(data){
+  nlFetch('/api/newsletter/send?id='+id).then(function(r){return r.json();}).then(function(data){
     if(!data.newsletter)return;
     document.getElementById('nlSubject').value=data.newsletter.subject;
     var temp=document.createElement('div');temp.innerHTML=data.newsletter.body_html;
@@ -5205,12 +5530,12 @@ function nlEditDraft(id) {
   });
 }
 
-function nlDeleteNewsletter(id){if(!confirm('Delete this newsletter?'))return;fetch('/api/newsletter/send?id='+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(){nlLoadHistory();showToast('Newsletter deleted');});}
+function nlDeleteNewsletter(id){if(!confirm('Delete this newsletter?'))return;nlFetch('/api/newsletter/send?id='+id,{method:'DELETE'}).then(function(r){return r.json();}).then(function(){nlLoadHistory();showToast('Newsletter deleted');});}
 
 function nlFooterSignup() {
   var email=document.getElementById('footerNlEmail').value.trim();
   if (!email){showToast('Enter your email');return;}
-  fetch('/api/newsletter/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-signup',tags:['website-signup']})}).then(function(r){return r.json();}).then(function(data){
+  nlFetch('/api/newsletter/contacts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-signup',tags:['website-signup']})}).then(function(r){return r.json();}).then(function(data){
     if(data.error){showToast(data.error);return;}
     showToast('Subscribed! Welcome to Kloof Street.');document.getElementById('footerNlEmail').value='';
   }).catch(function(){showToast('Signup failed — try again');});
