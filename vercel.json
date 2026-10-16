@@ -4,6 +4,11 @@
   "outputDirectory": ".",
   "routes": [
     {
+      "src": "/newsletter",
+      "status": 308,
+      "headers": { "Location": "https://hustleportal.online/" }
+    },
+    {
       "handle": "filesystem"
     },
     {
