@@ -1431,6 +1431,29 @@ nav{z-index:200;}
 .mch-feat b{display:block;color:var(--text2);margin:8px 0 4px;font-size:13.5px;}
 .mch-feat p{margin:0;}
 .mch-feat-ic{font-size:22px;line-height:1;}
+/* ── BODY VISION — method diagrams ── */
+.bv-mv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px;}
+.bv-mv{background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--r);padding:16px 14px;text-align:center;}
+.bv-mv-n{font-size:10px;font-weight:800;color:var(--a);letter-spacing:.24em;}
+.bv-svg{width:100%;max-width:180px;height:auto;display:block;margin:6px auto 0;}
+.bv-mv-name{font-size:14px;font-weight:800;color:var(--text2);margin:10px 0 6px;}
+.bv-mv-pos{font-size:11px;color:var(--muted);line-height:1.65;}
+.bv-attn{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px 18px;}
+.bv-attn div{font-size:12px;color:var(--muted);line-height:1.6;display:flex;gap:8px;}
+.bv-attn b{color:var(--a);font-weight:700;}
+.bv-pelvis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
+.bv-pelvis .bv-svg{max-width:130px;}
+.bv-plumb{stroke:var(--a);stroke-width:1;stroke-dasharray:3 5;opacity:.55;fill:none;}
+.bv-stool{stroke:var(--muted);stroke-width:3;stroke-linecap:round;opacity:.55;fill:none;}
+.bv-line{fill:none;stroke:var(--text);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:.88;}
+.bv-echo{fill:none;stroke:var(--text);stroke-width:3;stroke-linecap:round;opacity:.28;}
+.bv-thin{fill:none;stroke:var(--text);stroke-width:2;stroke-linecap:round;opacity:.5;}
+.bv-head{fill:var(--bg3);stroke:var(--text);stroke-width:2;}
+.bv-arrow{fill:none;stroke:var(--a);stroke-width:1.7;stroke-linecap:round;}
+.bv-arrowR{fill:none;stroke:var(--muted);stroke-width:3.4;stroke-linecap:round;opacity:.85;}
+.bv-mk{fill:var(--a);}
+.bv-mkR{fill:var(--muted);}
+@media(max-width:860px){.bv-mv-grid{grid-template-columns:1fr;}.bv-mv .bv-svg{max-width:150px;}}
 
 
 </style>
@@ -3517,6 +3540,122 @@ setTimeout(trackPageview,800);
       <h2 style="font-size:22px;font-weight:800;color:var(--text2);margin:8px 0 16px;">Move Better.<br>Feel Better. Live Better.</h2>
       <p style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:16px;">Body Vision Studio is Cape Town's specialist GYROTONIC&#xAE; and GYROKINESIS&#xAE; studio, now open at the Lifestyle Centre on 50 Kloof Street. Kim Tucker — certified instructor with over 15 years of practice — offers private and semi-private sessions tailored to dancers, athletes, post-surgery recovery, seniors and anyone seeking a freer, stronger body.</p>
       <p style="font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:28px;">The GYROTONIC&#xAE; Expansion System draws from gymnastics, swimming, ballet and yoga. Unlike conventional exercise, its movements are fluid, circular and three-dimensional — simultaneously stretching and strengthening the entire body through rotating joint movement, without compression. Every session is synchronised with breathing patterns, creating a cardiovascular stimulation that can be gentle or vigorous.</p>
+
+      <!-- THE METHOD — from Kim's Gyrotonic manual -->
+      <div style="background:var(--bg2);border:1px solid rgba(245,197,24,.16);border-radius:var(--r);padding:26px;margin-bottom:28px;">
+        <div class="sec-tag" style="margin-bottom:10px;">The Method &middot; From Kim&rsquo;s GYROTONIC&#xAE; Manual</div>
+        <h2 style="font-size:20px;font-weight:800;color:var(--text2);margin:0 0 12px;">Essential movements for a healthy spine</h2>
+        <p style="font-size:13.5px;color:var(--muted);line-height:1.85;margin-bottom:4px;">Every GYROTONIC&#xAE; session is built on a small family of movements that keep the spine &mdash; and every structure connected to it &mdash; healthy. Drawn from Kim&rsquo;s teaching manual, these are the waves you learn to move with in the studio: arch and curl, sideways arch and spiral &mdash; each one starting from, and returning to, a balanced upright spine.</p>
+
+        <div class="bv-mv-grid">
+          <div class="bv-mv">
+            <div class="bv-mv-n">01</div>
+            <svg class="bv-svg" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seated figure arching backwards over a plumb line">
+              <defs>
+                <marker id="bvA1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="bv-mk" d="M0,0 L10,5 L0,10 z"/></marker>
+              </defs>
+              <line class="bv-plumb" x1="112" y1="10" x2="112" y2="152"/>
+              <g class="bv-stool"><line x1="72" y1="112" x2="152" y2="112"/><line x1="84" y1="112" x2="76" y2="152"/><line x1="140" y1="112" x2="148" y2="152"/></g>
+              <path class="bv-line" d="M116,108 L150,118 L154,146"/>
+              <path class="bv-line" d="M114,110 C76,100 60,64 86,38"/>
+              <path class="bv-echo" d="M114,110 C90,100 78,72 92,50"/>
+              <circle class="bv-head" cx="90" cy="30" r="9.5"/>
+              <g class="bv-arrow"><line x1="82" y1="22" x2="62" y2="12" marker-end="url(#bvA1)"/><line x1="121" y1="115" x2="142" y2="136" marker-end="url(#bvA1)"/></g>
+            </svg>
+            <div class="bv-mv-name">Arch &amp; Curl</div>
+            <div class="bv-mv-pos">The foundation wave.<br>Balanced arch &mdash; back of head over sacrum.<br>Balanced curl &mdash; throat centre over pubic bone.</div>
+          </div>
+          <div class="bv-mv">
+            <div class="bv-mv-n">02</div>
+            <svg class="bv-svg" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seated figure arching sideways over a plumb line">
+              <defs>
+                <marker id="bvA2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="bv-mk" d="M0,0 L10,5 L0,10 z"/></marker>
+              </defs>
+              <line class="bv-plumb" x1="110" y1="10" x2="110" y2="152"/>
+              <g class="bv-stool"><line x1="70" y1="112" x2="150" y2="112"/><line x1="82" y1="112" x2="78" y2="152"/><line x1="138" y1="112" x2="142" y2="152"/></g>
+              <path class="bv-line" d="M101,112 L97,150"/>
+              <path class="bv-line" d="M119,112 L123,150"/>
+              <path class="bv-line" d="M110,110 C102,84 114,58 132,44"/>
+              <path class="bv-echo" d="M110,110 C106,88 116,66 128,54"/>
+              <circle class="bv-head" cx="136" cy="37" r="9.5"/>
+              <g class="bv-arrow"><line x1="143" y1="29" x2="160" y2="17" marker-end="url(#bvA2)"/><line x1="99" y1="116" x2="82" y2="134" marker-end="url(#bvA2)"/></g>
+            </svg>
+            <div class="bv-mv-name">Sideways Arch</div>
+            <div class="bv-mv-pos">The lateral wave.<br>Balanced sideways arch &mdash; side of neck over pubic bone.</div>
+          </div>
+          <div class="bv-mv">
+            <div class="bv-mv-n">03</div>
+            <svg class="bv-svg" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Seated figure with a helical spiral around an upright spine">
+              <defs>
+                <marker id="bvA3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="bv-mk" d="M0,0 L10,5 L0,10 z"/></marker>
+              </defs>
+              <line class="bv-plumb" x1="110" y1="10" x2="110" y2="152"/>
+              <g class="bv-stool"><line x1="70" y1="112" x2="150" y2="112"/><line x1="82" y1="112" x2="78" y2="152"/><line x1="138" y1="112" x2="142" y2="152"/></g>
+              <path class="bv-line" d="M101,112 L97,150"/>
+              <path class="bv-line" d="M119,112 L123,150"/>
+              <path class="bv-line" d="M110,110 L110,42"/>
+              <circle class="bv-head" cx="110" cy="32" r="9.5"/>
+              <path class="bv-thin" d="M110,106 C88,98 90,80 110,76 C130,72 130,58 112,52 C100,48 102,42 109,37"/>
+              <g class="bv-arrow"><path d="M92,60 A22,13 0 0 1 90,45" marker-end="url(#bvA3)"/><path d="M128,90 A22,13 0 0 0 130,105" marker-end="url(#bvA3)"/></g>
+            </svg>
+            <div class="bv-mv-name">Spiral</div>
+            <div class="bv-mv-pos">The rotational wave.<br>Balanced spiral &mdash; whole spine aligned and upright.</div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--bdr);">
+          <div style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;">Common attention &mdash; in every movement</div>
+          <div class="bv-attn">
+            <div><b>&mdash;</b><span>Always starting from, and returning to, upright</span></div>
+            <div><b>&mdash;</b><span>Inhale towards upright, exhale into the extremes</span></div>
+            <div><b>&mdash;</b><span>Rhythm: &ldquo;and 1, 2, 3&rdquo;</span></div>
+            <div><b>&mdash;</b><span>Craving space between the vertebrae</span></div>
+            <div><b>&mdash;</b><span>Even distribution throughout the spine</span></div>
+          </div>
+        </div>
+
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--bdr);">
+          <div style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;">Narrowing of the pelvis</div>
+          <p style="font-size:12.5px;color:var(--muted);line-height:1.75;margin:0;">Action gathers through the centre of the body; reaction lengthens away from it. The pelvis narrows, the spine grows tall &mdash; standing and sitting alike.</p>
+          <div class="bv-pelvis">
+            <div class="bv-mv">
+              <svg class="bv-svg" viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Standing figure — action converging on the pelvis, reaction lengthening up and down">
+                <defs>
+                  <marker id="bvA4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="bv-mk" d="M0,0 L10,5 L0,10 z"/></marker>
+                  <marker id="bvR4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="bv-mkR" d="M0,0 L10,5 L0,10 z"/></marker>
+                </defs>
+                <circle class="bv-head" cx="60" cy="26" r="8"/>
+                <path class="bv-line" d="M60,36 L60,92"/>
+                <ellipse class="bv-line" cx="60" cy="100" rx="17" ry="7"/>
+                <path class="bv-line" d="M52,103 L50,132"/>
+                <path class="bv-line" d="M68,103 L70,132"/>
+                <line class="bv-line" x1="42" y1="134" x2="78" y2="134"/>
+                <g class="bv-arrow"><line x1="26" y1="98" x2="41" y2="100" marker-end="url(#bvA4)"/><line x1="94" y1="98" x2="79" y2="100" marker-end="url(#bvA4)"/><line x1="32" y1="80" x2="46" y2="92" marker-end="url(#bvA4)"/><line x1="88" y1="80" x2="74" y2="92" marker-end="url(#bvA4)"/></g>
+                <g class="bv-arrowR"><line x1="60" y1="15" x2="60" y2="5" marker-end="url(#bvR4)"/><line x1="60" y1="109" x2="60" y2="126" marker-end="url(#bvR4)"/></g>
+              </svg>
+              <div class="bv-mv-pos" style="margin-top:8px;">Standing</div>
+            </div>
+            <div class="bv-mv">
+              <svg class="bv-svg" viewBox="0 0 120 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sitting figure — action converging on the pelvis, reaction radiating outward and upward">
+                <defs>
+                  <marker id="bvA5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path class="bv-mk" d="M0,0 L10,5 L0,10 z"/></marker>
+                  <marker id="bvR5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path class="bv-mkR" d="M0,0 L10,5 L0,10 z"/></marker>
+                </defs>
+                <g class="bv-stool"><line x1="40" y1="112" x2="80" y2="112"/><line x1="48" y1="112" x2="44" y2="150"/><line x1="72" y1="112" x2="76" y2="150"/></g>
+                <circle class="bv-head" cx="60" cy="48" r="8"/>
+                <path class="bv-line" d="M60,58 L60,104"/>
+                <path class="bv-line" d="M60,106 L42,122 L44,144"/>
+                <path class="bv-line" d="M60,106 L78,122 L76,144"/>
+                <g class="bv-arrow"><line x1="44" y1="100" x2="53" y2="103" marker-end="url(#bvA5)"/><line x1="76" y1="100" x2="67" y2="103" marker-end="url(#bvA5)"/></g>
+                <g class="bv-arrowR"><line x1="60" y1="38" x2="60" y2="24" marker-end="url(#bvR5)"/><line x1="40" y1="128" x2="29" y2="146" marker-end="url(#bvR5)"/><line x1="80" y1="128" x2="91" y2="146" marker-end="url(#bvR5)"/><line x1="60" y1="114" x2="60" y2="132" marker-end="url(#bvR5)"/></g>
+              </svg>
+              <div class="bv-mv-pos" style="margin-top:8px;">Sitting</div>
+            </div>
+          </div>
+          <div style="font-size:10px;color:var(--muted);opacity:.8;margin-top:12px;">Thin arrows = action &middot; thick arrows = reaction &middot; dashed line = plumb line</div>
+          <div style="font-size:10px;color:var(--muted);opacity:.55;margin-top:5px;font-style:italic;">Diagrams adapted from the Body Vision GYROTONIC&#xAE; teaching manual.</div>
+        </div>
+      </div>
 
       <!-- Services -->
       <div class="svc-grid" style="margin-bottom:28px;">
