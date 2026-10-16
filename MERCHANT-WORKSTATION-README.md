@@ -1,15 +1,23 @@
-# Merchant Workstation — Setup Guide (plain English)
+# For Business page (`/merchant`) — plain English guide
 
-## What you got
-- **Newsletter removed from the public menu.** It now lives inside the new merchant workstation.
-- **New "For Business" page** (`/merchant`) — only logged-in merchants can use it.
-- **Merchant workstation** with 4 tabs:
-  - **Overview** — your store info + live numbers (check-ins, members, points)
-  - **Check-ins** — every Street Pass scan at your store + manual check-in by referral code
-  - **Redemptions** — confirm the codes members show you
-  - **Newsletter** — full newsletter tool (compose / contacts / history), each store uses its OWN Gmail
-- **Gmail connects automatically** right after the merchant signs in.
-- All newsletter APIs now require a merchant sign-in (they were open to the whole internet before — fixed).
+## What this page is now
+The old Merchant Workstation page has become a **HustlePortal gateway**. KloofStreet.online
+is a pure directory — merchants run everything else (newsletters, contacts, business tools)
+from their backoffice at **https://www.hustleportal.online/**.
+
+The page now contains:
+- **Login hero** — a "Sign in to HustlePortal" button (opens hustleportal.online in a new tab),
+  plus a note that a free account comes with R99 in lead credits.
+- **How the backoffice works** — 5 steps (sign in → set up profile → import customers →
+  send newsletter → run the whole business).
+- **What's inside the backoffice** — Newsletters, Contacts, Business OS, AI tools cards.
+- **Street Pass check-in tools** (kept, hidden behind the "Open Street Pass tools" button) —
+  store owners still sign in here with their store account to verify member check-ins
+  and confirm reward redemptions for the KloofStreet loyalty programme.
+
+## Street Pass merchant sign-in (still on this page)
+- Sign-in uses the Supabase members auth (`streetpass` APIs on KloofStreet's own Supabase).
+- `merchant-schema.sql` sets up the merchant tables — safe to run twice (idempotent).
 
 ## Step 1 — Run the SQL (Supabase → SQL Editor → Run)
 Paste all of `merchant-schema.sql` and click Run. Safe to run twice.
@@ -29,22 +37,11 @@ Check your work:
 SELECT name, login_email FROM partners ORDER BY name;
 ```
 
-## Step 3 — Put the files on your Mac and push
-```bash
-cd ~/kloofstreet-online
-```
-(then the download/unzip/push commands from the chat)
-
-## Step 4 — Wait 2 minutes, then test
-1. Hard-refresh the site (Cmd + Shift + R)
-2. Menu → **For Business**
-3. Sign in with a registered store email + password
-   (password = create it first at /streetpass/join with that same email, or sign in if it exists)
-4. Gmail popup opens automatically on first sign-in — approve it
-5. Try the tabs
-
 ## Notes
-- No new Vercel env vars needed. The Google redirect URI from the newsletter setup stays the same.
-- Each store connects its own Gmail. Tokens are stored per store and never shared.
-- Old links still work: /newsletter and /dashboard now open the workstation.
+- The newsletter system no longer runs on KloofStreet. It was rebuilt as a Next.js module
+  on HustlePortal (see the HustlePortal repo / NEWSLETTER-SETUP.md there). KloofStreet
+  keeps a `/newsletter` → hustleportal.online redirect in `vercel.json` for old links.
+- No Google/Gmail env vars are needed on KloofStreet anymore — only the Supabase ones
+  (members auth, streetpass, tracking still use them).
+- Old links still work: /newsletter redirects to HustlePortal; /dash opens this page.
 - Members are unaffected: Street Pass scanning, rewards and sign-up work exactly as before.

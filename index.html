@@ -1420,6 +1420,17 @@ nav{z-index:200;}
 .mch-bad{color:#ff6b6b;}
 .mch-more{margin:14px auto 0;display:block;}
 .mch-note{font-size:12px;color:var(--muted);margin-top:18px;line-height:1.5;}
+/* ── MERCHANT GATEWAY (HustlePortal handoff) ── */
+.mch-gate{max-width:920px;margin:0 auto;padding:0 20px;}
+.mch-steps{display:grid;gap:12px;margin-top:4px;}
+.mch-step{display:flex;gap:14px;align-items:flex-start;background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--r);padding:14px 16px;font-size:13px;color:var(--muted);line-height:1.65;}
+.mch-step b{display:block;color:var(--text2);margin-bottom:2px;font-size:13.5px;}
+.mch-step-n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--a);color:#141412;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:12px;}
+.mch-feats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:4px;}
+.mch-feat{background:var(--bg3);border:1px solid var(--bdr);border-radius:var(--r);padding:18px 16px;font-size:12.5px;color:var(--muted);line-height:1.6;}
+.mch-feat b{display:block;color:var(--text2);margin:8px 0 4px;font-size:13.5px;}
+.mch-feat p{margin:0;}
+.mch-feat-ic{font-size:22px;line-height:1;}
 
 
 </style>
@@ -3661,13 +3672,47 @@ setTimeout(trackPageview,800);
   </section>
 </div>
 
-<!-- ══════════ DASHBOARD ══════════ -->
+<!-- ══════════ FOR BUSINESS — HUSTLEPORTAL GATEWAY ══════════ -->
 <div id="pg-merchant" class="pg">
   <section style="padding-top:100px;background:var(--bg2);min-height:100vh;">
-    <div id="mchLoginWrap" style="display:none;max-width:440px;margin:0 auto;">
-      <div class="mch-card">
+    <div class="mch-gate">
+      <div class="mch-card" style="max-width:620px;text-align:center;padding:46px 36px 40px;">
         <div class="sp-tag">&#x1F3EA; For Business</div>
-        <h2>Merchant Workstation</h2>
+        <h2 style="font-size:30px;">Merchant Backoffice</h2>
+        <p class="mch-sub" style="max-width:460px;margin:0 auto 26px;">KloofStreet is your storefront on the street. Your backoffice &mdash; customers, newsletters and business tools &mdash; lives on <b style="color:var(--text2);">HustlePortal</b>.</p>
+        <a class="btn btn-gold" href="https://www.hustleportal.online/" target="_blank" rel="noopener" style="display:inline-block;padding:15px 30px;font-size:15px;letter-spacing:.02em;">Sign in to HustlePortal &#8599;</a>
+        <p class="mch-note" style="margin-top:16px;">New to HustlePortal? Create a free account &mdash; it comes with R99 in lead credits.</p>
+      </div>
+      <div class="mch-panel" style="max-width:860px;margin:26px auto 0;">
+        <h3>How the backoffice works</h3>
+        <div class="mch-steps">
+          <div class="mch-step"><span class="mch-step-n">1</span><div><b>Sign in at HustlePortal</b>Head to hustleportal.online and sign in &mdash; or create your free account in under a minute.</div></div>
+          <div class="mch-step"><span class="mch-step-n">2</span><div><b>Set up your business profile</b>Add your store or service details so customers and tools know who you are.</div></div>
+          <div class="mch-step"><span class="mch-step-n">3</span><div><b>Bring in your customers</b>Import your contact list into the built-in contacts manager.</div></div>
+          <div class="mch-step"><span class="mch-step-n">4</span><div><b>Send your first newsletter</b>Compose rich emails, connect your Gmail, bulk-send to your customers and track delivery and unsubscribes.</div></div>
+          <div class="mch-step"><span class="mch-step-n">5</span><div><b>Run the whole business</b>Pipeline, payments, tasks, appointments, reports and AI tools &mdash; all in one place.</div></div>
+        </div>
+      </div>
+      <div class="mch-panel" style="max-width:860px;">
+        <h3>What&#8217;s inside the backoffice</h3>
+        <div class="mch-feats">
+          <div class="mch-feat"><div class="mch-feat-ic">&#x1F4E7;</div><b>Newsletters</b><p>Rich-text composer, bulk sending through your own Gmail, delivery tracking and automatic unsubscribe handling.</p></div>
+          <div class="mch-feat"><div class="mch-feat-ic">&#x1F465;</div><b>Contacts</b><p>Import customer lists, keep them clean and up to date, honour opt-outs.</p></div>
+          <div class="mch-feat"><div class="mch-feat-ic">&#x1F4C8;</div><b>Business OS</b><p>Pipeline, payments, tasks, appointments and reports &mdash; the day-to-day, organised.</p></div>
+          <div class="mch-feat"><div class="mch-feat-ic">&#x1F916;</div><b>AI tools</b><p>AI Lead Finder finds verified customers. AI Co-Founder helps with plans, pricing and follow-ups.</p></div>
+        </div>
+        <p class="mch-note" style="text-align:center;">Only registered Kloof Street stores appear in the directory. Want your store on Kloof Street? <a href="/get-listed" onclick="go('listed')" style="color:var(--a);">Get listed</a>.</p>
+      </div>
+      <div class="mch-panel" style="max-width:860px;margin-bottom:44px;">
+        <h3>Street Pass check-in tools</h3>
+        <p class="mch-sub" style="margin-bottom:16px;">Street Pass merchants: sign in here to verify member check-ins and confirm reward redemptions for your store. Everything else lives on HustlePortal.</p>
+        <div style="text-align:center;">
+          <button class="btn btn-outline" id="mchSpToggleBtn" style="padding:11px 26px;" onclick="mchSpToggle()">Open Street Pass tools</button>
+        </div>
+      </div>
+    <div id="mchLoginWrap" style="display:none;max-width:440px;margin:18px auto 0;">
+      <div class="mch-card" style="margin:0 auto;">
+        <h2>Street Pass sign-in</h2>
         <p class="mch-sub">Sign in with your store account to see check-ins and confirm rewards.</p>
         <div class="mch-field"><label>Email</label><input type="email" id="mchEmail" autocomplete="email" placeholder="you@yourstore.co.za"></div>
         <div class="mch-field"><label>Password</label><input type="password" id="mchPass" autocomplete="current-password" placeholder="Your password"></div>
@@ -3717,6 +3762,7 @@ setTimeout(trackPageview,800);
         </div>
         <div class="mch-panel"><h3>Redemptions</h3><div id="mchRedempList"></div></div>
       </div>
+    </div>
     </div>
   </section>
 </div>
@@ -3914,7 +3960,7 @@ SLUG_REVERSE['/art-studios'] = 'on-safari';
 SLUG_REVERSE['/hs-physio'] = 'hayley';
 
 function go(name, noPush) {
-  // Old route keeps working: /dash now lands on the workstation
+  // Old route keeps working: /dash now lands on the For Business page
   if (name === 'dash') { name = 'merchant'; }
   // Virtual home-page anchors (no separate page div)
   var HOME_ANCHORS = { 'brands':'anchor-brands', 'explore':'anchor-explore', 'about':'anchor-brands' };
@@ -3987,10 +4033,10 @@ var PAGE_META = {
   'streetpass-signup': {title:'Join Street Pass | KloofStreet.online', desc:'Join the Kloof Street Pass for R199/month. Points, rewards and exclusive access at every partner.'},
   'streetpass-scan':  {title:'Scan QR | Street Pass | KloofStreet.online', desc:'Scan partner QR codes to earn points.'},
   'streetpass-redeem': {title:'Rewards | Street Pass | KloofStreet.online', desc:'Redeem your Street Pass points for exclusive rewards.'},
-  'merchant':  {title:'Merchant Workstation | KloofStreet.online', desc:'Kloof Street merchant workstation — store stats, check-ins, reward confirmations.'},
+  'merchant':  {title:'For Business | KloofStreet.online', desc:'Kloof Street merchant backoffice — sign in to HustlePortal for newsletters, contacts and business tools.'},
   'ai':          {title:'AI Concierge | KloofStreet.online', desc:'Your AI-powered guide to Kloof Street. Ask anything about restaurants, wellness, shopping and more.'},
   'arnolds':     {title:"Arnold's Restaurant | KloofStreet.online", desc:'Fine dining on Kloof Street. Classic heritage, bold flavours. Dinner, brekkie & lunch, cocktails.'},
-  'dash':        {title:'Merchant Workstation | KloofStreet.online', desc:'Kloof Street merchant workstation.'},
+  'dash':        {title:'For Business | KloofStreet.online', desc:'Kloof Street merchant backoffice on HustlePortal.'},
   'listed':      {title:'Get Listed | KloofStreet.online', desc:'Get your Kloof Street business on the map. Verified listings, real discovery.'},
 };
 
@@ -4824,20 +4870,34 @@ function mchAuthFetch(url, opts) {
 
 
 function mchOpen() {
+  // Gateway page: Street Pass tools stay hidden until the merchant opens them.
+  var lw = document.getElementById('mchLoginWrap');
+  var app = document.getElementById('mchApp');
+  if (lw) lw.style.display = 'none';
+  if (app) app.style.display = 'none';
+}
+
+function mchSpToggle() {
+  var lw = document.getElementById('mchLoginWrap');
+  var app = document.getElementById('mchApp');
+  var btn = document.getElementById('mchSpToggleBtn');
+  if (!lw || !app) return;
+  if (lw.style.display !== 'none' || app.style.display !== 'none') {
+    lw.style.display = 'none';
+    app.style.display = 'none';
+    if (btn) btn.textContent = 'Open Street Pass tools';
+    return;
+  }
   var c = spClient();
+  lw.style.display = 'block';
+  if (btn) btn.textContent = 'Hide Street Pass tools';
   if (!c) {
-    document.getElementById('mchLoginWrap').style.display = 'block';
     document.getElementById('mchLoginErr').textContent = 'Members service unavailable. Refresh and try again.';
     return;
   }
   c.auth.getSession().then(function(s) {
     var sess = s && s.data && s.data.session;
-    if (sess) {
-      mchAfterLogin(false);
-    } else {
-      document.getElementById('mchLoginWrap').style.display = 'block';
-      document.getElementById('mchApp').style.display = 'none';
-    }
+    if (sess) mchAfterLogin(false);
   });
 }
 
