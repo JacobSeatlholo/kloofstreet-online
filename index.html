@@ -712,6 +712,8 @@ footer{background:var(--bg2);border-top:1px solid var(--bdr);padding:56px 48px 2
 .press-date{font-size:10px;color:rgba(122,122,120,.6);letter-spacing:.08em;text-transform:uppercase;margin-top:auto;}
 .press-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(245,197,24,.1);border:1px solid rgba(245,197,24,.25);color:var(--a);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:3px;width:fit-content;}
 .award-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;}
+.bv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:28px;}
+@media(max-width:640px){.bv-stats{grid-template-columns:1fr 1fr;}}
 .award-cell{background:var(--bg2);border:1px solid var(--bdr);padding:24px 20px;text-align:center;border-radius:0;}
 .award-num{font-size:40px;font-weight:900;color:var(--a);line-height:1;}
 .award-lbl{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:6px;line-height:1.5;}
@@ -1825,7 +1827,7 @@ nav{z-index:200;}
       "name": "Body Vision Studio",
       "url": "https://www.bodyvision.online",
       "telephone": "+27824572118",
-      "description": "GYROTONIC and GYROKINESIS private studio by certified instructor Kim Tucker at Lifestyle Centre, 50 Kloof Street. Private and semi-private movement sessions, Pilates, seniors programme and injury rehabilitation. Free 30-minute intro session.",
+      "description": "GYROTONIC and GYROKINESIS private studio by certified instructor Kim Tucker at Lifestyle Centre, 50 Kloof Street. Private and semi-private movement sessions, Pilates, seniors programme and injury rehabilitation. New-client Foundations Package of three private sessions.",
       "review": {
         "@type": "Review",
         "author": {
@@ -2258,7 +2260,7 @@ setTimeout(trackPageview,800);
           <div class="brand-body">
             <div class="brand-cat">&#x1F9D8; GYROTONIC&#xAE; &middot; Movement Therapy &middot; Pilates</div>
             <div class="brand-name">Body Vision Studio</div>
-            <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street. Free 30-min intro session.</div>
+            <div class="brand-sub">Certified GYROTONIC&#xAE; &amp; Pilates instructor Kim Tucker. Private &amp; semi-private movement sessions at Lifestyle Centre, 50 Kloof Street. New-client Foundations Package &mdash; three private sessions.</div>
             <div class="brand-foot"><span class="brand-tag">GYROTONIC&#xAE; &middot; Pilates &middot; Wellness</span><a href="/body-vision-studio" class="view-btn" onclick="event.stopPropagation();go('bodyvision')">View Profile &#x2192;</a></div>
           </div>
         </div>
@@ -3517,7 +3519,7 @@ setTimeout(trackPageview,800);
     <div>
 
       <!-- Stats -->
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:28px;">
+      <div class="bv-stats">
         <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
           <div style="font-size:26px;font-weight:900;color:var(--a);">15+</div>
           <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Years Experience</div>
@@ -3527,8 +3529,8 @@ setTimeout(trackPageview,800);
           <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Certifications</div>
         </div>
         <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
-          <div style="font-size:26px;font-weight:900;color:var(--a);">FREE</div>
-          <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">30-Min Intro</div>
+          <div style="font-size:26px;font-weight:900;color:var(--a);">3&times;</div>
+          <div style="font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;">Session Package</div>
         </div>
         <div style="background:var(--bg2);padding:16px;text-align:center;border:1px solid var(--bdr);">
           <div style="font-size:26px;font-weight:900;color:var(--a);">100%</div>
@@ -3681,8 +3683,20 @@ setTimeout(trackPageview,800);
         <div style="font-size:11px;color:var(--muted);font-family:monospace;">— Gerlinde Moser, RE/MAX Living</div>
       </div>
 
+      <!-- NEW-CLIENT PAID OFFER PANEL -->
+      <div style="background:linear-gradient(135deg,rgba(245,197,24,.09),rgba(245,197,24,.02));border:1px solid rgba(245,197,24,.28);border-radius:var(--r);padding:22px 24px;margin-bottom:24px;">
+        <div style="font-size:9px;font-weight:700;color:var(--a);letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;">New Client Offer</div>
+        <div style="font-size:18px;font-weight:800;color:var(--text2);margin-bottom:8px;">The Foundations Package &mdash; 3 Private Sessions</div>
+        <p style="font-size:12.5px;color:var(--muted);line-height:1.75;margin-bottom:12px;">The smartest way to begin. Three one-on-one sessions with Kim &mdash; equipment work, breath and spine sequences from her teaching manual, and a movement plan built around your body &mdash; give the GYROTONIC&#xAE; method time to take hold. One session is a taste; three is where the change the method is known for begins.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:11px;color:var(--muted);background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:4px 10px;">&#x2713; Personalised programme</span>
+          <span style="font-size:11px;color:var(--muted);background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:4px 10px;">&#x2713; Specialist equipment</span>
+          <span style="font-size:11px;color:var(--muted);background:var(--bg3);border:1px solid var(--bdr);border-radius:3px;padding:4px 10px;">&#x2713; Private studio, by appointment</span>
+        </div>
+      </div>
+
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank">&#x1F4AC; Book Free Intro</a>
+        <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20the%20Foundations%20Package%20(3%20private%20GYROTONIC%C2%AE%20sessions)" target="_blank">&#x1F4AC; Book Foundations Package</a>
         <a class="btn btn-outline" href="tel:+27824572118">&#x1F4DE; 082 457 2118</a>
         <a class="btn btn-outline" href="https://www.bodyvision.online/" target="_blank">&#x1F310; bodyvision.online</a>
       </div>
@@ -3704,7 +3718,7 @@ setTimeout(trackPageview,800);
         <h3>Contact &amp; Location</h3>
         <div class="info-row"><b>&#x1F4CD;</b><span>Lifestyle Centre, Level 2<br>50 Kloof Street, Gardens, Cape Town</span></div>
         <div class="info-row"><b>&#x1F4DE;</b><a href="tel:+27824572118" style="color:var(--a);">082 457 2118</a></div>
-        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank" style="color:var(--a);">WhatsApp Kim</a></div>
+        <div class="info-row"><b>&#x1F4AC;</b><a href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20enquire%20about%20private%20GYROTONIC%C2%AE%20sessions" target="_blank" style="color:var(--a);">WhatsApp Kim</a></div>
         <div class="info-row"><b>&#x2709;&#xFE0F;</b><a href="mailto:admin@bodyvision.co.za" style="color:var(--a);">admin@bodyvision.co.za</a></div>
         <div class="info-row"><b>&#x1F310;</b><a href="https://www.bodyvision.online/" target="_blank" style="color:var(--a);">bodyvision.online</a></div>
         <div class="info-row"><b>&#x1F4F7;</b><a href="https://www.instagram.com/capetowngyrotonicstudio" target="_blank" style="color:var(--a);">@capetowngyrotonicstudio</a></div>
@@ -3712,7 +3726,7 @@ setTimeout(trackPageview,800);
 
       <div class="info-card">
         <h3>Sessions &amp; Pricing</h3>
-        <div class="info-row"><b>&#x2B50;</b><span><strong style="color:var(--a);">FREE</strong> — Complimentary 30-Min Intro Session</span></div>
+        <div class="info-row"><b>&#x2B50;</b><span><strong style="color:var(--a);">Foundations Package</strong> — 3 Private Sessions (new clients)</span></div>
         <div class="info-row"><b>&#x1F9D8;</b><span>Private Session — contact for pricing</span></div>
         <div class="info-row"><b>&#x1F46F;</b><span>Semi-Private (2–3) — contact for pricing</span></div>
         <div class="info-row"><b>&#x1F4BB;</b><span>Online Sessions available</span></div>
@@ -3727,10 +3741,10 @@ setTimeout(trackPageview,800);
       </div>
       <div class="info-card" style="background:rgba(245,197,24,.04);border-color:rgba(245,197,24,.2);">
         <h3>Street Pass Benefit</h3>
-        <p style="font-size:12px;color:var(--muted);line-height:1.6;">&#x1F3AB; Street Pass members receive a <strong style="color:var(--a);">complimentary 30-minute GYROTONIC&#xAE; intro session</strong> with Kim Tucker at Body Vision Studio.</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6;">&#x1F3AB; Street Pass members receive <strong style="color:var(--a);">10% off their first Foundations Package</strong> &mdash; three private GYROTONIC&#xAE; sessions with Kim Tucker at Body Vision Studio.</p>
       </div>
 
-      <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20a%20free%20intro%20GYROTONIC%C2%AE%20session" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book Free Intro Session</a>
+      <a class="btn btn-gold" href="https://wa.me/27824572118?text=Hi%20Kim%2C%20I'd%20like%20to%20book%20the%20Foundations%20Package%20(3%20private%20GYROTONIC%C2%AE%20sessions)" target="_blank" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4AC; Book Foundations Package</a>
       <a class="btn btn-outline" href="tel:+27824572118" style="display:block;text-align:center;margin-bottom:10px;">&#x1F4DE; Call Kim</a>
       <a class="btn btn-outline" href="https://www.bodyvision.online/" target="_blank" style="display:block;text-align:center;">Visit Website</a>
 
